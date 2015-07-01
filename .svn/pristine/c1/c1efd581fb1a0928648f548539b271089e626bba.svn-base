@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StudentNotificationSettings>
+  <FilePath>C:\ICStars\trunk\ICStars2_0\ICStars2_0\App_Data\Settings\StudentNotificationSettings.xml</FilePath>
+  <ReceiverEmail>hli25@depaul.edu</ReceiverEmail>
+  <EmailTitle>Test Email Notification</EmailTitle>
+  <EmailBody>&lt;p&gt;&lt;strong&gt;&lt;span style="color:black"&gt;DO NOT REPLY TO THIS EMAIL&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;&lt;span style="color:black"&gt;REPLY TO SERVICELEARNING@DEPAUL.EDU&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style="color:black"&gt;Dear #FirstName#,&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style="color:black"&gt;If you are receiving this email is because you are enrolled in a service learning class &lt;/span&gt;&lt;span style="color:black"&gt;&lt;strong&gt;#CourseName#&lt;/strong&gt; &lt;/span&gt;&lt;span style="color:black"&gt;and you will be doing &lt;strong&gt;#RequiredHours#&lt;/strong&gt; hours of service at a community based organization (CBO). Please report your service hours by using the link below. We use this information to report back to your professor. Below are the details of your service site and your total amount of service hours. &lt;/span&gt;If you need a step by step instructions to access the site please scroll down.&lt;/p&gt;
+
+&lt;p&gt;&lt;span style="color:black"&gt;You can report your service hours using the link below.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style="color:#0000FF"&gt;https://steans.depaul.edu/Account/Student/Login&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;u&gt;&lt;strong&gt;&lt;span style="color:black"&gt;Service Hours Report&lt;/span&gt;&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style="color:black"&gt;CBO: #CBOName#&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style="color:black"&gt;Total service hours as of &lt;strong&gt;#TodayDate#&lt;/strong&gt; is &lt;strong&gt;#ReportedHours#&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;span style="color:black"&gt;If you have questions please contact your service learning coordinator. You can also call us at us at 773-325-8523,&amp;nbsp;&lt;/span&gt;&lt;span style="color:black"&gt;&lt;span style="color:black"&gt; email us at servicelearning@depaul.edu, or &lt;/span&gt;you can also stop by our office at 2233 N. Kenmore Chicago, IL 60614. When contacting us please include your complete class name and the name of service site.&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style="color:black"&gt;Steans&lt;/span&gt;&lt;span style="color:black"&gt; Center&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:black"&gt;Academic Service Learning&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;How to Report Hours Step by Step &lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;1) Go to https://steans.depaul.edu/Account/Student/Login&lt;br /&gt;
+Access the site with your Campus Connect ID. If you do not remember you authentication creadials contact ID services.&lt;/p&gt;
+
+&lt;p&gt;2) Select the action type either Report Hours or View Hours&lt;/p&gt;
+
+&lt;p&gt;3) Select Academic Quarter (Example Winter 2014)&lt;/p&gt;
+
+&lt;p&gt;4) Select Course and click &amp;quot;Report Hours&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;5) Enter service details like date, hours served, notes, and email.&lt;/p&gt;
+
+&lt;p&gt;6) You will have a confirmation message with your total hours.&lt;/p&gt;
+</EmailBody>
+  <IsHtmlEmail>True</IsHtmlEmail>
+  <IsSendingEmail>True</IsSendingEmail>
+</StudentNotificationSettings>

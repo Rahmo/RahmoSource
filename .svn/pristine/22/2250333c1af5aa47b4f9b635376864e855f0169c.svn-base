@@ -1,0 +1,106 @@
+﻿
+Section input[type="text"],Section input[type="password"], Section textarea, Section select {
+    padding: 4px 6px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    border-radius: 4px;
+    color: #555555;
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    width: 206px;
+    margin: 0;
+}
+Section input[type="number"] {
+    padding: 0 2px 0 2px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    border-radius: 4px;
+    color: #555555;
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    width: 70px;
+}
+Section input[type="text"].w350,Section select.w350 {
+    width: 350px;
+}
+Section input[type="text"].w100,Section select.w100 {
+    width: 100px;
+}
+Section input[type="text"].w150,Section select.w150 {
+    width: 150px;
+}
+Section select {
+    height: 30px;
+}
+Section h2 {
+    padding-left: 50px;
+    min-width: 70%;
+    font-size: 24px;
+    display: inline-block;
+}
+Section textarea {
+    font-family: inherit;
+    width: 300px;
+    min-height: 100px;
+}
+Section em {
+    text-decoration: underline;
+    font-size: 16px;
+    color: #000;
+}
+    Section input:focus, Section textarea:focus {
+        border-color: rgba(0, 92, 150, 0.8);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(0, 92, 150, 0.6);
+    }
+
+Section input[type="checkbox"] {
+    background: transparent;
+    border: inherit;
+    width: auto;
+}
+
+Section input[type="submit"],
+Section input[type="button"],
+Section button {
+    background-color: #427B92;
+    border-color: #357EBD;
+    color: #FFFFFF;
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+Section input[type="submit"]:hover,
+Section input[type="button"]:hover,
+Section button:hover {
+    background: #3276B1;
+}
+Section td Section input[type="submit"],
+Section td Section input[type="button"],
+Section td button {
+    font-size: 1em;
+    padding: 4px;
+    margin-right: 4px;
+}

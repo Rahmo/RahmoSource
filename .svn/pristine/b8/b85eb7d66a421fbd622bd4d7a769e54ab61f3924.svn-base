@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64783704-C7FE-43D1-AA25-7F74330DEB9C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ICStars2_0.Model</RootNamespace>
+    <AssemblyName>ICStars2_0.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\Dll\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\Dll\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <HintPath>..\..\Dll\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dll\mvc4\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Article.cs" />
+    <Compile Include="Article2Category.cs" />
+    <Compile Include="CalendarEvent.cs" />
+    <Compile Include="CalendarEventAdapter.cs" />
+    <Compile Include="DbContexts\ArticleDbContext.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="CBOTask.cs" />
+    <Compile Include="Course2CBOTask.cs" />
+    <Compile Include="DbContexts\CourseDbContext.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="HistoricalHours.cs" />
+    <Compile Include="LoginLogsReport.cs" />
+    <Compile Include="MCI_Period.cs" />
+    <Compile Include="MCI_TimeLog.cs" />
+    <Compile Include="DbContexts\MemberDbContext.cs" />
+    <Compile Include="DbContexts\OtherDbContext.cs" />
+    <Compile Include="MeridaExtensionApplication.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Settings\ArticleCollectionSettings.cs" />
+    <Compile Include="son_cbochoice.cs" />
+    <Compile Include="son_cboprogram.cs" />
+    <Compile Include="son_student.cs" />
+    <Compile Include="CBO.cs" />
+    <Compile Include="CommunityInternship.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="Student2Program.cs" />
+    <Compile Include="StudentNotification.cs" />
+    <Compile Include="StudentRollOver.cs" />
+    <Compile Include="UniverseCourseFiltered.cs" />
+    <Compile Include="UniverseCourse.cs" />
+    <Compile Include="Course.cs" />
+    <Compile Include="Enum\CourseType.cs" />
+    <Compile Include="Enum\CSSP_TermType.cs" />
+    <Compile Include="Enum\EventRequestFormStatus.cs" />
+    <Compile Include="Enum\MemberType.cs" />
+    <Compile Include="Enum\RoleType.cs" />
+    <Compile Include="Enum\SeasonType.cs" />
+    <Compile Include="Enum\StateType.cs" />
+    <Compile Include="Enum\QuarterYearType.cs" />
+    <Compile Include="Enum\StudentType.cs" />
+    <Compile Include="EventRequestForm.cs" />
+    <Compile Include="HistoricalCourse.cs" />
+    <Compile Include="HistoricalFaculty.cs" />
+    <Compile Include="Items\SelectListItem.cs" />
+    <Compile Include="LoginModel.cs" />
+    <Compile Include="Member.cs" />
+    <Compile Include="Member2Role.cs" />
+    <Compile Include="Profile.cs" />
+    <Compile Include="ProjectRequestForm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="ServiceHours.cs" />
+    <Compile Include="ServiceLearnersApplication.cs" />
+    <Compile Include="Settings\CBOCollectionSettings.cs" />
+    <Compile Include="Settings\CourseCollectionSettings.cs" />
+    <Compile Include="Settings\MemberCollectionSettings.cs" />
+    <Compile Include="Settings\ServiceHoursCollectionSettings.cs" />
+    <Compile Include="Settings\ServiceLearnersApplicationCollectionSettings.cs" />
+    <Compile Include="Settings\StudentCollectionSettings.cs" />
+    <Compile Include="Settings\StudentReportCollectionSettings.cs" />
+    <Compile Include="DbContexts\SHTrackerDbContext.cs" />
+    <Compile Include="SHTrackerLog.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="Student2CBO.cs" />
+    <Compile Include="StudentReport.cs" />
+    <Compile Include="TestEF.cs" />
+    <Compile Include="DbContexts\WebDbContext.cs" />
+    <Compile Include="WebPage.cs" />
+    <Compile Include="WebsiteNav.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ICStars2_0.Common\ICStars2_0.Common.csproj">
+      <Project>{75C70DE0-D470-4C78-A3A1-C1FECE2C4E8F}</Project>
+      <Name>ICStars2_0.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

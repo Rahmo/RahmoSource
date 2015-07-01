@@ -1,0 +1,10 @@
+<connectionStrings>
+    <!--<add name="icstars" connectionString="server=127.0.0.1;database=ICStars2_0;uid=sa;pwd=123456;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
+    <!--<add name="icstars" connectionString="5camUMie/TVKqFQ7MUWytuO3wECLkdxlEbZvfPacPxysGm3TpAYnKGr6+WKtYEUZksPNIVpgtKImsEe36hLHc5O6bUG4Qx+Kf44PCviOMJXVqLMdJzW6bOgW3o9287G/8cr9HiUlsepkBt34ygGCI46sNZxEeFDb0sHBP7+ZRCA=" providerName="System.Data.SqlClient" />-->
+
+  <add name="icstars" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\RahmoSource\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=True;Connect Timeout=30" providerName="System.Data.SqlClient" />
+
+    <add name="DefaultConnection" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\RahmoSource\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=True;Connect Timeout=30" providerName="System.Data.SqlClient" />
+
+ 
+</connectionStrings>

@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45185457-4B0B-4011-9D38-5F534F84A9E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Commengdpu.BusinessLayer</RootNamespace>
+    <AssemblyName>Commengdpu.BusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\..\Users\Hui\Documents\Visual Studio 2013\Projects\DI\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\AdminAuthorize.cs" />
+    <Compile Include="Authentication\ILogin.cs" />
+    <Compile Include="Authentication\LoginAdapter.cs" />
+    <Compile Include="Authentication\LoginEventArgs.cs" />
+    <Compile Include="CategoryServices\CategoryCollection.cs" />
+    <Compile Include="CategoryServices\CategoryFactory.cs" />
+    <Compile Include="CategoryServices\CategoryNode.cs" />
+    <Compile Include="CategoryServices\ICategoryFactory.cs" />
+    <Compile Include="CommunityPartnerServices\CommunityPartnerCollection.cs" />
+    <Compile Include="CommunityPartnerServices\CommunityPartnerFactory.cs" />
+    <Compile Include="CommunityPartnerServices\ICommunityPartnerFactory.cs" />
+    <Compile Include="CommunityPartnerServices\CommunityPartner2IndividualPartnerFactory.cs" />
+    <Compile Include="CommunityPartnerServices\ICommunityPartner2IndividualPartnerFactory.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="IndividualPartnerServices\IIndividualPartnerFactory.cs" />
+    <Compile Include="IndividualPartnerServices\IndividualPartnerCollection.cs" />
+    <Compile Include="IndividualPartnerServices\IndividualPartnerFactory.cs" />
+    <Compile Include="IPageableCollection.cs" />
+    <Compile Include="Log4NetHelper.cs" />
+    <Compile Include="ProjectServices\IProject2TypeFactory.cs" />
+    <Compile Include="ProjectServices\IProject2IndividualPartnerFactory.cs" />
+    <Compile Include="ProjectServices\IProject2CommunityPartnerFactory.cs" />
+    <Compile Include="ProjectServices\IProject2CategoryFactory.cs" />
+    <Compile Include="ProjectServices\IProjectFactory.cs" />
+    <Compile Include="ProjectServices\Project2TypeFactory.cs" />
+    <Compile Include="ProjectServices\Project2IndividualPartnerFactory.cs" />
+    <Compile Include="ProjectServices\Project2CommunityPartnerFactory.cs" />
+    <Compile Include="ProjectServices\Project2CategoryFactory.cs" />
+    <Compile Include="ProjectServices\ProjectCollection.cs" />
+    <Compile Include="ProjectServices\ProjectFactory.cs" />
+    <Compile Include="ProjectTypeServices\IProjectTypeFactory.cs" />
+    <Compile Include="ProjectTypeServices\ProjectTypeFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\BaseRoles.cs" />
+    <Compile Include="Provider\CommengdpuRoles.cs" />
+    <Compile Include="Provider\IRoles.cs" />
+    <Compile Include="Provider\SecUtility.cs" />
+    <Compile Include="Provider\UserData.cs" />
+    <Compile Include="ReportServices\IReportFactory.cs" />
+    <Compile Include="ReportServices\ReportFactory.cs" />
+    <Compile Include="RoleServices\IRoleFactory.cs" />
+    <Compile Include="RoleServices\RoleFactory.cs" />
+    <Compile Include="Settings\Models\BasePageSettings.cs" />
+    <Compile Include="Settings\Models\AboutPageSettings.cs" />
+    <Compile Include="Settings\Models\ContactUsPageSettings.cs" />
+    <Compile Include="Settings\Models\ReportsPageSettings.cs" />
+    <Compile Include="Settings\Models\HomePageSettings.cs" />
+    <Compile Include="Settings\Models\ISettings.cs" />
+    <Compile Include="Settings\PageSettingsFactory.cs" />
+    <Compile Include="Settings\SettingsFactory.cs" />
+    <Compile Include="UserServices\IUser2RoleFactory.cs" />
+    <Compile Include="UserServices\User2RoleFactory.cs" />
+    <Compile Include="UserServices\UserCollection.cs" />
+    <Compile Include="UserServices\UserFactory.cs" />
+    <Compile Include="UserServices\IUserFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AccountServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CampusConnect.MediatorLibrary\CampusConnect.MediatorLibrary.csproj">
+      <Project>{5aebd90c-6f4c-4417-ba4e-4e421a651f88}</Project>
+      <Name>CampusConnect.MediatorLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ICStars2_0\ICStars2_0.Common\ICStars2_0.Common.csproj">
+      <Project>{75c70de0-d470-4c78-a3a1-c1fece2c4e8f}</Project>
+      <Name>ICStars2_0.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ICStars2_0\ICStars2_0.Framework\ICStars2_0.Framework.csproj">
+      <Project>{ee770120-3671-4e2e-a328-c9c0ac28ecd7}</Project>
+      <Name>ICStars2_0.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ICStars2_0\ICStars2_0.Mvc\ICStars2_0.Mvc.csproj">
+      <Project>{842604B3-36B6-41B1-ACD0-EE13FB52D9A6}</Project>
+      <Name>ICStars2_0.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commengdpu.DBLayer\Commengdpu.DBLayer.csproj">
+      <Project>{7d811344-1c31-4360-8734-117cd4c265ab}</Project>
+      <Name>Commengdpu.DBLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commengdpu.Models\Commengdpu.Models.csproj">
+      <Project>{1b212c6a-ddec-4972-a5c3-d50f2f98bf6c}</Project>
+      <Name>Commengdpu.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

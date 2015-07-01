@@ -1,0 +1,146 @@
+﻿@using Commengdpu.Models.Reports
+@model IEnumerable<Commengdpu.Models.Reports.OverrallTotalReportByProjectType>
+
+@{
+    ViewBag.Title = "OverrallTotal";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    @Styles.Render("~/bundles/Site", "~/bundles/jqueryuicss")
+@Scripts.Render("~/bundles/jqueryui")
+    <style type="text/css">
+        ul li p.h {
+            visibility: hidden;
+            position: absolute;
+            left: -2000px;
+        }
+        td {
+            text-align: left;
+            padding: 0 5px;
+        }
+        b {
+            font-size: 18px;
+        }
+        .label {
+            width: 250px;
+        }
+        div.nav form {
+            line-height: 50px;
+            padding: 0 15px;
+        }
+        form input[type='text'] {
+            margin: 0;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("input[name$='Date']").attr("readonly", "true").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
+}
+<div class="nav"><h1>Overrall Total</h1></div>
+<div class="nav">
+    @using (Html.BeginForm())
+{
+    <b>StartDate: </b>@Html.TextBox("StartDate")
+        <b>EndDate: </b>@Html.TextBox("EndDate")
+            <input type="submit" value="Refine"/>
+}
+</div>
+<table>
+    <tr>
+        <td colspan="2"><b>Academic Service Learning + Co-Curricular Student Service</b></td>
+    </tr>
+    <tr>
+        <td class="label">
+            Overrall Total # of Participating Students:
+        </td>
+        <td>
+            <b>@Model.Where(m=>m.TrackingTarget.Equals("Students")).Sum(m=>m.NumberofParticipatingTargets)</b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Overrall Total # of Hours Served:
+        </td>
+        <td>
+            <b>@Model.Where(m => m.TrackingTarget.Equals("Students")).Sum(m => m.NumberofHoursServed)</b>
+        </td>
+    </tr>
+    @foreach (var report in Model)
+    {
+        <tr>
+            <td colspan="2"><b>@report.TypeName</b></td>
+        </tr>
+        <tr>
+            <td class="label">
+                Overrall Total # of Participating @report.TrackingTarget:
+            </td>
+            <td>
+                <b>@report.NumberofParticipatingTargets</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Overrall Total # of Hours Served:
+            </td>
+            <td>
+                <b>@report.NumberofHoursServed</b>
+            </td>
+        </tr>
+        if (report.IsTrackingAll)
+        {
+            <tr>
+                <td>
+                    Overrall Total # of Participating Faculty:
+                </td>
+                <td>
+                    <b>@report.NumberofParticipatingFaculty</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Overrall Total # of Faculty Hours Served:
+                </td>
+                <td>
+                    <b>@report.NumberofFacultyHoursServed</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Overrall Total # of Participating Staff:
+                </td>
+                <td>
+                    <b>@report.NumberofParticipatingStaff</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Overrall Total # of Staff Hours Served:
+                </td>
+                <td>
+                    <b>@report.NumberofStaffHoursServed</b>
+                </td>
+            </tr>
+        }
+    }
+    <tr>
+        <td colspan="2"><b>Base Report</b></td>
+    </tr>
+    @{ var baseReport = (OverrallBaseTotalReport)ViewBag.OverrallTotalBaseReport; }
+    <tr>
+        <td>Overrall Total Estimated # of Individuals Served</td>
+        <td><b>@baseReport.EstimatedNumberofIndividualsServed</b></td>
+    </tr>
+    <tr>
+        <td>Overrall Total # of Students Supported by A CNCS Program</td>
+        <td><b>@baseReport.NumberofStudentsSupportedByCNSC</b></td>
+    </tr>
+    <tr>
+        <td>Overrall Total # of Students Who Engaged in at Least 20 Hours of Any Kind  of Community Service Per Academic Term</td>
+        <td><b>@baseReport.NumberofStudentsServedAtLeast20HoursPerTerm</b></td>
+    </tr>
+</table>

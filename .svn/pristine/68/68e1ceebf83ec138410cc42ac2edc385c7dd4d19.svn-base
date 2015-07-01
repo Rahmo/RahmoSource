@@ -1,0 +1,80 @@
+﻿@using ICStars2_0.Mvc
+@model Commengdpu.BusinessLayer.IPageableCollection<Commengdpu.Models.User>
+
+@{
+    ViewBag.Title = "User List";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    @Styles.Render("~/bundles/pagebar3")
+    <style type="text/css">
+        div.nav {
+            padding: 5px 20px;
+        }
+         div.nav ul li {
+             float: left;
+             padding: 5px;
+         }
+    </style>
+}
+<div class="nav">
+    Filter By: 
+    <ul>
+        <li>@Html.ActionLink("All", "List", new { allRoles = true })</li>
+        @foreach (var role in Roles.GetAllRoles())
+        {
+            <li>@Html.ActionLink(role,"List",new{role=role})</li>
+        }
+        <li>@Html.ActionLink("No Roles", "List", new { noRoles = true })</li>
+    </ul>
+</div>
+<table>
+    <tr>
+        <th>
+            UserName
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Email
+        </th>
+        <th>Roles</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName), @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @(item.IsActivated?"Activated":"Locked")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @if (item.User2Roles.Count > 0)
+            {
+                @Html.Raw(item.User2Roles.Select(u2r => u2r.Role.NickName).Aggregate((x, y) => x + "<br/>" + y))
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Activate", "Activate", new { id = item.ID }) |
+@Html.ActionLink("Deactivate", "Deactivate", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="PageBar3">
+    @Html.PagerBar(Model.TotalCount, Model.PageSize, 5, new { @class = "PageBar3" })
+</div>

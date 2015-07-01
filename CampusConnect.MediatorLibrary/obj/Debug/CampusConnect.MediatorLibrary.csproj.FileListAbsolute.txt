@@ -1,0 +1,7 @@
+C:\RahmoSource\CampusConnect.MediatorLibrary\bin\Debug\CampusConnect.MediatorLibrary.dll
+C:\RahmoSource\CampusConnect.MediatorLibrary\bin\Debug\CampusConnect.MediatorLibrary.pdb
+C:\RahmoSource\CampusConnect.MediatorLibrary\bin\Debug\log4net.dll
+C:\RahmoSource\CampusConnect.MediatorLibrary\bin\Debug\PSAuthClient.dll
+C:\RahmoSource\CampusConnect.MediatorLibrary\obj\Debug\CampusConnect.MediatorLibrary.dll
+C:\RahmoSource\CampusConnect.MediatorLibrary\obj\Debug\CampusConnect.MediatorLibrary.pdb
+C:\RahmoSource\CampusConnect.MediatorLibrary\obj\Debug\CampusConnect.MediatorLibrary.csprojResolveAssemblyReference.cache

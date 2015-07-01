@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap>
+  <siteMapNode url="/Home.mvc/Index" title="Home"  description="Home">
+    <!--SHTracker Begin-->
+    <siteMapNode title="Student" description="Student">
+      <siteMapNode title="Add Student" url="/ShTracker/Student/Add.aspx" description="Add Student" roles="admin,admin_student,Staff,SLC"></siteMapNode>
+      <siteMapNode title="Upload" url="/ShTracker/Student/Upload" description="Upload" roles="admin,admin_student,Staff"></siteMapNode>
+      <siteMapNode title="My Students" url="/ShTracker/Student/List.aspx?IsMine=1" description="My Student" roles="admin,admin_student,Staff,SLC"></siteMapNode>
+      <siteMapNode title="All Students" url="/ShTracker/Student/List.aspx" description="All Student" roles="admin,admin_student,Staff,SLC"></siteMapNode>
+      <siteMapNode title="ToBeCalled" url="/ShTracker/Student/List.aspx?tobecalled=1&amp;IsMine=1" description="View Student" roles="admin,admin_student,Staff,SLC"></siteMapNode>
+      <siteMapNode title="OthersToBeCalled" url="/ShTracker/Student/List.aspx?tobecalled=1&amp;otherstobecalled=1&amp;IsMine=1" description="View Student" roles="admin,admin_student,Staff,SLC"></siteMapNode>
+      <siteMapNode title="Search Student" url="/ShTracker/Student/Search.aspx" description="Search Student" roles="admin,admin_student,Staff,SLC,Professor"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="CBO" description="CBO">
+      <siteMapNode title="Add CBO" url="/ShTracker/CBO/Add.aspx" description="Add Cbo" roles="admin,admin_cbo,Staff"></siteMapNode>
+      <siteMapNode title="Add CBO Task" url="/ShTracker/CBOTask/Add" description="Add CBO Task" roles="admin,admin_cbo,Staff"></siteMapNode>
+      <siteMapNode title="View CBO" url="/ShTracker/CBO/List.aspx" description="View Cbo" roles="admin,admin_cbo,Staff,SLC"></siteMapNode>
+      <siteMapNode title="View Task" url="/ShTracker/CBOTask/List" description="View Task" roles="admin,admin_cbo,Staff"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Course" description="Course">
+      <siteMapNode title="Add Course" url="/ShTracker/Course/Add" description="Add Course" roles="admin,admin_course,Staff,CSSP"></siteMapNode>
+      <siteMapNode title="View Course" url="/ShTracker/Course/list" description="View Course" roles="admin,admin_course,Staff,SLC,CSSP"></siteMapNode>
+      <siteMapNode title="Upload Courses" url="/ShTracker/Course/Upload" description="Upload Course" roles="admin"></siteMapNode>
+      <siteMapNode title="UniverseCourses" url="/ShTracker/Course/UniverseCourseList" roles="admin"></siteMapNode>
+      <siteMapNode title="FacultMatches" url="/ShTracker/Course/UniverseCourseMatchesFaculty" roles="admin"></siteMapNode>
+      <siteMapNode title="PerfectMatches" url="/ShTracker/Course/UniverseCoursePerfectMatches" roles="admin"></siteMapNode>
+      <siteMapNode title="PerfectOrphan" url="/ShTracker/Course/UniverseCoursePerfectOrphan" roles="admin"></siteMapNode>
+
+      <siteMapNode title="HistoricalCourseMatches" url="/ShTracker/Course/UniverseCourseMatchesHistoricalCourses" roles="admin"></siteMapNode>
+      <siteMapNode title="HistoricalFaculties" url="/ShTracker/Course/HistoricalFacultyList" roles="admin"></siteMapNode>
+      <siteMapNode title="HistoricalCourses" url="/ShTracker/Course/HistoricalCourseList" roles="admin"></siteMapNode>
+
+    </siteMapNode>
+    <siteMapNode title="Report">
+      <siteMapNode title="SLC Group" url="/ShTracker/Report/SLCGroup" roles="admin,admin_report,Staff"></siteMapNode>
+      <siteMapNode title="My Course" url="/ShTracker/Report/ChooseTerm.aspx" roles="admin,admin_report,Staff,Professor,CSSP"></siteMapNode>
+      <siteMapNode title="CBO Report" url="/ShTracker/Report/GroupByCBO" roles="admin,admin_report,Staff"></siteMapNode>
+
+    </siteMapNode>
+
+    <siteMapNode title="Site Grid Builder">
+      <siteMapNode title="Build Report" url="/ShTracker/SiteGrid/SelectCourse" roles="admin,admin_sitegrid"></siteMapNode>
+      <siteMapNode title="Build Report By Excel" url="/ShTracker/SiteGrid/upload" roles="admin,admin_sitegrid"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="SON Matcher">
+      <siteMapNode title="Student Choices" url="/ShTracker/SON/Students" roles="admin,admin_son,Staff"></siteMapNode>
+      <siteMapNode title="CBOs" url="/ShTracker/SON/CBOs" roles="admin,admin_son,Staff"></siteMapNode>
+      <siteMapNode title="CBO Choices" url="/ShTracker/SON/CBOChoices" roles="admin,admin_son,Staff"></siteMapNode>
+      <siteMapNode title="Student Match" url="/ShTracker/SON/StudentMatch" roles="admin,admin_son,Staff"></siteMapNode>
+      <siteMapNode title="CBO Match" url="/ShTracker/SON/CBOMatch" roles="admin,admin_son,Staff"></siteMapNode>
+      <siteMapNode title="No Match" url="/ShTracker/SON/NoMatch" roles="admin,admin_son,Staff"></siteMapNode>
+      <siteMapNode title="Report" url="/ShTracker/SON/Report" roles="admin,admin_son,Staff"></siteMapNode>
+    </siteMapNode>
+    <!--SHTracker End-->
+    <!--Steans Begin-->
+    <siteMapNode title="Steans Website">
+      <siteMapNode title="Account">
+        <siteMapNode title="Unverified Member" url="/ShTracker/Steans/Account/UnverifiedMemberList.aspx" roles="admin_steans,admin_steans_account"></siteMapNode>
+        <siteMapNode title="Member" url="/ShTracker/Steans/Account/MemberList.aspx" roles="admin_steans,admin_steans_account"></siteMapNode>
+        <siteMapNode title="Settings" url="/ShTracker/Steans/Account/Settings.aspx" roles="admin_steans,admin_steans_account"></siteMapNode>
+
+      </siteMapNode>
+      <siteMapNode title="Publications">
+        <siteMapNode title="Publish" url="/ShTracker/Article/Create" roles="admin_steans,admin_article"></siteMapNode>
+        <siteMapNode title="List" url="/ShTracker/Article/List" roles="admin_steans,admin_article"></siteMapNode>
+        <siteMapNode title="Category" url="/ShTracker/Category/List" roles="admin_steans,admin_article_category"></siteMapNode>
+
+      </siteMapNode>
+
+      <siteMapNode title="Website Menu">
+        <siteMapNode title="View Menu" url="/ShTracker/Menu/List" roles="admin_steans,admin_menu"></siteMapNode>
+        <siteMapNode title="Create Menu" url="/ShTracker/Menu/Create" roles="admin_steans,admin_menu"></siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="WebPage">
+        <siteMapNode title="List" url="/ShTracker/WebPage/List" roles="admin_steans,admin_webpage"></siteMapNode>
+        <siteMapNode title="Create" url="/ShTracker/WebPage/Create" roles="admin_steans,admin_webpage"></siteMapNode>
+      </siteMapNode>
+
+
+      <siteMapNode title="Community Partner">
+        <siteMapNode title="View Application" url="/ShTracker/Steans/CommunityPartner/List.aspx" roles="admin_steans,admin_communitypartner"></siteMapNode>
+        <siteMapNode title="Settings" url="/ShTracker/Steans/CommunityPartner/Settings.aspx" roles="admin_steans,admin_communitypartner"></siteMapNode>
+
+      </siteMapNode>
+      <siteMapNode title="Community Intership">
+        <siteMapNode title="View Application" url="/ShTracker/Steans/Internship/List.aspx" roles="admin_steans,admin_communityinternship"></siteMapNode>
+        <siteMapNode title="Settings" url="/ShTracker/Steans/Internship/Settings.aspx" roles="admin_steans,admin_communityinternship"></siteMapNode>
+
+      </siteMapNode>
+
+      <siteMapNode title="Event Request">
+        <siteMapNode title="View Forms" url="/ShTracker/Steans/EventRequest/List.aspx" roles="admin_steans,admin_eventrequest"></siteMapNode>
+        <siteMapNode title="Settings" url="/ShTracker/Steans/EventRequest/Settings.aspx" roles="admin_steans,admin_eventrequest"></siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode title="Project Request">
+        <siteMapNode title="View Forms" url="/ShTracker/Steans/ProjectRequestList" roles="admin_steans,admin_projectrequest"></siteMapNode>
+        <siteMapNode title="Settings" url="/ShTracker/Steans/ProjectRequestSettings" roles="admin_steans,admin_projectrequest"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Merida">
+        <siteMapNode title="View Applications" url="/ShTracker/Merida/SpringExtensionApplications" roles="admin_steans"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Calendar">
+        <siteMapNode title="Notification Settings" url="/ShTracker/Calendar/NotificationSettings" roles="admin_steans"></siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    
+    <!--Steans End-->
+    <!--CSSP (for Monica)-->
+    <siteMapNode title="CSSP Student">
+      <siteMapNode title="Add Student" url="/ShTracker/CSSP/Add.aspx" roles="admin_cssp,CSSP"></siteMapNode>
+      <siteMapNode title="View Student" url="/ShTracker/CSSP/List.aspx" roles="admin_cssp,CSSP"></siteMapNode>
+      <siteMapNode title="Search Student" url="/ShTracker/CSSP/Search" roles="admin_cssp,CSSP"></siteMapNode>
+
+    </siteMapNode>
+    <!--CSSP End-->
+    <!--MCI-->
+    <siteMapNode title="MCI">
+      <siteMapNode title="TimePeriods" url="/ShTracker/MCI" roles="admin_mci"></siteMapNode>
+      <siteMapNode title="Add TimePeriod" url="/ShTracker/MCI/AddPeriod" roles="admin_mci"></siteMapNode>
+
+    </siteMapNode>
+    <!--MCI End-->
+    <siteMapNode title="SystemManagement" description="SystemManagement">
+      <siteMapNode title="Account" description="AccountManagement">
+        <siteMapNode title="Role/MemberType" url="/ShTracker/Account/RoleManagement.aspx" description="RoleManagement" roles="admin,admin_account"></siteMapNode>
+        <siteMapNode title="AddMember" url="/ShTracker/Account/CreateMember.aspx" roles="admin,admin_account,admin_account_slc"></siteMapNode>
+        <siteMapNode title="Member" url="/ShTracker/Account/MemberManagement.aspx" description="MemberManagement" roles="admin,admin_account,admin_account_slc"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Logs" description="Logs">
+        <siteMapNode title="Logs" url="/ShTracker/Log/List.aspx" roles="admin,admin_log"></siteMapNode>
+        <siteMapNode title="LoginLogsReport" url="/ShTracker/Log/LoginReport" roles="admin,admin_log"></siteMapNode>
+        <siteMapNode title="StudentLoginLogsReport" url="/ShTracker/Log/StudentLoginReport" roles="admin,admin_log"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Database" description="Database">
+        <siteMapNode title="Backup" url="/ShTracker/Database/index" roles="admin,admin_backup"></siteMapNode>
+        <siteMapNode title="Query" url="/ShTracker/Database/query" roles="admin"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Schedule Tasks" description="Schedule Tasks">
+        <siteMapNode title="Timer" url="/ShTracker/ScheduleTasks/Timer" roles="admin,admin_schedule_tasks"></siteMapNode>
+        <siteMapNode title="StudentNotification" url="/ShTracker/ScheduleTasks/StudentNotificationSettings" roles="admin,admin_schedule_tasks"></siteMapNode>
+        <siteMapNode title="StudentEmail" url="/ShTracker/ScheduleTasks/StudentEmailSettings" roles="admin,admin_schedule_tasks"></siteMapNode>
+        <siteMapNode title="DatabaseBackup" url="/ShTracker/ScheduleTasks/DatabaseBackupSettings" roles="admin,admin_schedule_tasks"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="System Settings">
+        <siteMapNode title="QuarterYear Settings" url="/ShTracker/System/QuarterYearSettings" roles="admin"></siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    <!--<siteMapNode title="ChangePassword" url="/ShTracker/Account/ChangePassword.aspx" description="ChangePassword" roles="*">
+    </siteMapNode>-->
+    <siteMapNode title="Logout" url="/Account/Logout" description="Logout" roles="*">
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
+

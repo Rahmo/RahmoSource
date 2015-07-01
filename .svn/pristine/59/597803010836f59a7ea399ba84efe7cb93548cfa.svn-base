@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ProjectRequestSettings>
+  <FilePath>C:\ICStars\trunk\ICStars2_0\ICStars2_0\App_Data\Settings\ProjectRequestSettings.xml</FilePath>
+  <ReceiverEmail>hli25@depaul.edu</ReceiverEmail>
+  <EmailTitle>New Project Request</EmailTitle>
+  <EmailBody>&lt;p&gt;
+	Hi,&lt;/p&gt;
+&lt;p&gt;
+	&lt;span style="font-size:14px;"&gt;&lt;strong&gt;You got a new Project Request! &lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+	#Title#&lt;/p&gt;
+&lt;p&gt;
+	#Link#&lt;/p&gt;
+&lt;p&gt;
+	&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;
+	Steans Center&lt;/p&gt;
+</EmailBody>
+  <IsHtmlEmail>True</IsHtmlEmail>
+  <IsSendingEmail>True</IsSendingEmail>
+</ProjectRequestSettings>

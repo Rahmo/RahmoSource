@@ -1,0 +1,25 @@
+/* style */
+.PageBar
+{
+    font-size:12px;
+    font-family:Tahoma;
+}
+
+.PageBar label
+{
+    color:Red;
+}
+
+.PageBar span
+{
+    padding:0px 3px 0px 3px;
+}
+.PageBar span a
+{
+    color:Blue;
+}
+    /* Current Page Number */
+.PageBar span label
+{
+    color:Red;
+}

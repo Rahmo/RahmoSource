@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap>
+  <siteMapNode>
+    <siteMapNode title="Project Management">
+      <siteMapNode title="Add Project" url="/admin/project/Add" roles="admin,admin_project"></siteMapNode>
+      <siteMapNode title="Project List" url="/admin/project/list" roles="admin,admin_project"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Category Management">
+      <siteMapNode title="Add Category" url="/admin/Category/Add" roles="admin,admin_category"></siteMapNode>
+      <siteMapNode title="Category List" url="/admin/Category/list" roles="admin,admin_category"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Community Partner">
+      <siteMapNode title="Add Community Partner" url="/admin/CommunityPartner/Add" roles="admin,admin_communitypartner"></siteMapNode>
+      <siteMapNode title="Community Partner List" url="/admin/CommunityPartner/list" roles="admin,admin_communitypartner"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Individual Partner">
+      <siteMapNode title="Add Individual Partner" url="/admin/IndividualPartner/Add" roles="admin,admin_individualpartner"></siteMapNode>
+      <siteMapNode title="Individual Partner List" url="/admin/IndividualPartner/list" roles="admin,admin_individualpartner"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Reports">
+      <siteMapNode title="Overrall Total" url="/admin/Report/OverrallTotal" roles="admin,admin_report"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="WebPage Management">
+      <siteMapNode title="Home Page" url="/admin/WebPage/HomePage" roles="admin,admin_webpage"></siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="System Management" description="SystemManagement">
+      <siteMapNode title="User Management">
+        <siteMapNode title="Add User" url="/admin/user/add" roles="admin,admin_user"></siteMapNode>
+        <siteMapNode title="Users" url="/admin/user/list" description="MemberManagement" roles="admin,admin_user"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Role Management">
+        <siteMapNode title="Add Role" url="/admin/role/add" roles="admin,admin_role"></siteMapNode>
+        <siteMapNode title="Roles" url="/admin/role/list" description="MemberManagement" roles="admin,admin_role"></siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Logout" url="/Admin/Account/Logout" description="Logout" roles="*">
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
+

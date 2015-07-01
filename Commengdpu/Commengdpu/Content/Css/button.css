@@ -1,0 +1,36 @@
+﻿a.del16 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: url(/images/del16x16.png) 0 0 no-repeat;
+}
+a.close16 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: url(/images/close16x16.png) 0 0 no-repeat;
+}
+a.close32gray {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background: url(/images/close32x32gray.png) 0 0 no-repeat;
+}
+a.close16gray {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: url(/images/close16x16gray.png) 0 0 no-repeat;
+}

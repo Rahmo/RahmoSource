@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Service Speaks --Steans Center";
+    Layout = "~/Areas/ServiceSpeaks/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    <style type="text/css">
+        .grid-c3-w8c8e8 h1 {
+            padding-left: 10px;
+        }
+
+        .grid-c3-w8c8e8 p.column {
+            width: 300px;
+            padding: 10px;
+            height: 60px;
+        }
+        #mid {
+            padding: 20px 0 20px 0;
+            background: rgba(128, 128, 128, 0.3);
+            text-align: center;
+        }
+    </style>
+}
+<section>
+    <div id="mid">
+            <h1 style="text-align: center;">Download Official Flyer</h1>
+            <p style="margin-top: 10px;text-align:center;">
+                <a href="/Images/ServiceSpeaks/SERVICESPEAKsFLYER.pdf" target="_blank" title="click to download service speaks flyer"><img alt="click to download service speaks flyer" src="/Images/ServiceSpeaks/Flyer_logo.png" height="200" /></a>
+            </p>
+    </div>
+</section>
+<section>
+    <div class="grid-c3-w8c8e8">
+        <div class="west">
+            <h1>About Service Speaks </h1>
+            <p class="column">Welcome to the premier event for service learning and community engagement!  
+                <p class="column">With exciting sessions by community organizers and engaged students.</p> 
+            <p class="column">the conference will be a day of learning, skill building and lively discussion.</p>
+            <p class="nav_p bg_green">@Html.ActionLink("About", "About", "Home",null,new{title="About Service Speaks"})</p>
+        </div>
+        <div class="center">
+            <h1>What You’ll Learn</h1>
+            <p class="column">Engage with students, faculty, and community members who are working toward social change.</p>
+            <p class="column">Hear presentations addressing a variety of social topics.</p>
+            <p class="column">Learn how to get involved in your communities and increase social awareness!</p>
+            <p class="nav_p bg_2C8895"><a href="http://www.eventbrite.com/e/service-speaks-conference-tickets-11079341609?utm_campaign=new_eventv2&utm_medium=email&utm_source=eb_email&utm_term=eventurl_text" target="_blank" title="Register Service Speaks">Register</a></p>
+        </div>
+        <div class="east">
+            <h1>Why Attend</h1>
+            <p class="column">Network with like-minded individuals.</p>
+            <p class="column">Interact with people who have grassroots knowledge.</p>
+            <p class="column">Build skills and expertise in the field of service learning and community engagement!</p>
+            <p class="nav_p bg_399FD0"><a href="https://docs.google.com/forms/d/1UcfnQBoI1_WOpy-ipISNj8i94UfoTmTwm27mebKeTII/viewform" target="_blank" title="Submit a Proposal">Submit Proposal</a></p>
+        </div>
+    </div>
+</section>
+
+

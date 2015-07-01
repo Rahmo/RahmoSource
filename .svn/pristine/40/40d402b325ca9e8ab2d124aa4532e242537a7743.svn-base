@@ -1,0 +1,123 @@
+﻿@*
+This file has become unused! Use NotificationSettings View instead!
+*@
+@using ICStars2_0.Areas.SHTracker.Controllers
+@using ICStars2_0.BusinessLayer.TimerEvent
+@using ICStars2_0.Mvc
+@model IEnumerable<EventTriggerDateTime>
+@{
+    ViewBag.Title = "NotificationSettings";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/bundles/jqueryuicss")
+    <script type="text/javascript">
+        $(function() {
+            $("input[name$='SpecificDate'],input[name$='StartDate'],input[name$='EndDate']").attr("readonly", "true").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+            $("ul li input[type='checkbox']").click(function() {
+                if ($(this).attr("name") != undefined) return;
+                var $this = $(this);
+                var $hidden = $this.siblings("input[type='hidden'][name$='DayOfWeek']");
+                var v = $hidden.val();
+                v = v.replace(" ", "");
+                if ($this.get(0).checked == true) {
+                    v = v + "," + $this.val();
+                } else {
+                    v = v.replace($this.val(), "");
+                }
+                v = v.replace(/,+/gi, ",");
+                v = v.replace(/(,+$)|(^,+)/gi, "");
+                $hidden.val(v);
+            });
+        });
+
+        function addTask(obj) {
+            var liIndex = $(obj).prev('ul').children().length;
+            var $li = $(obj).prev('ul').find('li:last').clone();
+            $li.find("input,select").each(function() {
+                var n = $(this).attr("name");
+                if (n != undefined) {
+                    $(this).attr("name", n.replace(/[0-9]+/gi, liIndex));
+                }
+            });
+            $li.find("input[type='text']").val("");
+            $li.find("input[type='hidden']").val("");
+            $li.find('input[type="checkbox"]').removeAttr("checked");
+            $li.find("select").val("");
+            $(obj).prev('ul').append($li);
+        }
+    </script>
+    <style type="text/css">
+        .w80 { width: 80px; }
+        ul li{ border: solid 1px #008080;margin-top: 5px;background-color: #008000;color: #fff;font-family: Arial;font-size: 14px;padding: 0px 5px 0 5px;}
+    </style>
+}
+@{ var timer = ScheduleTasksController.NotificationTimer;}
+<h2>Notification Settings</h2>
+<table>
+    <tr>
+        <th colspan="2">Student Notification Settings</th>
+    </tr>
+    <tr>
+        <td>Timer:</td>
+        <td>@(timer != null && timer.Enabled ? "Running" : "Stopped")</td>
+    </tr>
+    <tr>
+        <td>Next Exec Time:</td>
+        <td>@(timer != null && timer.Enabled ? timer.NextExecTime.ToString("MM/dd/yyyy HH:mm:ss") : "Stopped") </td>
+    </tr>
+    <tr>
+        <td>Schedule:</td>
+        <td style="text-align: left;">
+            @using (Html.BeginForm())
+            {
+                var i = 0;
+                <ul>
+                    @foreach (var time in Model)
+                    {
+                        <li><b>Task: </b>
+                            Start Date: @Html.TextBox(string.Format("etd[{0}].StartDate",i), time.StartDate != null ? ((DateTime)time.StartDate).ToString("MM/dd/yyyy") : null, new {id = "",@class="w80"})
+                            End Date: @Html.TextBox(string.Format("etd[{0}].EndDate",i), time.EndDate != null ? ((DateTime)time.EndDate).ToString("MM/dd/yyyy") : null, new {id = "",@class="w80"})<br/>
+                            IsEveryDay @Html.CheckBox("etd["+i+"].IsEveryDay",time.IsEveryDay)
+                            Or Specific Date: @Html.TextBox(string.Format("etd[{0}].SpecificDate",i), time.SpecificDate != null ? ((DateTime)time.SpecificDate).ToString("MM/dd/yyyy") : null, new {id = "",@class="w80"})<br/>
+                            Day of Week: <input type="checkbox" value="Monday" @((time.DayOfWeek | WeekDay.Monday) == time.DayOfWeek?"checked=checked":"") />Monday
+                            <input type="checkbox" value="Tuesday" @((time.DayOfWeek | WeekDay.Tuesday) == time.DayOfWeek?"checked=checked":"") />Tuesday
+                            <input type="checkbox" value="Wednesday" @((time.DayOfWeek | WeekDay.Wednesday) == time.DayOfWeek?"checked=checked":"") />Wednesday
+                            <input type="checkbox" value="Thursday" @((time.DayOfWeek | WeekDay.Thursday) == time.DayOfWeek?"checked=checked":"") />Thursday
+                            <input type="checkbox" value="Friday" @((time.DayOfWeek | WeekDay.Friday) == time.DayOfWeek?"checked=checked":"") />Friday
+                            <input type="checkbox" value="Saturday" @((time.DayOfWeek | WeekDay.Saturday) == time.DayOfWeek?"checked=checked":"") />Saturday
+                            <input type="checkbox" value="Sunday" @((time.DayOfWeek | WeekDay.Sunday) == time.DayOfWeek?"checked=checked":"") />Sunday
+                            <input type="hidden" name="etd[@i].DayOfWeek" value="@(time.DayOfWeek==WeekDay.Null?"":time.DayOfWeek.ToString())" /><br/>
+                            Hour: @Html.DropDownList("etd["+i+"].HourOfDay", DropDownListHelper.BuildHoursSelectListItems(time.HourOfDay))
+                            Minute: @Html.DropDownList("etd["+i+"].MinuteOfHour", DropDownListHelper.BuildMinutesSelectListItems(time.MinuteOfHour))
+                            @if(i>0) {<input type="button" value="delete" onclick="$(this).parent().remove();"/>}
+                        </li>
+                        i++;
+                    }
+                </ul>
+                <input type="button" value="Add Task" onclick="addTask(this);" />
+                <input type="submit" value="Save Tasks" />
+            }
+        </td>
+    </tr>
+    <tr>
+        <td>Operation:</td>
+        @if (timer != null && timer.Enabled)
+        {
+            <td style="text-align: left;">@Html.ActionLink("Stop", "StopTimer", null, new { @class = "button" })</td>
+        }
+        else
+        {
+            <td style="text-align: left;">@Html.ActionLink("Start", "StartTimer", null, new { @class = "button" }) </td>
+        }
+    </tr>
+</table>
+<div>
+</div>

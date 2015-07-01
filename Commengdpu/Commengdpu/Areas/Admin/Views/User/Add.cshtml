@@ -1,0 +1,87 @@
+﻿@using Commengdpu.Models
+@model Commengdpu.Models.User
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var isEditting = Model != null && Model.ID > 0;
+    ViewBag.Title = isEditting ? "Edit User" : "Create User";
+}
+
+@section Head{
+    @Styles.Render("~/bundles/Site")
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<div class="nav"><h1>@(isEditting ? "Edit" : "Create") User</h1></div>
+@using (Html.BeginForm("Add","User")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (isEditting)
+    {
+        @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m=>m.CreateDate)
+    }
+    <fieldset>
+        <legend>User</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DPUID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DPUID)
+            @Html.ValidationMessageFor(model => model.DPUID)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsActivated)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsActivated)
+            @Html.ValidationMessageFor(model => model.IsActivated)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+        <div class="editor-label">
+            Roles
+        </div>
+        <div class="editor-field">
+            @foreach (Role role in ViewBag.Roles)
+            {
+                <input type="checkbox" name="roles" value="@role.ID" @(role.IsChecked?"checked=\"checked\"":"")/> @role.NickName<br/>
+            }
+        </div>
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+    </fieldset>
+}
+

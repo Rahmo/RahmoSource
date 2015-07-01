@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Steans Center for Community-based Service Learning";
+}
+@using ICStars2_0.Model
+@using ICStars2_0.Mvc
+@section Head{
+    <meta name="description" content="Irwin W. Steans biography at the Steans Center for Community-based Service Learning and Community Service Studies at DePaul University of Chicago, Illinois." />
+    <meta name="keywords" content="service learning, community research, Chicago, DePaul University, course development, cbsl, community service studies, community development, Bringing it Home, service learning in chicago, community service, community service minor, service speaks conference, Environmental Stewardship Internships, Cesar Chavez Service & Value Series, McCormick Internships, Merida Internships" />
+    @Scripts.Render("~/bundles/slider")
+    @Styles.Render("~/bundles/slidercss")
+    @Html.Script("~/Scripts/Home/default.js")
+    @Html.Style("~/Content/Css/Home/default.css")
+}
+<section id="top">
+    <div>
+        <p id="slider">
+            <a href="#"><img src="https://steans.depaul.edu/images/rotator/engage.jpg" /></a>
+            <a href="#"><img src="https://steans.depaul.edu/images/rotator/partner.jpg" /></a>
+            <a href="#"><img src="https://steans.depaul.edu/images/rotator/reflect.jpg" /></a>
+        </p>
+    </div>
+    <article>
+        The Steans Center develops mutually beneficial relationships with community organizations to engage DePaul Students in educational opportunities grounded in Vincentian values of respect for human dignity and the quest for social justice.
+        <br/><br/><a href="/About" class="link_white no_underline" title="About The Steans Center »">About the Steans Center »</a>
+    </article>
+</section>
+<section id="middle">
+    <div class="grid-c3-w9c4e11">
+        <div class="west">
+            <p><a href="/CommunityPartner" title="Community Partnership" class="link_white no_underline">Community Partnership »</a></p>
+        </div>
+        <div class="center">
+            <a href="/Student/Scholarships/COMMUNITY-SERVICE-SCHOLARSHIP" title="Student Opportunities">
+                <span>
+                    COMMUNITY SERVICE SCHOLARS
+                </span>
+            </a>
+        </div>
+        <div class="east">
+            <ul>
+                <li><a href="/Student/ServiceOpportunities/McCormick-Internship" title="Mccormick Internship --Steans Center">McCormick Internship »</a></li>
+                <li><a href="/Student/ServiceOpportunities/Public-School-Internship" title="Public School Internship --Steans Center">Public School Internship »</a></li>
+                <li><a href="/Student/ServiceOpportunities/Catholic-School-Internship" title="Catholic School Internship --Steans Center">Catholic School Internship »</a></li>
+                <li><a href="/Student/ServiceOpportunities/Community-Partner-Internship" title="Community Partner Internship --Steans Center">Community Partner Internship »</a></li>
+                <li><a href="/Student/ServiceOpportunities/Jumpstart" title="Jumpstart --Steans Center">Jumpstart »</a></li>
+                <li><a href="/Student/Scholarships/RICHARD-J-MEISTER-SCHOLARSHIP" title="Meister Scholarship --Steans Center">Meister Scholarship »</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+</section>
+<section id="bot">
+    <div class="grid-c2-w6e18">
+        <div class="west">
+            <h3>News</h3>
+            <ul>
+                @foreach (Article article in ViewBag.News)
+                {
+                    <li>
+                        <h4>@Html.ActionLink((article.ShortTitle ?? article.Title) + " »", "Index", "Publication", new { id = article.UrlTitle, root = "News" }, new { @class = "link_blue", @target = "_blank", @title = article.Title })</h4>
+                        
+                      
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="east">
+            <h3>Stories</h3>
+            <ul>
+                @foreach (Article article in ViewBag.Stories)
+                {
+                    <li>
+                        <h4>@Html.ActionLink(article.Title, "Index", "Publication", new { id = article.UrlTitle, root = "Story" }, new { @class = "link_blue", @target = "_blank", @title = article.Title })</h4>
+                        @Html.Raw(article.Thumbnail)
+                        <p>
+                            @article.Brief.Truncate(90)
+                        </p>
+                        <p class="links">
+                            @Html.ActionLink("Read More...", "Index", "Publication", new { id = article.UrlTitle, root = "Story" }, new { @class = "link_blue", @target = "_blank", @title = article.Title })
+                        </p>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+﻿@using Commengdpu.BusinessLayer.Provider
+@using ICStars2_0.Framework
+@using ICStars2_0.Mvc
+@using Microsoft.Practices.Unity
+@{
+    var UserData = ICStarsUnityContainer.Current.Resolve<IUserData>();
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="http://www.depaul.edu/_layouts/images/favicon.ico" type="image/vnd.microsoft.icon" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr", "~/bundles/jquery")
+    <link href="/Scripts/jquery.menu-light.css" rel="stylesheet" />
+    <script src="/Scripts/jquery.menu.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("section nav>ul").CommengdpuMenu('@Request.Url.AbsolutePath');
+        });
+
+    </script>
+    @Styles.Render("~/bundles/BEglobal")
+    @RenderSection("Head", required: false)
+    <base target="_self"/>
+</head>
+<body>
+    <header>
+        <div id="top">
+            <figure>Community Engagement DePaul</figure>
+            <aside>Welcome:&nbsp;&nbsp;@User.Identity.Name &nbsp;&nbsp;@UserData.RealName</aside>
+        </div>
+        <div id="bottom">
+            <div>&nbsp;&nbsp;Welcome</div>
+            <ul>
+                <li id="barright"><img alt="" src="/images/barright2.jpg" /></li>
+                <li>
+                    <a href="/Admin/Account/Logout"><img alt="" border="0" class="button2" src="/images/export.gif" />Logout</a>
+                </li>
+                <li>
+                    <a href="https://campusconnect.depaul.edu" target="_blank"><img alt="" border="0" class="button2" src="/images/handle.gif" />Change Password</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section id="main">
+        <div id="left">
+            <div class="container">
+                <h1>Menu</h1>
+                <nav>
+                    @Html.TreeView(Roles.GetRolesForUser(), TreeViewTarget.Self)
+                </nav>
+            </div>
+        </div>
+        <div id="right">
+            @RenderBody()
+        </div>
+    </section>
+    <footer>Community Engagement DePaul 2013-@DateTime.Now.Year</footer>
+</body>
+</html>

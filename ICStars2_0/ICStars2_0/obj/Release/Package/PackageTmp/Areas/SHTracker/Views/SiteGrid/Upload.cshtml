@@ -1,0 +1,66 @@
+﻿@using ICStars2_0.Model.Enum
+@using ICStars2_0.Mvc
+@using ICStars2_0.BusinessLayer
+@{
+    ViewBag.Title = "Upload Excels";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    <style type="text/css">
+        b.hl{ background: green;color: white;}
+        h2 em{ margin-left: 20px;color: red;font-weight: bold;}
+    </style>
+}
+<h2>Upload<em>@ViewBag.Error</em></h2>
+@using (Html.BeginForm("Upload", "SiteGrid", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table>
+        <tr>
+            <td>Term:</td><td colspan="2"> @Html.DropDownList("Term","Spring 2013", Html.BuildQuarterYearSelectListItems()) </td>
+            </tr>
+        <tr><td>CBO Request:</td><td> <input type="file" id="CBORequest" name="CBORequest"/></td>
+            <td>
+                @if (Directory.Exists(Server.MapPath("/App_Data/Settings/SiteGrid/cbo")))
+                {
+                    var i = 0;
+                    <table width="100%">
+                        <tr><td></td><td>Uploaded CBO Files:</td></tr>
+                        @foreach (string path in Directory.GetFiles(Server.MapPath("/App_Data/Settings/SiteGrid/cbo")).Select(f=>new FileInfo((f))).OrderByDescending(f=>f.CreationTime).Select((f=>f.FullName)).Take(3))
+                        {
+                            <tr>
+                                <td><input type="radio" value="@path" name="rdoCboRequest"/></td>
+                                <td style="text-align: left;"><b class="@(i==0?"hl":"")">@Path.GetFileName(path)</b></td>
+                            </tr>
+                            i++;
+                        }
+                    </table>
+                }
+            </td></tr>
+        <tr><td>Courses:</td><td> <input type="file" id="Courses" name="Courses"/></td>
+            <td>
+                @if (Directory.Exists(Server.MapPath("/App_Data/Settings/SiteGrid/course")))
+                {
+                    var i = 0;
+                    <table width="100%">
+                        <tr><td></td><td>Uploaded Course Files:</td></tr>
+                        @foreach (string path in Directory.GetFiles(Server.MapPath("/App_Data/Settings/SiteGrid/course")).Select(f => new FileInfo((f))).OrderByDescending(f => f.CreationTime).Select(f=>f.FullName).Take(3))
+                        {
+                            <tr>
+                                <td><input type="radio" value="@path" name="rdoCourse"/></td>
+                                <td style="text-align: left;"><b class="@(i==0?"hl":"")">@Path.GetFileName(path)</b></td>
+                            </tr>
+                            i++;
+                        }
+                    </table>
+                }
+            </td> </tr>
+        <tr><td></td><td><input type="submit" value="Submit"/></td><td></td></tr>
+    </table>
+}
+<p class="toolbar pl20">
+    <b>Notice:</b><br/>
+    1. If you are using ".csv" files, please convert them into Excel(.xlsx) files.<br/>
+    2. Please make sure that the format of your files are exactly same as the samples. <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;(Samepls: <a href="/Images/CBO Requests.xlsx" title="Cbo Request Sample">Cbo Request</a>, <a href="/Images/Courses.xlsx" title="Course Sample">Courses</a>)
+</p>

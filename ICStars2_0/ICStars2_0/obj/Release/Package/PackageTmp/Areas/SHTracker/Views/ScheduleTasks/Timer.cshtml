@@ -1,0 +1,24 @@
+﻿@model ICStars2_0.BusinessLayer.TimerEvent.DetailedTimer
+@{
+    ViewBag.Title = "Timer";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Timer</h2>
+<table>
+    <tr>
+        <td>Timer:</td>
+        <td>@(Model != null && Model.Enabled ? "Running" : "Stopped")</td>
+    </tr>
+    <tr>
+        <td>Timer:</td>
+        @if (Model != null && Model.Enabled)
+        {
+            <td style="text-align: left;">@Html.ActionLink("Stop", "StopTimer", null, new { @class = "button" })</td>
+        }
+        else
+        {
+            <td style="text-align: left;">@Html.ActionLink("Start", "StartTimer", null, new { @class = "button" }) </td>
+        }
+    </tr>
+</table>

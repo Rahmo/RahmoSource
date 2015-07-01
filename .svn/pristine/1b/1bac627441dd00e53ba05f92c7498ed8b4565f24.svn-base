@@ -1,0 +1,126 @@
+﻿@using ICStars2_0.Mvc
+@model Commengdpu.Models.CommunityPartner
+
+@{
+    ViewBag.Title = Model.Name+" --Community Engagement DePaul";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+<meta name="description" content="@Model.OrganizationStatement" />
+<meta name="keywords" content="@Model.Name,Community Partner, DePaul Community Engagement" />
+    @Html.Style("~/Content/Css/Profile.css")
+}
+<h1>@Model.Name</h1>
+<div id="left">
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OrganizationType):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrganizationType)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OrganizationStatement):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrganizationStatement)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PrimaryContactName):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrimaryContactName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PrimaryContactEmail):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrimaryContactEmail)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PrimaryContactPhone):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PrimaryContactPhone)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Website):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Website)
+    </div>
+
+    <div class="display-label">
+        Location:
+    </div>
+    <div class="display-field">
+        @Model.Address @Model.City @Model.State @Model.ZipCode
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.County):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.County)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Nation):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nation)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PopulationServed):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PopulationServed)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Mission):
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mission)
+    </div>
+    @if (User.IsInRole("admin") || User.IsInRole("admin_communitypartner"))
+    {
+        <div class="display-label">
+            Administrator Operations:
+        </div>
+        <div class="display-field">
+            @Html.ActionLink("Edit", "Edit", "CommunityPartner", new { area = "Admin", id = Model.ID, IsFrontEnd = true }, null) |
+            @Html.ActionLink("Delete", "Delete", "CommunityPartner", new { area = "Admin", id = Model.ID, IsFrontEnd = true }, null)
+        </div>
+    }
+</div>
+<div id="right">
+    <p>
+        @Html.Raw(Model.Thumbnail)
+    </p>
+    <h3>Associated Individual Partners</h3>
+    <ul>
+        @foreach (var ip in Model.CommunityPartner2IndividualPartners.Select(m => m.IndividualPartner))
+        {
+            <li>@Html.ActionLink(ip.FirstName+", "+ip.LastName, "Index", "IndividualPartner",new{id=ip.UniqueUrl},null)</li>
+        }
+    </ul>
+    <br/>
+    <h3>Project Collaborations</h3>
+    <ul>
+        @foreach (var project in Model.Project2CommunityPartners.Select(m => m.Project))
+        {
+            <li>@Html.ActionLink(project.Name,"Index","Project",new{id=project.ProjectUniqueUrl},null)</li>
+        }
+    </ul>
+</div>
+    
+
+<div style="clear:both;"></div>

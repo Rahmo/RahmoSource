@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ICStars2_0.Model.WebPage>
+
+@{
+    ViewBag.Title = "The Web Page List";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    <style type="text/css">
+        .tl { text-align: left; }
+        td { padding-left: 10px; }
+        a.editurl {
+            font-size: 10px;
+            color: #AAA;
+        }
+        em{color:red;font-weight:bold;}
+    </style>@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/bundles/jqueryuicss")
+    <script type="text/javascript">
+        function editurl(sender) {
+            $("<div><p><em>Notice:</em><br/>The <b>URL</b> should <b>NOT</b> be changed <b>ONLY</b> when it is newly created and you have to re-correct it.<br/>The <b>CHANGE</b> of url is <b>NOT FRIENDLY</b> to the Search Engine(e.g. Google, Bing, etc.).<br/>The <b>CHANGE</b> of url will cause a reduced ranking rates of the page and our web site.<br/>If you do need change an url that is not newly created, please contact the developer or IIS manager to redirect the <b>OLD URL</b> to the <b>NEW URL</b> <em>PERMANENTLY(301 Redirect)</em>.<br/><em>OR</em><br/>We <b>RECOMMEND</b> you <b>KEEP</b> the old url with the page and create a new page with the new url.<br />In the meantime, Please go to EDIT the <b>OLD PAGE</b> and set the <b>REDIRECT301URL</b> to the <b>NEW URL</b>.</p></div>").dialog({
+                modal: true,
+                width: 600,
+                height: 500,
+                title: "Warning",
+                close: function(event, ui) {
+                    $(this).remove();
+                },
+                buttons: {
+                    Continue: function() {
+                        window.location = sender.href;
+                    },
+                    Cancel: function() {
+                        $(this).remove();
+                    }
+                }
+            });
+            return false;
+        }
+    </script>
+}
+<h2>The Web Page List</h2>
+
+<table width="100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+            </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="tl">
+            @Html.DisplayFor(modelItem => item.Title)
+            </td>
+        <td class="tl">
+            <a href="@item.Url" target="_blank">@item.Url</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { url=item.Url }) | <a href="@string.Format("{0}{1}", ICStars2_0.Common.UrlHelper.GetHttpsRoot(),@item.Url)" target="_blank">Real-time Edit</a> | @Html.ActionLink("EditUrl", "EditUrl", new { url = item.Url },new{@class="editurl",@onclick="return editurl(this);return false;"})
+            @if (new[] { "hli25", "HROSING" }.Any(u => u.Equals(User.Identity.Name, StringComparison.CurrentCultureIgnoreCase)))
+            {
+<text>|
+                @Html.ActionLink("Delete", "Delete", new {url = item.Url}, new {onclick = "if(confirm('Are you sure you want to delete [" + item.Title+"("+item.Url+")" + "]')){return true;}return false;"})</text>
+            }
+        </td>
+    </tr>
+}
+
+</table>

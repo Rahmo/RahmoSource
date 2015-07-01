@@ -1,0 +1,51 @@
+﻿@model Commengdpu.Models.Category
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var isEditting = Model != null && Model.ID > 0;
+    ViewBag.Title = isEditting ? "Edit Category" : "Create Category";
+}
+@section Head{
+    @Styles.Render("~/bundles/Site", "~/bundles/jqueryuicss")
+    @Scripts.Render("~/bundles/jqueryval", "~/bundles/jqueryui")
+
+}
+<div class="nav"><h1>@(isEditting ? "Edit" : "Create") Category</h1></div>
+@using (Html.BeginForm("Add","Category")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Category</legend>
+        @if (isEditting)
+        {
+        @Html.HiddenFor(m => m.ID)
+        }
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ParentID)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.ParentID, new[] { new SelectListItem() { Text = "No Parent", Value = "0" } }.Union((IEnumerable<SelectListItem>)ViewBag.ParentDropdown))
+            @Html.ValidationMessageFor(model => model.ParentID)
+        </div>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderByID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderByID)
+            @Html.ValidationMessageFor(model => model.OrderByID)
+        </div>
+        <p>
+            <input type="submit" value="@(isEditting?"Edit":"Add")" />
+        </p>
+    </fieldset>
+}

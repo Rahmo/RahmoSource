@@ -1,0 +1,10 @@
+\\psf\Home\Downloads\Steans07172014-1\ICStars2_0\ICStars2_0.Framework\obj\Debug\ICStars2_0.Framework.csprojResolveAssemblyReference.cache
+C:\RahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\ICStars2_0.Framework.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\ICStars2_0.Framework.pdb
+C:\RahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\ICStars2_0.Common.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\log4net.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\Microsoft.Practices.Unity.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\ICStars2_0.Common.pdb
+C:\RahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Debug\ICStars2_0.Framework.csprojResolveAssemblyReference.cache
+C:\RahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Debug\ICStars2_0.Framework.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Debug\ICStars2_0.Framework.pdb

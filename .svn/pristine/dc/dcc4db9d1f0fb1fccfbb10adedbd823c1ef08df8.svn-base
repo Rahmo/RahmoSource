@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<authentication mode="Forms">
+  <forms name="icstars123456789" loginUrl="~/Account/Login" cookieless="AutoDetect" protection="All" requireSSL="false" timeout="60" path="/" slidingExpiration="true"
+         >
+          <!-- requireSSL="false" slidingExpiration="true" enableCrossAppRedirects="false" cookieless="UseDeviceProfile" domain="" -->
+    <!-- protection="[All|None|Encryption|Validation]" -->
+    <!-- cookieless="[UseUri | UseCookies | AutoDetect | UseDeviceProfile]" -->
+  </forms>
+</authentication>

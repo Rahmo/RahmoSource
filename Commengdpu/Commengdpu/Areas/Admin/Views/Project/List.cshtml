@@ -1,0 +1,62 @@
+﻿@using ICStars2_0.Mvc
+@model Commengdpu.BusinessLayer.IPageableCollection<Commengdpu.Models.Project>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Project List";
+}
+
+@section Head{
+    @Styles.Render("~/bundles/pagebar3")
+}
+
+    <table>
+        <tr>
+            <th>
+                Project Name
+
+            </th>
+            <th>
+                Start Date
+            <th>
+                End Date
+            </th>
+            <th>
+                Create Date
+            </th>
+            <th>Creator</th>
+            <th>
+                Last Modified Date
+            </th>
+            <th>Last Editor</th>
+            <th></th>
+        </tr>
+    
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @string.Format("{0:MM/dd/yyyy}", item.StartDate)
+                </td>
+                <td>                @string.Format("{0:MM/dd/yyyy}", item.EndDate)
+                </td>
+                <td>                @string.Format("{0:MM/dd/yyyy}", item.CreateDate)
+                </td>
+                <td>@item.Creator</td>
+                <td>                @string.Format("{0:MM/dd/yyyy}", item.LastModifiedDate)
+                </td>
+                <td>@item.LastEditor</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                </td>
+            </tr>
+        }
+    
+    </table>
+    <div class="PageBar3">
+        @Html.PagerBar(Model.TotalCount, Model.PageSize, 5, new { @class = "PageBar3" })
+    </div>
+

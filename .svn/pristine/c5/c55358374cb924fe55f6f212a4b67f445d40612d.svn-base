@@ -1,0 +1,86 @@
+﻿@using ICStars2_0.Mvc
+@model IEnumerable<ICStars2_0.Model.ProjectRequestForm>
+
+@{
+    ViewBag.Title = "ProjectRequestList";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/bundles/pagebar3")
+@section Head
+{
+    <style type="text/css">
+        table{ width: 100%;}
+    </style>
+}
+<h2>Project Request List</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Program)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNeeded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsTechnology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDesign)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Program)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateNeeded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsTechnology)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDesign)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "ProjectRequestDetails", new { id=item.ID, k=ICStars2_0.Common.MathHelper.Md5(string.Format("{0}{1}",ICStars2_0.Common.Const.ENCRYPT_KEY,item.ID)) })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="PageBar3">
+@Html.PagerBar((int)ViewBag.TotalCount,(int)ViewBag.PageSize,5,new { @class = "PageBar3" })</div>

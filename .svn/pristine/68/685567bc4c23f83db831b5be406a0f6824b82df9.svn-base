@@ -1,0 +1,139 @@
+﻿@model ICStars2_0.Model.ArticleForUpdate
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    @Html.Partial("CreateHeaderPartial")
+}
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Article</legend>
+        @Html.HiddenFor(m => m.ID)
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ShortTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ShortTitle)
+            @Html.ValidationMessageFor(model => model.ShortTitle)
+        </div>
+        <div class="editor-label">
+            Category
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Category", (IEnumerable<SelectListItem>)ViewBag.CategorySelectListItems)
+            </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Content)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Content)
+            @Html.ValidationMessageFor(model => model.Content)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Brief)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Brief)
+            <input type="button" value="Truncate" onclick="$(this).siblings().val($(this).siblings().val().substring(0,155)).blur()" />
+            @Html.ValidationMessageFor(model => model.Brief)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Author)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Author)
+            @Html.ValidationMessageFor(model => model.Author)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Thumbnail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Thumbnail)
+            @Html.ValidationMessageFor(model => model.Thumbnail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PublishDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PublishDate)
+            @Html.ValidationMessageFor(model => model.PublishDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsVisible)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsVisible)
+            @Html.ValidationMessageFor(model => model.IsVisible)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UrlTitle) (<b>This is not supposed to be changed!</b>)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UrlTitle)
+            @Html.ValidationMessageFor(model => model.UrlTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Layout)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Layout, new[]
+            {
+                new SelectListItem { Text = "Base", Value = "~/Views/Shared/_Layout.cshtml" },
+                new SelectListItem { Text = "BaseWithNavigation", Value = "~/Views/Shared/_Layout2.cshtml" }
+            })
+            @Html.ValidationMessageFor(model => model.Layout)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Keywords)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Keywords)
+            @Html.ValidationMessageFor(model => model.Keywords)
+        </div>
+        <div>
+            <b>Important:</b> If you do not know what fields below are for, please leave them <b>EMPTY</b>!
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RedirectUrl) (Url that the page request will be redirected to)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RedirectUrl)
+            @Html.ValidationMessageFor(model => model.RedirectUrl)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Redirect301Url) (Url that the page request will be permanently redirected to)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Redirect301Url)
+            @Html.ValidationMessageFor(model => model.Redirect301Url)
+        </div>
+        <p>
+            <input type="submit" value="Update" />
+        </p>
+    </fieldset>
+}
+

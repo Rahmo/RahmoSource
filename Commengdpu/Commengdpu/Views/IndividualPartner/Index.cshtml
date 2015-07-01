@@ -1,0 +1,67 @@
+﻿@using ICStars2_0.Mvc
+@model Commengdpu.Models.IndividualPartner
+
+@{
+    ViewBag.Title = Model.FirstName+" "+ Model.LastName + " --Community Engagement DePaul";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+<meta name="description" content="@Model.PersonalStatement" />
+<meta name="keywords" content="@Model.FirstName @Model.LastName,Individual Partner, DePaul Community Engagement" />
+    @Html.Style("~/Content/Css/Profile.css")
+}
+<h1>@Model.FirstName @Model.LastName</h1>
+<div id="left">
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Phone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PersonalStatement)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PersonalStatement)
+    </div>
+    @if (User.IsInRole("admin") || User.IsInRole("admin_individualpartner"))
+    {
+        <div class="display-label">
+            Administrator Operations:
+        </div>
+        <div class="display-field">
+            @Html.ActionLink("Edit", "Edit","IndividualPartner", new { area = "Admin", id = Model.ID, IsFrontEnd = true },null) |
+            @Html.ActionLink("Delete", "Delete", "IndividualPartner", new { area = "Admin", id = Model.ID, IsFrontEnd = true }, null)
+        </div>
+    }
+</div>
+<div id="right">
+    <p>
+        @Html.Raw(Model.Thumbnail)
+    </p>
+    <h3>Community Partner Associations</h3>
+    <ul>
+        @foreach (var cp in Model.CommunityPartner2IndividualPartners.Select(c=>c.CommunityPartner))
+        {
+  <li>@Html.ActionLink(cp.Name,"Index","CommunityPartner",new{id=cp.UniqueUrl},null)</li>
+        }
+    </ul>
+    <br/>
+    <h3>Project Collaborations</h3>
+    <ul>
+        @foreach (var project in Model.Project2IndividualPartners.Select(m => m.Project))
+        {
+            <li>@Html.ActionLink(project.Name, "Index", "Project", new { id = project.ProjectUniqueUrl }, null)</li>
+        }
+    </ul>
+</div>
+
+<div style="clear:both;"></div>

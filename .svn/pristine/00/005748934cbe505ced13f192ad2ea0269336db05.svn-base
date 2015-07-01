@@ -1,0 +1,81 @@
+﻿@using ICStars2_0.BusinessLayer
+@model ICStars2_0.Model.StudentRollOver
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RollOver</title>
+    @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval")
+    @Styles.Render("~/bundles/Site")
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#QuarterYear").change(function () {
+                var v = $(this).val();
+                if (v == "") return;
+                $.ajax({
+                    url: "/SHTracker/Course/GetCourses",
+                    data:"qy="+v,
+                    dataType: "json",
+                    success: function (data) {
+                        $("#CourseID option").remove();
+                        for (var i = 0; i < data.length; i++) {
+                            $("#CourseID").append("<option value=\"" + data[i].ID + "\">" + data[i].Name + "</option>");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    @{
+        var quarterItems = Html.BuildQuarterYearSelectListItems().ToList();
+        quarterItems.RemoveRange(0, quarterItems.IndexOf(quarterItems.FirstOrDefault(i => i.Value.Equals(ViewBag.CurrentQuarter))) + 1);
+    }
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m=>m.StudentID)
+        <table>
+            <tr>
+                <td>Quarter: </td>
+                <td>
+                    @Html.DropDownListFor(m=>m.QuarterYear, new[]
+                    {
+                        new SelectListItem
+                        {
+                            Text = "Select Term",
+                            Value = "",
+                            Selected = true
+                        }
+                    }.Union(quarterItems))<br />
+                    @Html.ValidationMessageFor(model => model.QuarterYear)
+                </td>
+            </tr>
+            <tr>
+                <td>CBO: </td>
+                <td>
+                    @Html.DropDownList("CBOID", (IEnumerable<SelectListItem>) ViewBag.CBONameIDList)<br />
+                    @Html.ValidationMessageFor(model => model.CBOID)<br/>
+                    Required Hours:@Html.TextBox("RequiredHours")<br />
+                    @Html.ValidationMessageFor(model => model.RequiredHours)
+                </td>
+            </tr>
+            <tr>
+                <td>Course: </td>
+                <td>
+                    @Html.DropDownListFor(m=>m.CourseID,new[]{new SelectListItem(){Text="Select Quarter First!!!"}})<br />
+                    @Html.ValidationMessageFor(model => model.CourseID)
+                </td>
+            </tr>
+            <tr>
+                <td></td><td><input type="submit" value="Submit"/></td>
+            </tr>
+        </table>
+    }
+</body>
+</html>

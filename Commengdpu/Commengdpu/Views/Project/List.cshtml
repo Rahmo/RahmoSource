@@ -1,0 +1,49 @@
+﻿@using System.Web.Optimization
+@using Commengdpu.Models
+@using ICStars2_0.Mvc
+@using WebGrease.Css.Extensions
+@model Commengdpu.BusinessLayer.IPageableCollection<Commengdpu.Models.Project>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+<meta name="description" content="DePaul Community Engagement Projects" />
+<meta name="keywords" content="Project, DePaul Community Engagement" />
+    @Styles.Render("~/bundles/pagebar3")
+    <style type="text/css">
+        h1{padding:10px 50px;}
+        h3{font-size:18px;font-weight:normal;}
+         section#body ul {
+             padding: 20px 50px;
+             width: 860px;
+         }
+            section#body ul li {
+                padding: 20px 0;
+                border-bottom: dashed 1px #427B92;
+            }
+             section#body a {
+                text-decoration: underline;
+            }
+    </style>
+}
+<h1>@ViewBag.Title</h1>
+<ul>
+    @foreach (var project in Model)
+    {
+        <li>
+            <h3>@Html.ActionLink(project.Name,"Index",new{id=project.ProjectUniqueUrl})</h3>
+            <p><b>Description: </b>@project.Description</p>
+            <p><b>Categories: </b>
+                @foreach (var c in (ViewBag.Project2Categories as IEnumerable<Project2Category>).Where(p => p.ProjectID == project.ID).Select(p=>p.Category).OrderBy(c=>c.OrderByID).ThenBy(c=>c.ID))
+                {
+                    <b>@Html.ActionLink(c.Name, "List", new { categories = c.Name,page=1 }) | </b>
+                }
+            </p>
+        </li>
+    }
+
+</ul>
+<div class="PageBar3">
+    @Html.PagerBar(Model.TotalCount, Model.PageSize, 5, new { @class = "PageBar3" })
+</div>

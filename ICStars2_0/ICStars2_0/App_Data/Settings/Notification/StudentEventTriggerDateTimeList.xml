@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEventTriggerDateTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EventTriggerDateTime>
+    <DayOfWeek>Null</DayOfWeek>
+    <SpecificDate xsi:nil="true" />
+    <IsEveryDay>true</IsEveryDay>
+    <HourOfDay>13</HourOfDay>
+    <MinuteOfHour>44</MinuteOfHour>
+    <StartDate>2014-04-01T00:00:00</StartDate>
+    <EndDate>2011-10-11T00:00:00</EndDate>
+  </EventTriggerDateTime>
+</ArrayOfEventTriggerDateTime>

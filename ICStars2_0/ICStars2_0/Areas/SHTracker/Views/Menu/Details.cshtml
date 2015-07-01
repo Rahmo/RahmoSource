@@ -1,0 +1,59 @@
+﻿@model ICStars2_0.Model.WebsiteNav
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Html.DisplayFor(model => model.Name) Details</h2>
+
+<fieldset>
+    <legend>WebsiteNav</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Link)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Link)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LinkTitle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LinkTitle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsTargetBlank)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsTargetBlank)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.IsVisible)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsVisible)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ParentID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ParentID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderByID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderByID)
+    </div>
+</fieldset>

@@ -1,0 +1,46 @@
+﻿div.partnerList ul li {
+            height: 40px;
+            vertical-align: middle;
+            color: #003366;
+            font-size: 18px;
+            list-style-type: decimal;
+        }
+        div.partnerList ul li:last-child {
+            list-style-type: none;
+        }
+        div.partnerList ul li input.keyword {
+            margin: 0 10px 0 0;
+            width: 300px;
+            display: none;
+        }
+        div.partnerList ul li a.del16 {
+            margin-left: 10px;
+        }
+        ol.options {
+            display: none;
+            position: absolute;
+            background: #ffffff;
+            width: 300px;
+            color: #003366;
+            font-size: 18px;
+            min-height: 100px;
+            border: solid 1px #cccccc;
+            border-radius: 4px;
+        }
+        ol.options li {
+            cursor: pointer;
+            padding: 0 10px 0 10px;
+        }
+        ol.options li:first-child {
+            border-bottom: solid 1px #cccccc;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        ol.options li:not(:first-child):hover {
+            background: #3276B1;
+            color: #ffffff;
+        }
+        ol.options li:not(:first-child):hover a {
+            color: #ffffff;
+            text-decoration: none;
+        }

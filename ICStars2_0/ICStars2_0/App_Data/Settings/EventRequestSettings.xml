@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<EventRequestSettings>
+  <FilePath>C:\ICStars\trunk\ICStars2_0\ICStars2_0\App_Data\Settings\EventRequestSettings.xml</FilePath>
+  <ReceiverEmail>hli25@depaul.edu</ReceiverEmail>
+  <EmailTitle>New Event Request</EmailTitle>
+  <EmailBody>&lt;p&gt;
+	Hi,&lt;/p&gt;
+&lt;p&gt;
+	&lt;span style="font-size:14px;"&gt;&lt;strong&gt;You got a new Event Request! &lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+	&lt;strong&gt;#Title#&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+	#Link#&lt;/p&gt;
+&lt;p&gt;
+	&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;
+	Best,&lt;/p&gt;
+&lt;p&gt;
+	Steans Center&lt;/p&gt;
+</EmailBody>
+  <IsHtmlEmail>True</IsHtmlEmail>
+  <IsSendingEmail>True</IsSendingEmail>
+</EventRequestSettings>

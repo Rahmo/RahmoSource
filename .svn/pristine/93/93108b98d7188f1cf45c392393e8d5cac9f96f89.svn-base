@@ -1,0 +1,2128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{685924DA-C2B6-49FB-97F3-C546A78201FB}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ICStars2_0</RootNamespace>
+    <AssemblyName>ICStars2_0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\Dll\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAnnotationsExtensions.ClientValidation">
+      <HintPath>..\Dll\DataAnnotationsExtensions.ClientValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\Dll\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\Dll\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll\mvc4\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Transactions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\Dll\mvc4\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Ajax.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RegisterSuccessful.html" />
+    <Content Include="Account\test.aspx" />
+    <Content Include="App_Data\ICStars2_0.mdf" />
+    <Content Include="App_Data\ICStars2_0_log.ldf">
+      <DependentUpon>ICStars2_0.mdf</DependentUpon>
+    </Content>
+    <Content Include="Bitmap.aspx" />
+    <Content Include="communityPartners\ServiceLearnersApplication.aspx" />
+    <Content Include="communityPartners\ServiceLearnersApplicationSuccess.htm" />
+    <Content Include="Content\Css\a.css" />
+    <Content Include="Content\Css\CKEditorInlineEditing.css" />
+    <Content Include="Content\Css\entypostyle.css" />
+    <Content Include="Content\Css\Form.css" />
+    <Content Include="Content\Css\global.css" />
+    <Content Include="Content\Css\Home\default.css" />
+    <Content Include="Content\Css\images\13.jpg" />
+    <Content Include="Content\Css\images\14.jpg" />
+    <Content Include="Content\Css\images\15.jpg" />
+    <Content Include="Content\Css\images\about.png" />
+    <Content Include="Content\Css\images\ajax-loader.gif" />
+    <Content Include="Content\Css\images\bg.jpg" />
+    <Content Include="Content\Css\images\date.png" />
+    <Content Include="Content\Css\images\events-icon.png" />
+    <Content Include="Content\Css\images\icons-18-black.png" />
+    <Content Include="Content\Css\images\icons-18-white.png" />
+    <Content Include="Content\Css\images\icons-36-black.png" />
+    <Content Include="Content\Css\images\icons-36-white.png" />
+    <Content Include="Content\Css\Calendar\index.css" />
+    <Content Include="Content\Css\images\PARTNERS.png" />
+    <Content Include="Content\Css\images\project.png" />
+    <Content Include="Content\Css\images\ProjectTeam.png" />
+    <Content Include="Content\Css\images\ResourcIcon.png" />
+    <Content Include="Content\Css\jquery.mobile-1.2.0.css" />
+    <Content Include="Content\Css\jquery.mobile-1.2.0.min.css" />
+    <Content Include="Content\Css\jquery.mobile.structure-1.2.0.css" />
+    <Content Include="Content\Css\jquery.mobile.structure-1.2.0.min.css" />
+    <Content Include="Content\Css\jquery.mobile.theme-1.2.0.css" />
+    <Content Include="Content\Css\jquery.mobile.theme-1.2.0.min.css" />
+    <Content Include="Content\Css\Layout2.css" />
+    <Content Include="Content\Css\MCI\global.css" />
+    <Content Include="Content\Css\MCI\ViewHours.css" />
+    <Content Include="Content\Css\MobileSite.css" />
+    <Content Include="Content\Css\MvpHomeCommon.css" />
+    <Content Include="Content\Css\PageBar2.css" />
+    <Content Include="Content\Css\PageBar3.css" />
+    <Content Include="Content\Css\PageBar4.css" />
+    <Content Include="Content\Css\MvpHome.css" />
+    <Content Include="Content\Css\reset.css" />
+    <Content Include="Content\Css\style.css" />
+    <Content Include="Content\Css\validation.css" />
+    <Content Include="Content\fancybox_overlay.png" />
+    <Content Include="Content\fancybox_sprite.png" />
+    <Content Include="Content\fullscreenButton.png" />
+    <Content Include="Content\IEhover.css" />
+    <Content Include="Content\hover.css" />
+    <Content Include="Content\jquery.fancybox.css" />
+    <Content Include="Error.html" />
+    <Content Include="FileNotFound.html" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\ajax-loader_arrows.gif" />
+    <Content Include="Images\ajax-loader_squarescircle.gif" />
+    <Content Include="Images\ajax-loader_bigroller.gif" />
+    <Content Include="Images\ajax-loader_bar.gif" />
+    <Content Include="Images\barbg3.jpg" />
+    <Content Include="Images\calendar_bg.png" />
+    <Content Include="Images\carnegie.png" />
+    <Content Include="Images\Chartwells_logo.jpg" />
+    <Content Include="Images\depaul_logo.jpg" />
+    <Content Include="Images\icc_logo2.png" />
+    <Content Include="Images\icons-18-black.png" />
+    <Content Include="Images\icons-18-white.png" />
+    <Content Include="Images\icons-36-black.png" />
+    <Content Include="Images\icons-36-white.png" />
+    <Content Include="Images\logo_sc.gif" />
+    <Content Include="Images\Social-Icon.jpg" />
+    <Content Include="Images\social-icon.png" />
+    <Content Include="Images\social-icons.png" />
+    <Content Include="Images\SteansIcon1.png" />
+    <Content Include="Images\SteansIcon2.png" />
+    <Content Include="Images\SteansIcon3.png" />
+    <Content Include="Images\steans_logo_.png" />
+    <Content Include="Images\StudentSheet.png" />
+    <Content Include="Images\textbox_bg.png" />
+    <Content Include="Images\universe_sheet_sample.jpg" />
+    <Content Include="Images\upside-down-arrow.png" />
+    <Content Include="Areas\SHTracker\Views\Student\Notify.cshtml" />
+    <Content Include="Scripts\blank.gif" />
+    <Content Include="Scripts\fancybox_loading.gif" />
+    <Content Include="Scripts\fancybox_overlay.png" />
+    <Content Include="Scripts\fancybox_sprite.png" />
+    <Content Include="Scripts\gridstack.js" />
+    <Content Include="Scripts\jquery.fancybox.css" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="Upload_Files\birds-147a.jpg" />
+    <Content Include="Upload_Files\birds-151a.jpg" />
+    <Content Include="Upload_Files\birds-152a.jpg" />
+    <Content Include="Upload_Files\project.png" />
+    <Content Include="Views\Logout\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MVPSite\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MVPSite\Details.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MVPSite\Create.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MVPSite\Edit.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MVPSite\Delete.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpOrganization\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpOrganization\Details.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpOrganization\Create.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpOrganization\Edit.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpOrganization\Delete.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Article\Delete.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Storyboard\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Storyboard\Details.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Storyboard\Create.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Storyboard\Edit.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Storyboard\Delete.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MVPSite\CreateHeader.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpOrganization\CreateHeader.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Storyboard\CreateHeader.cshtml" />
+    <None Include="index.html.bak" />
+    <Content Include="InvalidRequest.html" />
+    <Content Include="NoAccess.html" />
+    <Content Include="Scripts\AdminEditing.js" />
+    <Content Include="Scripts\Calendar\index.js" />
+    <Content Include="Scripts\CoinSlider\coin-slider-styles.css" />
+    <Content Include="Scripts\CoinSlider\coin-slider.js" />
+    <Content Include="Scripts\CoinSlider\coin-slider.min.js" />
+    <Content Include="Scripts\fullcalendar\fullcalendar.css" />
+    <Content Include="Scripts\fullcalendar\fullcalendar.js" />
+    <Content Include="Scripts\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Scripts\fullcalendar\fullcalendar.print.css" />
+    <Content Include="Scripts\fullcalendar\gcal.js" />
+    <Content Include="Scripts\HeaderFooter.js" />
+    <Content Include="Scripts\Home\default.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="packages.config" />
+    <Content Include="Areas\SHTracker\Views\Web.config" />
+    <Content Include="Areas\SHTracker\Views\SiteGrid\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SiteGrid\Upload.cshtml" />
+    <Content Include="Images\CBO Requests.xlsx" />
+    <Content Include="Images\Courses.xlsx" />
+    <Content Include="Areas\SHTracker\Views\SiteGrid\ChooseCourse.cshtml" />
+    <Content Include="Areas\Account\Views\Web.config" />
+    <Content Include="Areas\Account\Views\Register\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Database\Index.cshtml" />
+    <Content Include="Areas\Steans\Views\Web.config" />
+    <Content Include="Areas\Steans\Views\ProjectRequest\Index.cshtml" />
+    <Content Include="Areas\Steans\Views\Shared\Success.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Steans\ProjectRequestList.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Shared\EmailSendingSettings.cshtml" />
+    <Content Include="Areas\Account\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Account\Views\Login\LoginSHTracker.cshtml" />
+    <Content Include="Areas\Account\Views\Login\LoginSteansCenter.cshtml" />
+    <Content Include="Areas\SHTracker\Views\ScheduleTasks\StudentNotificationSettings_bak.cshtml" />
+    <Content Include="Areas\ServiceSpeaks\Views\Web.config" />
+    <Content Include="Areas\ServiceSpeaks\Views\Home\Index.cshtml" />
+    <Content Include="Areas\ServiceSpeaks\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\ServiceSpeaks\Views\Home\About.cshtml" />
+    <Content Include="Areas\ServiceSpeaks\Views\Shared\RightNav.cshtml" />
+    <Content Include="Areas\ServiceSpeaks\Views\Home\FAQ.cshtml" />
+    <Content Include="Areas\ServiceSpeaks\Views\Home\Schedule.cshtml" />
+    <Content Include="Areas\ServiceSpeaks\Views\Home\Speakers.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Student\TobeCalled.cshtml" />
+    <Content Include="Areas\SHTracker\Views\System\QuarterYearSettings.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Menu\Create.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Menu\List.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Menu\Edit.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Menu\Details.cshtml" />
+    <Content Include="Areas\SHTracker\Views\CKEditor\Browse.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Shared\NotificationSettings.cshtml" />
+    <Content Include="Areas\SHTracker\Views\ScheduleTasks\Timer.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\List.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\Edit.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\Details.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\Upload.cshtml" />
+    <Content Include="Areas\SHTracker\Views\CSSP\Search.cshtml" />
+    <Content Include="Areas\Account\Views\Login\LoginCSSStudent.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\HistoricalFacultyList.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\AddHistoricalFaculty.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\EditHistoricalFaculty.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\HistoricalCourseList.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\AddHistoricalCourse.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Course\EditHistoricalCourse.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SON\Students.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SON\EditStudent.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SON\CBOs.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SON\EditCBOProgram.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SON\StudentMatch.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SON\CBOMatch.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SON\NoMatch.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SON\Report.cshtml" />
+    <Content Include="Areas\SHTracker\Views\ServiceHours\HistoricalHours.cshtml" />
+    <Content Include="Areas\SHTracker\Views\WebPage\List.cshtml" />
+    <Content Include="Areas\SHTracker\Views\WebPage\Create.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Log\LoginReport.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Article\Create.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Article\List.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Article\CreateHeaderPartial.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Article\Edit.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Category\List.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Category\Create.cshtml" />
+    <Content Include="Areas\SHTracker\Views\CBOTask\Add.cshtml" />
+    <Content Include="Areas\SHTracker\Views\CBOTask\List.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SON\CBOChoices.cshtml" />
+    <Content Include="Areas\SHTracker\Views\SiteGrid\SelectCourse.cshtml" />
+    <Content Include="Areas\MCI\Views\Web.config" />
+    <Content Include="Areas\MCI\Views\Login\Index.cshtml" />
+    <Content Include="Areas\MCI\Views\Login\Index.mobile.cshtml" />
+    <Content Include="Areas\MCI\Views\TimeLog\Index.mobile.cshtml" />
+    <Content Include="Areas\MCI\Views\TimeLog\Index.cshtml" />
+    <Content Include="Areas\MCI\Views\TimeLog\ReportHours.cshtml" />
+    <Content Include="Areas\MCI\Views\TimeLog\ViewHours.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MCI\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MCI\AddPeriod.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MCI\ViewReportedHours.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MCI\ViewTimesheet.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Report\SLCGroup.cshtml" />
+    <Content Include="Areas\Calendar\Views\Web.config" />
+    <Content Include="Areas\MCI\Views\TimeLog\EditProfile.cshtml" />
+    <Content Include="Areas\Account\Views\Student\Login.cshtml" />
+    <Content Include="Areas\Calendar\Views\Events\CreateEvent.cshtml" />
+    <Content Include="Areas\Calendar\Views\Events\EventDetails.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Student\Upload.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Student\RollOver.cshtml" />
+    <Content Include="Areas\Calendar\Views\Reservation\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Merida\SpringExtensionApplications.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Merida\SpringExtensionApplicationDetails.cshtml" />
+    <Content Include="Areas\SHTracker\Views\WebPage\EditUrl.cshtml" />
+    <Content Include="Areas\Account\Views\Calendar\Login.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Database\Query.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Report\GroupByCBO.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Student\DownloadTemplate.cshtml" />
+    <Content Include="Areas\SHTracker\Views\Student\PreviewUploading.cshtml" />
+    <None Include="Properties\PublishProfiles\PRODUCTION.pubxml" />
+    <None Include="Properties\PublishProfiles\TestICStars2_0.pubxml" />
+    <Content Include="Scripts\fullcalendar\fullcalendar.min.js.map">
+      <DependentUpon>fullcalendar.min.js</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.8.3.intellisense.js" />
+    <None Include="Scripts\jquery-1.8.3.js.bak" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.datetimepicker.css" />
+    <Content Include="Scripts\jquery.datetimepicker.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.menu-light.css" />
+    <Content Include="Scripts\jquery.menu-dark.css" />
+    <Content Include="Scripts\jquery.mobile-1.2.0.js" />
+    <Content Include="Scripts\jquery.mobile-1.2.0.min.js" />
+    <Content Include="Scripts\jquery.timepicker.css" />
+    <Content Include="Scripts\jquery.timepicker.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-1.10.0.js" />
+    <Content Include="Scripts\jquery.validate-1.10.0.min.js" />
+    <Content Include="Scripts\jquery.validate-1.9.0.min.js" />
+    <Content Include="Scripts\jquery.menu.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.additional-methods.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\animated-overlay.gif" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery-ui.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.all.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.base.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.button.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.core.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.menu.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.slider.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.theme.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\animated-overlay.gif" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery-ui.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.accordion.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.all.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.autocomplete.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.base.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.button.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.core.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.datepicker.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.dialog.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.menu.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.progressbar.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.resizable.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.selectable.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.slider.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.spinner.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.tabs.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.theme.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\jquery.ui.tooltip.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\animated-overlay.gif" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery-ui.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.button.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.core.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.menu.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.slider.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.theme.min.css" />
+    <Content Include="Scripts\JQueryUI2\themes\smoothness\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery-ui-i18n.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-af.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ar-DZ.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ar.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-az.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-be.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-bg.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-bs.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ca.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-cs.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-cy-GB.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-da.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-de.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-el.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-en-AU.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-en-GB.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-en-NZ.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-eo.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-et.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-eu.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-fa.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-fi.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-fo.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-fr-CA.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-fr-CH.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-fr.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-gl.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-he.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-hi.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-hr.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-hu.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-hy.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-id.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-is.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-it.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ja.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ka.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-kk.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-km.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ko.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ky.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-lb.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-lt.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-lv.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-mk.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ml.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ms.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-nb.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-nl-BE.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-nl.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-nn.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-no.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-pl.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-pt-BR.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-pt.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-rm.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ro.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ru.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-sk.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-sl.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-sq.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-sr-SR.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-sr.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-sv.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-ta.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-th.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-tj.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-tr.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-uk.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-vi.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
+    <Content Include="Scripts\JQueryUI2\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery-ui.custom.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.accordion.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.autocomplete.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.button.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.core.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.dialog.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.draggable.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.droppable.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-blind.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-bounce.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-clip.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-drop.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-explode.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-fade.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-fold.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-highlight.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-pulsate.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-scale.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-shake.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-slide.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect-transfer.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.effect.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.menu.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.mouse.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.position.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.progressbar.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.resizable.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.selectable.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.slider.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.sortable.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.spinner.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.tabs.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.tooltip.js" />
+    <Content Include="Scripts\JQueryUI2\ui\jquery.ui.widget.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery-ui-i18n.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-af.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ar-DZ.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ar.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-az.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-be.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-bg.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-bs.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ca.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-cs.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-cy-GB.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-da.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-de.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-el.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-en-AU.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-en-GB.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-en-NZ.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-eo.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-es.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-et.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-eu.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-fa.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-fi.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-fo.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-fr-CA.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-fr-CH.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-fr.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-gl.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-he.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-hi.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-hr.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-hu.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-hy.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-id.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-is.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-it.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ja.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ka.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-kk.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-km.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ko.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ky.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-lb.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-lt.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-lv.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-mk.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ml.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ms.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-nb.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-nl-BE.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-nl.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-nn.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-no.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-pl.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-pt-BR.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-pt.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-rm.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ro.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ru.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-sk.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-sl.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-sq.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-sr-SR.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-sr.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-sv.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-ta.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-th.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-tj.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-tr.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-uk.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-vi.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-zh-CN.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-zh-HK.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\i18n\jquery.ui.datepicker-zh-TW.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery-ui.custom.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.accordion.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.autocomplete.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.button.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.core.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.datepicker.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.dialog.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.draggable.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.droppable.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-blind.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-bounce.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-clip.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-drop.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-explode.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-fade.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-fold.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-highlight.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-pulsate.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-scale.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-shake.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-slide.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect-transfer.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.effect.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.menu.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.mouse.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.position.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.progressbar.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.resizable.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.selectable.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.slider.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.sortable.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.spinner.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.tabs.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.tooltip.min.js" />
+    <Content Include="Scripts\JQueryUI2\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.blind.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.bounce.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.clip.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.core.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.drop.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.explode.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.fade.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.fold.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.highlight.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.pulsate.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.scale.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.shake.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.slide.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.effects.transfer.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.accordion.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.autocomplete.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.button.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.core.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.datepicker.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.dialog.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.draggable.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.droppable.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.mouse.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.position.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.progressbar.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.resizable.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.selectable.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.slider.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.sortable.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.tabs.min.js" />
+    <Content Include="Scripts\JqueryUI\jquery.ui.widget.min.js" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.all.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.base.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.button.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.core.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.slider.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Scripts\JqueryUI\themes\base\jquery.ui.theme.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery-ui-1.8.17.custom.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.accordion.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.all.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.autocomplete.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.base.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.button.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.core.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.datepicker.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.dialog.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.progressbar.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.resizable.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.selectable.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.slider.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.tabs.css" />
+    <Content Include="Scripts\JqueryUI\themes\smoothness\jquery.ui.theme.css" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\MCI\ViewHours.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="SHTracker\Account\ChangePassword.aspx" />
+    <Content Include="SHTracker\Account\ChangePasswordSuccess.htm" />
+    <Content Include="SHTracker\Account\CreateMember.aspx" />
+    <Content Include="SHTracker\Account\EditMember.aspx" />
+    <Content Include="SHTracker\Account\Logout.aspx" />
+    <Content Include="SHTracker\Account\MemberManagement.aspx" />
+    <Content Include="SHTracker\Account\RoleManagement.aspx" />
+    <Content Include="App_Data\Config\appSettings.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Config\authentication.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Config\connectionStrings.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Config\customErrors.xml" />
+    <Content Include="App_Data\Config\globalization.xml" />
+    <Content Include="App_Data\Config\machineKey.xml" />
+    <Content Include="App_Data\Config\roleManager.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Config\siteMap.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Themes\global\global.css" />
+    <Content Include="SHTracker\Bottom.htm" />
+    <Content Include="SHTracker\CBO\Add.aspx" />
+    <Content Include="SHTracker\CBO\Edit.aspx" />
+    <Content Include="SHTracker\CBO\List.aspx" />
+    <Content Include="SHTracker\Center.htm" />
+    <Content Include="SHTracker\Content\Css\Intership\ApplicationDetails.css" />
+    <Content Include="SHTracker\Content\Css\SuccessPage.css" />
+    <Content Include="SHTracker\CSSP\Add.aspx" />
+    <Content Include="SHTracker\CSSP\Details.aspx" />
+    <Content Include="SHTracker\CSSP\Edit.aspx" />
+    <Content Include="SHTracker\CSSP\List.aspx" />
+    <Content Include="SHTracker\CSSP\ReportHours.aspx" />
+    <Content Include="SHTracker\CSSP\ReportHoursSuccess.htm" />
+    <Content Include="SHTracker\CSSP\Search.aspx" />
+    <Content Include="SHTracker\Images\barright2.jpg" />
+    <Content Include="SHTracker\Log\List.aspx" />
+    <Content Include="SHTracker\Scripts\CkEditor\build-config.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\autogrow\plugin.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\autogrow\samples\autogrow.html" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\fakeobjects\images\spacer.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\filebrowser\plugin.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\icons.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\imagebrowser\browser\browser.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\imagebrowser\browser\browser.html" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\imagebrowser\browser\browser.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\imagebrowser\browser\jquery-1.9.1.min.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\imagebrowser\LICENSE.txt" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\icons\image.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\images\noimage.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\af.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ar.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\bg.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\bn.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\bs.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ca.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\cs.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\cy.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\da.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\de.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\el.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\en-au.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\en-ca.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\en-gb.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\en.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\eo.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\es.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\et.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\eu.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\fa.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\fi.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\fo.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\fr-ca.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\fr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\gl.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\gu.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\he.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\hi.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\hr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\hu.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\is.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\it.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ja.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ka.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\km.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ko.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ku.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\lt.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\lv.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\mk.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\mn.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ms.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\nb.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\nl.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\no.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\pl.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\pt-br.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\pt.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ro.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ru.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\sk.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\sl.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\sq.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\sr-latn.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\sr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\sv.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\th.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\tr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\ug.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\uk.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\vi.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\zh-cn.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\lang\zh.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\plugin.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\link\images\anchor.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\magicline\images\icon.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\embarrassed_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\tongue_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\templates\dialogs\templates.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\dialog.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\dialog_ie.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\dialog_ie7.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\dialog_ie8.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\dialog_iequirks.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\dialog_opera.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\editor.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\editor_gecko.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\editor_ie.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\editor_ie7.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\editor_ie8.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\editor_iequirks.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\icons.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\images\arrow.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\images\close.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\images\mini.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\dialog.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\dialog_ie.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\dialog_ie7.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\dialog_ie8.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\dialog_opera.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\editor.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\editor_gecko.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\editor_ie.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\editor_ie7.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\editor_ie8.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\editor_iequirks.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\icons.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\icons_hidpi.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\images\arrow.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\images\close.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\images\hidpi\close.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\images\hidpi\lock-open.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\images\hidpi\lock.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\images\hidpi\refresh.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\images\lock-open.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\images\lock.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\images\refresh.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\styles.js" />
+    <Content Include="SHTracker\Scripts\jquery-1.8.2.js" />
+    <Content Include="SHTracker\Scripts\jquery-1.8.2.min.js" />
+    <Content Include="SHTracker\Scripts\jquery-1.8.3.js" />
+    <Content Include="SHTracker\Scripts\jquery-1.8.3.min.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate-1.10.0.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate.additional-methods.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate.additional-methods.min.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\adapters\jquery.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\ckeditor.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\ckeditor_basic.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\config.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\CheckCompatibility.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\contents.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\images\spacer.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\lang\en.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\about\dialogs\about.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\div\dialogs\div.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\find\dialogs\find.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\flash\dialogs\flash.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\flash\images\placeholder.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\forms\dialogs\button.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\forms\dialogs\form.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\forms\dialogs\radio.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\forms\dialogs\select.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\forms\dialogs\textarea.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\forms\dialogs\textfield.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\iframe\images\placeholder.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\image\dialogs\image.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\link\dialogs\link.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\preview\preview.html" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_address.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_div.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_h1.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_h2.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_h3.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_h4.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_h5.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_h6.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_p.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\showblocks\images\block_pre.png" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\envelope.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\heart.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\kiss.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\table\dialogs\table.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\templates\dialogs\templates.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\templates\templates\default.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\templates\templates\images\template1.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\templates\templates\images\template2.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\templates\templates\images\template3.gif" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="SHTracker\Scripts\CkEditor\themes\default\theme.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate-1.10.0.min.js" />
+    <Content Include="SHTracker\Steans\Account\EditMember.aspx" />
+    <Content Include="SHTracker\Steans\Account\MemberList.aspx" />
+    <Content Include="SHTracker\Steans\Account\Settings.aspx" />
+    <Content Include="SHTracker\Steans\Account\UnverifiedMemberList.aspx" />
+    <Content Include="SHTracker\Steans\CommunityPartner\ApplicationDetails.aspx" />
+    <Content Include="SHTracker\Steans\CommunityPartner\List.aspx" />
+    <Content Include="SHTracker\Content\Css\a.css" />
+    <Content Include="SHTracker\Content\Css\class.css" />
+    <Content Include="SHTracker\Content\Css\CommunityPartner\ApplicationDetails.css" />
+    <Content Include="SHTracker\Content\Css\css.css" />
+    <Content Include="SHTracker\Content\Css\Dialog-Warning.css" />
+    <Content Include="SHTracker\Content\Css\FormStyle.css" />
+    <Content Include="SHTracker\Content\Css\global.css" />
+    <Content Include="SHTracker\Content\Css\Import.css" />
+    <Content Include="SHTracker\Content\Css\layout.css" />
+    <Content Include="SHTracker\Content\Css\PageBar2.css" />
+    <Content Include="SHTracker\Content\Css\SheetLayout.css" />
+    <Content Include="SHTracker\Content\Css\Student\MyCourse.css" />
+    <Content Include="SHTracker\Content\Css\Student\Search.css" />
+    <Content Include="SHTracker\Course\Add.aspx" />
+    <Content Include="SHTracker\Course\Edit.aspx" />
+    <Content Include="SHTracker\Course\List.aspx" />
+    <Content Include="SHTracker\Database\Backup.aspx" />
+    <Content Include="SHTracker\Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="SHTracker\Images\barbg.jpg" />
+    <Content Include="SHTracker\Images\barbg3.jpg" />
+    <Content Include="SHTracker\Images\barright.jpg" />
+    <Content Include="SHTracker\Images\bg2.jpg" />
+    <Content Include="SHTracker\Images\bottombg.jpg" />
+    <Content Include="SHTracker\Images\export.gif" />
+    <Content Include="SHTracker\Images\handle.gif" />
+    <Content Include="SHTracker\Images\logo.gif" />
+    <Content Include="SHTracker\Images\logo.jpg" />
+    <Content Include="SHTracker\Images\logo2.jpg" />
+    <Content Include="SHTracker\Images\textbox_bg.png" />
+    <Content Include="SHTracker\Images\top_bg.jpg" />
+    <Content Include="SHTracker\Left.aspx" />
+    <Content Include="SHTracker\Account\Login.aspx" />
+    <Content Include="SHTracker\Report\ChooseTerm.aspx" />
+    <Content Include="SHTracker\Report\MyCourse.aspx" />
+    <Content Include="SHTracker\Right.aspx" />
+    <Content Include="SHTracker\Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="SHTracker\Scripts\jquery-1.7.1.min.js" />
+    <Content Include="SHTracker\Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="SHTracker\Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="SHTracker\Scripts\jquery.printElement.js" />
+    <Content Include="SHTracker\Scripts\jquery.printElement.min.js" />
+    <Content Include="SHTracker\Scripts\jquery.ui.dialog.js" />
+    <Content Include="SHTracker\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="SHTracker\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate-1.9.0.min.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate.min.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="SHTracker\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.blind.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.bounce.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.clip.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.core.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.drop.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.explode.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.fade.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.fold.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.highlight.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.pulsate.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.scale.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.shake.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.slide.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.effects.transfer.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.accordion.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.autocomplete.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.button.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.core.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.datepicker.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.dialog.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.draggable.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.droppable.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.mouse.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.position.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.progressbar.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.resizable.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.selectable.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.slider.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.sortable.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.tabs.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\jquery.ui.widget.min.js" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.accordion.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.all.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.base.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.button.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.core.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.dialog.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.resizable.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.selectable.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.slider.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.tabs.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\base\jquery.ui.theme.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery-ui-1.8.17.custom.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.accordion.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.all.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.autocomplete.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.base.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.button.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.core.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.datepicker.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.dialog.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.progressbar.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.resizable.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.selectable.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.slider.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.tabs.css" />
+    <Content Include="SHTracker\Scripts\JqueryUI\themes\smoothness\jquery.ui.theme.css" />
+    <Content Include="SHTracker\Scripts\knockout-1.3.0beta.debug.js" />
+    <Content Include="SHTracker\Scripts\knockout-1.3.0beta.js" />
+    <Content Include="SHTracker\Scripts\ModalWindow\images\ajax-loader.gif" />
+    <Content Include="SHTracker\Scripts\ModalWindow\images\close.gif" />
+    <Content Include="SHTracker\Scripts\ModalWindow\jquery.modal-window.js" />
+    <Content Include="SHTracker\Scripts\ModalWindow\modalwindow.css" />
+    <Content Include="SHTracker\Scripts\ModalWindow\welcome.htm" />
+    <Content Include="SHTracker\Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="SHTracker\Scripts\TreeView\demo.js" />
+    <Content Include="SHTracker\Scripts\TreeView\images\file.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\folder-closed.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\folder.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\minus.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\plus.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-black-line.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-black.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-default-line.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-default.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-famfamfam-line.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-famfamfam.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-gray-line.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-gray.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-red-line.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\images\treeview-red.gif" />
+    <Content Include="SHTracker\Scripts\TreeView\jquery.treeview.css" />
+    <Content Include="SHTracker\Scripts\TreeView\jquery.treeview.pack.js" />
+    <Content Include="SHTracker\Scripts\TreeView\screen.css" />
+    <Content Include="SHTracker\Scripts\UrlHelper.js" />
+    <Content Include="SHTracker\Steans\CommunityPartner\Settings.aspx" />
+    <Content Include="SHTracker\Steans\EventRequest\FormDetails.aspx" />
+    <Content Include="SHTracker\Steans\EventRequest\List.aspx" />
+    <Content Include="SHTracker\Steans\EventRequest\Settings.aspx" />
+    <Content Include="SHTracker\Steans\Internship\ApplicationDetails.aspx" />
+    <Content Include="SHTracker\Steans\Internship\List.aspx" />
+    <Content Include="SHTracker\Steans\Internship\Settings.aspx" />
+    <Content Include="SHTracker\StudentApp\Default.aspx" />
+    <Content Include="SHTracker\StudentApp\ReporthoursSuccess.aspx" />
+    <Content Include="SHTracker\StudentApp\ReportHours_1.aspx" />
+    <Content Include="SHTracker\StudentApp\ReportHours_2.aspx" />
+    <Content Include="SHTracker\StudentApp\ReportHours_3.aspx" />
+    <Content Include="SHTracker\StudentApp\ReportHours_3_cssp.aspx" />
+    <Content Include="SHTracker\StudentApp\ViewHours_3.aspx" />
+    <Content Include="SHTracker\Student\Add.aspx" />
+    <Content Include="SHTracker\Student\Details.aspx" />
+    <Content Include="SHTracker\Student\Edit.aspx" />
+    <Content Include="SHTracker\Student\List.aspx" />
+    <Content Include="SHTracker\Student\ReportHours.aspx" />
+    <Content Include="SHTracker\Student\ReportHoursSuccess.htm" />
+    <Content Include="SHTracker\Student\Search.aspx" />
+    <Content Include="SHTracker\Top.aspx" />
+    <Content Include="Staff\EventRequest.aspx" />
+    <Content Include="Staff\EventRequestSuccess.html" />
+    <Content Include="Staff\index.htm" />
+    <Content Include="Staff\Only\Steans-Center-Operations-Forms.aspx" />
+    <Content Include="Staff\Only\Steans-Center-Operations-Forms.htm" />
+    <Content Include="Staff\Only\Steans-Center-Staff-Policy-Procedures-Manual.aspx" />
+    <Content Include="Staff\Only\Steans-Center-Staff-Policy-Procedures-Manual.html" />
+    <Content Include="Students\ServiceOpportunities\InternshipApplication.aspx" />
+    <Content Include="Students\ServiceOpportunities\InternshipApplicationSuccess.aspx" />
+    <Content Include="test.aspx" />
+    <Content Include="TestEmail.aspx" />
+    <Content Include="TestSql.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Staff\Only\Web.config" />
+    <Content Include="TestSql.aspx.cs">
+      <DependentUpon>TestSql.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\imagebrowser\README.rst" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\scayt\LICENSE.md" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\scayt\README.md" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\wsc\LICENSE.md" />
+    <Content Include="SHTracker\Scripts\CkEditor\plugins\wsc\README.md" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moonocolor\readme.md" />
+    <Content Include="Views\Home\Default.cshtml" />
+    <Content Include="Views\Shared\NavsForLayout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\WebPage.cshtml" />
+    <Content Include="SHTracker\Scripts\CkEditor\skins\moono\readme.md" />
+    <Content Include="Views\Shared\Article.cshtml" />
+    <Content Include="Views\Shared\LoginStudent.cshtml" />
+    <Content Include="Views\Shared\_Layout.mobile.cshtml" />
+    <Content Include="Views\Merida\SpringExtension.cshtml" />
+    <Content Include="Views\Merida\Success.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Shared\SubNavsForLayout.cshtml" />
+    <Content Include="Views\Publication\News.cshtml" />
+    <Content Include="Views\Publication\Story.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Login\form.cshtml" />
+    <Content Include="Views\MVProject\Events.cshtml" />
+    <Content Include="Views\MVProject\Home.cshtml" />
+    <Content Include="Views\Shared\_Layout3.cshtml" />
+    <Content Include="Views\MVProject\Partners.cshtml" />
+    <Content Include="Views\MVProject\SiteOrganizations.cshtml" />
+    <Content Include="Views\MVProject\ContactUs.cshtml" />
+    <Content Include="Views\MVProject\StoryBoard.cshtml" />
+    <Content Include="Views\MVProject\Gallery.cshtml" />
+    <Content Include="Views\MVProject\UploadImage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Account.Master.cs">
+      <DependentUpon>Account.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Account.Master.designer.cs">
+      <DependentUpon>Account.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Ajax.aspx.cs">
+      <DependentUpon>Ajax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\CheckCampusConnect.ashx.cs">
+      <DependentUpon>CheckCampusConnect.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\CheckCampusConnectIDExists.ashx.cs">
+      <DependentUpon>CheckCampusConnectIDExists.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
+    <Compile Include="Areas\Account\Controllers\CalendarController.cs" />
+    <Compile Include="Areas\Account\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Account\Controllers\LogoutController.cs" />
+    <Compile Include="Areas\Account\Controllers\RegisterController.cs" />
+    <Compile Include="Areas\Account\Controllers\StudentController.cs" />
+    <Compile Include="Areas\Calendar\CalendarAreaRegistration.cs" />
+    <Compile Include="Areas\Calendar\Controllers\EventsController.cs" />
+    <Compile Include="Areas\Calendar\Controllers\ReservationController.cs" />
+    <Compile Include="Areas\MCI\Controllers\LoginController.cs" />
+    <Compile Include="Areas\MCI\Controllers\LogoutController.cs" />
+    <Compile Include="Areas\MCI\Controllers\TimeLogController.cs" />
+    <Compile Include="Areas\MCI\MCIAreaRegistration.cs" />
+    <Compile Include="Areas\ServiceSpeaks\Controllers\HomeController.cs" />
+    <Compile Include="Areas\ServiceSpeaks\ServiceSpeaksAreaRegistration.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\ArticleController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\CalendarController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\CBOController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\CBOTaskController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\LogController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\MvpOrganizationController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\MVPSiteController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\StoryboardController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LogoutController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\MCIController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\MeridaController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\ReportController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\ServiceHoursController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\SONController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\CKEditorController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\CourseController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\CSSPController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\DatabaseController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\MenuController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\SiteGridController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\SteansController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\ScheduleTasksController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\StudentController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\SystemController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\WebPageController.cs" />
+    <Compile Include="Areas\SHTracker\SHTrackerAreaRegistration.cs" />
+    <Compile Include="Areas\Steans\Controllers\ProjectRequestController.cs" />
+    <Compile Include="Areas\Steans\Controllers\StaffController.cs" />
+    <Compile Include="Areas\Steans\SteansAreaRegistration.cs" />
+    <Compile Include="Bitmap.aspx.cs">
+      <DependentUpon>Bitmap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bitmap.aspx.designer.cs">
+      <DependentUpon>Bitmap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="communityPartners\ServiceLearnersApplication.aspx.cs">
+      <DependentUpon>ServiceLearnersApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="communityPartners\ServiceLearnersApplication.aspx.designer.cs">
+      <DependentUpon>ServiceLearnersApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MeridaController.cs" />
+    <Compile Include="Controllers\MvProjectController.cs" />
+    <Compile Include="Controllers\PublicationController.cs" />
+    <Compile Include="Controllers\WebPageController.cs" />
+    <Compile Include="pdf.ashx.cs">
+      <DependentUpon>pdf.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Account\CheckAccountExists.ashx.cs">
+      <DependentUpon>CheckAccountExists.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Account\CreateMember.aspx.cs">
+      <DependentUpon>CreateMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Account\CreateMember.aspx.designer.cs">
+      <DependentUpon>CreateMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Account\EditMember.aspx.cs">
+      <DependentUpon>EditMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Account\EditMember.aspx.designer.cs">
+      <DependentUpon>EditMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Account\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Account\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Account\MemberManagement.aspx.cs">
+      <DependentUpon>MemberManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Account\MemberManagement.aspx.designer.cs">
+      <DependentUpon>MemberManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Account\RoleManagement.aspx.cs">
+      <DependentUpon>RoleManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Account\RoleManagement.aspx.designer.cs">
+      <DependentUpon>RoleManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CBO\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\CBO\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CBO\CheckCBOExists.ashx.cs">
+      <DependentUpon>CheckCBOExists.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CBO\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\CBO\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CBO\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\CBO\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\ReportHours.aspx.cs">
+      <DependentUpon>ReportHours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\ReportHours.aspx.designer.cs">
+      <DependentUpon>ReportHours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\CSSP\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Log\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Log\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Account\EditMember.aspx.cs">
+      <DependentUpon>EditMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Account\EditMember.aspx.designer.cs">
+      <DependentUpon>EditMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Account\MemberList.aspx.cs">
+      <DependentUpon>MemberList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Account\MemberList.aspx.designer.cs">
+      <DependentUpon>MemberList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Account\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Account\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Account\UnverifiedMemberList.aspx.cs">
+      <DependentUpon>UnverifiedMemberList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Account\UnverifiedMemberList.aspx.designer.cs">
+      <DependentUpon>UnverifiedMemberList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\CommunityPartner\ApplicationDetails.aspx.cs">
+      <DependentUpon>ApplicationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\CommunityPartner\ApplicationDetails.aspx.designer.cs">
+      <DependentUpon>ApplicationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\CommunityPartner\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\CommunityPartner\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Course\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Course\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Course\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Course\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Course\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Course\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Database\Backup.aspx.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Database\Backup.aspx.designer.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Left.aspx.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Left.aspx.designer.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SHTracker\Report\ChooseTerm.aspx.cs">
+      <DependentUpon>ChooseTerm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Report\ChooseTerm.aspx.designer.cs">
+      <DependentUpon>ChooseTerm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Report\MyCourse.aspx.cs">
+      <DependentUpon>MyCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Report\MyCourse.aspx.designer.cs">
+      <DependentUpon>MyCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Right.aspx.cs">
+      <DependentUpon>Right.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Right.aspx.designer.cs">
+      <DependentUpon>Right.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\CommunityPartner\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\CommunityPartner\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\EventRequest\FormDetails.aspx.cs">
+      <DependentUpon>FormDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\EventRequest\FormDetails.aspx.designer.cs">
+      <DependentUpon>FormDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\EventRequest\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\EventRequest\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\EventRequest\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\EventRequest\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Internship\ApplicationDetails.aspx.cs">
+      <DependentUpon>ApplicationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Internship\ApplicationDetails.aspx.designer.cs">
+      <DependentUpon>ApplicationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Internship\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Internship\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Internship\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Steans\Internship\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReporthoursSuccess.aspx.cs">
+      <DependentUpon>ReporthoursSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReporthoursSuccess.aspx.designer.cs">
+      <DependentUpon>ReporthoursSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReportHours_1.aspx.cs">
+      <DependentUpon>ReportHours_1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReportHours_1.aspx.designer.cs">
+      <DependentUpon>ReportHours_1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReportHours_2.aspx.cs">
+      <DependentUpon>ReportHours_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReportHours_2.aspx.designer.cs">
+      <DependentUpon>ReportHours_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReportHours_3.aspx.cs">
+      <DependentUpon>ReportHours_3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReportHours_3.aspx.designer.cs">
+      <DependentUpon>ReportHours_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReportHours_3_cssp.aspx.cs">
+      <DependentUpon>ReportHours_3_cssp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ReportHours_3_cssp.aspx.designer.cs">
+      <DependentUpon>ReportHours_3_cssp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\StudentApp.Master.cs">
+      <DependentUpon>StudentApp.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\StudentApp.Master.designer.cs">
+      <DependentUpon>StudentApp.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ViewHours_3.aspx.cs">
+      <DependentUpon>ViewHours_3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\StudentApp\ViewHours_3.aspx.designer.cs">
+      <DependentUpon>ViewHours_3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Student\Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Student\Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Student\CheckCourseDPUID.ashx.cs">
+      <DependentUpon>CheckCourseDPUID.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Student\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Student\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Student\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Student\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Student\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Student\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Student\ReportHours.aspx.cs">
+      <DependentUpon>ReportHours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Student\ReportHours.aspx.designer.cs">
+      <DependentUpon>ReportHours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Student\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Student\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Top.aspx.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Top.aspx.designer.cs">
+      <DependentUpon>Top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\_SheetLayout.Master.cs">
+      <DependentUpon>_SheetLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\_SheetLayout.Master.designer.cs">
+      <DependentUpon>_SheetLayout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\_Layout.Master.cs">
+      <DependentUpon>_Layout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\_Layout.Master.designer.cs">
+      <DependentUpon>_Layout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\EventRequest.aspx.cs">
+      <DependentUpon>EventRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\EventRequest.aspx.designer.cs">
+      <DependentUpon>EventRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Only\Steans-Center-Operations-Forms.aspx.cs">
+      <DependentUpon>Steans-Center-Operations-Forms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Only\Steans-Center-Operations-Forms.aspx.designer.cs">
+      <DependentUpon>Steans-Center-Operations-Forms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Staff\Only\Steans-Center-Staff-Policy-Procedures-Manual.aspx.cs">
+      <DependentUpon>Steans-Center-Staff-Policy-Procedures-Manual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff\Only\Steans-Center-Staff-Policy-Procedures-Manual.aspx.designer.cs">
+      <DependentUpon>Steans-Center-Staff-Policy-Procedures-Manual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Students\ServiceOpportunities\InternshipApplication.aspx.cs">
+      <DependentUpon>InternshipApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Students\ServiceOpportunities\InternshipApplication.aspx.designer.cs">
+      <DependentUpon>InternshipApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Students\ServiceOpportunities\InternshipApplicationSuccess.aspx.cs">
+      <DependentUpon>InternshipApplicationSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Students\ServiceOpportunities\InternshipApplicationSuccess.aspx.designer.cs">
+      <DependentUpon>InternshipApplicationSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestEmail.aspx.cs">
+      <DependentUpon>TestEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestEmail.aspx.designer.cs">
+      <DependentUpon>TestEmail.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CampusConnect.MediatorLibrary\CampusConnect.MediatorLibrary.csproj">
+      <Project>{5aebd90c-6f4c-4417-ba4e-4e421a651f88}</Project>
+      <Name>CampusConnect.MediatorLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICStars2_0.BusinessLayer\ICStars2_0.BusinessLayer.csproj">
+      <Project>{12F372DF-1165-4539-AA0D-40C2FA90FADD}</Project>
+      <Name>ICStars2_0.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICStars2_0.Common\ICStars2_0.Common.csproj">
+      <Project>{75C70DE0-D470-4C78-A3A1-C1FECE2C4E8F}</Project>
+      <Name>ICStars2_0.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICStars2_0.Components\ICStars2_0.Components.csproj">
+      <Project>{4CD628A6-EF5C-412E-B7A3-7DEDACF48D07}</Project>
+      <Name>ICStars2_0.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICStars2_0.Data\ICStars2_0.Data.csproj">
+      <Project>{510EF3EF-B405-4138-8B07-F6E0F9675283}</Project>
+      <Name>ICStars2_0.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICStars2_0.Framework\ICStars2_0.Framework.csproj">
+      <Project>{EE770120-3671-4E2E-A328-C9C0AC28ECD7}</Project>
+      <Name>ICStars2_0.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICStars2_0.Model\ICStars2_0.Model.csproj">
+      <Project>{64783704-C7FE-43D1-AA25-7F74330DEB9C}</Project>
+      <Name>ICStars2_0.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICStars2_0.Mvc\ICStars2_0.Mvc.csproj">
+      <Project>{842604b3-36b6-41b1-acd0-ee13fb52d9a6}</Project>
+      <Name>ICStars2_0.Mvc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\Account\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\_Layout.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\Account\CheckAccountExists.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\_SheetLayout.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\CBO\CheckCBOExists.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\StudentApp\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\StudentApp\StudentApp.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\Student\CheckCourseDPUID.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SHTracker\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Account.Master" />
+    <Content Include="Account\CheckCampusConnect.ashx" />
+    <Content Include="Account\CheckCampusConnectIDExists.ashx" />
+    <Content Include="pdf.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Settings\Notification\" />
+    <Folder Include="App_Data\Settings\SiteGrid\cbo\" />
+    <Folder Include="App_Data\Settings\SiteGrid\course\" />
+    <Folder Include="Areas\Account\Models\" />
+    <Folder Include="Areas\Account\Views\Shared\" />
+    <Folder Include="Areas\Calendar\Models\" />
+    <Folder Include="Areas\Calendar\Views\Shared\" />
+    <Folder Include="Areas\MCI\Models\" />
+    <Folder Include="Areas\MCI\Views\Shared\" />
+    <Folder Include="Areas\ServiceSpeaks\Models\" />
+    <Folder Include="Areas\SHTracker\Models\" />
+    <Folder Include="Areas\Steans\Models\" />
+    <Folder Include="Images\ServiceSpeaks\" />
+    <Folder Include="log\" />
+    <Folder Include="Servicespeaks2\images\" />
+    <Folder Include="Views\About\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8164</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

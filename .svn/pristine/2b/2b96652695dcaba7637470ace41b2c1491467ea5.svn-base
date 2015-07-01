@@ -1,0 +1,140 @@
+﻿@using ICStars2_0.Mvc
+@model Commengdpu.Models.Project
+
+@{
+    ViewBag.Title = Model.Name + " --Community Engagement DePaul";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+<meta name="description" content="@Model.Name" />
+<meta name="keywords" content="@Model.Name, DePaul Community Engagement" />
+@Html.Style("~/Content/Css/Profile.css")
+}
+<h1>@Model.Name</h1>
+
+    <div id="left">
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Description):
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Description)
+            <hr />
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.PrimaryContactName):
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PrimaryContactName)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.PrimaryContactEmail):
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PrimaryContactEmail)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.PrimaryContactPhone):
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.PrimaryContactPhone)
+            <hr />
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Website):
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Website)
+            <hr />
+        </div>
+
+        <div class="display-label">
+            Location:
+        </div>
+        <div class="display-field">
+            @Model.Address @Model.City @Model.State @Model.ZipCode
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.County):
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.County)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Nation):
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nation)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.StartDate):
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.StartDate)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.EndDate):
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.EndDate)
+            <hr />
+        </div>
+        
+        <div class="display-label">
+            Project Type(s):
+        </div>
+        <div class="display-field">
+            @if (Model.Project2Types.Count > 0)
+            {
+                @Html.Raw(Model.Project2Types.Select(m => m.ProjectType.Name).Aggregate((x, y) => x + "<br />" + y))
+            }
+        </div>
+        
+        <div class="display-label">
+            Project Categories:
+        </div>
+        <div class="display-field">
+            @if (Model.Project2Categories.Count > 0)
+            {
+                @Html.Raw(Model.Project2Categories.Select(m => m.Category.Name).Aggregate((x, y) => x + "<br />" + y))
+            }
+        </div>
+        @if (User.IsInRole("admin") || User.IsInRole("admin_project"))
+        {
+            <div class="display-label">
+                Administrator Operations:
+            </div>
+            <div class="display-field">
+                @Html.ActionLink("Edit", "Edit","Project", new {area="Admin", id = Model.ID,IsFrontEnd=true },null) |
+@Html.ActionLink("Delete", "Delete","Project", new { area = "Admin", id = Model.ID, IsFrontEnd = true },null)
+            </div>
+                }
+            </div>
+    <div id="right">
+        <p>
+            @Html.Raw(Model.Thumbnail)
+        </p>
+        <h3>Community Partners</h3>
+        <ul>
+            @foreach (var cp in Model.Project2CommunityPartners.Select(m => m.CommunityPartner))
+            {
+                <li>@Html.ActionLink(cp.Name,"Index","CommunityPartner",new{id=cp.UniqueUrl},null)</li>
+            }
+        </ul>
+        <br/>
+        <h3>Individual Partners</h3>
+        <ul>
+            @foreach (var ip in Model.Project2IndividualPartners.Select(m => m.IndividualPartner))
+            {
+                <li>@Html.ActionLink(ip.FirstName+", "+ip.LastName, "Index", "IndividualPartner",new{id=ip.UniqueUrl},null)</li>
+            }
+        </ul>
+    </div>
+<div style="clear:both;"></div>

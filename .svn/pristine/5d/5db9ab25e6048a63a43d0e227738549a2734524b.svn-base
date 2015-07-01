@@ -1,0 +1,35 @@
+﻿body {
+}
+section#body {
+            padding: 10px 50px;
+            width: 860px;
+        }
+            section#body h1 {
+                margin-bottom: 20px;
+            }
+
+            section#body div#left {
+                width: 600px;
+                float: left;
+                margin-bottom: 50px;
+            }
+                 section#body div#left div {
+                    min-height: 30px;
+                }
+
+                    section#body div#left div.display-label {
+                        width: 150px;
+                        float: left;
+                        font-weight: bold;
+                    }
+
+                    section#body div#left div.display-field {
+                        width: 430px;
+                        padding-right: 20px;
+                        float: left;
+                    }
+
+            section#body div#right {
+                width: 260px;
+                float: left;
+            }

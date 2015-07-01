@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CommunityPartnerSettings>
+  <FilePath>C:\ICStars\trunk\ICStars2_0\ICStars2_0\App_Data\Settings\CommunityPartnerSettings.xml</FilePath>
+  <ReceiverEmail>hli25@depaul.edu,lihui830501@gmail.com</ReceiverEmail>
+  <EmailTitle>You got a new Service Learners  Application!</EmailTitle>
+  <EmailBody>&lt;p&gt;
+	Hi,&lt;/p&gt;
+&lt;p&gt;
+	&lt;span style="font-size:14px;"&gt;&lt;span style="font-family: arial,helvetica,sans-serif;"&gt;A new organization has applied to become a community partner of the Steans Center!&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+	&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;
+	Organization Name : #OrganizationName#&lt;/h2&gt;
+&lt;p&gt;
+	&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;
+	&lt;span style="font-size:14px;"&gt;Please review their applications at https://steans.depaul.edu/SHTracker or &lt;a href="https://steans.depaul.edu/SHTracker" target="_blank"&gt;Click Login&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+</EmailBody>
+  <IsHtmlEmail>True</IsHtmlEmail>
+  <IsSendingEmail>True</IsSendingEmail>
+</CommunityPartnerSettings>

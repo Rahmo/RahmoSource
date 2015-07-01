@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<repositories>
+  <repository path="..\..\CampusConnect.MediatorLibrary\packages.config" />
+  <repository path="..\ICStars2_0.BusinessLayer\packages.config" />
+  <repository path="..\ICStars2_0.Common\packages.config" />
+  <repository path="..\ICStars2_0.Components\packages.config" />
+  <repository path="..\ICStars2_0.Data\packages.config" />
+  <repository path="..\ICStars2_0.Db\packages.config" />
+  <repository path="..\ICStars2_0.Framework\packages.config" />
+  <repository path="..\ICStars2_0.Model\packages.config" />
+  <repository path="..\ICStars2_0.Mvc\packages.config" />
+  <repository path="..\ICStars2_0\packages.config" />
+</repositories>

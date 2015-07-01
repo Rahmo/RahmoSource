@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MCIEmailSettings>
+  <FilePath>C:\ICStars\trunk\ICStars2_0\ICStars2_0\App_Data\Settings\MCIEmailSettings.xml</FilePath>
+  <ReceiverEmail>hli25@depaul.edu</ReceiverEmail>
+  <EmailTitle>test email notifiction</EmailTitle>
+  <EmailBody>&lt;p&gt;test email notifiction&lt;/p&gt;
+</EmailBody>
+  <IsHtmlEmail>True</IsHtmlEmail>
+  <IsSendingEmail>True</IsSendingEmail>
+</MCIEmailSettings>

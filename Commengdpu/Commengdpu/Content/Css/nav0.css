@@ -1,0 +1,11 @@
+﻿div.nav{
+        background: #F8F8F8;
+        border: solid 1px #CCC;
+        border-radius: 4px;
+        display: block;
+        min-height: 50px;
+        margin: 20px;}
+   div.nav h1 {
+        line-height: 40px;
+        padding: 5px 15px 5px 15px;
+    }

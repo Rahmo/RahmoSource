@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Commengdpu.BusinessLayer.CategoryServices.CategoryNode>
+
+@{
+    ViewBag.Title = "Project Categories";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    <style type="text/css">
+        div#list ul {
+            margin: 0 0 0 20px;
+            background: #ffffff;
+            color: #003366;
+        }
+        div#list {
+            background: #ffffff;
+            margin: 20px;
+        }
+        div#list ul li {
+            line-height: 28px;
+            height: 28px;
+            width: 100%;
+            display: inline-block;
+            position: relative;
+        }
+             div#list ul li a:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+            div#list ul li b {
+                margin-left: 5px;
+                font-weight: normal;
+            }
+             div#list ul li em {
+                 position: absolute;
+                 right: 10px;
+            }
+                div#list ul li em a {
+                    font-size: 12px;
+                    padding: 0 10px 0 10px;
+                } 
+                div#list > ul > li {
+                    font-size: 18px;
+                }
+
+        div#list > ul > li > ul > li {
+            font-size: 16px;
+        }
+
+        div#list > ul > li > ul > li > ul > li {
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("div#list ul li em a").hover(
+                function (event) {
+                    event.stopPropagation();
+                    $(this).closest("li").css({ "background": "#fffacd" });
+                },
+                function (event) {
+                    event.stopPropagation();
+                    $(this).closest("li").css({ "background": "#FFFFFF" });
+                }
+                );
+        });
+    </script>
+}
+<div class="nav"><h1>Project Categories</h1></div>
+<div id="list">
+    <ul>
+        @Html.Raw(Model.Select(n => n.BuildHtml(isShowOperationButtion:true)).Aggregate((x, y) => x + y))
+    </ul>
+</div>

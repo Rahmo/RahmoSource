@@ -1,0 +1,40 @@
+﻿@model ICStars2_0.Model.Article
+
+@{
+    ViewBag.Title = Model.Title +" --DePaul Steans Center";
+    Layout = Model.Layout;
+    var isEditing = Roles.GetRolesForUser(User.Identity.Name).Any(r => r.Equals("admin_steans") || r.Equals("admin_article"));
+}
+@section Head{
+    <meta name="description" content="@Model.Brief" />
+    <meta name="keywords" content="@Model.Keywords" />
+    @if (isEditing)
+    {
+        <script src="~/SHTracker/Scripts/CkEditor/ckeditor.js"></script>
+        <script src="~/SHTracker/Scripts/CkEditor/CheckCompatibility.js"></script>
+        @Styles.Render("~/bundles/ckeditorInlineEditing")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/bundles/jqueryuicss")
+        @Scripts.Render("~/bundles/AdminEditing")
+    }
+    <style type="text/css">
+    body section {
+        width: 940px;
+        padding: 10px;
+        line-height: 18px;
+    }
+</style>
+
+}
+<section @Html.Raw(isEditing ? "id=\"editable\"" : "")>
+    @Html.Raw(Model.Content)
+</section>
+@if (isEditing)
+{
+    <div id="admin_bar">
+        <input type="button" value="SaveToServer" onclick="confirmSave(@Model.ID,$('#editable').html(),'/SHTracker/Article/UpdateContent')" />
+        <input type="button" value="Edit" onclick="editing();" />
+        <input type="button" value="Preview" onclick="preview();" />
+        &nbsp;&nbsp;This bar is only showed for the <b>administrator</b>!
+    </div>
+}

@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Upload<em>@ViewBag.Error</em></h2>
+<fieldset>
+    <legend>Universe Courses</legend>
+    @using (Html.BeginForm("UploadUniverse", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" id="Universe" name="Universe" />
+        <input type="submit" value="Submit" />
+        if (HttpContext.Current.Cache["UploadUniverseFilterdCourseListKey" + DateTime.Now.ToString("MMddyyyyHHmm")] != null)
+        {
+            <text>The File is in cache! If you want to upload new file, please wait until the cache is gone!</text>
+        }
+    }
+</fieldset>
+<fieldset>
+    <legend>Courses For SHTracker</legend>
+    @using (Html.BeginForm("UploadForSHTracker", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" id="Universe" name="Universe" />
+        <input type="submit" value="Submit" />
+      
+    }
+</fieldset>
+<p>
+    This process would take several minutes and might affect SHTracker's performance. You'd better not submit frequently.
+</p>
+<p>Your excel file version must be or newer than 2007 and the file extension name should be ".xlsx"</p>
+    <p>Below is a sample of universe sheet. <b>Please ensure that the sheet has a title row (the first row in the picture). Any difference of column name would cause a failure of uploading data related to that column.</b></p>
+    <p>
+        <img src="/Images/universe_sheet_sample.jpg" />
+    </p>

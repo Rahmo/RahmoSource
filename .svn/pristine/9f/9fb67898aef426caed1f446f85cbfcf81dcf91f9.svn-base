@@ -1,0 +1,39 @@
+﻿@using ICStars2_0.BusinessLayer
+@using ICStars2_0.Model;
+@using ICStars2_0.Mvc
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr", "~/bundles/jquery", "~/bundles/headerfooter")
+        @Styles.Render("~/bundles/website")
+    @Html.Style("~/Content/Css/Layout2.css")
+    @if (ViewBag.IsEditing == null || !ViewBag.IsEditing)
+    {
+        @Html.Style("~/Scripts/JQueryUI2/themes/smoothness/jquery.ui.theme.css", "~/Scripts/JQueryUI2/themes/smoothness/jquery.ui.menu.css")
+        @Html.Script("~/Scripts/JQueryUI2/ui/jquery.ui.core.js", "~/Scripts/JQueryUI2/ui/jquery.ui.position.js", "~/Scripts/JQueryUI2/ui/jquery.ui.widget.js", "~/Scripts/JQueryUI2/ui/jquery.ui.menu.js")
+    }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#subnav ul").menu();
+        });
+    </script>
+    @RenderSection("Head", required: false)
+    
+</head>
+<body>
+    @Html.Partial("Header")
+    <div id="main">
+        <div id="body">
+                        @Html.Partial("SubNavsForLayout")
+            <nav id="navigation">
+                @Html.BuildNavigation()
+            </nav>
+            @RenderBody()
+        </div>
+    </div>
+    @Html.Partial("Footer")
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@using System.Web.Optimization
+@using ICStars2_0.Common
+@using ICStars2_0.Mvc
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="http://www.depaul.edu/_layouts/images/favicon.ico" type="image/vnd.microsoft.icon" />
+    <title>@ViewBag.Title</title>
+    @Html.Style("~/Content/Css/HtmlElements.css", "~/Content/Css/BE/addPartners.css", "~/Content/Css/Layout.css", "~/Content/Css/global.css", "~/Content/Css/a.css", "~/Content/Css/button.css")
+    @Scripts.Render("~/bundles/modernizr", "~/bundles/jquery", "~/bundles/headerfooter")
+    @RenderSection("Head", required: false)
+    <script type="text/javascript">
+        var searchResultUrl = '@Url.Action("GetJsonResultList", "Search", new {area="", k = MathHelper.Md5(Const.ENCRYPT_KEY + DateTime.Now.ToString("yyyyMMddHH")) })'; 
+    </script>
+    @Html.Script("~/Scripts/global.js")
+    @if (ViewBag.IsEditing != null && ViewBag.IsEditing)
+    {
+        <script src="~/Scripts/CkEditor/ckeditor.js"></script>
+        <script src="~/Scripts/CkEditor/CheckCompatibility.js"></script>
+        @Styles.Render("~/bundles/ckeditorInlineEditing")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/bundles/jqueryuicss")
+        @Scripts.Render("~/bundles/AdminEditing")
+    }
+</head>
+<body>
+    @Html.Partial("Header")
+    @if (Request.IsAuthenticated)
+    {
+        <section id="top">
+            <div id="search_bar">
+                <input type="text" placeholder="Search by Project/Individual/Community Partner" /><input type="button" value="Search" id="search" />&nbsp;&nbsp;@Html.ActionLink("Show All Projects", "List", "Project")
+            
+            </div>
+        </section>
+    }
+    <section id="body">
+        @RenderBody()
+        @if (ViewBag.IsEditing != null && ViewBag.IsEditing)
+        {
+            <div id="admin_bar">
+                <input type="button" value="SaveToServer" onclick="confirmSave('@Url.Action(ViewContext.RouteData.Values["Action"].ToString(),ViewContext.RouteData.Values["Controller"].ToString(),new{area=""})',$('#editable').html(),'/Admin/WebPage/UpdateContent')" />
+                <input type="button" value="Edit" onclick="editing();" />
+                <input type="button" value="Preview" onclick="preview();" />
+                &nbsp;&nbsp;This bar is only showed for the <b>administrator</b>!
+            </div>
+        }
+    </section>
+    @Html.Partial("Footer")
+</body>
+</html>

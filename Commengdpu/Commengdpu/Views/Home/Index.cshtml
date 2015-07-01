@@ -1,0 +1,13 @@
+﻿@model Commengdpu.BusinessLayer.Settings.Models.BasePageSettings
+@{
+    ViewBag.Title = "Community Engagement Tracking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    <meta name="description" content="@Model.Description" />
+<meta name="keywords" content="@Model.Keywords" />
+}
+<div class="content">
+    @Html.Raw(Model.Content)
+</div>

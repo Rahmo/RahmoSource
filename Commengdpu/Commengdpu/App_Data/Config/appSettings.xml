@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+	<!-- SQLPlus -->
+	<add key="DefaultConnectionStringKey" value="ced" />
+    <!-- SQLPlus end-->
+    
+  <add key="IsOnline" value="False"/>
+	<add key="domain" value=""/>
+    <add key="host" value="http://localhost:8164"/>
+  <add key="InjectionDllPaths" value="/bin/Commengdpu.BusinessLayer.dll|/bin/Commengdpu.DBLayer.dll"/>
+
+	<!--MVC4-->
+  <add key="webpages:Version" value="2.0.0.0" />
+  <add key="webpages:Enabled" value="false" />
+  <add key="PreserveLoginUrl" value="true" />
+  <add key="ClientValidationEnabled" value="true" />
+  <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+
+</appSettings>

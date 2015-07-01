@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AccountSettings>
+  <FilePath>C:\ICStars\trunk\ICStars2_0\ICStars2_0\App_Data\Settings\AccountSettings.xml</FilePath>
+  <ReceiverEmail>hli25@depaul.edu,lihui830501@gmail.com</ReceiverEmail>
+  <EmailTitle>A New Member Is Requesting  Approval!</EmailTitle>
+  <EmailBody>&lt;p&gt;
+	Hi,&lt;/p&gt;
+&lt;p&gt;
+	We got a &lt;span style="font-size:14px;"&gt;&lt;strong&gt;new approval request&lt;/strong&gt;&lt;/span&gt; of register. Please check here : (&lt;a href="https://steans.depaul.edu/SHTracker/" target="_blank"&gt;https://steans.depaul.edu/SHTracker/&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;
+	&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;
+	Best Regards,&lt;/p&gt;
+&lt;p&gt;
+	Steans Center&lt;/p&gt;
+</EmailBody>
+  <IsHtmlEmail>True</IsHtmlEmail>
+  <IsSendingEmail>True</IsSendingEmail>
+</AccountSettings>

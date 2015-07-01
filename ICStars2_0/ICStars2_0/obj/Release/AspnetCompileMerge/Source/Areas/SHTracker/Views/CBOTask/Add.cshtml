@@ -1,0 +1,245 @@
+﻿@using ICStars2_0.BusinessLayer
+@model ICStars2_0.Model.CBOTask
+
+@{
+    ViewBag.Title = "Add CBO Task";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head {
+    @Styles.Render("~/bundles/Site")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <style type="text/css">
+        h2 {
+            padding-left: 10px;
+        }
+
+        fieldset {
+            margin-left: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#CBOID").change(function() {
+                $.ajax({
+                    url: "/SHTracker/Cbo/GetCboJsonResult/" + $(this).val(),
+                    type: "GET",
+                    success: function (data) {
+                        if (data.Address != null) {
+                            $("#ServSiteAddress").val(data.Address);
+                        }
+                        if (data.ContactFristName != null) {
+                            $("#ServFirstName").val(data.ContactFristName);
+                        }
+                        if (data.ContactLastName != null) {
+                            $("#ServLastname").val(data.ContactLastName);
+                        }
+                        if (data.ContactPhone != null) {
+                            $("#ServPhone").val(data.ContactPhone);
+                        }
+                        if (data.ContactEmail != null) {
+                            $("#ServEmail").val(data.ContactEmail);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    }
+    <h2>Add CBO Task</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>CBOTask</legend>
+            @if (Model != null && Model.ID > 0)
+            {
+                @Html.HiddenFor(m => m.ID)
+            }
+            <div class="editor-label">
+                CBO
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.CBOID, (IEnumerable<SelectListItem>) ViewBag.CBONameIDList)
+            
+                @Html.ValidationMessageFor(model => model.CBOID)
+            </div>
+            <div class="editor-label">
+                SLC
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.SLCID, (IEnumerable<SelectListItem>)ViewBag.SLCList)
+                        @Html.ValidationMessageFor(model => model.SLCID)
+                            </div>
+
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Title)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Quarter_Year)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.Quarter_Year, new[]
+                {
+                    new SelectListItem
+                    {
+                        Text = "Select Term",
+                        Value = "",
+                        Selected = true
+                    }
+                }.Union(Html.BuildQuarterYearSelectListItems()))
+                  
+                @Html.ValidationMessageFor(model => model.Quarter_Year)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Description)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ServSlots)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ServSlots)
+                @Html.ValidationMessageFor(model => model.ServSlots)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ServSchedule)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ServSchedule)
+                @Html.ValidationMessageFor(model => model.ServSchedule)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Orientation)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Orientation)
+                @Html.ValidationMessageFor(model => model.Orientation)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ServSiteAddress)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ServSiteAddress)
+                @Html.ValidationMessageFor(model => model.ServSiteAddress)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ServSalutation)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ServSalutation)
+                @Html.ValidationMessageFor(model => model.ServSalutation)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ServFirstName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ServFirstName)
+                @Html.ValidationMessageFor(model => model.ServFirstName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ServLastname)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ServLastname)
+                @Html.ValidationMessageFor(model => model.ServLastname)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ServPhone)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ServPhone)
+                @Html.ValidationMessageFor(model => model.ServPhone)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ServEmail)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ServEmail)
+                @Html.ValidationMessageFor(model => model.ServEmail)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Website)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Website)
+                                @Html.ValidationMessageFor(model => model.Website)
+                                    </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Virtus)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Virtus)
+                @Html.ValidationMessageFor(model => model.Virtus)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BackgroundCheck)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BackgroundCheck)
+                @Html.ValidationMessageFor(model => model.BackgroundCheck)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ConfidentialityAgreement)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ConfidentialityAgreement)
+                @Html.ValidationMessageFor(model => model.ConfidentialityAgreement)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Fingerprints)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Fingerprints)
+                @Html.ValidationMessageFor(model => model.Fingerprints)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.TBTest)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.TBTest)
+                @Html.ValidationMessageFor(model => model.TBTest)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OtherDetails)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.OtherDetails)
+                @Html.ValidationMessageFor(model => model.OtherDetails)
+            </div>
+
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+

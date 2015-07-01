@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<customErrors mode="Off" defaultRedirect="Error.html">
+    <error statusCode="403" redirect="NoAccess.html" />
+    <error statusCode="404" redirect="FileNotFound.html" />
+</customErrors>

@@ -1,0 +1,112 @@
+﻿@model ICStars2_0.Model.MeridaExtensionApplication
+
+@{
+    ViewBag.Title = "SpringExtensionApplicationDetails";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    @Styles.Render("~/bundles/Site")
+    <style type="text/css">
+        .display-label{font-weight:bold;}
+        .display-field {
+            margin-bottom: 20px;
+        }
+        fieldset {
+            width: 720px;
+            margin: 0 auto;
+        }
+    </style>
+}
+<h2>Merida Spring Quarter Extensio nApplication Details</h2>
+
+<fieldset>
+    <legend>@Model.Name</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CampusConnectID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CampusConnectID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Major)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Major)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SpanishLanguageCoursesCompleted)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SpanishLanguageCoursesCompleted)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.WhatCoursesPriorToMerida)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WhatCoursesPriorToMerida)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InterestInMerida_Why)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InterestInMerida_Why)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SkillsStrengths)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SkillsStrengths)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Challenges_HowToOvercome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Challenges_HowToOvercome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HowProgramContributeToCareer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HowProgramContributeToCareer)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ExperienceInMerida_HowRelatesToCSS201)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExperienceInMerida_HowRelatesToCSS201)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Characteristics)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Characteristics)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.YearOfApplication)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.YearOfApplication)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "SpringExtensionApplications")
+</p>

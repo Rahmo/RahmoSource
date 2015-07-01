@@ -1,0 +1,135 @@
+﻿@model IEnumerable<ICStars2_0.Model.Student>
+
+@{
+    ViewBag.Title = "PreviewUploading";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{@Scripts.Render("~/bundles/jquery")
+    <style type="text/css">
+        form input, form select {
+            width: 100px;
+        }
+        #ddlpanel {
+            display: none;
+        }
+        #cbolist, #cbolist option {
+            z-index: 999;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("tr:even").addClass("bg_f9f5f6");
+            $("tr:gt(0)").hover(
+                function() {
+                    $(this).addClass("hover");
+                },
+                function() {
+                    $(this).removeClass("hover");
+                }
+            );
+            $("tr td:first-child").hover(function() {
+                    $("#editcbo").remove();
+                    $("<input id=\"editcbo\" type=\"button\" value=\"Edit\" onclick=\"editCBO(this);\" />").appendTo($(this));
+                },
+                function() {
+                    $("#editcbo").remove();
+                });
+            $("#cbolist").change(function() {
+                $(this).after("<input id=\"doneediting\" type=\"button\" value=\"done\" onclick=\"doneEditing(this);\"/>");
+                $(this).siblings("input[type='hidden']").val($("#cbolist").val());
+            });
+
+        });
+
+        function doneEditing(sender) {
+            $(sender).siblings("b").html($("#cbolist option:selected").text());
+            $("#ddlpanel").append($("#cbolist"));
+            $("#doneediting").remove();
+        }
+
+        function editCBO(sender) {
+            var text = $(sender).siblings("b").text();
+            if ($(sender).siblings("#cbolist").html()!=undefined) {
+                return;
+            }
+            $(sender).siblings("b").html("");
+            $(sender).siblings("b").after($("#cbolist"));
+            var v = $("#cbolist option").filter(function() { return $(this).text() == text; }).val();
+            $("#cbolist").val(v);
+            $("#editcbo").remove();
+        }
+    </script>
+
+}
+<h2>PreviewUploading</h2>
+
+@using (Html.BeginForm("UploadStudents", "Student"))
+{
+    <table style="width: 100%;">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CBOName)
+            </th>
+            <th>
+                Course Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DPU_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredServeHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsProject)
+            </th>
+        </tr>
+        @{ var students = Model.ToArray(); }
+        @for (int i = 0; i < students.Length; i++)
+        {
+            <tr>
+                <td>
+                    <b>@students[i].CBOName</b>
+                    @Html.HiddenFor(m => students[i].CBOID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => students[i].CourseSubject)
+                    @Html.HiddenFor(modelItem => students[i].CourseID)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => students[i].FirstName)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => students[i].LastName)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => students[i].DPU_ID)
+                </td>
+                <td>
+                    @Html.TextBoxFor(modelItem => students[i].Email, new {@style = "width:250px;"})
+                </td>
+                <td>
+                    @Html.TextBoxFor(modelItem => students[i].RequiredServeHours, new {@style = "width:50px;"})
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => students[i].IsProject)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br/>
+    <input type="submit" value="Submit"/>
+}
+<div id="ddlpanel">
+    @Html.DropDownList("cbolist", (IEnumerable<SelectListItem>)ViewBag.CBONameIDList)
+</div>

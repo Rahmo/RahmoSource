@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ICStars2_0.Model.LoginLogsReport>
+
+@{
+    ViewBag.Title = "LoginReport";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LoginReport</h2>
+
+
+<table width="100%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CampusConnectID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoginTimes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CampusConnectID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoginTimes)
+        </td>
+    </tr>
+}
+
+</table>

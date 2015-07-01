@@ -1,0 +1,78 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using ICStars.Data;
+using ICStars2_0.Common;
+using ICStars2_0.Common.Reflection;
+using ICStars2_0.Model;
+
+namespace ICStars2_0.Db
+{
+
+    #region = DBLayer Role =
+    public static class DB_Role
+    {
+        private const string ConnectionKey = "icstars";
+        public static int Count()
+        {
+            return Convert.ToInt32(SQLPlus.ExecuteScalar(ConnectionKey, CommandType.Text, "SELECT COUNT(*) FROM Role WITH(NOLOCK)"));
+        }
+        public static DataTable List(int pageIndex, int pageSize)
+        {
+            FastPaging fp = new FastPaging();
+            fp.PageIndex = pageIndex;
+            fp.PageSize = pageSize;
+            fp.TableName = "Role";
+            fp.QueryFields = "[ID],[Name],[RoleType]";
+            fp.PrimaryKey = "ID";
+            fp.Ascending = FastPaging.IsAscending("ASC");
+            fp.WithOptions = "WITH(NOLOCK)";
+            return SQLPlus.ExecuteDataTable(ConnectionKey, CommandType.Text, fp.Build2005());
+        }
+        public static DataRow RoleInfo(int ID)
+        {
+
+            SqlParameter[] parms = new[]{
+                        new SqlParameter("@ID",SqlDbType.Int)
+                    };
+
+            parms[0].Value = ID;
+
+            return SQLPlus.ExecuteDataRow(ConnectionKey, CommandType.Text, "SELECT * FROM Role WITH(NOLOCK) WHERE ID=@ID", parms);
+        }
+
+        public static int Add(Role role)
+        {
+            SqlParameter[] parms = ParameterHelper.GetClassSqlParameters(role);
+
+            return Convert.ToInt32(SQLPlus.ExecuteScalar(ConnectionKey, CommandType.Text, " SET NOCOUNT ON; INSERT INTO [Role]([Name],[RoleType] ) SELECT @Name,@RoleType; SELECT ISNULL(@@IDENTITY,0);", parms));
+
+        }
+
+        public static int Update(Role role)
+        {
+            SqlParameter[] parms = ParameterHelper.GetClassSqlParameters(role);
+
+            return (int)SQLPlus.ExecuteScalar(ConnectionKey, CommandType.Text, " SET NOCOUNT ON; UPDATE [Role]  SET [Name]=@Name,[RoleType]=@RoleType WHERE [ID]=@ID; SELECT @ID AS i;", parms);
+        }
+
+        public static int Delete(int ID)
+        {
+            SqlParameter[] parms = new[] {
+                            new SqlParameter("@ID",SqlDbType.Int)
+                     };
+            parms[0].Value = ID;
+            return SQLPlus.ExecuteNonQuery(ConnectionKey, CommandType.Text, "DELETE FROM Role WHERE ID = @ID;", parms);
+        }
+        public static bool Exists(int ID)
+        {
+            SqlParameter[] parms = new[] {
+                                new SqlParameter("@ID",SqlDbType.Int)
+                         };
+            parms[0].Value = ID;
+            return Convert.ToInt32(SQLPlus.ExecuteScalar(ConnectionKey, CommandType.Text, "SELECT COUNT(*) FROM Role WITH(NOLOCK) WHERE ID = @ID;", parms)) > 0;
+        }
+
+    }
+    #endregion
+}

@@ -1,0 +1,114 @@
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using ICStars2_0.Common.Reflection;
+using ICStars2_0.Model.Enum;
+
+namespace ICStars2_0.Model
+{
+
+    #region = CalendarEventRepeatSettings =
+    [Serializable]
+    [Table("CalendarEventRepeatSettings", Schema = Const.Schema)]
+    public class CalendarEventRepeatSettings
+    {
+        public CalendarEventRepeatSettings() { }
+
+        public CalendarEventRepeatSettings(CalendarEventRepeatSettingsAdapter adapter)
+        {
+            StartDate = string.IsNullOrEmpty(adapter.RepeatStartDate) ? DateTime.Now : Convert.ToDateTime(adapter.RepeatStartDate);
+            if( !string.IsNullOrEmpty(adapter.RepeatEndDate))
+            {
+                EndDate = Convert.ToDateTime(adapter.RepeatEndDate);
+            }
+            FrequencyType = adapter.RepeatFrequencyType;
+            FrequencyValue = adapter.RepeatFrequencyValue;
+            if (adapter.RepeatFrequencyTypeEnum == CalendarEventRepeatFrequencyType.Weekly)
+            {
+                EnumWeekdaysIfWeekly =
+                    adapter.repeatOn.Select(s => (WeekDay) System.Enum.Parse(typeof (WeekDay), s))
+                        .Aggregate((x, y) => x | y);
+            }
+        }
+        #region = Properties =
+
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [ForeignKey("CalendarEvent")]
+        public int CalendarEventID { get; set; }
+
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public int FrequencyType { get; set; }
+        public int FrequencyValue { get; set; }
+        public string WeekdaysIfWeekly { get; set; }
+
+        public WeekDay EnumWeekdaysIfWeekly
+        {
+            get { return string.IsNullOrEmpty(WeekdaysIfWeekly) ? WeekDay.Null : (WeekDay)System.Enum.Parse(typeof(WeekDay), WeekdaysIfWeekly); }
+            set { WeekdaysIfWeekly = value.ToString(); }
+        }
+        /// <summary>
+        /// FrequencyType Adapter
+        /// </summary>
+        [NotMapped]
+        public CalendarEventRepeatFrequencyType FrequencyEnumType
+        {
+            get { return (CalendarEventRepeatFrequencyType)FrequencyType; }
+            set { FrequencyType = (int)value; }
+        }
+
+        #endregion
+
+        public virtual CalendarEvent CalendarEvent { get; set; }
+        
+    }
+
+    public class CalendarEventRepeatSettingsAdapter
+    {
+        public CalendarEventRepeatSettingsAdapter()
+        {
+            
+        }
+
+        public CalendarEventRepeatSettingsAdapter(CalendarEventRepeatSettings repeatSettings)
+        {
+            if (repeatSettings == null) return;
+            IsRepeated = true;
+            RepeatStartDate = repeatSettings.StartDate.ToString("MM/dd/yyyy");
+            RepeatEndDate = repeatSettings.EndDate != null
+                ? ((DateTime) repeatSettings.EndDate).ToString("MM/dd/yyyy")
+                : null;
+            RepeatFrequencyType = repeatSettings.FrequencyType;
+            RepeatFrequencyValue = repeatSettings.FrequencyValue;
+            WeekdaysIfWeekly = repeatSettings.EnumWeekdaysIfWeekly;
+
+        }
+        public bool IsRepeated { get; set; }
+        public string RepeatStartDate { get; set; }
+        public string RepeatEndDate { get; set; }
+        public int RepeatFrequencyType { get; set; }
+
+        public CalendarEventRepeatFrequencyType RepeatFrequencyTypeEnum
+        {
+            get { return (CalendarEventRepeatFrequencyType) RepeatFrequencyType; }
+        }
+
+        public int RepeatFrequencyValue { get; set; }
+        public CalendarEventRepeatFrequencyValue RepeatFrequencyValueEnum
+        {
+            get { return (CalendarEventRepeatFrequencyValue)RepeatFrequencyValue; }
+        }
+        /// <summary>
+        /// store values from web request.
+        /// </summary>
+        public string[] repeatOn { get; set; }
+        /// <summary>
+        /// store values from database
+        /// </summary>
+        public WeekDay WeekdaysIfWeekly { get; set; }
+    }
+    #endregion
+            
+}

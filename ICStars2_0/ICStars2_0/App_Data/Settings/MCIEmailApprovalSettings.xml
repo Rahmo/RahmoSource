@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MCIEmailApprovalSettings>
+  <FilePath>C:\ICStars\trunk\ICStars2_0\ICStars2_0\App_Data\Settings\MCIEmailApprovalSettings.xml</FilePath>
+  <ReceiverEmail>hli25@depaul.edu</ReceiverEmail>
+  <EmailTitle>test approval seetings</EmailTitle>
+  <EmailBody>&lt;p&gt;test approval seetings&lt;/p&gt;
+</EmailBody>
+  <IsHtmlEmail>True</IsHtmlEmail>
+  <IsSendingEmail>True</IsSendingEmail>
+</MCIEmailApprovalSettings>

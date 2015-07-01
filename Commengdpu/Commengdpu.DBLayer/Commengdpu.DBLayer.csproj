@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D811344-1C31-4360-8734-117CD4C265AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Commengdpu.DBLayer</RootNamespace>
+    <AssemblyName>Commengdpu.DBLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dll\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbUser2Role.cs" />
+    <Compile Include="DbRole.cs" />
+    <Compile Include="DbUser.cs" />
+    <Compile Include="DbCategory.cs" />
+    <Compile Include="DbCommunityPartner.cs" />
+    <Compile Include="DbCommunityPartner2IndividualPartner.cs" />
+    <Compile Include="DbIndividualPartner.cs" />
+    <Compile Include="DbProject2Type.cs" />
+    <Compile Include="DbProject2IndividualPartner.cs" />
+    <Compile Include="DbProject2CommunityPartner.cs" />
+    <Compile Include="DbProject2Category.cs" />
+    <Compile Include="DbProjectType.cs" />
+    <Compile Include="DB_RoleManager.cs" />
+    <Compile Include="IDbUser2Role.cs" />
+    <Compile Include="IDbRole.cs" />
+    <Compile Include="IDbUser.cs" />
+    <Compile Include="IDbCommunityPartner2IndividualPartner.cs" />
+    <Compile Include="IDbProject2Type.cs" />
+    <Compile Include="IDbProjectType.cs" />
+    <Compile Include="IDbCategory.cs" />
+    <Compile Include="IDbCommunityPartner.cs" />
+    <Compile Include="IDbIndividualPartner.cs" />
+    <Compile Include="IDbProject.cs" />
+    <Compile Include="DbProject.cs" />
+    <Compile Include="IDbProject2IndividualPartner.cs" />
+    <Compile Include="IDbProject2CommunityPartner.cs" />
+    <Compile Include="IDbProject2Category.cs" />
+    <Compile Include="IDB_RoleManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ICStars2_0\ICStars2_0.Common\ICStars2_0.Common.csproj">
+      <Project>{75c70de0-d470-4c78-a3a1-c1fece2c4e8f}</Project>
+      <Name>ICStars2_0.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ICStars2_0\ICStars2_0.Framework\ICStars2_0.Framework.csproj">
+      <Project>{ee770120-3671-4e2e-a328-c9c0ac28ecd7}</Project>
+      <Name>ICStars2_0.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commengdpu.Models\Commengdpu.Models.csproj">
+      <Project>{1b212c6a-ddec-4972-a5c3-d50f2f98bf6c}</Project>
+      <Name>Commengdpu.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

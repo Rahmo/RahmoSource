@@ -1,0 +1,3 @@
+﻿section#body {
+    min-height: 650px;
+}

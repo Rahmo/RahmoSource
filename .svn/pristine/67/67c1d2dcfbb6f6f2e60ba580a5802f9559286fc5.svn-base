@@ -1,0 +1,54 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+        @Styles.Render("~/bundles/mobileCss")
+        @Scripts.Render("~/bundles/modernizr")
+        @RenderSection("Head", required: false)
+        <script src="~/Scripts/jquery-1.8.3.min.js"></script>
+        <script>
+            $(document).on("mobileinit", function () {
+                $.mobile.ajaxEnabled = false;
+            });
+        </script>
+        @Scripts.Render("~/bundles/jquerymobile")
+    </head>
+<body>
+    <div data-role="page" data-theme="b">
+        <div data-role="header">
+            @if (IsSectionDefined("Top"))
+            {
+                @RenderSection("Top")
+            }
+            else
+            {
+                <h1>@ViewBag.Title</h1>
+                if (Request.IsAuthenticated)
+                 {
+@Html.ActionLink("Logout", "Index", "Logout", null, new { data_icon = "arrow-l", data_rel = "back" })
+                <span style="float:right" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-left ui-btn-up-a">@User.Identity.Name</span>
+
+                 }
+                else
+                {
+                     @Html.ActionLink("Log in", "Index", "Login", routeValues: null, htmlAttributes: new {data_icon = "gear"})
+                 }
+            }
+        </div>
+        <div data-role="content">
+            @if (Request.IsAuthenticated)
+            {
+                <p>
+                    Logged in as <strong>@User.Identity.Name</strong>.
+                </p>
+            }
+            @RenderBody()
+        </div>
+    </div>
+
+</body>
+</html>

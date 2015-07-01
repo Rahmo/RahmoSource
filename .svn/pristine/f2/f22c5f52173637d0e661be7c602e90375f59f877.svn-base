@@ -1,0 +1,23 @@
+﻿@using ICStars2_0.Common
+@using ICStars2_0.Mvc
+@{
+    ViewBag.Title = "Map Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{<meta name="description" content="Map Search, DePaul Community Engagement" />
+<meta name="keywords" content="Community Partner, DePaul Community Engagement" />
+@Html.Style("~/Content/Css/Map/index.css")
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    
+    <script type="text/javascript">
+        var mapResultUrl = '@Url.Action("GetJsonResultList", "Map", new {area="", k = MathHelper.Md5(Const.ENCRYPT_KEY + DateTime.Now.ToString("yyyyMMddHH")) })';
+    </script>
+@Html.Script("~/Scripts/Map/index.js")
+}
+<h1>Map Search</h1>
+<div id="search_map">
+    <input id="address" type="text" placeholder="address/city/zipcode/State/Nation"/><input type="button" id="btnSearch" value="Search Map" />
+    <p>Note: If you do not see the proper projects, please enter a more specific address.</p>
+</div>
+<div id="map-canvas"></div>

@@ -1,0 +1,124 @@
+﻿@using ICStars2_0.Model
+@model IEnumerable<ICStars2_0.Model.son_student>
+
+@{
+    ViewBag.Title = "Student Match";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    <style type="text/css">
+        th.title{ font-size: 18px;text-align: left;}
+        td.bg_gray{ background-color: #bbbbbb;}
+    </style>
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        function setPlacement(stuid, identity, sender,name,cpid) {
+            if ($(sender).get(0).checked == true) {
+                $.getJSON("/SHTracker/son/SetPlacement", "stuid=" + stuid + "&identity=" + identity + "&isDelete=0&cpid="+cpid, function (data) {
+                    if (data.Result == false) {
+                        alert(data.Msg);
+                        $(sender).get(0).checked = false;
+                    }
+                });
+            } else {
+                $.get("/SHTracker/son/SetPlacement", "stuid=" + stuid + "&identity=3&isDelete=1&cpid="+cpid, function (data) {
+                    
+                });
+            }
+        }
+    </script>
+}
+<h2>Student Match (* means CBO preference)</h2>
+@foreach (son_cboprogram cbo in ViewBag.CBOs)
+{
+    <table width="100%">
+        <tr>
+            <th colspan="6" class="title">@cbo.CBOName : @cbo.ProgramName (@cbo.Slots-Slots) <em>(@cbo.Location)</em></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                Student Name
+            </th>
+            <th>
+                1st Choice
+            </th>
+            <th>
+                2nd Choice
+            </th>
+            <th>
+                3rd Choice
+            </th>
+            <th>
+                Placement
+            </th>
+        </tr>
+        @{ var cboChoices = (IEnumerable<son_cbochoice>)
+                            ViewBag.CBOChoices;}
+        @foreach (var item in Model.Where(m=>m.CPID1==cbo.CPID).OrderBy(m=>m.Name)) {
+            <tr>
+                <td><b>@(cboChoices.Any(c=>c.CPID==cbo.CPID && c.StudentID==item.StudentID)?"*":"")</b></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td class="bg_gray">
+                    Yes
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.Placement1,new{@onclick="setPlacement("+item.StudentID+",1,this,'"+item.Name+"',"+cbo.CPID+");"})
+                </td>
+        
+            </tr>
+        }
+        @foreach (var item in Model.Where(m=>m.CPID2==cbo.CPID).OrderBy(m=>m.Name)) {
+            <tr>
+                <td><b>@(cboChoices.Any(c=>c.CPID==cbo.CPID && c.StudentID==item.StudentID)?"*":"")</b></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    
+                </td>
+                <td class="bg_gray">
+                    Yes
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.Placement2,new{@onclick="setPlacement("+item.StudentID+",2,this,'"+item.Name+"',"+cbo.CPID+");"})
+                </td>
+        
+            </tr>
+        }
+        @foreach (var item in Model.Where(m=>m.CPID3==cbo.CPID).OrderBy(m=>m.Name)) {
+            <tr>
+                <td><b>@(cboChoices.Any(c=>c.CPID==cbo.CPID && c.StudentID==item.StudentID)?"*":"")</b></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                    
+                </td>
+                <td class="bg_gray">
+                    Yes
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.Placement3,new{@onclick="setPlacement("+item.StudentID+",3,this,'"+item.Name+"',"+cbo.CPID+");"})
+                </td>
+        
+            </tr>
+        }
+
+    </table>
+}
+

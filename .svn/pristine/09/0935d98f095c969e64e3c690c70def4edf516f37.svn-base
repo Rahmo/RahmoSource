@@ -1,0 +1,166 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Web;
+using ICStars2_0.Common;
+using ICStars2_0.Common.Lambda;
+using ICStars2_0.Framework;
+using ICStars2_0.Model;
+using ICStars2_0.Model.DbContexts;
+using ICStars2_0.Model.Settings;
+
+namespace ICStars2_0.BusinessLayer.ArticleServices
+{
+    internal class ArticleFactory : IArticleFactory, ISingletonRegister
+    {
+        /// <summary>
+        /// Build a Lambda expression as a condition to filter articles
+        /// </summary>
+        /// <param name="db">ArticleDbContext</param>
+        /// <param name="settings">ArticleCollectionSettings</param>
+        /// <returns>Lambda expression for "Where"</returns>
+        private Expression<Func<Article, bool>> BuildPredicate(ArticleDbContext db, ArticleCollectionSettings settings)
+        {
+            var predicate = PredicateBuilder.True<Article>();
+
+            if (settings != null)
+            {
+                if (settings.IsVisible != null)
+                {
+                    predicate = predicate.And(a => a.IsVisible == settings.IsVisible);
+                }
+                //Show only articles that have a category id "***"
+                if (settings.CategoryID != null)
+                {
+                    predicate =
+                        predicate.And(a =>
+                            db.Article2Categories.Any(
+                                a2c => a2c.ArticleID == a.ID && a2c.CategoryID == settings.CategoryID));
+                }
+                //Show only articles that have a category name "***"
+                if (!string.IsNullOrEmpty(settings.CategoryName))
+                {
+                    predicate =
+                        predicate.And(a =>
+                            db.Article2Categories.Any(
+                                a2c =>
+                                    a2c.ArticleID == a.ID &&
+                                    db.Categories.Any(
+                                        c => c.ID == a2c.CategoryID && c.Name.Equals(settings.CategoryName))));
+                }
+                //Article could only be visible when it is not earlier than its publish date
+                predicate = predicate.And(a => a.PublishDate < DateTime.Now);
+                
+            }
+            return predicate;
+        } 
+        public IArticleCollection BuildArticles(int pagesize, int pageindex, ArticleCollectionSettings settings=null)
+        {
+            using (var db = new ArticleDbContext())
+            {
+                var predicate = BuildPredicate(db, settings);
+
+                return new ArticleCollection(db.Articles.AsNoTracking()
+                    .Where(predicate)
+                    .OrderByDescending(a => a.ID)
+                    .Skip((pageindex - 1)*pagesize)
+                    .Take(pagesize)
+                    .Select(
+                        a =>
+                            new
+                            {
+                                a.ID,
+                                a.Title,
+                                a.Brief,
+                                a.UrlTitle,
+                                a.Author,
+                                a.PublishDate,
+                                a.CreateDate,
+                                //a.EventDate,
+                                a.IsVisible,
+                                a.Layout,
+                                a.Thumbnail,
+                                CategoryName = db.Categories.FirstOrDefault(c=>db.Article2Categories.Any(a2c=>a2c.ArticleID==a.ID && a2c.CategoryID==c.ID)).Name
+                            })
+                    .ToList()
+                    .Select(
+                        a =>
+                            new Article()
+                            {
+                                ID = a.ID,
+                                Title = a.Title,
+                                Brief = a.Brief,
+                                UrlTitle = a.UrlTitle,
+                                Author = a.Author,
+                                PublishDate = a.PublishDate,
+                                CreateDate = a.CreateDate,
+                                //EventDate = a.EventDate,
+                                IsVisible = a.IsVisible,
+                                Layout = a.Layout,
+                                Thumbnail=a.Thumbnail,
+                                CategoryName=a.CategoryName
+                            }),
+                    db.Articles.AsNoTracking().Where(predicate).Count())
+                {
+                    PageIndex = pageindex,
+                    PageSize = pagesize
+                };
+            }
+        }
+
+        public IArticleCollection BuildTopArticles(int top, ArticleCollectionSettings settings = null)
+        {
+            var cacheSettings = new CacheHelper.Settings("ICStars2_0.BusinessLayer.ArticleServices.BuildTopArticles",
+                settings);
+            var cache = CacheHelper.GetCache<IArticleCollection>(cacheSettings);
+            if (cache != null)
+            {
+                return cache;
+            }
+            using (var db = new ArticleDbContext())
+            {
+
+                var predicate = BuildPredicate(db, settings);
+                return CacheHelper.BuildCache(new ArticleCollection(db.Articles.AsNoTracking()
+                    .Where(predicate)
+                    .OrderByDescending(a => a.ID)
+                    .Take(top)
+                    .Select(a => new {a.Title, a.Brief, a.UrlTitle,a.ShortTitle,a.Thumbnail
+                        //,a.EventDate
+                        ,a.PublishDate})
+                    .ToList().Select(a => new Article() { Title = a.Title, ShortTitle = a.ShortTitle, Brief = a.Brief, UrlTitle = a.UrlTitle, Thumbnail = a.Thumbnail
+                        //, EventDate= a.EventDate
+                        , PublishDate=a.PublishDate }),
+                    top)
+                {
+                    PageIndex = 1,
+                    PageSize = top
+                }, cacheSettings);
+            }
+        }
+
+        public Model.Article BuildArticle(string urlTitle)
+        {
+            using (var db = new ArticleDbContext())
+            {
+                return db.Articles.FirstOrDefault(a => a.UrlTitle.Equals(urlTitle));
+            }
+        }
+
+        public Category GetCategory(string urlTitle)
+        {
+            using (var db = new ArticleDbContext())
+            {
+                return
+                    db.Categories.Where(
+                        c =>
+                            db.Article2Categories.Any(
+                                a2c =>
+                                    a2c.CategoryID == c.ID &&
+                                    db.Articles.Any(a => a.UrlTitle.Equals(urlTitle) && a.ID == a2c.ArticleID))).First();
+            }
+        }
+    }
+}

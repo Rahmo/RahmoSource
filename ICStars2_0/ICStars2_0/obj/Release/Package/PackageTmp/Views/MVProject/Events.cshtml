@@ -1,0 +1,171 @@
+﻿@model IEnumerable<ICStars2_0.Model.Article>
+
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="container" style="margin-left: 20%">
+
+    <br />
+
+    <div class="" style="padding-left: 60px">
+        <h1 class="PageTitle">Upcoming Events</h1>
+      
+        @if(Model.Any(a => a.EventDate >= DateTime.Now) == false)
+        {
+        <b>There are no upcoming events.</b>
+        }
+        <ul>
+
+            @foreach (var article in Model.Where(a => a.EventDate >= DateTime.Now))
+            {
+
+               
+
+                <li>
+                    <div class="dd_events_thumb">
+
+
+                        @Html.Raw(article.Thumbnail)
+
+                    </div>
+
+
+                    <div class="dd_events_top clearfix">
+
+
+                        <div class="dateContainer">
+                            @if (article.EventDate >= DateTime.Now)
+                            {
+
+
+                                <span class="month">@article.EventDate.Value.ToString("MMMM")</span>
+                                <span class="day">@article.EventDate.Value.ToString("dd")</span>
+                            }
+                        </div>
+
+                        <div class="postTitle">
+
+                            <h1>
+                                @Html.ActionLink(article.Title, "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "link_blue", @target = "_blank", @title = article.Title })
+                            </h1>
+
+                        </div>
+
+
+                    </div>
+
+                    <p>@article.Brief</p>
+                    <div class="dd_events_btn">
+
+                        <a class="facebookBtn button-small" href="#"><i class="icon-facebook"></i>Events page on Faceebook </a>
+                        <div class="fb-share-button" data-href="https://steans.depaul.edu/Event/@article.UrlTitle" data-layout="button"></div>
+
+                        <span class="or">OR</span>
+
+
+                        @*<a class="continue button-small-theme" href="#">MORE INFO</a>*@
+                        @Html.ActionLink("MORE INFO", "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @target = "_blank", @title = article.Title })
+                        @*@Html.Action("Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @title = article.Title });*@
+
+                    </div>
+
+                </li>
+            }
+
+
+
+
+
+        </ul>
+
+
+
+
+
+
+
+
+
+        <h1 class="PageTitle">past events</h1>
+        @if (Model.Any(a => a.EventDate <= DateTime.Now) == false)
+        {
+            <b>There are no past events.</b>
+        }
+        <ul>
+
+            @foreach (var article in Model.Where(a => a.EventDate <= DateTime.Now))
+            {
+                <li>
+                    <div class="dd_events_thumb">
+
+
+                        @Html.Raw(article.Thumbnail)
+
+                    </div>
+
+
+                    <div class="dd_events_top clearfix">
+
+
+                        <div class="dateContainer">
+
+
+                            <span class="month">@article.EventDate.Value.ToString("MMMM")</span>
+                            <span class="day">@article.EventDate.Value.ToString("dd")</span>
+
+                        </div>
+
+                        <div class="postTitle">
+
+                            <h1>
+                                @Html.ActionLink(article.Title, "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "link_blue", @target = "_blank", @title = article.Title })
+                            </h1>
+
+                        </div>
+
+
+                    </div>
+
+                    <p>@article.Brief</p>
+                    <p>@article.CommunitySite</p>
+                    <div class="dd_events_btn">
+
+
+                        <a class="facebookBtn button-small" href="https://www.facebook.com/events/362692700601015/?ref_dashboard_filter=calendar"><i class="icon-facebook"></i>Events page on Faceebook </a>
+                        <div class="fb-share-button" data-href="http://localhost:8164/Event/@article.UrlTitle" data-layout="button_count"></div>
+
+                        <span class="or">OR</span>
+
+
+                        @*<a class="continue button-small-theme" href="#">MORE INFO</a>*@
+                        @Html.ActionLink("More Info", "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @target = "_blank", @title = article.Title })
+                    </div>
+
+                </li>
+            }
+
+
+
+
+
+        </ul>
+
+
+
+    </div>
+
+
+</div>
+

@@ -1,0 +1,61 @@
+﻿@using ICStars2_0.BusinessLayer
+@using ICStars2_0.Model;
+@using ICStars2_0.Mvc
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr", "~/bundles/jquery", "~/bundles/headerfooter")
+    @Styles.Render("~/bundles/website")
+    @Html.Style("~/Content/Css/Layout1.css")
+    @if (ViewBag.IsEditing == null || !ViewBag.IsEditing)
+    {
+        @Html.Style("~/Scripts/JQueryUI2/themes/smoothness/jquery.ui.theme.css", "~/Scripts/JQueryUI2/themes/smoothness/jquery.ui.menu.css")
+        @Html.Script("~/Scripts/JQueryUI2/ui/jquery.ui.core.js", "~/Scripts/JQueryUI2/ui/jquery.ui.position.js", "~/Scripts/JQueryUI2/ui/jquery.ui.widget.js", "~/Scripts/JQueryUI2/ui/jquery.ui.menu.js")
+    }
+    @*<script type="text/javascript">
+        $(document).ready(function () {
+            $("#subnav ul").menu();
+        });
+    </script>
+    @RenderSection("Head", required: false)*@
+
+    <!-- Customed Rahmo-->
+    <link href="~/Content/Css/gridstack.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">*@   <!-- it misses up the header but comment for now -->
+    <!-- Custom CSS -->
+    <link href="freelancer/css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    @*<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" />
+        <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href='//fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>*@
+
+    <link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <scripts src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    @*<link href="http://troolee.github.io/gridstack.js/gridstack.css" rel="stylesheet">*@
+    @*<link href="http://troolee.github.io/gridstack.js/gridstack-demo.css" rel="stylesheet">*@ <!--fonts -->
+    <!-- End customed Egan--> 
+</head>
+<body>
+    @Html.Partial("Header")
+    <div id="main">
+        <div id="body">
+       
+            @RenderBody()
+        </div>
+    </div>
+    @Html.Partial("Footer")
+
+
+</body>
+</html>

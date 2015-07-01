@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<roleManager enabled="true" defaultProvider="CommengdpuRoles" cacheRolesInCookie="true" cookieName="Commengdpu987654321" cookieTimeout="30" cookiePath="/" cookieRequireSSL="false" cookieSlidingExpiration="true" cookieProtection="All">
+  <providers>
+    <!--<remove   name= "AspNetSqlRoleProvider "/>-->
+    <add name="CommengdpuRoles" type="Commengdpu.BusinessLayer.Provider.CommengdpuRoles,Commengdpu.BusinessLayer"/>
+  </providers>
+</roleManager>

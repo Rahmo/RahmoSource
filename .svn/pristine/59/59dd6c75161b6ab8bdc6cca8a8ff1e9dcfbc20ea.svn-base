@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Backup";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryform")
+    <script type="text/javascript">
+        var interval = null;
+        $(function() {
+            $("form").submit(function () {
+                $(this).ajaxSubmit();
+                buildChecking();
+                $("input[type='submit']").hide();
+                return false;
+            });
+        });
+
+        function buildInterval(tablename) {
+            var intervalTime = 3000;
+            var interval = setInterval(function() {
+                intervalTime += 1000;
+                $.ajax({
+                    url: '@Url.Action("GetBackupStatus")',
+                    data: "table=" + tablename,
+                    success: function(data) {
+                        $("#" + tablename).html(data);
+                        if (data == "done") {
+                            window.clearInterval(interval);
+                        }
+                    },
+                });
+            }, intervalTime);
+        }
+
+        function buildChecking() {
+            var ids = [];
+            $("span").each(function() {
+                ids.push($(this).attr("id"));
+            });
+            for (var i = 0; i < ids.length; i++) {
+                var tablename = ids[i];
+                if ($("input[value^='" + tablename + "']").get(0).checked == true) {
+                    buildInterval(tablename);
+                }
+            }
+        }
+
+    </script>
+    <style type="text/css">
+        span {margin-left: 20px;color: red;}
+    </style>
+}
+<h2>
+    Table Names For Backup : </h2>
+@using (@Html.BeginForm("Backup", "Database"))
+{
+    <p>
+        <input type="checkbox" value="CBO|ID" name="Tables"/>CBO <span id="CBO"></span><br/>
+        <input type="checkbox" value="Course|ID" name="Tables"/>Course <span id="Course"></span><br/>
+        <input type="checkbox" value="EventRequestForm|ID" name="Tables"/>EventRequestForm <span id="EventRequestForm"></span><br/>
+        <input type="checkbox" value="ProjectRequestForm|ID" name="Tables"/>ProjectRequestForm <span id="ProjectRequestForm"></span><br/>
+        <input type="checkbox" value="Member|ID" name="Tables"/>Member <span id="Member"></span><br/>
+        <input type="checkbox" value="Member2Role|MemberID" name="Tables"/>Member2Role <span id="Member2Role"></span><br/>
+        <input type="checkbox" value="Member2CBO|MemberID" name="Tables"/>Member2CBO <span id="Member2CBO"></span><br/>
+        <input type="checkbox" value="Role|ID" name="Tables"/>Role <span id="Role"></span><br/>
+        <input type="checkbox" value="ServiceHours|ID" name="Tables"/>ServiceHours <span id="ServiceHours"></span><br/>
+        <input type="checkbox" value="ServiceLearnersApplication|ID" name="Tables"/>ServiceLearnersApplication <span id="ServiceLearnersApplication"></span><br/>
+        <input type="checkbox" value="Student|ID" name="Tables"/>Student <span id="Student"></span><br/>
+        <input type="checkbox" value="Student2CBO|StudentID" name="Tables"/>Student2CBO <span id="Student2CBO"></span><br/>
+        <input type="checkbox" value="WebsiteNav|ID" name="Tables"/>WebsiteNav <span id="WebsiteNav"></span><br/>
+        <input type="checkbox" value="son_cboprogram|CPID" name="Tables" />son_cboprogram<span id="son_cboprogram"></span><br />
+        <input type="checkbox" value="son_cbochoice|CPID" name="Tables" />son_cbochoice<span id="son_cbochoice"></span><br />
+        <input type="checkbox" value="son_student|StudentID" name="Tables" />son_student<span id="son_student"></span><br />
+        <input type="checkbox" value="WebPage|Url" name="Tables" />WebPage<span id="WebPage"></span><br />
+        <input type="checkbox" value="Article|ID" name="Tables" />Article<span id="Article"></span><br />
+        <input type="checkbox" value="Article2Category|ArticleID" name="Tables" />Article2Category<span id="Article2Category"></span><br />
+        <input type="checkbox" value="Category|ID" name="Tables" />Category<span id="Category"></span><br />
+        <input type="submit" value="Backup"/> <input type="button" value="Select All" onclick="$('input[type=checkbox]').each(function () { $(this).get(0).checked = true;});"/>
+    </p>
+}
+

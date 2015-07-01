@@ -1,0 +1,299 @@
+﻿@model ICStars2_0.Model.MemberForRegister
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register --Steans Center</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/Site")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <style type="text/css">
+        th
+        {
+            background-image: url(/images/barbg3.jpg);
+            height: 28px;
+            text-align: left;
+        }
+        td
+        {
+            line-height: 25px;
+            padding-right: 10px;
+        }
+        li
+        {
+            border: 0 none;
+            margin: 0;
+            padding: 0px;
+        }
+        li span
+        {
+            display: inline-block;
+            line-height: 24px;
+        }
+        .global
+        {
+            margin: 0 auto;
+            clear: both;
+        }
+        .logo
+        {
+            border-bottom: 2px solid #006AAD;
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 30px;
+        }
+        .kuang
+        {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            width: 490px;
+            border: 1px solid #006AAD;
+            padding: 5px;
+        }
+        .regist
+        {
+            height: 25px;
+            width: 490px;
+            background-color: #006AAD;
+        }
+        
+        .bar
+        {
+            height: 33px;
+            background-image: url(/images/bg2.jpg);
+        }
+        .bar span
+        {
+            font-size: 15px;
+            font-weight: 550;
+            line-height: 33px;
+            margin-left: 10px;
+        }
+        .text
+        {
+            border: 1px solid #999999;
+            height: 16px;
+            margin-right: 4px;
+            margin-left: 4px;
+            width: 150px;
+        }
+        .radio
+        {
+            margin-left: 10px;
+            margin-right: 3px;
+        }
+        .white
+        {
+            color: #FFF;
+            font-size: 14px;
+            font-family: "微软雅黑";
+            margin-left: 10px;
+        }
+        .bar2
+        {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+        .trcol
+        {
+            background-color: #f9f5f6;
+        }
+        .red
+        {
+            color: Red;
+        }
+        .kuang
+        {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            width: 772px;
+            border: 1px solid #006AAD;
+            padding: 5px;
+        }
+        .regist
+        {
+            height: 25px;
+            width: 772px;
+            background-color: #006AAD;
+        }
+        #Department,#Location {
+            width: 600px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function() {
+
+            $("#OfficePhone,#Fax").keypress(function(event) {
+                if (event.which == 8 || event.which == 46 || event.which == 0) return true;
+                if (event.which < 48 || event.which > 57) {
+                    return false;
+                }
+                var v = $(this).val().replace(/-/g, "");
+                if (v[0] == "1" && v.length == 11) return false;
+                if (v[0] != 1 && v.length == 10) return false;
+                if (v == "1"
+                    ||
+                    (v[0] != "1" && v.length == 3)
+                    ||
+                    (v[0] == "1" && v.length == 4)
+                    ||
+                    (v[0] == "1" && v.length == 7)
+                    ||
+                    (v[0] != "1" && v.length == 6)) {
+                    $(this).val($(this).val() + '-');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="global" align="center">
+            <div class="logo" align="center">
+                <img src="/images/logo_sc.gif" /></div>
+            <div class="kuang" align="left">
+        <div class="regist" align="left">
+                    <span class="white">Please Register</span></div>
+                <div style="margin-left: 90px" class="fieldset">
+                    <br>
+          
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>MemberForRegister</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CampusConnectID)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CampusConnectID)
+                @Html.ValidationMessageFor(model => model.CampusConnectID)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CampusConnectPassword)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CampusConnectPassword)
+                @Html.ValidationMessageFor(model => model.CampusConnectPassword)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EmplID)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EmplID)
+                @Html.ValidationMessageFor(model => model.EmplID)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FirstName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LastName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+    
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Department)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Department)
+                @Html.ValidationMessageFor(model => model.Department)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Location)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Location)
+                @Html.ValidationMessageFor(model => model.Location)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.JobTitle)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.JobTitle)
+                @Html.ValidationMessageFor(model => model.JobTitle)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.OfficePhone)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.OfficePhone)
+                @Html.ValidationMessageFor(model => model.OfficePhone)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Fax)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Fax)
+                @Html.ValidationMessageFor(model => model.Fax)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SupervisorFirstName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SupervisorFirstName)
+                @Html.ValidationMessageFor(model => model.SupervisorFirstName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SupervisorLastName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SupervisorLastName)
+                @Html.ValidationMessageFor(model => model.SupervisorLastName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SupervisorEmail)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SupervisorEmail)
+                @Html.ValidationMessageFor(model => model.SupervisorEmail)
+            </div>
+    
+    
+            <p>
+                <input type="submit" value="Submit" />
+            </p>
+        </fieldset>
+    }
+     </div>
+        </div> 
+  </div>
+ <div style="height:20px;">&nbsp;</div>
+            <div style="text-align:center;width:100%;font-size:11px;color:#FFF;background-color:Gray;height:20px;line-height:20px;">CopyRight DePaul Steans Center</div>
+</body>
+</html>

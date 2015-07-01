@@ -1,0 +1,163 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web.Mvc;
+using ICStars2_0.Common;
+using HtmlHelper = System.Web.Mvc.HtmlHelper;
+
+namespace ICStars2_0.Mvc
+{
+    public static class DropDownListHelper
+    {
+        public static MvcHtmlString DropDownList(this HtmlHelper helper, string name, object value)
+        {
+            return DropDownList(helper, name, value, null);
+        }
+        public static MvcHtmlString DropDownList(this HtmlHelper helper, string name, object value, IEnumerable<SelectListItem> list)
+        {
+            StringBuilder sBuilder = new StringBuilder();
+            sBuilder.AppendFormat(@"<select id=""{0}"" name=""{0}"">", name);
+            if (list == null && helper.ViewData[name] != null)
+            {
+                list = (List<SelectListItem>)helper.ViewData[name];
+            }
+            if (list != null)
+            {
+                foreach (SelectListItem item in list)
+                {
+                    string selected = "";
+                    if (value != null && item.Value.Equals(value.ToString())) selected = "selected=\"selected\"";
+                    sBuilder.AppendFormat(@"<option value=""{1}"" {2}>{0}</option>", item.Text, item.Value, selected);
+                }
+            }
+            sBuilder.Append("</select>");
+            return MvcHtmlString.Create(sBuilder.ToString());
+        }
+        public static MvcHtmlString DropDownList(this HtmlHelper helper,string name,Type enumType)
+        {
+            return DropDownList(helper, name, enumType, true);
+        }
+        public static MvcHtmlString DropDownList(this HtmlHelper helper, string name, Type enumType,bool isBindValue)
+        {
+            return System.Web.Mvc.Html.SelectExtensions.DropDownList(helper, name,
+                                                                     Enum.GetValues(enumType).Cast<Enum>().Select(
+                                                                         e =>
+                                                                         new
+                                                                             {
+                                                                                 Text = EnumHelper.GetDescription(e),
+                                                                                 Value = e.GetHashCode()
+                                                                             }).Select(
+                                                                                 e =>
+                                                                                 new SelectListItem
+                                                                                     {
+                                                                                         Text = e.Text,
+                                                                                         Value =
+                                                                                             isBindValue
+                                                                                                 ? e.Value.ToString()
+                                                                                                 : e.Text
+                                                                                     }));
+        }
+        public static IEnumerable<SelectListItem> BuildSelectListItemList(Type enumType, bool isBindValue)
+        {
+            return Enum.GetValues(enumType).Cast<Enum>().Select(
+                e =>
+                new
+                    {
+                        Text = EnumHelper.GetDescription(e),
+                        Value = e.GetHashCode()
+                    }).Select(
+                        e =>
+                        new SelectListItem
+                            {
+                                Text = e.Text,
+                                Value =
+                                    isBindValue
+                                        ? e.Value.ToString()
+                                        : e.Text
+                            });
+        }
+        public static MvcHtmlString DropDownList(this HtmlHelper helper, string name, object value, Type enumType, bool isBindValue, object htmlAttributes)
+        {
+            return System.Web.Mvc.Html.SelectExtensions.DropDownList(helper, name,
+                Enum.GetValues(enumType).Cast<Enum>().Select(
+                    e =>
+                        new
+                        {
+                            Text = EnumHelper.GetDescription(e),
+                            Value = e.GetHashCode()
+                        }).Select(
+                            e =>
+                                new SelectListItem
+                                {
+                                    Text = e.Text,
+                                    Value =
+                                        isBindValue
+                                            ? e.Value.ToString()
+                                            : e.Text,
+                                    Selected =
+                                        value != null &&
+                                        (
+                                            (isBindValue && value.Equals(e.Value))
+                                            || !isBindValue && value.Equals(e.Text)
+                                            )
+                                }), htmlAttributes);
+        }
+        public static IEnumerable<SelectListItem> BuildHoursSelectListItems(int hour=0)
+        {
+            List<SelectListItem> list=new List<SelectListItem>();
+            for (int i = 0; i < 12; i++)
+            {
+                list.Add(new SelectListItem {Text = string.Format("{0} am", i), Value = i.ToString()});
+            }
+            list.Add(new SelectListItem {Text = "12 pm", Value = "12"});
+            for (int i = 1; i < 12; i++)
+            {
+                list.Add(new SelectListItem { Text = string.Format("{0} pm", i), Value = (i+12).ToString() });
+            }
+            foreach (var selectListItem in list)
+            {
+                if (selectListItem.Value.Equals(hour.ToString()))
+                    selectListItem.Selected = true;
+            }
+            return list;
+        }
+
+        public static IEnumerable<SelectListItem> BuildMinutesSelectListItems(int min=0)
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            for (int i = 0; i < 60; i++)
+            {
+                list.Add(new SelectListItem { Text = i.ToString(), Value = i.ToString(),Selected=i==min });
+            }
+            return list;
+        }
+        public static MvcHtmlString DropDownList(this HtmlHelper helper, string name, object value, Type enumType, bool isBindValue)
+        {
+            return System.Web.Mvc.Html.SelectExtensions.DropDownList(helper, name,
+                                                                     Enum.GetValues(enumType).Cast<Enum>().Select(
+                                                                         e =>
+                                                                         new
+                                                                         {
+                                                                             Text = EnumHelper.GetDescription(e),
+                                                                             Value = e.GetHashCode()
+                                                                         }).Select(
+                                                                                 e =>
+                                                                                 new SelectListItem
+                                                                                 {
+                                                                                     Text = e.Text,
+                                                                                     Value =
+                                                                                         isBindValue
+                                                                                             ? e.Value.ToString()
+                                                                                             : e.Text,
+                                                                                     Selected =
+                                                                                         value != null &&
+                                                                                         value.Equals(isBindValue
+                                                                                                          ? e.Value
+                                                                                                             .ToString
+                                                                                                                ()
+                                                                                                          : e.Text)
+                                                                                 }));
+        }
+    }
+}

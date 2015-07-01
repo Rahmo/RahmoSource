@@ -1,0 +1,68 @@
+﻿/*
+js对应变量声明
+backgroundId:#windowBackground
+windowId:#windowMain
+buttonId:#button
+closeId:#windowMainClose
+*/
+a{
+cursor: pointer;
+text-decoration:none;
+}
+br.both{
+clear:both;
+}
+#windowBackground{
+display:none;
+position:absolute;
+top:0px;
+left:0px;
+background:#000000;
+z-index:1;
+height:100%;
+width:100%;
+}
+#windowMain{
+display:none;
+position:absolute; /* hack for internet explorer 6*/
+width:375px;
+border:2px solid #a50003;
+z-index:100;
+font-size:13px;
+overflow:hidden;
+}
+#popupTitle
+{
+    width:100%;
+    height:24px;
+    line-height:24px;
+    border-bottom:solid 1px #a50003;
+    background-color:#FFF;
+}
+#windowMain h1,#windowMain ul,#windowMain li
+{
+margin:0;padding:0;
+}
+#windowMain h1
+{
+    float:left;
+text-align:left;
+padding-left:10px;
+color:#000;
+font-size:14px;
+}
+#windowMainClose{
+font-size:14px;
+line-height:15px;
+right:6px;
+top:4px;
+position:absolute;
+width:20px;
+color:#000;
+display:block;
+text-indent:-9999px;
+background:#f3fee7 url(Images/close.gif) no-repeat scroll left top;
+}
+#windowMain ul.modelwindow{width:100%;height:100%;float:left;}
+#windowMain ul.modelwindow li{width:100%;height:45px;float:left;line-height:45px;text-align:center;}
+#windowContent .modelwindow a.windowbutton,#windowContent .modelwindow a.button{width:60px;height:20px;line-height:20px;background:#a50003;color:#FFF;display:inline-block;}

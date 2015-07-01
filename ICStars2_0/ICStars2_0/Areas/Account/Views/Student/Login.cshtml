@@ -1,0 +1,58 @@
+﻿@model ICStars2_0.Model.LoginStudent
+
+@{
+    ViewBag.Title = "Student Login --Steans Center";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/bundles/jqueryuicss")
+    @Styles.Render("~/bundles/Site", "~/bundles/mci")
+
+    <style type="text/css">
+        body .box {
+            height: auto;
+            width: 400px;
+        }
+
+        body form {
+            width: 310px;
+        }
+
+            body form div {
+                text-align: left;
+            }
+    </style>
+}
+<section>
+    <div class="box">
+        <h2>Student Login</h2>
+        @using (Html.BeginForm("Login", "Student"))
+        {
+            <fieldset>
+                <legend>Login</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.CampusConnectID)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.CampusConnectID)
+                    @Html.ValidationMessageFor(model => model.CampusConnectID)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Password)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+
+                <p>
+                    <input type="submit" value="Submit" />
+                </p>
+            </fieldset>
+        }
+    </div>
+</section>
+

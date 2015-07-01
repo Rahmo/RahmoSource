@@ -1,0 +1,70 @@
+﻿@model ICStars2_0.Model.StudentNotification
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Notify</title>
+    @Styles.Render("~/bundles/Site")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/SHTracker/Scripts/CkEditor/ckeditor.js"></script>
+    <script src="~/SHTracker/Scripts/CkEditor/CheckCompatibility.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            CKEDITOR.replace('EmailBody', { height: 200 });
+        });
+
+    </script>
+</head>
+<body>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>StudentNotification</legend>
+    
+                        @Html.HiddenFor(model => model.StudentID)
+                        @Html.HiddenFor(model => model.CBOID)
+                                    @Html.HiddenFor(model => model.CourseID)
+            @Html.HiddenFor(model => model.ToEmail)
+            @Html.HiddenFor(model => model.Quarter_Year)
+    
+            <div class="editor-label">
+                To:
+            </div>
+            <div class="editor-field">
+                <b>@Model.FirstName, @Model.LastName (@Model.ToEmail)</b><br/>
+                <em>Please double CHECK on the emaill address. If not correct, please go to student profile page and correct it.</em>
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EmailTitle)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EmailTitle)
+                @Html.ValidationMessageFor(model => model.EmailTitle)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EmailBody)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EmailBody)
+                @Html.ValidationMessageFor(model => model.EmailBody)
+            </div>
+    
+            <p>
+                <input type="submit" value="Send" />
+            </p>
+        </fieldset>
+    }
+</body>
+</html>

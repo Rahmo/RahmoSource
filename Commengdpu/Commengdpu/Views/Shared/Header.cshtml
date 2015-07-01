@@ -1,0 +1,34 @@
+﻿@using Commengdpu.BusinessLayer.Provider
+@using ICStars2_0.Framework
+@using Microsoft.Practices.Unity
+@{
+    var UserData = ICStarsUnityContainer.Current.Resolve<IUserData>();
+}
+<header>
+    <figure>Depaul</figure>
+    <aside class="top">
+        <input id="terms" class="text" type="text" placeholder="Search DePaul" tabindex="1" name="q">
+        <input type="image" tabindex="2" value="Search" name="Search" alt="Go" src="https://steans.depaul.edu/images/go_search.gif" onclick="window.open('http://search.depaul.edu/search?q=' + $('#terms').val() + '&Search.x=9&Search.y=10&Search=Search&entqr=0&ud=1&sort=date%3AD%3AL%3Ad1&output=xml_no_dtd&oe=UTF-8&ie=UTF-8&client=prospective_student&proxystylesheet=prospective_student&site=prospective_student'); return false;">
+    </aside>
+    @if (Request.IsAuthenticated)
+    {
+        <aside class="bot">
+            Welcome, @UserData.RealName (@User.Identity.Name)<br/>
+            @Html.ActionLink("Logout","Logout","Account")
+        </aside>
+    }
+    <div>
+        <mark><a href="/" title="COMMUNITY ENGAGEMENT TRACKING"><b>C</b>OMMUNITY <b>E</b>NGAGEMENT <b>T</b>RACKING</a></mark>
+
+        <nav>
+            <ol>
+                <li>@Html.ActionLink("Home","Index","Home")</li>
+                <li>@Html.ActionLink("Search","Index","Search")</li>
+                <li>@Html.ActionLink("Map","Index","Map")</li>
+                <li>@Html.ActionLink("Contact Us","ContactUs","About")</li>
+                <li>@Html.ActionLink("About","Index","About")</li>
+                <li>@Html.ActionLink("Reports","Index","Reports")</li>
+            </ol>
+        </nav>
+    </div>
+</header>

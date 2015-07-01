@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<QuarterListSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuarterList>
+    <string>Spring 2013</string>
+    <string>Summer 2013</string>
+    <string>Fall 2013</string>
+    <string>Winter 2014</string>
+    <string>Spring 2014</string>
+    <string>Summer 2014</string>
+    <string>Fall 2014</string>
+  </QuarterList>
+  <CurrentQuarter>Spring 2014</CurrentQuarter>
+</QuarterListSettings>

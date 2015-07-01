@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ICStars2_0.BusinessLayer.TimerEvent.NotificationEvent">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAgAAAAIQAAAgAAAAAAAAAAAEBAAABAAAAAAAA=</HashCode>
+      <FileName>TimerEvent\NotificationEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICStars2_0.BusinessLayer.TimerEvent.Events.DatabaseBackupEvent">
+    <Position X="4.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>TimerEvent\Events\DatabaseBackupEvent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ICStars2_0.BusinessLayer.TimerEvent.Events.StudentNotificationEvent">
+    <Position X="7" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAIEAAAAAgAAAAAABAAAAAAAABBAAAABAAQ=</HashCode>
+      <FileName>TimerEvent\Events\StudentNotificationEvent.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ICStars2_0.BusinessLayer.TimerEvent.NotificationEventFactory">
+    <Position X="9.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>TimerEvent\NotificationEventFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ICStars2_0.BusinessLayer.TimerEvent.WeekDayAdapter">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TimerEvent\WeekDayAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICStars2_0.BusinessLayer.TimerEvent.DetailedTimer">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAgAIAAAAAAQAAAAgAAAAAAJAAAAAAEAIA=</HashCode>
+      <FileName>TimerEvent\DetailedTimer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ICStars2_0.BusinessLayer.TimerEvent.EventTriggerDateTime">
+    <Position X="2.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAQAAAAAAAAAAAAAAAAAAAwAAAAgAAAAAAEAEAAAAA=</HashCode>
+      <FileName>TimerEvent\EventTriggerTime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ICStars2_0.BusinessLayer.TimerEvent.INotification">
+    <Position X="5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAgAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>TimerEvent\INotification.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ICStars2_0.BusinessLayer.TimerEvent.INotificationEventFactory">
+    <Position X="9.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>TimerEvent\INotificationEventFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ICStars2_0.BusinessLayer.TimerEvent.WeekDay">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAIAACAAAAAAAAAAACAAIACAIAAAAAIAAAAAAAA=</HashCode>
+      <FileName>TimerEvent\WeekDay.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

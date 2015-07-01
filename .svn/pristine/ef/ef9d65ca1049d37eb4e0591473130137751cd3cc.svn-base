@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/bundles/website")
+    @Scripts.Render("~/bundles/headerfooter")
+    @RenderSection("Head", required: false)
+</head>
+<body>
+    @Html.Partial("Header")
+    @RenderBody()
+    @Html.Partial("Footer")
+</body>
+</html>

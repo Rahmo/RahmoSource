@@ -1,0 +1,177 @@
+﻿@using ICStars2_0.BusinessLayer.CalendarServices
+@using ICStars2_0.Model
+@using ICStars2_0.Model.Enum
+@model ICStars2_0.Model.CalendarEventAdapter
+
+<style type="text/css">
+    fieldset b {
+        color: #000;
+    }
+
+    fieldset {
+        min-height: 300px;
+    }
+
+    fieldset table {
+        width: 100%;
+    }
+
+    fieldset table td:first-child {
+        width: 50px;
+    }
+    fieldset table tr:last-child {
+        height: 57px;
+    }
+
+    fieldset a.button {
+        background-color: #D3DCE0;
+        border: 1px solid #787878;
+        cursor: pointer;
+        font-size: 1.2em;
+        font-weight: 600;
+        margin-right: 8px;
+        padding: 7px;
+        width: auto;
+        text-decoration: none;
+        color: #000000;
+    }
+</style>
+<script type="text/javascript">
+    function onDeleteSuccess(data) {
+        if (data == "unauthorized") {
+            location.reload();
+            return;
+        }
+        if (data.msg == "Success") {
+            @if (Model.RepeatSettingsAdapter != null && Model.RepeatSettingsAdapter.IsRepeated)
+            {
+                <text>window.top.$("#calendar").fullCalendar('refetchEvents');</text>
+            }
+            else
+            {
+                <text>window.top.$("#calendar").fullCalendar('removeEvents', @Model.ID);</text>
+            }
+            window.top.$("#ActiveDialog").remove();
+            return;
+        }
+        alert("Error! Please contact the administrator!");
+    }
+    function onDeleteConfirm() {
+        @if (Model.RepeatSettingsAdapter != null && Model.RepeatSettingsAdapter.IsRepeated)
+        {
+            <text>return confirm("Are you sure to delete all recurring events of this entry permanently?");</text>
+        }
+        return confirm("Are you sure to delete this entry permanently?");
+    }
+    function onSuccess(data) {
+        if (data == "unauthorized") {
+            location.reload();
+            return;
+        }
+        if (data.msg == "Success") {
+            if (window.top.document.URL.toLowerCase().indexOf("reservation/all") > -1
+                || window.top.document.URL.toLowerCase().indexOf("reservation/my") > -1) {
+                window.top.location.reload();
+                return;
+            }
+            @if (Model.RepeatSettingsAdapter != null && Model.RepeatSettingsAdapter.IsRepeated)
+            {
+                <text>window.top.$("#calendar").fullCalendar('refetchEvents');</text>
+            }
+            else
+            {
+                <text>window.top.$
+                ("#calendar").fullCalendar('removeEvents', @Model.ID);</text>
+            }
+            window.top.$("#ActiveDialog").remove();
+            return;
+        }
+        alert("Error! Please contact the administrator!");
+    }
+    function edit(sender) {
+        $("#ActiveDialog").dialog({width:600,height:650});
+        $("#ActiveDialog").html("<img style=\"position:absolute;left:280px;top:280px;\" src=\"/Images/ajax-loader_bigroller.gif\" />");
+        $("<div></div>").load(sender.href, function (responseText) {
+            if (responseText == "\"unauthorized\"") {
+                location.reload();
+            } else {
+                $("#ActiveDialog").html(responseText);
+            }
+        });
+        return false;
+    }
+</script>
+
+<fieldset>
+    <legend>Calendar Event</legend>
+
+    <table>
+        <tr>
+            <td style="width:100px;">Title: </td>
+            <td><b>@Model.Title</b></td>
+        </tr>
+        <tr><td>Date: </td><td><b>@Model.StartDate</b></td></tr>
+        <tr><td>Time: </td><td><b>@Model.StartTime</b> To <b>@Model.EndTime</b></td></tr>
+        @if (Model.RepeatSettingsAdapter != null && Model.RepeatSettingsAdapter.IsRepeated)
+        {
+            <tr>
+                <td>Repeats</td>
+                <td>
+                    Repeat Every:@Model.RepeatSettingsAdapter.RepeatFrequencyValue @CalendarUtility.GetFrequencyUnit(Model.RepeatSettingsAdapter.RepeatFrequencyTypeEnum,Model.RepeatSettingsAdapter.RepeatFrequencyValue)
+                    @if (Model.RepeatSettingsAdapter.RepeatFrequencyTypeEnum == CalendarEventRepeatFrequencyType.Weekly)
+                    {
+                        <p>
+                            Repeats On: @Model.RepeatSettingsAdapter.WeekdaysIfWeekly
+                        </p>
+                    }
+                    Starts On: @Model.RepeatSettingsAdapter.RepeatStartDate
+                    Ends On:@(string.IsNullOrEmpty(Model.RepeatSettingsAdapter.RepeatEndDate) ? "For ever" : Model.RepeatSettingsAdapter.RepeatEndDate)
+                </td>
+            </tr>
+        }
+        <tr><td>Resources: </td><td>@Model.EventTypeEnum</td></tr>
+        @if (Model.EventTypeEnum == CalendarEventType.Van)
+        {
+            <tr>
+                <td style="vertical-align:top;">Driver Info:</td>
+                <td>
+                    <b>Name:</b> @Model.DriverName <b>DPU ID:</b> @Model.DriverDPUID <b>Phone:</b> @Model.DriverPhone<br />
+                    <b>Notes:</b> @Model.DriverNotes
+                </td>
+            </tr>
+        }
+        <tr><td style="vertical-align:top;">Notes: </td><td style="height:60px;">@Model.Notes</td></tr>
+        @if (User.IsInRole("admin_calendar"))
+        {
+            if (!Model.IsApproved)
+            {
+                <tr>
+                    <td>Requestor: </td><td>@Model.Requestor.FirstName @Model.Requestor.LastName (@Model.Requestor.Email)</td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td>
+                    @(Model.IsApproved ? Ajax.ActionLink("Disapprove", "Disapprove", new { id = Model.ID }, new AjaxOptions
+                          {
+                              HttpMethod = "Get",
+                              OnSuccess = "onSuccess(data)"
+                          }, new { @class = "button" }) : Ajax.ActionLink("Approve", "Approve", new { id = Model.ID }, new AjaxOptions
+                      {
+                          HttpMethod = "Get",
+                          OnSuccess = "onSuccess(data)"
+                      }, new { @class = "button" }))
+
+                    @Html.ActionLink("Edit", "EditEvent", new { id = Model.ID }, new { @class = "button", @onclick = "return edit(this);return false;" })
+                    @Ajax.ActionLink("Delete", "Delete", new { id = Model.ID, start = Convert.ToDateTime(Model.StartDate + " " + Model.StartTime), end = Convert.ToDateTime(Model.StartDate + " " + Model.EndTime) }, new AjaxOptions
+                          {
+                              OnBegin = "onDeleteConfirm",
+                              HttpMethod = "Get",
+                              OnSuccess = "onDeleteSuccess(data)"
+                          }, new { @class = "button",@id="btnDel" })
+                </td>
+            </tr>
+        }
+    </table>
+</fieldset>
+

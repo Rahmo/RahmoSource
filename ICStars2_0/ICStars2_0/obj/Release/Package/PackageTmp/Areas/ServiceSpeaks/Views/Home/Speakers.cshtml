@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Speakers --Steans Center";
+    Layout = "~/Areas/ServiceSpeaks/Views/Shared/_Layout.cshtml";
+    Response.Redirect("/ServiceSpeaks");
+    Response.End();
+}
+@section Head
+{
+    <style type="text/css">
+        section{ height:auto;padding-top: 20px;}
+        .grid-c2-w15e9 ul li img{ float: left;margin: 0 20px 20px 0;}
+        .grid-c2-w15e9 ul li{ border-bottom: solid 1px #ccc;padding-top: 20px;display: block;height: auto;}
+        .grid-c2-w15e9 ul li p{ display: block;height: auto;min-height: 200px;}
+        b{ font-size: 16px;}
+        b em{ font-size: 24px;}
+    </style>
+}
+<section>
+    <div class="grid-c2-w15e9">
+        <div class="west">
+            <ul>
+                <li>
+                    <img src="/Images/ServiceSpeaks/AliceKim.png"/>
+                    <p>
+                        <b><em>Alice Kim</em></b><br /><b>Executive Director- Public Square</b>
+                        <br/>Alice Kim is a cultural organizer, activist and writer. She is the Director of The Public Square, a program of the Illinois Humanities Council that creates spaces for public conversations about social, political and cultural issues with a social justice emphasis. A long-time activist, she has worked with death row prisoners and their families to abolish the death penalty in Illinois and nationwide. She previously worked with the Women's Interagency HIV Study and the Chicago Women's AIDS Project. Alice is one of the founders of the Chicago Torture Justice Memorials, a collective of educators, artists, attorneys, and activists dedicated to documenting the history of the Jon Burge torture cases in Chicago through artistic expression and advocating to win justice for the survivors of torture. She is also on the Advisory Board of In These Times magazine and has taught courses in Gender and Women's Studies at the University of Illinois at Chicago. Alice blogs at dancingthedialectic.com and will be graduating from Bennington College's low-residency M.F.A. creative writing program in June. She received her B.A. in English with a concentration in Women's Studies from Northwestern University and her M.A. in English Literature from DePaul University.
+                    </p>
+                </li>
+                <li>
+                    <img src="/Images/ServiceSpeaks/MiaHenry.png"/>
+                    <p>
+                        <b><em>Mia Henry</em></b><br /><b>Executive Director- SPACEs/ Owner- Freedom Lifted</b>
+                        <br/>Mia Henry is an educator and activist with over 15 years of experience in nonprofit management, youth development, intergenerational community organizing, and civic and history education.  Currently, she is the Director of Special Initiatives of Safe Places for the Advancement of Community and Equity (SPACEs).  She is also the owner and operator of Freedom Lifted, a company dedicated to providing civil rights tours for people of all ages.   
+
+                        Mia was the founding director of the Chicago Freedom School, a nonprofit organization that supports youth-led social change.  She has also been a visiting lecturer in Educational Psychology for the master’s program in Youth Development at the University of Illinois at Chicago.   Mia’s previous posts include working as the Associate Director of the Mikva Challenge, a Program Associate for Facing History and Ourselves, and a high school teacher and International Baccalaureate (IB) program coordinator for Chicago Public Schools.  
+
+                        In addition to city-wide and national social justice work, Mia is committed to strengthening her own neighborhood.  She is the founder of Reclaiming South Shore for All, a diverse, grassroots group of residents committed to mobilizing the South Shore community by institutionalizing systems that promote peace, youth leadership, and political accountability.  Mia has also served as an elected community representative for the South Shore School of Entrepreneurship Local School Council.
+
+                        Mia has served as a consultant to the Chicago History Museum, Chicago Public Schools, and the University of Chicago’s Oriental Institute.  She is on the advisory boards of the Mikva Challenge, the Worker’s Center for Racial Justice, and the Children and Family Justice Center at Northwestern University School of Law.  Mia earned her B.S. from Rutgers University and her M.S.Ed. from the University of Pennsylvania. 
+
+                    </p>
+                </li>
+                <li>
+                    <img src="/Images/ServiceSpeaks/CarrieSpitler.png"/>
+                    <p>
+                        <b><em>Carrie Spitler</em></b><br /><b>Executive Director- Snow City Arts</b>
+                        <br/>Carrie Spitler joined Snow City Arts in January 2013 as Executive Director. She joined the Snow City Arts team after spending 10 years as the Executive Director of the Neighborhood Writing Alliance and Publisher of the Journal of Ordinary Thought where, during her tenure, she led the organization through strategic planning, increased its budget by 20%, and expanded its neighborhood efforts and partnerships.  Carrie is currently a member of the Steering Committee of the Southside Arts and Humanities Network and a member of the Chicago Literary Advisory Council of the American Writers Museum. From 1997 to 2002, Carrie was the Director of Development at Access Living where she increased government support, organized record-setting annual galas, and facilitated the creation of a major gift program and Access Living’s first endowment effort. She holds a BS in Political Science from Central Michigan University and a Certificate in Baking and Pastry from Kendall College.
+                    </p>
+                </li>
+                <li>
+                    <img src="/Images/ServiceSpeaks/DaleAsis.png"/>
+                    <p>
+                        <b><em>Dale Asis</em></b><br /><b>Executive Director- CAAAELII</b>
+                        <br/>Dale Asis is the Founding Executive Director of the Coalition of African, Arab, Asian, European and Latino Immigrants of Illinois (CAAAELII), one of the largest immigrant led coalitions in the country. Mr. Asis is also the President of the Bayanihan Foundation Worldwide, a nonprofit organization dedicated to promoting Filipino diaspora philanthropy.  In 2009, he established a network of over 150 diaspora donors in Chicago that donate to over 50 countries worldwide.  He earned his Masters of Arts Program in Social Sciences (MAPSS) at the University of Chicago. In 2007-08 he received a fellowship grant from the Chicago Community Trust Fellowship for Community Leaders.
+
+Mr. Asis has also received the Ford Foundation Leadership for a Changing World Award. He has spoken extensively on immigrant issues over the last 15 years.  Dale also teaches about race and policy advocacy at the Loyola University of Chicago Graduate School of Social Work.  He also provides capacity building and organizational consulting to ethnic community organizations in Chicago.
+
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="east">
+            @Html.Partial("RightNav")
+        </div>
+    </div>
+
+</section>
+

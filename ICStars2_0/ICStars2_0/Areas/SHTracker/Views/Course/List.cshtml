@@ -1,0 +1,144 @@
+﻿@using ICStars2_0.Mvc
+@model IEnumerable<ICStars2_0.Model.Course>
+
+@{
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@{
+    var isMgt = ViewBag.Title == "Course Management";
+    var
+       isAuthorized = User.IsInRole("admin") || User.IsInRole("admin_course") || User.IsInRole("CSSP");}
+@section Head
+{
+    @Scripts.Render("~/bundles/jquery")
+@Styles.Render("~/bundles/pagebar3")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("tr:even").addClass("bg_f9f5f6");
+            $("tr:gt(0)").hover(
+                function () {
+                    $(this).addClass("hover");
+                },
+                function () {
+                    $(this).removeClass("hover");
+                }
+            );
+            @if (ViewBag.Title == "Facult Matches")
+            {
+                <text>
+            var rowname = null;
+            var bg = "#83969D";
+            var bg2 = "#999";
+            $("table tr").each(function (i) {
+                var $this = $(this).find("td:eq(7)");
+                var td = $this.text();
+                if (rowname != td) {
+                    rowname = td;
+                    var tmp = bg;
+                    bg = bg2;
+                    bg2 = tmp;
+                }
+                $(this).css({ "background-color": bg });
+            });</text>
+            }
+        });
+        
+             
+        
+    </script>
+    <style type="text/css">
+        table{ width: 100%;}
+        a.sort:active,a.sort:link,a.sort:hover,a.sort:visited{ text-decoration: underline;}
+    </style>
+}
+<h2>
+    <span>@ViewBag.Title</span></h2>
+@if (isAuthorized && isMgt)
+{
+    <div class="toolbar">
+        @Html.ActionLink("Add Course","Add")&nbsp;&nbsp;<a href="?t=0">Standard Course</a>&nbsp;&nbsp;<a href="?t=1">CSSP Course</a></div>
+}          
+<table>
+    <tr>
+        <th>ID</th>
+        <th>@Html.DisplayNameFor(model => model.Term)</th>
+        <th>
+            @Html.DisplayNameFor(model => model.TermDescription)
+        </th>
+        <th>
+            <a class="sort" href="?o=subject">@Html.DisplayNameFor(model => model.Subject)</a>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatalogNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassSection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            <a class="sort" href="?o=instructor">@Html.DisplayNameFor(model => model.InstructorName)</a>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BestEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassNumber)
+        </th>
+        <th>@Html.DisplayNameFor(model => model.PlacementDate)</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+        <td>@Html.DisplayFor(modelItem => item.Term)</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TermDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatalogNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassSection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InstructorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BestEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlacementDate)
+            </td>
+        <td>
+            @if (isAuthorized && isMgt)
+            {
+                @Html.ActionLink("Edit", "Edit", new {id = item.ID},new{@class="button"}) <text>|</text>
+                @Html.ActionLink("Details", "Details", new {id = item.ID},new{@class="button"}) @*<text>|</text>*@
+                @*@Html.ActionLink("Delete", "Delete", new {id = item.ID},new{onclick="return confirm(\"Are you sure to delete Course ["+item.FullName+"]?\");",@class="button"})*@
+            }
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="PageBar3">
+@Html.PagerBar((int)ViewBag.TotalCount,(int)ViewBag.PageSize,5,new { @class = "PageBar3" })</div>

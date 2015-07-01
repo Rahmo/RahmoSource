@@ -1,0 +1,60 @@
+﻿@using ICStars2_0.Mvc
+@model Commengdpu.BusinessLayer.IPageableCollection<Commengdpu.Models.IndividualPartner>
+
+@{
+    ViewBag.Title = "Individual Partner List";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    @Styles.Render("~/bundles/pagebar3")
+}
+
+<table>
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            DPU ID
+        <th>
+            Email
+        </th>
+        <th>Creator</th>
+        <th>Create Date</th>
+        <th>Last Modify Date</th>
+        <th>Last Editor</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DPUID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>@item.Creator</td>
+        <td>@item.CreateDate</td>
+        <td>@item.LastModifiedDate</td>
+        <td>@item.LastEditor</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="PageBar3">
+    @Html.PagerBar(Model.TotalCount, Model.PageSize, 5, new { @class = "PageBar3" })
+</div>

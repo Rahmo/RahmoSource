@@ -1,0 +1,163 @@
+﻿th
+        {
+            background-image: url(/images/barbg3.jpg);
+            height: 28px;
+            text-align: left;
+        }
+        td
+        {
+            line-height: 25px;
+            padding-right: 10px;
+        }
+        li
+        {
+            border: 0 none;
+            margin: 0;
+            padding: 0px;
+        }
+        li span
+        {
+            display: inline-block;
+            line-height: 24px;
+        }
+        .global
+        {
+            margin: 0 auto;
+            clear: both;
+        }
+        .logo
+        {
+            border-bottom: 2px solid #006AAD;
+            margin-left: 200px;
+            margin-right: 200px;
+            margin-top: 30px;
+        }
+        .kuang
+        {
+            margin-top: 20px;
+            background-color: #f4f4f4;
+            width: 490px;
+            border: 1px solid #006AAD;
+            padding: 5px;
+        }
+        .regist
+        {
+            height: 25px;
+            width: 490px;
+            background-color: #006AAD;
+        }
+        
+        .bar
+        {
+            height: 33px;
+            background-image: url(/images/bg2.jpg);
+        }
+        .bar span
+        {
+            font-size: 15px;
+            font-weight: 550;
+            line-height: 33px;
+            margin-left: 10px;
+        }
+        .text
+        {
+            border: 1px solid #999999;
+            height: 16px;
+            margin-right: 4px;
+            margin-left: 4px;
+            width: 150px;
+        }
+        .radio
+        {
+            margin-left: 10px;
+            margin-right: 3px;
+        }
+        .white
+        {
+            color: #FFF;
+            font-size: 14px;
+            font-family: "微软雅黑";
+            margin-left: 10px;
+        }
+        .bar2
+        {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+        .trcol
+        {
+            background-color: #f9f5f6;
+        }
+        .red
+        {
+            color: Red;
+        }
+    
+    .fieldset ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+        .fieldset ol li {
+            padding-bottom: 5px;
+        }
+    
+    .fieldset label {
+        display: block;
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+    
+    .fieldset label.checkbox {
+        display: inline;
+    }
+    
+    .fieldset input[type="text"], 
+    .fieldset input[type="password"] {
+        border: 1px solid #787878;
+        color: #333;
+        font-size: 1.2em;
+        margin: 5px 0 6px 0;
+        padding: 5px;
+        width: 300px;
+    }
+    
+        .fieldset input[type="text"]:focus, 
+        .fieldset input[type="password"]:focus {
+            border: 1px solid #7ac0da;
+        }
+    
+    .fieldset input[type="submit"],.fieldset input[type="button"] {
+        background-color: #d3dce0;
+        border: solid 1px #787878;
+        cursor: pointer;
+        font-size: 1.2em;
+        font-weight: 600;
+        padding: 5px;
+    }
+    /* styles for validation helpers */
+label.error,.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+    fieldset textarea.input-validation-error, 
+input[type="text"].input-validation-error,
+input[type="password"].input-validation-error {
+    border: solid 1px #e80c4d;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}

@@ -1,0 +1,40 @@
+﻿@using ICStars2_0.BusinessLayer
+@using ICStars2_0.Model
+@model ICStars2_0.Model.WebPage
+
+@{
+    ViewBag.Title = Model.Title + " --Steans Center";
+    Layout = Model.Layout ?? "~/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    <meta name="description" content="@Model.Description" />
+    <meta name="keywords" content="@Model.Keywords" />
+    @if (ViewBag.IsEditing != null && ViewBag.IsEditing)
+    {
+<script src="~/SHTracker/Scripts/CkEditor/ckeditor.js"></script>
+<script src="~/SHTracker/Scripts/CkEditor/CheckCompatibility.js"></script>
+        @Styles.Render("~/bundles/ckeditorInlineEditing")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Styles.Render("~/bundles/jqueryuicss")
+        @Scripts.Render("~/bundles/AdminEditing")
+    }
+    <style type="text/css">
+        body section {
+            width: 940px;
+            padding: 10px;
+            line-height: 18px;
+        }
+    </style>
+}
+<section @Html.Raw(ViewBag.IsEditing != null && ViewBag.IsEditing ? "id=\"editable\"" : "")>
+    @Html.Raw(Model.Content)
+</section>
+@if (ViewBag.IsEditing != null && ViewBag.IsEditing)
+{
+    <div id="admin_bar">
+    <input type="button" value="SaveToServer" onclick="confirmSave('@Model.Url',$('#editable').html(),'/SHTracker/WebPage/UpdateContent')" />
+        <input type="button" value="Edit" onclick="editing();" />
+        <input type="button" value="Preview" onclick="preview();" />
+        &nbsp;&nbsp;This bar is only showed for the <b>administrator</b>!
+    </div>
+}

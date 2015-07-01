@@ -1,0 +1,207 @@
+﻿@model Commengdpu.Models.CommunityPartner
+@using ICStars2_0.Common.Enums
+@using ICStars2_0.Mvc;
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var isEditting = Model != null && Model.ID > 0;
+    ViewBag.Title = (isEditting ? "Edit" : "Create") + "Community Partner";
+}
+@section Head{
+    @Styles.Render("~/bundles/Site", "~/bundles/jqueryuicss")
+@Scripts.Render("~/bundles/jqueryval", "~/bundles/jqueryui")
+
+<script src="~/Scripts/CkEditor/ckeditor.js"></script>
+<script src="~/Scripts/CkEditor/CheckCompatibility.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        CKEDITOR.replace('Thumbnail', {
+            height: 200,
+            toolbar: [
+    { name: 'insert', items: ['Image'] }
+            ]
+        });
+
+        $("input[name$='Date']").attr("readonly", "true").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+
+        $("#Name").change(function () {
+            $("#UniqueUrl").val($(this).val().replace(/ +/g, "-"));
+        });
+    });
+
+    </script>
+
+}
+<div class="nav"><h1>@(isEditting ? "Edit" : "Create") Community Partner</h1></div>
+@using (Html.BeginForm("Add", "CommunityPartner", new { IsFrontEnd = Request.QueryString["IsFrontEnd"] }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    if (isEditting)
+    {
+        @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m=>m.CreateDate)
+    @Html.HiddenFor(m=>m.CreatorUserID)
+    }
+    <fieldset>
+        <legend>CommunityPartner</legend>
+
+        <h2>Required Information</h2><br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Name, new { @class = "w350" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UniqueUrl)
+        </div>
+        <div class="editor-field">
+            @if (isEditting)
+            {
+                @Html.Hidden("ul",Model.UniqueUrl)
+                <em>@Model.UniqueUrl</em>
+                <br /><b>(UniqueUrl is not supposed to be edited)</b>
+            }
+            else
+            {
+                @Html.TextBoxFor(model => model.UniqueUrl, new { @class = "w350" })
+                @Html.ValidationMessageFor(model => model.UniqueUrl)
+                <br /><b>(This would be the url of this community partner. Please make a friendly url with letters, numbers, "-" and "_" only!)</b>
+            }
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrganizationType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrganizationType)
+            @Html.ValidationMessageFor(model => model.OrganizationType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrganizationStatement)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrganizationStatement)
+            @Html.ValidationMessageFor(model => model.OrganizationStatement)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Thumbnail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Thumbnail)
+            @Html.ValidationMessageFor(model => model.Thumbnail)
+            <br />
+        </div>
+
+        <h2>Primary Contact</h2><br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimaryContactName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrimaryContactName)
+            @Html.ValidationMessageFor(model => model.PrimaryContactName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimaryContactEmail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrimaryContactEmail)
+            @Html.ValidationMessageFor(model => model.PrimaryContactEmail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimaryContactPhone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrimaryContactPhone)
+            @Html.ValidationMessageFor(model => model.PrimaryContactPhone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Website)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Website)
+            @Html.ValidationMessageFor(model => model.Website)
+        </div>
+
+        <h2>Location</h2><br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.City, new { @class = "w100" })
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.County)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.County, new { @class = "w100" })
+            @Html.ValidationMessageFor(model => model.County)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.State)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.State, new[] { new SelectListItem() { Text = "Selet State", Value = "" } }.Union(Html.BuildSelectListItemList(typeof(US_State_Abbr))), new { @class = "w150" })
+
+            @Html.ValidationMessageFor(model => model.State)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nation)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Nation, new { @class = "w100" })
+            @Html.ValidationMessageFor(model => model.Nation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ZipCode)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.ZipCode, new { @class = "w100" })
+            @Html.ValidationMessageFor(model => model.ZipCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PopulationServed)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PopulationServed)
+            @Html.ValidationMessageFor(model => model.PopulationServed)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Mission)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Mission)
+            @Html.ValidationMessageFor(model => model.Mission)
+        </div>
+
+        <p>
+            <input type="submit" value="Submit" />
+        </p>
+    </fieldset>
+}

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B212C6A-DDEC-4972-A5C3-D50F2F98BF6C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Commengdpu.Models</RootNamespace>
+    <AssemblyName>Commengdpu.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\Dll\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommunityPartnerForList.cs" />
+    <Compile Include="DbContexts\RoleDbContext.cs" />
+    <Compile Include="IndividualPartnerForList.cs" />
+    <Compile Include="ProjectForList.cs" />
+    <Compile Include="Reports\OverrallBaseTotalReport.cs" />
+    <Compile Include="Reports\OverrallTotalReportByProjectType.cs" />
+    <Compile Include="Settings\ProjectCollectionSettings.cs" />
+    <Compile Include="Settings\ReportSettings.cs" />
+    <Compile Include="Settings\UserCollectionSettings.cs" />
+    <Compile Include="User2Role.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="Project2Type.cs" />
+    <Compile Include="ProjectType.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="CommunityPartner.cs" />
+    <Compile Include="CommunityPartner2IndividualPartner.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="DbContexts\DefaultDbContext.cs" />
+    <Compile Include="IndividualPartner.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="Project2Category.cs" />
+    <Compile Include="Project2CommunityPartner.cs" />
+    <Compile Include="Project2IndividualPartner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\CategoryCollectionSettings.cs" />
+    <Compile Include="Settings\CommunityPartnerCollectionSettings.cs" />
+    <Compile Include="Settings\IndividualPartnerCollectionSettings.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

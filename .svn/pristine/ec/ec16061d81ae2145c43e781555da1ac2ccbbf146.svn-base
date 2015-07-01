@@ -1,0 +1,423 @@
+﻿@using ICStars2_0.BusinessLayer
+@using ICStars2_0.Model
+@model ICStars2_0.Model.Course
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    @Styles.Render("~/bundles/Site")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/bundles/jqueryuicss")
+    <script type="text/javascript">
+        $(function () {
+            $("input[name$='DateAddedIntoPS'], input[name$='StartDate'], input[name$='EndDate']").attr("readonly", "true").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
+    <style type="text/css">
+        h2 {
+            padding-left: 10px;
+        }
+
+        form fieldset {
+            border: solid 1px #000;
+            margin-left: 10px;
+            width: 45%;
+            padding: 10px;
+            float: left;
+        }
+
+            form fieldset legend {
+                display: block;
+            }
+
+        #addmodel {
+            display: none;
+        }
+
+        em {
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+}
+<h2>Edit Course</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Course</legend>
+        @if (Model != null && Model.ID > 0)
+        {
+            @Html.HiddenFor(model => model.ID)
+        }
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Term)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Term)
+            @Html.ValidationMessageFor(model => model.Term)
+        </div>
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.TermDescription)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.TermDescription, new[]
+            {
+                new SelectListItem
+                {
+                    Text = "Select Term",
+                    Value = "",
+                    Selected=true
+                }
+            }.Union(User.IsInRole("CSSP") ? Html.BuildCSSPTermSelectListItems() : Html.BuildQuarterYearSelectListItems()))
+            @Html.ValidationMessageFor(model => model.TermDescription)
+        </div>
+
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.Subject)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Subject)
+            @Html.ValidationMessageFor(model => model.Subject)
+        </div>
+
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.CatalogNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CatalogNumber)
+            @Html.ValidationMessageFor(model => model.CatalogNumber)
+        </div>
+
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.ClassSection)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClassSection)
+            @Html.ValidationMessageFor(model => model.ClassSection)
+        </div>
+
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.InstructorName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InstructorName)
+            @Html.ValidationMessageFor(model => model.InstructorName)
+        </div>
+
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.BestEmail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BestEmail)
+            @Html.ValidationMessageFor(model => model.BestEmail)
+        </div>
+
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.Location)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Location)
+            @Html.ValidationMessageFor(model => model.Location)
+        </div>
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.FacilityRoom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FacilityRoom)
+            @Html.ValidationMessageFor(model => model.FacilityRoom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClassNumber)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ClassNumber)
+                    @Html.ValidationMessageFor(model => model.ClassNumber)
+                    </div>
+        <div style="display:none;">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.College)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.College)
+                @Html.ValidationMessageFor(model => model.College)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Career)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Career)
+                @Html.ValidationMessageFor(model => model.Career)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CrseCareerDescr)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CrseCareerDescr)
+                @Html.ValidationMessageFor(model => model.CrseCareerDescr)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SessionCode)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SessionCode)
+                @Html.ValidationMessageFor(model => model.SessionCode)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SessionCodeDescr)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SessionCodeDescr)
+                @Html.ValidationMessageFor(model => model.SessionCodeDescr)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.SubjectDescr)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.SubjectDescr)
+                @Html.ValidationMessageFor(model => model.SubjectDescr)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Component)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Component)
+                @Html.ValidationMessageFor(model => model.Component)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RequirementDesignation)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.RequirementDesignation)
+                @Html.ValidationMessageFor(model => model.RequirementDesignation)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RqmntDesigDescr)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.RqmntDesigDescr)
+                @Html.ValidationMessageFor(model => model.RqmntDesigDescr)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CrseAttr)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CrseAttr)
+                @Html.ValidationMessageFor(model => model.CrseAttr)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CrseAttrValue)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CrseAttrValue)
+                @Html.ValidationMessageFor(model => model.CrseAttrValue)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CrseTypoffCd)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CrseTypoffCd)
+                @Html.ValidationMessageFor(model => model.CrseTypoffCd)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CrseTypoffDescr)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CrseTypoffDescr)
+                @Html.ValidationMessageFor(model => model.CrseTypoffDescr)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.InstructorEmplid)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.InstructorEmplid)
+                @Html.ValidationMessageFor(model => model.InstructorEmplid)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.InstructionMode)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.InstructionMode)
+                @Html.ValidationMessageFor(model => model.InstructionMode)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LocationDescr)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LocationDescr)
+                @Html.ValidationMessageFor(model => model.LocationDescr)
+            </div>
+
+
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.StartDate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.StartDate)
+                @Html.ValidationMessageFor(model => model.StartDate)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EndDate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EndDate)
+                @Html.ValidationMessageFor(model => model.EndDate)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Days)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Days)
+                @Html.ValidationMessageFor(model => model.Days)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MeetingTimeStart)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MeetingTimeStart)
+                @Html.ValidationMessageFor(model => model.MeetingTimeStart)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.MeetingTimeEnd)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.MeetingTimeEnd)
+                @Html.ValidationMessageFor(model => model.MeetingTimeEnd)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EnrlStatus)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.EnrlStatus)
+                @Html.ValidationMessageFor(model => model.EnrlStatus)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CrseTopicId)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CrseTopicId)
+                @Html.ValidationMessageFor(model => model.CrseTopicId)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CrseTopicDescr)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CrseTopicDescr)
+                @Html.ValidationMessageFor(model => model.CrseTopicDescr)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ClassNotesDescrlong)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.ClassNotesDescrlong)
+                @Html.ValidationMessageFor(model => model.ClassNotesDescrlong)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DateAddedIntoPS)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DateAddedIntoPS)
+                @Html.ValidationMessageFor(model => model.DateAddedIntoPS)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Capacity)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Capacity)
+                @Html.ValidationMessageFor(model => model.Capacity)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Enrlollment)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Enrlollment)
+                @Html.ValidationMessageFor(model => model.Enrlollment)
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Placement Date</legend>
+        <div class="editor-label">
+            <em>*</em>@Html.LabelFor(model => model.PlacementDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PlacementDate)
+            @Html.ValidationMessageFor(model => model.PlacementDate)
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>CBO Task</legend>
+        <div>
+            <input type="button" value="Add CBO Task" onclick="$(this).parent().after($('#addmodel').clone().show())" />
+        </div>
+        @if (ViewBag.C2CList != null)
+        {
+            foreach (Course2CBOTask c2c in (IEnumerable<Course2CBOTask>)ViewBag.C2CList)
+            {
+                <div>
+                    @Html.DropDownList("CboTasks", ((IEnumerable<SelectListItem>)ViewBag.CBONameTaskIDList).Select(t =>
+{
+    t.Selected = t.Value == c2c.CBOTaskID.ToString();
+    return t;
+})) <input type="button" value="Remove" onclick="$(this).parent().remove();" />
+                </div>
+            }
+        }
+    </fieldset>
+
+
+    <div style="width:90%;float:left;padding:10px;">
+        <input type="submit" value="Save" />
+    </div>
+}
+<div id="addmodel">
+    @Html.DropDownList("CboTasks", (IEnumerable<SelectListItem>)ViewBag.CBONameTaskIDList) <input type="button" value="Remove" onclick="$(this).parent().remove();" />
+</div>

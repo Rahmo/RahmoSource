@@ -1,0 +1,6 @@
+C:\RahmoSource\CampusConnect.MediatorLibrary\bin\Release\CampusConnect.MediatorLibrary.dll
+C:\RahmoSource\CampusConnect.MediatorLibrary\bin\Release\CampusConnect.MediatorLibrary.pdb
+C:\RahmoSource\CampusConnect.MediatorLibrary\bin\Release\log4net.dll
+C:\RahmoSource\CampusConnect.MediatorLibrary\bin\Release\PSAuthClient.dll
+C:\RahmoSource\CampusConnect.MediatorLibrary\obj\Release\CampusConnect.MediatorLibrary.dll
+C:\RahmoSource\CampusConnect.MediatorLibrary\obj\Release\CampusConnect.MediatorLibrary.pdb

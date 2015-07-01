@@ -1,0 +1,10 @@
+<connectionStrings>
+  <add name="DefaultConnection" connectionString="server=sqldbprd13a.dpu.depaul.edu;database=cbsl;uid=cbslusr;pwd=Steans0308~;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
+
+  <add name="icstars" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\RahmoSource\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=True;Connect Timeout=30"
+    providerName="System.Data.SqlClient" />
+  <!--<add name="DefaultConnection" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\RahmoSource\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=True;Connect Timeout=30"-->
+    <!--providerName="System.Data.SqlClient" />-->
+  <add name="DbContexts_" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=DbContexts_-20150116150619; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|DbContexts_-20150116150619.mdf"
+    providerName="System.Data.SqlClient" />
+</connectionStrings>

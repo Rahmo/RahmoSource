@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CommunityInternshipSettings>
+  <FilePath>C:\ICStars\trunk\ICStars2_0\ICStars2_0\App_Data\Settings\CommunityInternshipSettings.xml</FilePath>
+  <ReceiverEmail>hli25@depaul.edu,lihui830501@gmail.com</ReceiverEmail>
+  <EmailTitle>You got a new community internship application!</EmailTitle>
+  <EmailBody>&lt;p&gt;
+	Hi,&lt;/p&gt;
+&lt;p&gt;
+	&lt;span style="font-size:16px;"&gt;&lt;strong&gt;You got a new community internship application! &lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+	&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;
+	Please check on it.(Login link : &lt;a href="https://steans.depaul.edu/SHTracker" target="_blank"&gt;https://steans.depaul.edu/SHTracker&lt;/a&gt;)&lt;/p&gt;
+</EmailBody>
+  <IsHtmlEmail>True</IsHtmlEmail>
+  <IsSendingEmail>True</IsSendingEmail>
+</CommunityInternshipSettings>

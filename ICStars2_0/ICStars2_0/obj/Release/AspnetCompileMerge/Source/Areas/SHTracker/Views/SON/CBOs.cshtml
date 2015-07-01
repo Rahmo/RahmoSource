@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ICStars2_0.Model.son_cboprogram>
+
+@{
+    ViewBag.Title = "CBO Choices";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CBO Choices</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CBOName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slots)
+        </th>
+        <th>Available Slots</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bilingual)
+        </th>
+        <th>EnteredChoicesCount</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CBOName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slots)
+        </td>
+        <td>@(item.SlotsAvailable<0?0:item.SlotsAvailable)</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bilingual)
+        </td>
+        <td>@item.EnteredChoicesCount</td>
+        <td>
+            @Html.ActionLink("Edit", "EditCBOProgram", new { id=item.CPID })
+        </td>
+    </tr>
+}
+
+</table>

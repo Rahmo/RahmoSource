@@ -1,0 +1,102 @@
+﻿@using ICStars2_0.Common
+@using ICStars2_0.Model
+@using ICStars2_0.Mvc
+@model IEnumerable<ICStars2_0.Model.MCI_TimeLog>
+
+@{
+    ViewBag.Title = "ViewHours";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    @Styles.Render("~/bundles/Site", "~/bundles/mci")
+    <link href="@Styles.Url("~/Content/Css/MCI/ViewHours.css")" rel="stylesheet" />
+
+    <script src="@Styles.Url("~/Scripts/MCI/ViewHours.js")"></script>
+
+}
+<section>
+    <div class="box">
+        <h2>My Profile <em>@Html.ActionLink("Edit","EditProfile")</em></h2>
+        <table>
+            <tr><th>CampusConnect ID</th><th>Name</th><th>Email</th></tr>
+            <tr><td>@User.Identity.Name</td><td>@ViewBag.User.FirstName @ViewBag.User.LastName</td><td>@ViewBag.User.Email</td></tr>
+        </table>
+    </div>
+    <div class="box">
+        <h2>ViewHours <em>@Html.ActionLink("Logout", "Index", "Logout")</em></h2>
+        @{
+            var currentPeriod = (MCI_Period)ViewBag.CurrentPeriod;
+            if (currentPeriod != null)
+            {
+
+
+                <table>
+                    <tr>
+                        <th>Day</th>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Hours At Site
+                        </th>
+                        <th>
+                            Training/Reflection Hours
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>Operation</th>
+                    </tr>
+                    @for (DateTime i = currentPeriod.FromDate; i <= currentPeriod.ToDate; i = i.AddDays(1))
+                    {
+                        var item = Model.FirstOrDefault(m => m.LogDate == i);
+                        <tr class="item">
+                            <td></td>
+                            <td>@i.ToString("MM/dd/yyyy")</td>
+                            <td>
+                                @(item == null ? "" : item.HoursAtSite.ToString())
+                            </td>
+                            <td>
+                                @(item == null ? "" : item.Training_Reflection_Hours.ToString())
+                            </td>
+                            <td title="@(item == null ? "" : item.Description)">
+                                @(item == null ? "" : item.Description.Truncate(50))
+                            </td>
+                            <td>
+                                @if (item != null)
+                                {
+                                    if (!item.IsAuthorized)
+                                    {
+                                        <span>
+                                            @Html.ActionLink("Edit", "EditHour", new { id = item.ID }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <text>Approved</text>
+                                    }
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Report Hours", "ReportHours", new
+                                    {
+                                        date = EncryptDecryptHelper.Encrypt(i.ToString(),
+                                            Const.DynamicKey)
+                                    }, new { @class = "button" })
+                                }
+                            </td>
+                        </tr>
+                    }
+                    <tr class="summary">
+                        <td colspan="2"><b>Totals: </b></td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2"></td>
+                    </tr>
+                </table>
+            }
+        }
+    </div>
+</section>

@@ -1,0 +1,75 @@
+﻿  /* forms */
+form fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+    form fieldset legend {
+        display: none;
+    }
+
+    form fieldset ol {
+        padding: 0;
+        list-style: none;
+    }
+
+        form fieldset ol li {
+            padding-bottom: 5px;
+        }
+
+form label {
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+form label.checkbox {
+    display: inline;
+}
+
+form input, form textarea,form select {
+    border: 1px solid #999;
+    background: #fff;
+    color: #333;
+    font-size: 1.2em;
+    margin: 5px 0 6px 0;
+    padding: 5px;
+    width: 300px;
+}
+
+form textarea {
+    font-family: inherit;
+    width: 500px;
+}
+
+    form input:focus, form textarea:focus {
+        border: 1px solid #7ac0da;
+    }
+
+    form input[type="checkbox"] {
+        background: transparent;
+        border: inherit;
+        width: auto;
+    }
+
+    form input[type="submit"],
+    form input[type="button"],
+    form button {
+        background-color: #d3dce0;
+        border: 1px solid #787878;
+        cursor: pointer;
+        font-size: 1.2em;
+        font-weight: 600;
+        padding: 7px;
+        margin-right: 8px;
+        width: auto;
+    }
+
+    form td input[type="submit"],
+    form td input[type="button"],
+    form td button {
+        font-size: 1em;
+        padding: 4px;
+        margin-right: 4px;
+    }

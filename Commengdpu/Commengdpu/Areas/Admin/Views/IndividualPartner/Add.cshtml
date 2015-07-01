@@ -1,0 +1,160 @@
+﻿@using ICStars2_0.Common
+@using ICStars2_0.Mvc
+@model Commengdpu.Models.IndividualPartner
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var isEditting = Model != null && Model.ID > 0;
+    ViewBag.Title = isEditting ? "Edit Individual Partner" : "Create Individual Partner";
+}
+@section Head{
+    @Styles.Render("~/bundles/Site", "~/bundles/jqueryuicss")
+    @Scripts.Render("~/bundles/jqueryval", "~/bundles/jqueryui")
+
+    <script src="~/Scripts/CkEditor/ckeditor.js"></script>
+    <script src="~/Scripts/CkEditor/CheckCompatibility.js"></script>
+<script src="~/Scripts/BE/AddPartners.js"></script>
+<link href="~/Content/Css/BE/addPartners.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(function () {
+        CKEDITOR.replace('Thumbnail', {
+            height: 200,
+            toolbar: [
+    { name: 'insert', items: ['Image'] }
+            ]
+        });
+
+        $("input[name$='Date']").attr("readonly", "true").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+
+        $("#FirstName,#LastName").change(function () {
+            $("#UniqueUrl").val(($("#FirstName").val()+"-"+$("#LastName").val()).replace(/ +/g, "-"));
+        });
+
+        $("#cpAdd").click(function () {
+            addPartners($(this), buildCommunityPartnerLiArray, '@Url.Action("GetJsonResultList", "CommunityPartner",new{area="",k=MathHelper.Md5(Const.ENCRYPT_KEY+DateTime.Now.ToString("yyyyMMddHH"))})');
+        });
+    });
+</script>
+    <style type="text/css">
+        form fieldset p {
+            text-align: left;
+            margin: 0;
+        }
+    </style>
+}
+
+    <div class="nav"><h1>@(isEditting ? "Edit" : "Create") Individual Partner</h1></div>
+    @using (Html.BeginForm("Add", "IndividualPartner", new { IsFrontEnd = Request.QueryString["IsFrontEnd"] }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    if (isEditting)
+        {
+            @Html.HiddenFor(m=>m.ID)
+        @Html.HiddenFor(m=>m.CreateDate)
+    @Html.HiddenFor(m=>m.CreatorUserID)
+        }
+        <fieldset>
+            <legend>IndividualPartner</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FirstName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LastName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DPUID)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DPUID)
+                @Html.ValidationMessageFor(model => model.DPUID)
+            </div>
+    
+            <div class="editor-label">
+                *@Html.LabelFor(model => model.UniqueUrl)
+            </div>
+            <div class="editor-field">
+                @if (isEditting)
+                {
+                    @Html.Hidden("ul",Model.UniqueUrl)
+                    <em>@Model.UniqueUrl</em>
+                    <br />
+                    <b>(Unique Url is not supposed to be edited)</b>
+                }
+                else
+                {
+                    @Html.TextBoxFor(model => model.UniqueUrl, new {@class = "w350"})
+                    @Html.ValidationMessageFor(model => model.UniqueUrl)
+                    <br />
+                    <b>(This would be the url of this individual partner. Please make a friendly url with letters, numbers, "-" and "_" only!)</b>
+                }
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Thumbnail)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Thumbnail)
+                @Html.ValidationMessageFor(model => model.Thumbnail)
+                <br/>
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Phone)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.PersonalStatement)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.PersonalStatement)
+                @Html.ValidationMessageFor(model => model.PersonalStatement)
+            </div>
+            <br/><br/>
+            <h2>Affilicated Community Partners</h2><br/>
+            <br/>
+            <div class="partnerList">
+                <ul>
+                    @if (Model != null)
+                    {
+                        foreach (var p2cp in Model.CommunityPartner2IndividualPartners)
+                        {
+                            <li>@p2cp.CommunityPartner.Name<input type="hidden" value="@p2cp.CommunityPartner.ID" name="communityPartnerIds"><a title="delete" class="del16" onclick=" $(this).parent().remove(); " href="javascript:"></a></li>
+                        }
+                    }
+                    <li><input type="text" class="keyword" placeholder="Enter the First Word of Name" /><button type="button" id="cpAdd">Add Partner</button></li>
+                </ul>
+
+            </div>
+            <br/>
+            <hr /><br />
+            <p>
+                <input type="submit" value="Submit" />
+            </p>
+        </fieldset>
+    }

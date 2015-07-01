@@ -1,0 +1,4 @@
+<connectionStrings>
+  <add name="ced" connectionString="Data Source=localhost;Initial Catalog=C:\ICSTARS\TRUNK\COMMENGDPU\COMMENGDPU\APP_DATA\COMMENGDPU.MDF;Persist Security Info=True;User ID=sa;Password=123123" providerName="System.Data.SqlClient"/>
+
+</connectionStrings>

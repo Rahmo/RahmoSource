@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+	<!-- SQLPlus -->
+	<add key="DefaultConnectionString" value="icstars" />
+    <!--<add key="IsEncryptedSQLPlus" value="true" />-->
+    <!-- SQLPlus end-->
+    
+  <add key="IsOnline" value="False"/>
+	<add key="domain" value=""/>
+    <add key="host" value="http://localhost:8164"/>
+    <add key="SHTrackerRoot" value="/SHTracker"/>
+    <add key="BinDirectory" value="/bin"/>
+  <add key="InjectionDllPaths" value="/bin/ICStars2_0.BusinessLayer.dll|/bin/ICStars2_0.Db.dll"/>
+  <add key="DbTableSchema" value=""/>
+
+	<!--MVC4-->
+  <add key="webpages:Version" value="2.0.0.0" />
+  <add key="webpages:Enabled" value="false" />
+  <add key="PreserveLoginUrl" value="true" />
+  <add key="ClientValidationEnabled" value="true" />
+  <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <!--Steans-->
+    <add key="CommunityInternshipServiceEmail" value="lihui830501@gmail.com"/>
+    <add key="CommunityPartnersServiceEmail" value="steanscenter@163.com"/>
+
+</appSettings>

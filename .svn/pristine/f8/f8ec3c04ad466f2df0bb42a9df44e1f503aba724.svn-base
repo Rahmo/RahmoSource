@@ -1,0 +1,18 @@
+﻿body section {
+            padding: 20px;
+            width: 920px;
+        }
+        div#search_map input[type='text'] {
+            width: 500px;
+            margin-right: 20px;
+        }
+        div#map-canvas {
+            margin-top: 20px;
+            height: 500px;
+        }
+        div#map-canvas div.project_content img {
+            float: left;
+        }
+            div#map-canvas div.project_content p em {
+                float: right;
+            }

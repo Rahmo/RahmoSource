@@ -1,0 +1,29 @@
+﻿
+    @Styles.Render("~/bundles/Site")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/SHTracker/Scripts/CkEditor/ckeditor.js"></script>
+    <script src="~/SHTracker/Scripts/CkEditor/CheckCompatibility.js"></script>
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/bundles/jqueryuicss")
+    <script type="text/javascript">
+        $(function () {
+            CKEDITOR.replace('Content', { height: 500 });
+            CKEDITOR.replace('Thumbnail', {
+                height: 200,
+                toolbar: [
+        { name: 'insert', items: ['Image'] }
+                ]
+            });
+            $("input[name$='PublishDate']").attr("readonly", "true").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+            $("input[name$='EventDate']").attr("readonly", "true").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+
+    </script>
+

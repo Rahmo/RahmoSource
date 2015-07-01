@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<roleManager enabled="true" defaultProvider="ICStarsRoles" cacheRolesInCookie="true" cookieName="ICStars987654321" cookieTimeout="30" cookiePath="/" cookieRequireSSL="false" cookieSlidingExpiration="true" cookieProtection="All">
+  <providers>
+    <!--<remove   name= "AspNetSqlRoleProvider "/>-->
+    <add name="ICStarsRoles" type="ICStars2_0.BusinessLayer.Provider.ICStarsRoles,ICStars2_0.BusinessLayer" connectionStringName="ICStars" applicationName="ICStars"/>
+  </providers>
+</roleManager>

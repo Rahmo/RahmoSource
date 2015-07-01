@@ -1,0 +1,67 @@
+﻿@using ICStars2_0.Model
+@model IEnumerable<ICStars2_0.Model.Storyboard>
+
+@{
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="TableLayout">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.PublishDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.StoryContent)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+            <td> 
+                    @Html.DisplayFor(modelItem => item.PublishDate)
+                </td>
+
+                <td>
+                    @Html.Raw(item.StoryContent.Truncate(100))
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {id = item.ID}) |
+                    @Html.ActionLink("Details", "Details", new {id = item.ID}) |
+                    @Html.ActionLink("Delete", "Delete", new {id = item.ID})
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

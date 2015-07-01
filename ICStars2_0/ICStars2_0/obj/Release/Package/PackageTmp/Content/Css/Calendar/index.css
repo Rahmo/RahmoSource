@@ -1,0 +1,105 @@
+﻿
+.ui-dialog, .ui-dialog .ui-dialog-buttonpane {
+    background: url(/images/calendar_bg.png) 0 0 repeat #fff;
+}
+#calendar {
+    width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 14px;
+    font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+    background-color: #ffffff;
+}
+
+body section {
+    padding: 20px 0 20px 0;
+    background: url(/images/calendar_bg.png) 0 0 repeat #fff;
+}
+
+table.fc-header {
+    background: url(/images/calendar_bg.png) 0 0 repeat #fff;
+}
+div.toolbar {
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+div.adminbar {
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+div.bottom {
+    padding-left: 30px;
+    margin-top: 20px;
+}
+
+    div.bottom em {
+        height: 25px;
+        line-height: 25px;
+        display: inline-block;
+        vertical-align: top;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    div.bottom .space {
+        width: 20px;
+        display: inline-block;
+    }
+
+body div#dialog {
+    display: none;
+    background: url(/images/calendar_bg.png) 0 0 repeat #fff;
+}
+
+.ui-front {
+    z-index: 3999;
+}
+
+.fc-widget-header, .fc-widget-content {
+    border: 1px solid #cccccc;
+}
+
+.c_van {
+    cursor: default;
+    color: #ffffff;
+    border: solid 1px #996633;
+    background: #996633;
+}
+.c_roomLL106 {
+    cursor: default;
+    color: #ffffff;
+    border: solid 1px #CC3300;
+    background: #CC3300;
+}
+
+.c_room101 {
+    cursor: default;
+    color: #ffffff;
+    border: solid 1px #007F9C;
+    background: #007F9C;
+}
+
+.steansevent {
+    cursor: default;
+    color: #ffffff;
+    border: solid 1px #ffffff;
+    background: #007F9C;
+}
+
+
+.adminbar span {
+    background: #CC3300;
+    text-shadow: none;
+}
+.adminbar span.active,.toolbar span.active {
+    background:red;
+    color: #ffffff;
+}
+    .adminbar span a,.toolbar span.active a {
+        color: #ffffff;
+    }
+.adminbar span.active a,.toolbar span.active a {
+        text-shadow: none;
+    }

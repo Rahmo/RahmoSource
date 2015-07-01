@@ -1,0 +1,24 @@
+﻿@using System.Runtime.Remoting.Messaging
+@using ICStars2_0.Mvc
+@model IEnumerable<Commengdpu.BusinessLayer.CategoryServices.CategoryNode>
+@{
+    ViewBag.Title = "Advanced Project Searh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+<meta name="description" content="Project/Individual Partner/Community Partner Search" />
+<meta name="keywords" content="Project,Individual Partner,Community Partner,Search, DePaul Community Engagement" />
+@Html.Style("~/Content/Css/Search/index.css")
+    
+}
+<h2>Advanced Searh</h2>
+<div id="list">
+    @using (Html.BeginForm())
+    {
+        <ul>
+            @Html.Raw(Model.Select(n => n.BuildHtml(isShowCheckbox: true,isBindingNames:true,bindingLinksFunc:(name)=> { return Url.Action("List", "Project", new {categories = name}); } )).Aggregate((x, y) => x + y))
+        </ul>
+        <br/>
+        <p><input type="submit" value="Search"/></p>
+    }
+</div>

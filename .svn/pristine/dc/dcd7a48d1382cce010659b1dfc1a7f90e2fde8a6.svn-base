@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap defaultProvider="Default">
+    <providers>
+        <add name="Default" siteMapFile="/web.sitemap"
+             type="System.Web.XmlSiteMapProvider, System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+    </providers>
+</siteMap>

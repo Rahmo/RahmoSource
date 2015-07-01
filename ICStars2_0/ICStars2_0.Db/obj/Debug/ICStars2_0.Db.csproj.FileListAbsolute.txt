@@ -1,0 +1,17 @@
+\\psf\Home\Downloads\Steans07172014-1\ICStars2_0\ICStars2_0.Db\obj\Debug\ICStars2_0.Db.csprojResolveAssemblyReference.cache
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\obj\Debug\ICStars2_0.Db.csprojResolveAssemblyReference.cache
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Db.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Db.pdb
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\EntityFramework.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Common.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Data.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Framework.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Model.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\Microsoft.Practices.Unity.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\DataAnnotationsExtensions.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Common.pdb
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Data.pdb
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Framework.pdb
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\bin\Debug\ICStars2_0.Model.pdb
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\obj\Debug\ICStars2_0.Db.dll
+C:\RahmoSource\ICStars2_0\ICStars2_0.Db\obj\Debug\ICStars2_0.Db.pdb

@@ -1,0 +1,62 @@
+﻿@model ICStars2_0.Model.MVPSite
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>MVPSite</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.SiteName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SiteName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.SiteBrief)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SiteBrief)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ProjectStarts)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProjectStarts)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Coordinator)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Coordinator)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.SiteLocation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SiteLocation)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Author)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Author)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

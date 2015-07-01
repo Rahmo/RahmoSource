@@ -1,0 +1,13 @@
+<connectionStrings>
+    <!--<add name="icstars" connectionString="server=127.0.0.1;database=ICStars2_0;uid=sa;pwd=123456;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
+    <!--<add name="icstars" connectionString="5camUMie/TVKqFQ7MUWytuO3wECLkdxlEbZvfPacPxysGm3TpAYnKGr6+WKtYEUZksPNIVpgtKImsEe36hLHc5O6bUG4Qx+Kf44PCviOMJXVqLMdJzW6bOgW3o9287G/8cr9HiUlsepkBt34ygGCI46sNZxEeFDb0sHBP7+ZRCA=" providerName="System.Data.SqlClient" />-->
+
+  <!--<add name="icstars" connectionString="Data Source=(LocalDB)\v11.0;Initial Catalog=aspnet-TestEntityFramework-20130114152332;AttachDbFilename=|DataDirectory|\ICStars2_0.mdf;Integrated Security=SSPI;Connect Timeout=30" providerName="System.Data.SqlClient" />
+
+    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-TestEntityFramework-20130114152332;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-TestEntityFramework-20130114152332.mdf" providerName="System.Data.SqlClient" />
+      the one that work are the two below -->
+ <add name="icstars" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=aspnet-TestEntityFramework-20130114152332;AttachDbFilename=C:\SteansCenterApp\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=SSPI;Connect Timeout=30" providerName="System.Data.SqlClient" />
+
+  <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=aspnet-TestEntityFramework-20130114152332;Integrated Security=SSPI;AttachDBFilename=C:\SteansCenterApp\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf" providerName="System.Data.SqlClient" />
+  <!--<add name="icstars" connectionString="server=sqldbprd13a.dpu.depaul.edu;database=cbsl;uid=cbslusr;pwd=Steans0308~;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
+</connectionStrings>

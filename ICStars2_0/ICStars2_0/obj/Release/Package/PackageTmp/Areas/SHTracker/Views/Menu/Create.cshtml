@@ -1,0 +1,85 @@
+﻿@model ICStars2_0.Model.WebsiteNav
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+@section Head {
+    @Styles.Render("~/bundles/Site")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <style type="text/css">
+        h2{ padding-left: 10px;}
+        fieldset{ margin-left: 10px;}
+    </style>
+}
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>WebsiteNav</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Link) (This would be the url of this webpage. Please make a friendly url with letters, numbers, "-" and "_" only!) 
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Link)
+            @Html.ValidationMessageFor(model => model.Link)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LinkTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LinkTitle)
+            @Html.ValidationMessageFor(model => model.LinkTitle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsTargetBlank)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsTargetBlank)
+            @Html.ValidationMessageFor(model => model.IsTargetBlank)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsVisible)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsVisible)
+            @Html.ValidationMessageFor(model => model.IsVisible)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ParentID)
+        </div>
+        <div class="editor-field">
+            @*@Html.EditorFor(model => model.ParentID)*@
+            @Html.DropDownListFor(m=>m.ParentID,new[]{new SelectListItem(){Text="No Parent", Value="0"}}.Union( (IEnumerable<SelectListItem>)ViewBag.ParentDropdown))
+            @Html.ValidationMessageFor(model => model.ParentID)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderByID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderByID)
+            @Html.ValidationMessageFor(model => model.OrderByID)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+

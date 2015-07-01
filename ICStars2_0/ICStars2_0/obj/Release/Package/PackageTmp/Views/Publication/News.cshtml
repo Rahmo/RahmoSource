@@ -1,0 +1,47 @@
+﻿@using ICStars2_0.BusinessLayer.ArticleServices
+@using ICStars2_0.Model
+@using ICStars2_0.Mvc
+@model IArticleCollection
+
+@{
+    ViewBag.Title = "News -Steans Center";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+@section Head{
+<link href="~/Content/Css/PageBar2.css" rel="stylesheet" />
+    <style type="text/css">
+        body section {
+            width: 940px;
+            padding: 10px;
+        }
+
+        body section ul li {
+            margin-top: 20px;
+        }
+        div#main section ul li {
+            list-style: none;
+        }
+         #pager {
+            margin-top: 50px;
+        }
+    </style>
+}
+<section>
+    <h1>News & Events</h1>
+    <ul>
+
+        @foreach (var article in Model)
+        {
+            <li>
+                <h2>@Html.ActionLink((article.ShortTitle ?? article.Title) + " »", "Index", "Publication", new { id = article.UrlTitle, root = "News" }, new { @class = "link_blue", @target = "_blank", @title = article.Title })</h2>
+                <em>@(article.PublishDate != null ? ((DateTime)article.PublishDate).ToLongDateString() : "")</em><br />
+                @article.Brief<br />
+
+
+            </li>
+        }
+    </ul>
+    <div id="pager">
+        @Html.PagerBar(Model.TotalCount, Model.PageSize, 5,pagebarType:PageBarType.Previous_Next_First_Last|PageBarType.Number, htmlAttributes: new { @class = "PageBar2" })
+    </div>
+</section>

@@ -1,0 +1,1297 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Account/f:CreateMember.aspx.cs" caret="0" fromTop="0" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:StudentApp/f:ReportHours_2.aspx.cs" caret="0" fromTop="0" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Scripts/f:jquery-ui-1.8.11.js" caret="325973" fromTop="13" />
+      <File id="64783704-C7FE-43D1-AA25-7F74330DEB9C/f:Student.cs" caret="7781" fromTop="4" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Add.aspx.cs" caret="5565" fromTop="11" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:StudentServices/f:IStudentFactory.cs" caret="721" fromTop="7" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:StudentServices/f:StudentFactory.cs" caret="2374" fromTop="13" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:IDB_Student.cs" caret="547" fromTop="8" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:DB_Student.cs" caret="10915" fromTop="0" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:CourseServices/f:ICourseFactory.cs" caret="300" fromTop="11" />
+      <File id="64783704-C7FE-43D1-AA25-7F74330DEB9C/d:Settings/f:CourseCollectionSettings.cs" caret="129" fromTop="6" />
+      <File id="64783704-C7FE-43D1-AA25-7F74330DEB9C/d:Settings/f:StudentReportCollectionSettings.cs" caret="0" fromTop="0" />
+      <File id="64783704-C7FE-43D1-AA25-7F74330DEB9C/d:Settings/f:StudentCollectionSettings.cs" caret="0" fromTop="0" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:CourseServices/f:CourseCollection.cs" caret="349" fromTop="0" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:CourseServices/f:CourseFactory.cs" caret="1783" fromTop="15" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Report/f:MyCourse.aspx.cs" caret="1441" fromTop="1" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Account/f:EditMember.aspx" caret="0" fromTop="0" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:CBOServices/f:ICBOFactory.cs" caret="669" fromTop="12" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:CBOServices/f:CBOFactory.cs" caret="1681" fromTop="15" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:IDB_CBO.cs" caret="288" fromTop="12" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:DB_CBO.cs" caret="2202" fromTop="0" />
+      <File id="64783704-C7FE-43D1-AA25-7F74330DEB9C/f:StudentReport.cs" caret="691" fromTop="2" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:CBOServices/f:CBOCollection.cs" caret="923" fromTop="12" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Report/f:MyCourse.aspx" caret="3198" fromTop="13" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Search.aspx" caret="6649" fromTop="19" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:List.aspx" caret="6779" fromTop="16" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Add.aspx" caret="12307" fromTop="8" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Edit.aspx" caret="13102" fromTop="5" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Edit.aspx.cs" caret="4008" fromTop="12" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Account/f:EditMember.aspx.cs" caret="7132" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Add.aspx.cs" caret="5473" fromTop="11" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Add.aspx" caret="2799" fromTop="21" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Search.aspx" caret="3031" fromTop="7" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Report/f:ChooseTerm.aspx" caret="552" fromTop="6" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Search.aspx" caret="3347" fromTop="11" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:StudentServices/f:StudentFactory.cs" caret="380" fromTop="13" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:StudentServices/f:IStudentFactory.cs" caret="966" fromTop="19" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:DB_Student.cs" caret="16513" fromTop="13" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:DB_Student.cs" caret="16887" fromTop="18" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:IDB_Student.cs" caret="796" fromTop="13" />
+      <File id="12F372DF-1165-4539-AA0D-40C2FA90FADD/d:StudentServices/f:StudentFactory.cs" caret="3452" fromTop="21" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Edit.aspx.cs" caret="7008" fromTop="8" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:CheckCourseDPUID.ashx.cs" caret="1029" fromTop="15" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Edit.aspx" caret="2630" fromTop="20" />
+      <File id="64783704-C7FE-43D1-AA25-7F74330DEB9C/f:Student.cs" caret="8334" fromTop="13" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Add.aspx.cs" caret="5013" fromTop="7" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Edit.aspx.cs" caret="6635" fromTop="8" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Edit.aspx.cs" caret="4008" fromTop="12" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Edit.aspx" caret="13279" fromTop="8" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Add.aspx" caret="12697" fromTop="13" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:DB_Student.cs" caret="6146" fromTop="2" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:DB_Student.cs" caret="6146" fromTop="9" />
+      <File id="E4E03F84-A7BD-4E44-B271-A2CB62157DCE/f:DB_Student.cs" caret="6146" fromTop="13" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:List.aspx" caret="6779" fromTop="16" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Student/f:Search.aspx" caret="6649" fromTop="19" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Report/f:MyCourse.aspx" caret="3405" fromTop="13" />
+      <File id="64783704-C7FE-43D1-AA25-7F74330DEB9C/f:StudentReport.cs" caret="691" fromTop="2" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Account/f:EditMember.aspx.cs" caret="6898" fromTop="24" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Account/f:EditMember.aspx.cs" caret="6711" fromTop="20" />
+      <File id="685924DA-C2B6-49FB-97F3-C546A78201FB/d:SHTracker/d:Account/f:EditMember.aspx.cs" caret="8681" fromTop="16" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">False</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="override" priority="287" />
+      <Item value="page" priority="159" />
+      <Item value="using" priority="309" />
+      <Item value="Microsoft" priority="185" />
+      <Item value="Practices" priority="161" />
+      <Item value="Unity" priority="134" />
+      <Item value="Page`0" priority="30" />
+      <Item value="public" priority="316" />
+      <Item value="int" priority="1429" />
+      <Item value="return" priority="1567" />
+      <Item value="private" priority="63" />
+      <Item value="prop" priority="2047" />
+      <Item value="Response" priority="1023" />
+      <Item value="TestInjection" priority="63" />
+      <Item value="Html32TextWriter`0" priority="61" />
+      <Item value="System" priority="441" />
+      <Item value="Web" priority="321" />
+      <Item value="Mvc" priority="104" />
+      <Item value="Html" priority="77" />
+      <Item value="InputExtensions`0" priority="85" />
+      <Item value="HtmlHelper`0" priority="90" />
+      <Item value="new" priority="1471" />
+      <Item value="HtmlHelper" priority="28" />
+      <Item value="ErrorMessage" priority="31" />
+      <Item value="StringLength" priority="31" />
+      <Item value="null" priority="639" />
+      <Item value="TestInjection`0" priority="31" />
+      <Item value="_testinjection" priority="63" />
+      <Item value="value" priority="127" />
+      <Item value="HttpContext`0" priority="191" />
+      <Item value="txtReturnUrl" priority="31" />
+      <Item value="protected" priority="159" />
+      <Item value="void" priority="127" />
+      <Item value="object" priority="223" />
+      <Item value="EventArgs`0" priority="127" />
+      <Item value="string" priority="3369" />
+      <Item value="txtUserName" priority="261" />
+      <Item value="txtPWD" priority="31" />
+      <Item value="ltlError" priority="415" />
+      <Item value="propg" priority="31" />
+      <Item value="ILogin`0" priority="31" />
+      <Item value="IRoleFactory`0" priority="31" />
+      <Item value="_roleFactory" priority="32" />
+      <Item value="RoleFactory" priority="32" />
+      <Item value="IMemberFactory`0" priority="63" />
+      <Item value="_memberFactory" priority="65" />
+      <Item value="MemberFactory" priority="193" />
+      <Item value="Roles" priority="63" />
+      <Item value="var" priority="895" />
+      <Item value="Type`0" priority="63" />
+      <Item value="t" priority="159" />
+      <Item value="attributes" priority="63" />
+      <Item value="if" priority="2815" />
+      <Item value="IsInRoles`0" priority="31" />
+      <Item value="context" priority="447" />
+      <Item value="DefaultHttpHandler" priority="28" />
+      <Item value="fi" priority="31" />
+      <Item value="info" priority="31" />
+      <Item value="false" priority="287" />
+      <Item value="MemberInfo`0" priority="31" />
+      <Item value="true" priority="514" />
+      <Item value="foreach" priority="445" />
+      <Item value="for" priority="127" />
+      <Item value="attr2" priority="62" />
+      <Item value="Length" priority="26" />
+      <Item value="txtNewPassword" priority="31" />
+      <Item value="txtConfirmPassword" priority="31" />
+      <Item value="txtOldPassword" priority="31" />
+      <Item value="CSharp" priority="26" />
+      <Item value="bool" priority="409" />
+      <Item value="DropDownList`0" priority="31" />
+      <Item value="item" priority="31" />
+      <Item value="txtName" priority="95" />
+      <Item value="Model" priority="189" />
+      <Item value="Role`0" priority="26" />
+      <Item value="Role" priority="28" />
+      <Item value="role" priority="95" />
+      <Item value="Request" priority="1218" />
+      <Item value="RoleType" priority="32" />
+      <Item value="Enum`0" priority="31" />
+      <Item value="typeof" priority="95" />
+      <Item value="RoleType`0" priority="64" />
+      <Item value="IRoleCollection`0" priority="31" />
+      <Item value="rptRole" priority="63" />
+      <Item value="rc" priority="63" />
+      <Item value="rptMemberType" priority="31" />
+      <Item value="Eval`0" priority="927" />
+      <Item value="e" priority="95" />
+      <Item value="LinkButton`0" priority="97" />
+      <Item value="sender" priority="127" />
+      <Item value="out" priority="191" />
+      <Item value="id" priority="95" />
+      <Item value="Linq" priority="81" />
+      <Item value="array" priority="63" />
+      <Item value="Sum`0" priority="26" />
+      <Item value="Where`1" priority="26" />
+      <Item value="i" priority="286" />
+      <Item value="Config`0" priority="63" />
+      <Item value="HttpResponse`0" priority="31" />
+      <Item value="Member" priority="28" />
+      <Item value="m" priority="704" />
+      <Item value="txtPassword" priority="63" />
+      <Item value="txtEmail" priority="127" />
+      <Item value="cbxStatus" priority="63" />
+      <Item value="BuildCheckAccountUrl`0" priority="31" />
+      <Item value="s2" priority="31" />
+      <Item value="result" priority="31" />
+      <Item value="IHttpHandler`0" priority="96" />
+      <Item value="base" priority="95" />
+      <Item value="UI" priority="53" />
+      <Item value="SimpleWebHandlerParser`0" priority="26" />
+      <Item value="BuildManager`0" priority="31" />
+      <Item value="as" priority="95" />
+      <Item value="page1" priority="31" />
+      <Item value="username" priority="63" />
+      <Item value="rptList" priority="95" />
+      <Item value="ArrayHelper`0" priority="31" />
+      <Item value="else" priority="319" />
+      <Item value="lb" priority="31" />
+      <Item value="RegularExpressionValidator`0" priority="63" />
+      <Item value="status" priority="31" />
+      <Item value="DataBinder`0" priority="63" />
+      <Item value="Label`0" priority="31" />
+      <Item value="hdfUserName" priority="69" />
+      <Item value="IsPostBack" priority="255" />
+      <Item value="_cboFactory" priority="32" />
+      <Item value="CBOFactory" priority="191" />
+      <Item value="cboName" priority="63" />
+      <Item value="CBO`0" priority="85" />
+      <Item value="CBO" priority="28" />
+      <Item value="cbo" priority="737" />
+      <Item value="txtCBOName" priority="63" />
+      <Item value="Course`0" priority="27" />
+      <Item value="Course" priority="26" />
+      <Item value="_courseFactory" priority="32" />
+      <Item value="CourseFactory" priority="128" />
+      <Item value="course" priority="639" />
+      <Item value="txtTermDescription" priority="95" />
+      <Item value="txtSubject" priority="63" />
+      <Item value="txtCatalogNumber" priority="63" />
+      <Item value="Convert`0" priority="698" />
+      <Item value="txtClassSection" priority="63" />
+      <Item value="txtTitle" priority="63" />
+      <Item value="txtInstructorName" priority="63" />
+      <Item value="txtBestEmail" priority="63" />
+      <Item value="User" priority="928" />
+      <Item value="txtStaff" priority="31" />
+      <Item value="List`0" priority="126" />
+      <Item value="CBONameList" priority="31" />
+      <Item value="IEnumerable" priority="351" />
+      <Item value="this" priority="159" />
+      <Item value="Student`0" priority="112" />
+      <Item value="student" priority="1568" />
+      <Item value="Student" priority="59" />
+      <Item value="txtQuarterYear" priority="31" />
+      <Item value="txtAvailableTime" priority="31" />
+      <Item value="txtLastname" priority="31" />
+      <Item value="txtFirstName" priority="63" />
+      <Item value="txtDPUID" priority="159" />
+      <Item value="txtPrimaryPhone" priority="63" />
+      <Item value="txtAlternatePhone" priority="63" />
+      <Item value="txtPermanentAddress" priority="63" />
+      <Item value="txtCity" priority="63" />
+      <Item value="txtState" priority="63" />
+      <Item value="txtZipCode" priority="63" />
+      <Item value="txtExpectedGraduationDate" priority="95" />
+      <Item value="txtOther" priority="127" />
+      <Item value="StudentFactory" priority="447" />
+      <Item value="CurrentStudent" priority="1734" />
+      <Item value="Selected" priority="130" />
+      <Item value="r" priority="98" />
+      <Item value="ddlReachMethod" priority="31" />
+      <Item value="txtMajor" priority="31" />
+      <Item value="DateTime`0" priority="286" />
+      <Item value="txtNameofEmergencyContact" priority="31" />
+      <Item value="txtTelephone" priority="31" />
+      <Item value="Void`0" priority="31" />
+      <Item value="Random`0" priority="63" />
+      <Item value="ListItem" priority="57" />
+      <Item value="txtCBO" priority="31" />
+      <Item value="CurrentCBO" priority="63" />
+      <Item value="txtCourse" priority="31" />
+      <Item value="CurrentCourse" priority="223" />
+      <Item value="txtServiceDate" priority="101" />
+      <Item value="ServiceHours" priority="28" />
+      <Item value="sh" priority="255" />
+      <Item value="float" priority="158" />
+      <Item value="ddlHoursServed" priority="95" />
+      <Item value="txtContactType" priority="31" />
+      <Item value="txtNotes" priority="63" />
+      <Item value="IServiceHoursFactory`0" priority="62" />
+      <Item value="ServiceHoursFactory" priority="95" />
+      <Item value="LastUpdateTime" priority="31" />
+      <Item value="DB_Student" priority="159" />
+      <Item value="ID" priority="31" />
+      <Item value="ddlOrientation" priority="95" />
+      <Item value="Gender" priority="31" />
+      <Item value="CommunityServiceStudies" priority="31" />
+      <Item value="txtRequiredServeHours" priority="127" />
+      <Item value="fp" priority="671" />
+      <Item value="CreateStudentCollection`0" priority="63" />
+      <Item value="pageIndex" priority="95" />
+      <Item value="pageSize" priority="95" />
+      <Item value="settings" priority="2341" />
+      <Item value="Settings" priority="159" />
+      <Item value="StringBuilder`0" priority="255" />
+      <Item value="StringBuilder" priority="260" />
+      <Item value="sbSql" priority="159" />
+      <Item value="SqlParameter`0" priority="158" />
+      <Item value="SqlParameter" priority="173" />
+      <Item value="parms" priority="383" />
+      <Item value="List&lt;SqlParameter&gt;" priority="115" />
+      <Item value="SqlDbType`0" priority="95" />
+      <Item value="Value" priority="351" />
+      <Item value="strCondition" priority="191" />
+      <Item value="StudentCollectionSettings" priority="86" />
+      <Item value="Staff" priority="63" />
+      <Item value="BuildCourseList`0" priority="31" />
+      <Item value="seletedCourseID" priority="63" />
+      <Item value="seletedCBOID" priority="63" />
+      <Item value="BuildCBOSeleteListItems`0" priority="63" />
+      <Item value="strSql" priority="479" />
+      <Item value="CreateCBOCollection`0" priority="31" />
+      <Item value="ICBOCollection`0" priority="63" />
+      <Item value="a" priority="63" />
+      <Item value="PageIndex" priority="31" />
+      <Item value="PageSize" priority="31" />
+      <Item value="_table" priority="63" />
+      <Item value="DataTable" priority="28" />
+      <Item value="StudentReportCollectionSettings" priority="57" />
+      <Item value="CBOID" priority="63" />
+      <Item value="CourseID" priority="65" />
+      <Item value="studentReport" priority="159" />
+      <Item value="IStudentReportCollection`0" priority="31" />
+      <Item value="cboId" priority="162" />
+      <Item value="courseId" priority="290" />
+      <Item value="BuildStudentReportCollection`0" priority="31" />
+      <Item value="Server" priority="159" />
+      <Item value="CourseCollection`0" priority="31" />
+      <Item value="CreateCourseCollection`0" priority="31" />
+      <Item value="BuildCourseSeleteListItems`0" priority="31" />
+      <Item value="CourseCollectionSettings" priority="58" />
+      <Item value="Quater_Year" priority="97" />
+      <Item value="StringSplitOptions`0" priority="31" />
+      <Item value="IsAuthorized" priority="31" />
+      <Item value="UpdateServedHours`0" priority="31" />
+      <Item value="IStudentFactory`0" priority="61" />
+      <Item value="SelectListItem`0" priority="127" />
+      <Item value="extraList" priority="63" />
+      <Item value="items" priority="95" />
+      <Item value="Text" priority="31" />
+      <Item value="text" priority="31" />
+      <Item value="seleted" priority="31" />
+      <Item value="ddlContactType" priority="63" />
+      <Item value="ltlSLC" priority="31" />
+      <Item value="courseid" priority="96" />
+      <Item value="memberId" priority="96" />
+      <Item value="DB_Member2CBO" priority="31" />
+      <Item value="Select`2" priority="26" />
+      <Item value="IMember2CBOFactory`0" priority="30" />
+      <Item value="Member2CboFactory" priority="95" />
+      <Item value="cboid" priority="127" />
+      <Item value="DataTable`0" priority="63" />
+      <Item value="dt" priority="126" />
+      <Item value="where" priority="31" />
+      <Item value="select" priority="31" />
+      <Item value="row" priority="287" />
+      <Item value="List" priority="31" />
+      <Item value="List&lt;int&gt;" priority="28" />
+      <Item value="DataRow`0" priority="30" />
+      <Item value="list" priority="63" />
+      <Item value="newCboIdList" priority="63" />
+      <Item value="userCboIdList" priority="63" />
+      <Item value="try" priority="127" />
+      <Item value="catch" priority="159" />
+      <Item value="Exception`0" priority="95" />
+      <Item value="finally" priority="31" />
+      <Item value="throw" priority="63" />
+      <Item value="DB_CBO" priority="31" />
+      <Item value="Obsolete" priority="63" />
+      <Item value="CBOCollectionSettings" priority="115" />
+      <Item value="IsCheckSLC" priority="95" />
+      <Item value="SLC" priority="130" />
+      <Item value="UserCboCollection" priority="31" />
+      <Item value="txtPhone" priority="63" />
+      <Item value="txtOfficeHours" priority="95" />
+      <Item value="ddlQuarterYear" priority="101" />
+      <Item value="switch" priority="63" />
+      <Item value="case" priority="63" />
+      <Item value="break" priority="63" />
+      <Item value="searchText" priority="127" />
+      <Item value="quaterYear" priority="63" />
+      <Item value="CurrentStudentCollection" priority="95" />
+      <Item value="Search`0" priority="31" />
+      <Item value="searchType" priority="31" />
+      <Item value="IStudentCollection`0" priority="31" />
+      <Item value="IServiceHoursCollection`0" priority="30" />
+      <Item value="serviceHoursCollectionSettings" priority="32" />
+      <Item value="CurrentServiceHoursCollection" priority="63" />
+      <Item value="serviceHours" priority="127" />
+      <Item value="stuId" priority="128" />
+      <Item value="ServiceHoursCollectionSettings" priority="28" />
+      <Item value="StudentID" priority="31" />
+      <Item value="c" priority="31" />
+      <Item value="log" priority="159" />
+      <Item value="HttpBrowserCapabilities`0" priority="31" />
+      <Item value="UserControl`0" priority="31" />
+      <Item value="SHTrackerLogFactory" priority="63" />
+      <Item value="delegate" priority="32" />
+      <Item value="Regex" priority="28" />
+      <Item value="RegexOptions`0" priority="63" />
+      <Item value="regLInk" priority="31" />
+      <Item value="match" priority="31" />
+      <Item value="Regex`0" priority="31" />
+      <Item value="pageBar1" priority="63" />
+      <Item value="sc" priority="63" />
+      <Item value="btnSubmit" priority="101" />
+      <Item value="orderby" priority="127" />
+      <Item value="cmd" priority="95" />
+      <Item value="SqlConnection" priority="28" />
+      <Item value="conn" priority="127" />
+      <Item value="mustCloseConnection" priority="95" />
+      <Item value="CommandType`0" priority="31" />
+      <Item value="tableName" priority="127" />
+      <Item value="GetTable`0" priority="31" />
+      <Item value="DataColumn`0" priority="31" />
+      <Item value="insertbuilder" priority="319" />
+      <Item value="column" priority="63" />
+      <Item value="table" priority="31" />
+      <Item value="is" priority="31" />
+      <Item value="DBNull`0" priority="31" />
+      <Item value="static" priority="62" />
+      <Item value="txtTableNames" priority="31" />
+      <Item value="textBuilder" priority="95" />
+      <Item value="BuildSql`0" priority="31" />
+      <Item value="Encoding`0" priority="31" />
+      <Item value="ddlAction" priority="31" />
+      <Item value="dpuId" priority="192" />
+      <Item value="Common" priority="95" />
+      <Item value="MathHelper`0" priority="26" />
+      <Item value="str" priority="31" />
+      <Item value="Construct`0" priority="31" />
+      <Item value="ReportHours_2`0" priority="31" />
+      <Item value="encryptDpuId" priority="31" />
+      <Item value="EncryptDecryptHelper`0" priority="81" />
+      <Item value="sbCondition" priority="159" />
+      <Item value="quarterYear" priority="96" />
+      <Item value="DPU_ID" priority="32" />
+      <Item value="dpu_id" priority="97" />
+      <Item value="IFormatProvider`0" priority="31" />
+      <Item value="CourseNameList" priority="31" />
+      <Item value="Panel1" priority="31" />
+      <Item value="Const`0" priority="31" />
+      <Item value="sCourseId" priority="31" />
+      <Item value="ENCRYPT_KEY" priority="31" />
+      <Item value="SecurityAction`0" priority="63" />
+      <Item value="IUnrestrictedPermission`0" priority="31" />
+      <Item value="CourseCollectionSettings`0" priority="31" />
+      <Item value="Professor" priority="32" />
+      <Item value="InstructorName" priority="65" />
+      <Item value="DB_Course" priority="31" />
+      <Item value="professor" priority="31" />
+      <Item value="instructorName" priority="32" />
+      <Item value="curStu" priority="31" />
+      <Item value="ReportedHours" priority="61" />
+      <Item value="TotalReortedHours" priority="61" />
+      <Item value="PersistChildrenAttribute`0" priority="31" />
+      <Item value="password" priority="31" />
+      <Item value="domain" priority="31" />
+      <Item value="expiresdays" priority="31" />
+      <Item value="QuarterYear" priority="31" />
+      <Item value="DefaultProfile`0" priority="134" />
+      <Item value="Profile" priority="107" />
+      <Item value="ProfileBase`0" priority="26" />
+      <Item value="Security" priority="26" />
+      <Item value="BuildProfileTree`0" priority="31" />
+      <Item value="pInfo" priority="95" />
+      <Item value="User`0" priority="55" />
+      <Item value="profile" priority="95" />
+      <Item value="currentTerm" priority="31" />
+      <Item value="ProfileAutoSaveEventHandler`0" priority="31" />
+      <Item value="sid" priority="63" />
+      <Item value="currentServiceHours" priority="159" />
+      <Item value="ServiceHours`0" priority="26" />
+      <Item value="txtContactFristName" priority="63" />
+      <Item value="txtContactLastName" priority="63" />
+      <Item value="txtContactEmail" priority="63" />
+      <Item value="txtContactPhone" priority="63" />
+      <Item value="ddlIsProject" priority="95" />
+      <Item value="studentId" priority="64" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Microsoft.Practices.Unity.IUnityContainer">
+      <Item value="Resolve`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.Page">
+      <Item value="GetType`0" priority="81" />
+      <Item value="ToString`0" priority="27" />
+      <Item value="PreInit" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpResponse">
+      <Item value="Write`0" priority="406" />
+      <Item value="Redirect`0" priority="378" />
+      <Item value="End`0" priority="161" />
+      <Item value="Clear`0" priority="80" />
+      <Item value="Flush`0" priority="26" />
+      <Item value="ContentEncoding" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.TestInjection">
+      <Item value="Print`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Mvc.Html.InputExtensions">
+      <Item value="TextBoxFor`2" priority="26" />
+      <Item value="TextBox`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="AspCodeCompletionContext">
+      <Item value="Import" priority="15" />
+      <Item value="namespace" priority="15" />
+      <Item value="Html32TextWriter`0" priority="9" />
+      <Item value="System" priority="9" />
+      <Item value="Web" priority="7" />
+      <Item value="Mvc" priority="7" />
+      <Item value="Html" priority="7" />
+      <Item value="a" priority="120" />
+      <Item value="href" priority="94" />
+      <Item value="ICStars2_0.csproj" priority="6" />
+      <Item value="target" priority="6" />
+      <Item value="CssClass" priority="101" />
+      <Item value="text" priority="27" />
+      <Item value="TabIndex" priority="13" />
+      <Item value="TextMode" priority="20" />
+      <Item value="Password" priority="20" />
+      <Item value="Value" priority="56" />
+      <Item value="button" priority="62" />
+      <Item value="Click" priority="77" />
+      <Item value="btnSubmit_Click`0" priority="41" />
+      <Item value="ItemTemplate" priority="20" />
+      <Item value="DeleteRole_Click`0" priority="6" />
+      <Item value="CommandArgument" priority="21" />
+      <Item value="OnClientClick" priority="45" />
+      <Item value="CodeFile" priority="7" />
+      <Item value="type" priority="135" />
+      <Item value="text/javascript" priority="13" />
+      <Item value="ChangePassword.aspx" priority="13" />
+      <Item value="EditMember.cshtml" priority="6" />
+      <Item value="lbtDeleteMember_Click`0" priority="6" />
+      <Item value="span" priority="21" />
+      <Item value="id" priority="134" />
+      <Item value="language" priority="6" />
+      <Item value="LockMember_Click`0" priority="6" />
+      <Item value="ActiveMember_Click`0" priority="6" />
+      <Item value="h2" priority="56" />
+      <Item value="Properties" priority="6" />
+      <Item value="SHTracker" priority="51" />
+      <Item value="style" priority="128" />
+      <Item value="div" priority="112" />
+      <Item value="fieldset" priority="35" />
+      <Item value="Items" priority="6" />
+      <Item value="asp:ListItem" priority="6" />
+      <Item value="label" priority="99" />
+      <Item value="&amp;nbsp;" priority="113" />
+      <Item value="required" priority="79" />
+      <Item value="p" priority="78" />
+      <Item value="th" priority="162" />
+      <Item value="Enabled" priority="20" />
+      <Item value="input" priority="63" />
+      <Item value="radio" priority="6" />
+      <Item value="value" priority="83" />
+      <Item value="name" priority="13" />
+      <Item value="checkbox" priority="14" />
+      <Item value="display" priority="7" />
+      <Item value="checked" priority="48" />
+      <Item value="DropDownList`0" priority="7" />
+      <Item value="onclick" priority="41" />
+      <Item value="return" priority="23" />
+      <Item value="false" priority="29" />
+      <Item value="banner" priority="20" />
+      <Item value="title" priority="13" />
+      <Item value="dialog&lt;" priority="6" />
+      <Item value="class" priority="97" />
+      <Item value="ui-dialog" priority="6" />
+      <Item value="iframe" priority="6" />
+      <Item value="frameborder" priority="6" />
+      <Item value="scrolling" priority="6" />
+      <Item value="no" priority="6" />
+      <Item value="width" priority="14" />
+      <Item value="height" priority="6" />
+      <Item value="src" priority="6" />
+      <Item value="ReportHours.aspx" priority="6" />
+      <Item value="SelectedItem" priority="6" />
+      <Item value="ListItem`0" priority="27" />
+      <Item value="Selected" priority="35" />
+      <Item value="number" priority="15" />
+      <Item value="ToString`0" priority="15" />
+      <Item value="toolbar" priority="20" />
+      <Item value="td" priority="155" />
+      <Item value="tr" priority="76" />
+      <Item value="colspan" priority="27" />
+      <Item value="text-align" priority="51" />
+      <Item value="btnNext_Click`0" priority="6" />
+      <Item value="window" priority="15" />
+      <Item value="$" priority="7" />
+      <Item value="h5" priority="6" />
+      <Item value="for-dialog" priority="6" />
+      <Item value="h3" priority="6" />
+      <Item value="em" priority="27" />
+      <Item value="legend" priority="13" />
+      <Item value="br" priority="282" />
+      <Item value="ul" priority="6" />
+      <Item value="li" priority="13" />
+      <Item value="fleft" priority="6" />
+      <Item value="select" priority="6" />
+      <Item value="option" priority="27" />
+      <Item value="table" priority="20" />
+      <Item value="script" priority="6" />
+      <Item value="float" priority="7" />
+      <Item value="foreach" priority="9" />
+      <Item value="b" priority="34" />
+      <Item value="ICStars" priority="6" />
+      <Item value="PageBar`0" priority="6" />
+      <Item value="ID" priority="6" />
+      <Item value="page_bar" priority="6" />
+      <Item value="btnBuild_Click`0" priority="6" />
+      <Item value="Width" priority="6" />
+      <Item value="ReportHours_2.aspx" priority="6" />
+      <Item value="Visible" priority="6" />
+      <Item value="Default.aspx" priority="13" />
+      <Item value="btnSubmitCbo" priority="7" />
+      <Item value="ReportedHours" priority="9" />
+      <Item value="TotalReortedHours" priority="9" />
+      <Item value="QuarterYear" priority="15" />
+      <Item value="rt" priority="6" />
+      <Item value="color" priority="7" />
+      <Item value="User`0" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Mvc.HtmlHelper">
+      <Item value="GenerateIdFromName`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.HttpContext">
+      <Item value="Current" priority="270" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpContext">
+      <Item value="Response" priority="215" />
+      <Item value="Request" priority="135" />
+      <Item value="Server" priority="26" />
+      <Item value="User" priority="80" />
+      <Item value="Profile" priority="188" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpServerUtility">
+      <Item value="HtmlEncode`0" priority="26" />
+      <Item value="UrlEncode`0" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.HiddenField">
+      <Item value="Value" priority="80" />
+      <Item value="ClientID" priority="29" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.TextBox">
+      <Item value="Text" priority="2536" />
+      <Item value="ClientID" priority="197" />
+      <Item value="Attributes" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Trim`0" priority="1266" />
+      <Item value="Split`0" priority="80" />
+      <Item value="Equals`0" priority="162" />
+      <Item value="Replace`0" priority="164" />
+      <Item value="ToLower`0" priority="26" />
+      <Item value="IndexOf`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Literal">
+      <Item value="Text" priority="377" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Type">
+      <Item value="GetFields`0" priority="53" />
+      <Item value="GetCustomAttributes`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Common.Attributes.AuthorizeAttribute">
+      <Item value="Roles" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Security.Roles">
+      <Item value="GetRolesForUser`0" priority="26" />
+      <Item value="IsUserInRole`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Reflection.MemberInfo">
+      <Item value="GetCustomAttributes`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="IsNullOrEmpty`0" priority="836" />
+      <Item value="Empty" priority="327" />
+      <Item value="Format`0" priority="270" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Components.SelectListItem">
+      <Item value="Selected" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.Role">
+      <Item value="Name" priority="26" />
+      <Item value="RoleType" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpRequest">
+      <Item value="Form" priority="377" />
+      <Item value="Url" priority="80" />
+      <Item value="QueryString" priority="678" />
+      <Item value="UrlReferrer" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Enum">
+      <Item value="Parse`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Repeater">
+      <Item value="DataSource" priority="80" />
+      <Item value="DataBind`0" priority="108" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="TryParse`0" priority="188" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.LinkButton">
+      <Item value="CommandArgument" priority="53" />
+      <Item value="ClientID" priority="29" />
+      <Item value="Text" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Uri">
+      <Item value="ToString`0" priority="81" />
+      <Item value="Query" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="Sum`0" priority="26" />
+      <Item value="Union`1" priority="26" />
+      <Item value="Except`1" priority="54" />
+      <Item value="Count`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.BusinessLayer.Config">
+      <Item value="LoginRoot" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="JavaScriptSpecificContext">
+      <Item value="function" priority="272" />
+      <Item value="if" priority="164" />
+      <Item value="$" priority="715" />
+      <Item value="return" priority="182" />
+      <Item value="true" priority="65" />
+      <Item value="false" priority="182" />
+      <Item value="alert" priority="285" />
+      <Item value="document" priority="32" />
+      <Item value="else" priority="32" />
+      <Item value="validator" priority="10" />
+      <Item value="this" priority="21" />
+      <Item value="Attr" priority="10" />
+      <Item value="divid" priority="10" />
+      <Item value="oldUrl" priority="21" />
+      <Item value="window" priority="77" />
+      <Item value="var" priority="131" />
+      <Item value="dialogConfirm" priority="21" />
+      <Item value="eval" priority="32" />
+      <Item value="Function" priority="10" />
+      <Item value="submitCbo" priority="10" />
+      <Item value="confirm" priority="10" />
+      <Item value="msg" priority="76" />
+      <Item value="url" priority="21" />
+      <Item value="UrlHelper" priority="10" />
+      <Item value="encodeURIComponent" priority="10" />
+      <Item value="stuId" priority="10" />
+      <Item value="test" priority="10" />
+      <Item value="RangeError" priority="10" />
+      <Item value="t" priority="76" />
+      <Item value="offset" priority="43" />
+      <Item value="targetTop" priority="32" />
+      <Item value="data" priority="10" />
+      <Item value="r" priority="21" />
+    </ItemStatistics>
+    <ItemStatistics item="JavaScriptSpecificContextQualified">
+      <Item value="valid" priority="29" />
+      <Item value="getElementById" priority="9" />
+      <Item value="namespaceURI" priority="8" />
+      <Item value="parents" priority="8" />
+      <Item value="each" priority="8" />
+      <Item value="attr" priority="17" />
+      <Item value="load" priority="8" />
+      <Item value="reload" priority="9" />
+      <Item value="get" priority="26" />
+      <Item value="remove" priority="17" />
+      <Item value="click" priority="9" />
+      <Item value="val" priority="48" />
+      <Item value="validate" priority="18" />
+      <Item value="top" priority="9" />
+      <Item value="submit" priority="9" />
+      <Item value="closest" priority="9" />
+      <Item value="empty" priority="9" />
+      <Item value="find" priority="27" />
+      <Item value="forEach" priority="9" />
+      <Item value="html" priority="39" />
+      <Item value="children" priority="9" />
+      <Item value="getElementsByName" priority="8" />
+      <Item value="removeAttr" priority="8" />
+      <Item value="pop" priority="8" />
+      <Item value="left" priority="8" />
+      <Item value="show" priority="8" />
+      <Item value="width" priority="8" />
+      <Item value="height" priority="17" />
+      <Item value="append" priority="8" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.Member">
+      <Item value="UserName" priority="189" />
+      <Item value="Password" priority="53" />
+      <Item value="Email" priority="53" />
+      <Item value="Status" priority="53" />
+      <Item value="ID" priority="161" />
+      <Item value="Phone" priority="53" />
+      <Item value="OfficeHours" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.CheckBox">
+      <Item value="Checked" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Compilation.BuildManager">
+      <Item value="CreateInstanceFromVirtualPath`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.IHttpHandler">
+      <Item value="GetType`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Boolean">
+      <Item value="ToString`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.Common.ArrayHelper">
+      <Item value="ToString`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.UI.DataBinder">
+      <Item value="GetPropertyValue`0" priority="26" />
+      <Item value="GetDataItem`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.MemberServices.IMemberFactory">
+      <Item value="Active`0" priority="55" />
+      <Item value="Lock`0" priority="27" />
+      <Item value="Create`0" priority="26" />
+      <Item value="Delete`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="CssCodeCompletionContext">
+      <Item value="padding-left" priority="17" />
+      <Item value="width" priority="60" />
+      <Item value="h2" priority="35" />
+      <Item value="background-color" priority="17" />
+      <Item value="seagreen" priority="5" />
+      <Item value="html" priority="5" />
+      <Item value="label" priority="41" />
+      <Item value="input" priority="11" />
+      <Item value="textarea" priority="5" />
+      <Item value="fieldset" priority="58" />
+      <Item value="flex-align" priority="5" />
+      <Item value="margin-top" priority="17" />
+      <Item value="scrollbar-base-color" priority="5" />
+      <Item value="form" priority="5" />
+      <Item value="div" priority="29" />
+      <Item value="scrollbar-arrow-color" priority="5" />
+      <Item value="span" priority="11" />
+      <Item value="select" priority="5" />
+      <Item value="error" priority="19" />
+      <Item value="display" priority="18" />
+      <Item value="dialog" priority="9" />
+      <Item value="td" priority="5" />
+      <Item value="border" priority="17" />
+      <Item value="text-align" priority="47" />
+      <Item value="position" priority="5" />
+      <Item value="right" priority="10" />
+      <Item value="top" priority="5" />
+      <Item value="font-size" priority="47" />
+      <Item value="ui-dialog-titlebar" priority="4" />
+      <Item value="height" priority="11" />
+      <Item value="warning" priority="5" />
+      <Item value="ui-dialog-titlebar-close" priority="4" />
+      <Item value="color" priority="42" />
+      <Item value="background-image" priority="5" />
+      <Item value="font-weight" priority="35" />
+      <Item value="dialog-confirm" priority="4" />
+      <Item value="em" priority="23" />
+      <Item value="h1" priority="11" />
+      <Item value="h3" priority="5" />
+      <Item value="course_title" priority="4" />
+      <Item value="padding" priority="11" />
+      <Item value="span_cbo" priority="4" />
+      <Item value="span_slc" priority="4" />
+      <Item value="float" priority="48" />
+      <Item value="margin-right" priority="11" />
+      <Item value="table" priority="17" />
+      <Item value="report" priority="4" />
+      <Item value="fleft" priority="4" />
+      <Item value="mycbo" priority="35" />
+      <Item value="fright" priority="4" />
+      <Item value="btnAddCBO" priority="4" />
+      <Item value="btnDeleteCBO" priority="4" />
+      <Item value="ul" priority="17" />
+      <Item value="li" priority="17" />
+      <Item value="btnSubmitCbo" priority="4" />
+      <Item value="checked" priority="14" />
+      <Item value="btnSearch" priority="4" />
+      <Item value="sltSearchType" priority="4" />
+      <Item value="padding-right" priority="5" />
+      <Item value="txtSearch" priority="4" />
+      <Item value="block" priority="6" />
+      <Item value="inline-block" priority="11" />
+      <Item value="body" priority="11" />
+      <Item value="hours_list" priority="4" />
+      <Item value="bolder" priority="5" />
+      <Item value="a" priority="5" />
+      <Item value="text-decoration" priority="5" />
+      <Item value="underline" priority="5" />
+      <Item value="font-style" priority="5" />
+      <Item value="p" priority="5" />
+      <Item value="auto" priority="5" />
+      <Item value="min-height" priority="5" />
+      <Item value="fright2" priority="5" />
+      <Item value="regist" priority="4" />
+      <Item value="padding-bottom" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="HtmlEntityCodeCompletionContext">
+      <Item value="&amp;nbsp;" priority="18" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Data.SqlDbType">
+      <Item value="VarChar" priority="165" />
+      <Item value="Int" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.CBO">
+      <Item value="Name" priority="161" />
+      <Item value="ID" priority="163" />
+      <Item value="SLC" priority="26" />
+      <Item value="SLC_Email" priority="26" />
+      <Item value="SLC_Phone" priority="26" />
+      <Item value="SLC_OfficeHours" priority="26" />
+      <Item value="ContactFristName" priority="53" />
+      <Item value="ContactLastName" priority="53" />
+      <Item value="ContactEmail" priority="53" />
+      <Item value="ContactPhone" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.CBOServices.ICBOFactory">
+      <Item value="Update`0" priority="26" />
+      <Item value="Create`0" priority="26" />
+      <Item value="BuildCBOSeleteListItems`0" priority="54" />
+      <Item value="UpdateSlc`0" priority="53" />
+      <Item value="CreateCBOCollection`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.Course">
+      <Item value="TermDescription" priority="53" />
+      <Item value="Subject" priority="108" />
+      <Item value="CatalogNumber" priority="80" />
+      <Item value="ClassSection" priority="53" />
+      <Item value="Title" priority="80" />
+      <Item value="InstructorName" priority="80" />
+      <Item value="BestEmail" priority="53" />
+      <Item value="StaffID" priority="26" />
+      <Item value="Staff" priority="53" />
+      <Item value="ID" priority="82" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToInt32`0" priority="299" />
+      <Item value="ToDateTime`0" priority="109" />
+      <Item value="ToBoolean`0" priority="83" />
+      <Item value="ToUInt16`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.CourseServices.ICourseFactory">
+      <Item value="Update`0" priority="26" />
+      <Item value="Create`0" priority="53" />
+      <Item value="BuildCourseList`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="81" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Security.Principal.IPrincipal">
+      <Item value="Identity" priority="378" />
+      <Item value="IsInRole`0" priority="512" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Security.Principal.IIdentity">
+      <Item value="Name" priority="351" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.Components.DropDownListHelper">
+      <Item value="DropDownList`0" priority="50" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.Student">
+      <Item value="CBO_ID" priority="80" />
+      <Item value="Quater_Year" priority="53" />
+      <Item value="AvailableDateTime" priority="53" />
+      <Item value="LastName" priority="107" />
+      <Item value="FirstName" priority="107" />
+      <Item value="DPU_ID" priority="107" />
+      <Item value="Email" priority="107" />
+      <Item value="PrimaryPhone" priority="53" />
+      <Item value="AlternatePhone" priority="53" />
+      <Item value="Gender" priority="53" />
+      <Item value="ReachMethod" priority="53" />
+      <Item value="PermanentAddress" priority="53" />
+      <Item value="City" priority="53" />
+      <Item value="State" priority="80" />
+      <Item value="ZipCode" priority="53" />
+      <Item value="School" priority="57" />
+      <Item value="Major" priority="53" />
+      <Item value="Expected_Graduation_Date" priority="80" />
+      <Item value="ClassStanding" priority="58" />
+      <Item value="CourseID" priority="107" />
+      <Item value="CommunityServiceStudies" priority="163" />
+      <Item value="I_have_taken_Service_Learning_Course" priority="190" />
+      <Item value="I_would_like_to_add_my_email_to_Steans_Center_listserv" priority="53" />
+      <Item value="Staff" priority="80" />
+      <Item value="Name_Of_Emergency_Contact" priority="53" />
+      <Item value="TelephoneNumber" priority="53" />
+      <Item value="ID" priority="275" />
+      <Item value="LastUpdateTime" priority="27" />
+      <Item value="Orientation" priority="107" />
+      <Item value="RequiredServeHours" priority="107" />
+      <Item value="SLC" priority="53" />
+      <Item value="CourseSubject" priority="53" />
+      <Item value="CourseCatalogNumber" priority="53" />
+      <Item value="CourseInstructorName" priority="53" />
+      <Item value="ServedHours" priority="53" />
+      <Item value="CBOName" priority="26" />
+      <Item value="IsProject" priority="83" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.DropDownList">
+      <Item value="SelectedValue" priority="433" />
+      <Item value="Items" priority="53" />
+      <Item value="ClientID" priority="59" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.StudentServices.IStudentFactory">
+      <Item value="Update`0" priority="26" />
+      <Item value="Create`0" priority="107" />
+      <Item value="ctx" priority="27" />
+      <Item value="UpdateLastUpdateTime`0" priority="26" />
+      <Item value="CreateStudentReportCollection`0" priority="53" />
+      <Item value="UpdateServedHours`0" priority="26" />
+      <Item value="CreateStudentCollection`0" priority="53" />
+      <Item value="CreateEmptyStudentCollection`0" priority="27" />
+      <Item value="ExistDPUID`0" priority="26" />
+      <Item value="Exist`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="MinValue" priority="26" />
+      <Item value="Now" priority="191" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="ToString`0" priority="264" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Text.RegularExpressions.Regex">
+      <Item value="Replace`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Random">
+      <Item value="Next`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.ListItemCollection">
+      <Item value="Add`0" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.ServiceHours">
+      <Item value="CBO_ID" priority="26" />
+      <Item value="CourseID" priority="26" />
+      <Item value="StudentID" priority="80" />
+      <Item value="ServiceDate" priority="107" />
+      <Item value="HoursServed" priority="107" />
+      <Item value="ContactType" priority="80" />
+      <Item value="Notes" priority="80" />
+      <Item value="ID" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.SHTracker.Student.ReportHours">
+      <Item value="CurrentCBO" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Single">
+      <Item value="Parse`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.StudentServices.IServiceHoursFactory">
+      <Item value="Update`0" priority="26" />
+      <Item value="CreateServiceHoursCollection`0" priority="26" />
+      <Item value="Create`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="HtmlCodeCompletionContext">
+      <Item value="h1" priority="5" />
+      <Item value="a" priority="5" />
+      <Item value="href" priority="5" />
+      <Item value="Add.aspx" priority="5" />
+      <Item value="onclick" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Db.IDB_Student">
+      <Item value="UpdateLastUpdateTime`0" priority="26" />
+      <Item value="UpdateServedHours`0" priority="26" />
+      <Item value="ExistDPUID`0" priority="26" />
+      <Item value="Exist`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Common.FastPaging">
+      <Item value="TableReName" priority="107" />
+      <Item value="JoinSQL" priority="80" />
+      <Item value="Condition" priority="215" />
+      <Item value="QueryFields" priority="26" />
+      <Item value="GroupBy" priority="26" />
+      <Item value="OverOrderBy" priority="80" />
+      <Item value="OrderByTableName" priority="26" />
+      <Item value="Ascending" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.StudentServices.StudentCollection">
+      <Item value="Settings" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.Settings.StudentCollectionSettings">
+      <Item value="Staff" priority="109" />
+      <Item value="FirstNameForSearch" priority="53" />
+      <Item value="LastNameForSearch" priority="83" />
+      <Item value="DPU_IDForSearch" priority="27" />
+      <Item value="QuaterYearForSearch" priority="27" />
+      <Item value="QuaterYear" priority="109" />
+      <Item value="SLC" priority="26" />
+      <Item value="DPU_ID" priority="26" />
+      <Item value="IsInitalize" priority="54" />
+      <Item value="IsOrderByFirstName" priority="53" />
+      <Item value="IsOrderByCBOName" priority="26" />
+      <Item value="IsIsAscending" priority="26" />
+      <Item value="IsAscending" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Text.StringBuilder">
+      <Item value="Append`0" priority="596" />
+      <Item value="ToString`0" priority="216" />
+      <Item value="AppendFormat`0" priority="53" />
+      <Item value="Length" priority="80" />
+      <Item value="AppendLine`0" priority="83" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="138" />
+      <Item value="ToArray`0" priority="191" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.Settings.CBOCollectionSettings">
+      <Item value="CourseID" priority="134" />
+      <Item value="GroupBy" priority="107" />
+      <Item value="QueryFields" priority="53" />
+      <Item value="Quater_Year" priority="53" />
+      <Item value="MemberID" priority="55" />
+      <Item value="IsCheckSLC" priority="80" />
+      <Item value="SLC" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.CBOServices.CBOCollection">
+      <Item value="Settings" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataTable">
+      <Item value="Rows" priority="135" />
+      <Item value="Columns" priority="26" />
+      <Item value="TableName" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataRowCollection">
+      <Item value="Count" priority="26" />
+      <Item value="GetEnumerator`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.Settings.StudentReportCollectionSettings">
+      <Item value="CBOID" priority="54" />
+      <Item value="CourseID" priority="55" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.StudentReport">
+      <Item value="FirstName" priority="26" />
+      <Item value="LastName" priority="54" />
+      <Item value="Orientation" priority="26" />
+      <Item value="HoursCompleted" priority="26" />
+      <Item value="RequiredServeHours" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.Settings.CourseCollectionSettings">
+      <Item value="Quater_Year" priority="135" />
+      <Item value="DPU_ID" priority="111" />
+      <Item value="IsCheckInstructorName" priority="26" />
+      <Item value="InstructorName" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.CourseServices.CourseCollection">
+      <Item value="Settings" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.SHTracker.Student.Edit">
+      <Item value="CurrentStudent" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Db.IDB_Member2CBO">
+      <Item value="Add`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.MemberServices.IMember2CBOFactory">
+      <Item value="Create`0" priority="53" />
+      <Item value="GetCBOIDList`0" priority="26" />
+      <Item value="Delete`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.IEnumerator">
+      <Item value="Current" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Db.IDB_CBO">
+      <Item value="UpdateSlc`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.CBOServices.ICBOCollection">
+      <Item value="Select`2" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Single">
+      <Item value="ToString`0" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.Settings.ServiceHoursCollectionSettings">
+      <Item value="StudentID" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.StudentServices.ServiceHoursCollection">
+      <Item value="Settings" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.SHTrackerLog">
+      <Item value="CreateDate" priority="26" />
+      <Item value="IP" priority="26" />
+      <Item value="Url" priority="26" />
+      <Item value="UrlReferrer" priority="26" />
+      <Item value="UserName" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.Common.BrowserInfo">
+      <Item value="GetIp`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpApplication">
+      <Item value="BeginRequest" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.Framework.ICStarsUnityContainer">
+      <Item value="Current" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.LogServices.ISHTrackerLogFactory">
+      <Item value="Update`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Text.RegularExpressions.RegexOptions">
+      <Item value="Singleline" priority="26" />
+      <Item value="IgnoreCase" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.Common.FileHelper">
+      <Item value="ReadText`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Text.RegularExpressions.Regex">
+      <Item value="Matches`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Text.RegularExpressions.Match">
+      <Item value="Groups" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Text.RegularExpressions.Group">
+      <Item value="Value" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Common.UI.PageBar.PageBar">
+      <Item value="CurrentIndex" priority="26" />
+      <Item value="Size" priority="27" />
+      <Item value="Total" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.StudentServices.IStudentCollection">
+      <Item value="Count" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.StudentServices.StudentReportCollection">
+      <Item value="Initalize`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SqlClient.SqlConnection">
+      <Item value="Open`0" priority="26" />
+      <Item value="Close`0" priority="26" />
+      <Item value="CreateCommand`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SqlClient.SqlCommand">
+      <Item value="CommandType" priority="26" />
+      <Item value="CommandText" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Data.CommandType">
+      <Item value="Text" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataSet">
+      <Item value="Tables" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataColumn">
+      <Item value="ColumnName" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Text.Encoding">
+      <Item value="Unicode" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.Common.MathHelper">
+      <Item value="Md5`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.Common.Const">
+      <Item value="ENCRYPT_KEY" priority="80" />
+      <Item value="DynamicKey" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.Common.EncryptDecryptHelper">
+      <Item value="Encrypt`0" priority="82" />
+      <Item value="Decrypt`0" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ASP.shtracker_studentapp_reporthours_2_aspx">
+      <Item value="CourseFactory" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Panel">
+      <Item value="Visible" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Button">
+      <Item value="Text" priority="26" />
+      <Item value="ClientID" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ASP.shtracker_account_createmember_aspx">
+      <Item value="CourseNameList" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Db.IDB_Course">
+      <Item value="Update`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.BusinessLayer.Login.LoginEventArgs">
+      <Item value="QuarterYear" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Profile.DefaultProfile">
+      <Item value="Properties" priority="26" />
+      <Item value="Create`0" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Profile.ProfileBase">
+      <Item value="UserName" priority="26" />
+      <Item value="SetPropertyValue`0" priority="53" />
+      <Item value="GetPropertyValue`0" priority="53" />
+      <Item value="GetProfileGroup`0" priority="26" />
+      <Item value="Save`0" priority="26" />
+      <Item value="Properties" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.BusinessLayer.Provider.User">
+      <Item value="ID" priority="26" />
+      <Item value="QuarterYear" priority="23" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@ICStars2_0.Model.MyProfile">
+      <Item value="GetProfile`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ICStars2_0.Model.MyProfile">
+      <Item value="QuarterYear" priority="77" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

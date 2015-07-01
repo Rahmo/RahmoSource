@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CalendarNotificationSettings>
+  <FilePath>C:\ICStars\trunk\ICStars2_0\ICStars2_0\App_Data\Settings\CalendarNotificationSettings.xml</FilePath>
+  <ReceiverEmail>hli25@depaul.edu</ReceiverEmail>
+  <EmailTitle>You Got A New Reservation Request</EmailTitle>
+  <EmailBody>&lt;p&gt;You Got A New Reservation Request.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Title: #title#&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Date: #date#&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Time: #time#&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resources: #resources#&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Driver Info: &lt;/strong&gt;#driver#&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Notes: &lt;/strong&gt;#notes#&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Requestor:&lt;/strong&gt; #requestor#&lt;/p&gt;
+
+&lt;p&gt;To check it, please go to: &lt;strong&gt;#link#&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Reservation System Reminder&lt;/p&gt;
+</EmailBody>
+  <IsHtmlEmail>True</IsHtmlEmail>
+  <IsSendingEmail>True</IsSendingEmail>
+</CalendarNotificationSettings>

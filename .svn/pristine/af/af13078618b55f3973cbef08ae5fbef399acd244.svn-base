@@ -1,0 +1,113 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+
+namespace ICStars2_0.Model
+{
+    public class CalendarEventAdapter
+    {
+        public int ID { get; set; }
+        [Required]
+        [MaxLength(200)]
+        [StringLength(200)]
+        public string Title { get; set; }
+        [NotMapped]
+        [Required]
+        public string StartDate { get; set; }
+
+        [NotMapped]
+        [Required]
+        public string StartTime { get; set; }
+
+        [NotMapped]
+        [Required]
+        public string EndTime { get; set; }
+        [Display(Name = "Resources")]
+        public int EventType { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [MaxLength(1000)]
+        [StringLength(1000)]
+        public string Notes { get; set; }
+
+        //[Required]
+        //[DataType(DataType.MultilineText)]
+        //[MaxLength(1000)]
+        //[StringLength(1000)]
+        //[Display(Name = "Authorized Driver Information")]
+        //public string DriverInfo { get; set; }
+        [Required]
+        [MaxLength(50)]
+        [StringLength(50)]
+        [Display(Name = "Driver Name")]
+        public string DriverName { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        [StringLength(20)]
+        [Display(Name = "Driver Phone")]
+        [DataType(DataType.PhoneNumber)]
+        public string DriverPhone { get; set; }
+
+        [Required]
+        [MaxLength(20)]
+        [StringLength(20)]
+        [Display(Name = "Driver DPUID")]
+        [RegularExpression("^[0-9]+$",ErrorMessage="Digits only!")]
+        public string DriverDPUID { get; set; }
+
+        [Required]
+        [MaxLength(1000)]
+        [StringLength(1000)]
+        [Display(Name = "Driver Notes")]
+        [DataType(DataType.MultilineText)]
+        public string DriverNotes { get; set; }
+        [NotMapped]
+        public CalendarEventType EventTypeEnum
+        {
+            get { return (CalendarEventType)EventType; }
+            set { EventType = (int)value; }
+        }
+        public bool IsApproved { get; set; }
+        public Member Requestor { get; set; }
+        public CalendarEventRepeatSettingsAdapter RepeatSettingsAdapter { get; set; }
+        public CalendarEventAdapter() { }
+        public CalendarEventAdapter(CalendarEvent e,CalendarEventRepeatSettingsAdapter repeatSettingsAdapter=null)
+        {
+            ID = e.ID;
+            Title = e.Title;
+            StartDate = e.Start.ToString("MM/dd/yyyy");
+            StartTime = e.Start.ToString("hh:mm tt");
+            EndTime = e.End.ToString("hh:mm tt");
+            EventType = e.EventType;
+            Notes = e.Notes;
+            
+            if (!string.IsNullOrEmpty(e.DriverInfo))
+            {
+                var driverInfoArray = Regex.Split(e.DriverInfo, @"\|\$#\$\|");
+                if (driverInfoArray.Length > 0)
+                {
+                    DriverName = driverInfoArray[0];
+                }
+                if (driverInfoArray.Length > 1)
+                {
+                    DriverPhone = driverInfoArray[1];
+                }
+                if (driverInfoArray.Length > 2)
+                {
+                    DriverDPUID = driverInfoArray[2];
+                }
+                if (driverInfoArray.Length > 3)
+                {
+                    DriverNotes = driverInfoArray[3];
+                }
+            }
+            IsApproved = e.IsApproved;
+            RepeatSettingsAdapter = repeatSettingsAdapter;
+        }
+    }
+}

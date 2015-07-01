@@ -1,0 +1,24 @@
+﻿<footer>
+    <aside>
+        <a class="fb" title="follow facebook" href="http://www.facebook.com/DePaulUniversity" target="_blank">follow facebook</a>
+        <a class="tt" title="follow twitter" href="https://twitter.com/DePaulU" target="_blank">follow twitter</a>
+        <a class="ytb" title="follow LinkedIn" href="http://www.linkedin.com/company/depaul-university" target="_blank">follow LinkedIn</a>
+    </aside>
+    <div>
+        <nav>
+            <ol>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Search", "Index", "Search")</li>
+                <li>@Html.ActionLink("Map", "Index", "Map")</li>
+                <li>@Html.ActionLink("Contact Us", "ContactUs", "About")</li>
+                <li>@Html.ActionLink("About", "Index", "About")</li>
+                <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
+            </ol>
+        </nav>
+        <address>
+            <b>DePaul University</b><br />
+            1 E. Jackson Chicago, IL 60604 Ph 312-362-8000 | <a href="/About/ContactUs" title="Contact Us">Contact Us</a>
+        </address>
+        <p>Community Engagement Tracking | @Html.ActionLink("Home", "Index", "Home") | @Html.ActionLink("Search", "Index", "Search") | @Html.ActionLink("Map", "Index", "Map") | @Html.ActionLink("For Staff","Login","Account",new{area="Admin"},null)</p>
+    </div>
+</footer>

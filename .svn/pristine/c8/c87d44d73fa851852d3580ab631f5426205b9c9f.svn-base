@@ -1,0 +1,351 @@
+﻿@model Commengdpu.Models.Project
+@using Commengdpu.BusinessLayer.CategoryServices
+@using Commengdpu.Models
+@using ICStars2_0.Common
+@using ICStars2_0.Common.Enums
+@using ICStars2_0.Mvc;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var isEditting = Model != null && Model.ID > 0;
+    ViewBag.Title = isEditting ? "Edit Project" : "Create Project";
+}
+@section Head{
+    @Styles.Render("~/bundles/Site", "~/bundles/jqueryuicss")
+    @Scripts.Render("~/bundles/jqueryval", "~/bundles/jqueryui")
+    <script src="~/Scripts/CkEditor/ckeditor.js"></script>
+    <script src="~/Scripts/CkEditor/CheckCompatibility.js"></script>
+    <script src="~/Scripts/BE/AddPartners.js"></script>
+    <link href="~/Content/Css/BE/addPartners.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {
+            CKEDITOR.replace('Thumbnail', {
+                height: 200,
+                toolbar: [
+                    { name: 'insert', items: ['Image'] }
+                ]
+            });
+
+            $("input[name$='Date']").attr("readonly", "true").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+
+            $("#Name").change(function () {
+                $("#ProjectUniqueUrl").val($(this).val().replace(/ +/g, "-"));
+            });
+            $("div#category_list input[type='number']").change(function () {
+                $(this).next().val($(this).siblings("input[type='checkbox']").val() + "_" + $(this).val());
+            });
+            $("#cpAdd").click(function () {
+                addPartners($(this), buildCommunityPartnerLiArray, '@Url.Action("GetJsonResultList", "CommunityPartner",new{area="",k=MathHelper.Md5(Const.ENCRYPT_KEY+DateTime.Now.ToString("yyyyMMddHH"))})');
+            });
+            $("#ipAdd").click(function () {
+                addPartners($(this), buildIndividualPartnerLiArray, '@Url.Action("GetJsonResultList", "IndividualPartner", new { area = "", k = MathHelper.Md5(Const.ENCRYPT_KEY + DateTime.Now.ToString("yyyyMMddHH")) })');
+            });
+        });
+    </script>
+    <style type="text/css">
+        input[type="number"] {
+            width: 50px;
+        }
+        div#category_list {
+            padding-left: 60px;
+        }
+
+            div#category_list ul {
+                color: #003366;
+                margin-left: 40px;
+            }
+
+                div#category_list ul li i {
+                    font-size: 8px;
+                }
+
+            div#category_list ul {
+                background: transparent;
+            }
+
+            div#category_list > ul > li {
+                font-size: 18px;
+            }
+
+                div#category_list > ul > li > ul > li {
+                    font-size: 16px;
+                }
+
+                    div#category_list > ul > li > ul > li > ul > li {
+                        font-size: 14px;
+                    }
+
+        .min-height-60 {
+            min-height: 60px;
+            line-height: 50px;
+        }
+
+        form fieldset p {
+            text-align: left;
+            margin: 0;
+        }
+            form fieldset ul li p.h {
+                visibility: hidden;
+                position: absolute;
+                left: -2000px;
+            }
+    </style>
+
+}
+
+<div class="nav"><h1>@(isEditting ? "Edit" : "Create") Project</h1></div>
+@using (Html.BeginForm("Add", "Project",new{IsFrontEnd=Request.QueryString["IsFrontEnd"]}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    if (isEditting)
+    {
+        @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m=>m.CreateDate)
+    @Html.HiddenFor(m=>m.CreatorUserID)
+    }
+    <fieldset>
+        <legend>Project</legend>
+        <h2>Required Information</h2><br /><br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Name, new { @class = "w350" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div class="editor-label">
+            <b>*@Html.LabelFor(model => model.ProjectUniqueUrl)</b>
+        </div>
+        <div class="editor-field">
+            @if (isEditting)
+            {
+                @Html.Hidden("ul", Model.ProjectUniqueUrl)
+                <em>@Model.ProjectUniqueUrl</em>
+                <br /><b>(UniqueUrl is not supposed to be edited)</b>
+            }
+            else
+            {
+                @Html.TextBoxFor(model => model.ProjectUniqueUrl, new { @class = "w350" })
+                @Html.ValidationMessageFor(model => model.ProjectUniqueUrl)
+                <br /><b>(This would be the url of this project. Please make a friendly url with letters, numbers, "-" and "_" only!)</b>
+            }
+
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Thumbnail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Thumbnail)
+            @Html.ValidationMessageFor(model => model.Thumbnail)
+            <br />
+        </div>
+        <h2>Primary Contact</h2><br /><br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimaryContactName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrimaryContactName)
+            @Html.ValidationMessageFor(model => model.PrimaryContactName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimaryContactEmail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrimaryContactEmail)
+            @Html.ValidationMessageFor(model => model.PrimaryContactEmail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PrimaryContactPhone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PrimaryContactPhone)
+            @Html.ValidationMessageFor(model => model.PrimaryContactPhone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Website)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Website)
+            @Html.ValidationMessageFor(model => model.Website)
+        </div>
+        <h2>Location</h2><br /><br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.City, new { @class = "w100" })
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.County)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.County, new { @class = "w100" })
+            @Html.ValidationMessageFor(model => model.County)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.State)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.State, new[] { new SelectListItem() { Text = "Selet State", Value = "" } }.Union(Html.BuildSelectListItemList(typeof(US_State_Abbr))), new { @class = "w150" })
+
+            @Html.ValidationMessageFor(model => model.State)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nation)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Nation, new { @class = "w100" })
+            @Html.ValidationMessageFor(model => model.Nation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ZipCode)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.ZipCode, new { @class = "w100" })
+            @Html.ValidationMessageFor(model => model.ZipCode)
+        </div>
+        <h2>Project Date</h2><br /><br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.StartDate, new { @class = "w150" })
+            @Html.ValidationMessageFor(model => model.StartDate)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.EndDate, new { @class = "w150" })
+            @Html.ValidationMessageFor(model => model.EndDate)
+        </div>
+        <h2>Project Categories</h2><br /><br />
+
+        <div id="category_list">
+            <ul>
+                @Html.Raw(((IEnumerable<CategoryNode>)ViewBag.CagegoryNodes).Select(n => n.BuildHtml("", isShowCheckbox: true, isShowImpactAmount: true)).Aggregate((x, y) => x + y))
+            </ul>
+        </div>
+        <br />
+        <h2>Project Types</h2><br />
+        <div class="editor-label">
+            &nbsp;
+        </div>
+
+        <div class="editor-field">
+            <ul>
+                @{ var i = 0;}
+                @foreach (ProjectType pType in ViewBag.ProjectTypes)
+                {
+                    <li>
+                        <input type="checkbox" name="project2TypeIds" value="@pType.ID @i" @(pType.IsChecked ? "checked=\"checked\"" : "") /> <b>@pType.Name</b>
+                        <p>
+                            Total # of Participating @pType.TrackingTarget: <input type="number" id="npt@(pType.ID)" name="NumberofParticipatingTargets" data-val="true" data-val-number="Must be a number." value="@pType.NumberofParticipatingTargets" />
+                            <span class="field-validation-valid" data-valmsg-for="npt@(pType.ID)" data-valmsg-replace="true"></span>
+                        </p>
+                        <p>
+                            Total # of Hours Served: <input type="text" id="nhs@(pType.ID)" name="NumberofHoursServed" data-val="true" data-val-number="Must be a number." value="@pType.NumberofHoursServed" class="w100" />
+                            <span class="field-validation-valid" data-valmsg-for="nhs@(pType.ID)" data-valmsg-replace="true"></span>
+                        </p>
+                        <p @(!pType.IsTrackingAll?"class=h":"")>Total # of Participating Faculty <input id="npf@(pType.ID)" type="number" name="NumberofParticipatingFaculty" data-val="true" data-val-number="Must be a number." value="@pType.NumberofParticipatingFaculty" />
+                            <span class="field-validation-valid" data-valmsg-for="npf@(pType.ID)" data-valmsg-replace="true"></span>
+                        </p>
+                        <p @(!pType.IsTrackingAll ? "class=h" : "")>Total # of Faculty Hours Served <input id="nfhs@(pType.ID)" type="text" name="NumberofFacultyHoursServed" data-val="true" data-val-number="Must be a number." value="@pType.NumberofFacultyHoursServed" />
+                            <span class="field-validation-valid" data-valmsg-for="nfhs@(pType.ID)" data-valmsg-replace="true"></span></p>
+                        <p @(!pType.IsTrackingAll ? "class=h" : "")>Total # of Participating Staff <input id="nps@(pType.ID)" type="number" name="NumberofParticipatingStaff" data-val="true" data-val-number="Must be a number." value="@pType.NumberofParticipatingStaff" />
+                            <span class="field-validation-valid" data-valmsg-for="nps@(pType.ID)" data-valmsg-replace="true"></span></p>
+                        <p @(!pType.IsTrackingAll ? "class=h" : "")>Total # of Staff Hours Served <input id="nshs@(pType.ID)" type="text" name="NumberofStaffHoursServed" data-val="true" data-val-number="Must be a number." value="@pType.NumberofStaffHoursServed" />
+                            <span class="field-validation-valid" data-valmsg-for="nshs@(pType.ID)" data-valmsg-replace="true"></span></p>
+
+
+                    </li>
+                    i++;
+                }
+            </ul>
+        </div>
+        <br />
+        <h2>Tracking</h2><br /><br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EstimatedNumberofIndividualsServed)
+        </div>
+        <div class="editor-field min-height-60">
+            @Html.EditorFor(model => model.EstimatedNumberofIndividualsServed)
+            @Html.ValidationMessageFor(model => model.EstimatedNumberofIndividualsServed)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.NumberofStudentsSupportedByCNSC)
+            @Html.EditorFor(model => model.NumberofStudentsSupportedByCNSC)
+            @Html.ValidationMessageFor(model => model.NumberofStudentsSupportedByCNSC)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.NumberofStudentsServedAtLeast20HoursPerTerm)
+            @Html.EditorFor(model => model.NumberofStudentsServedAtLeast20HoursPerTerm)
+            @Html.ValidationMessageFor(model => model.NumberofStudentsServedAtLeast20HoursPerTerm)
+        </div>
+        <br />
+        <h2>Community Partners</h2><br /><br />
+        <div class="partnerList">
+            <ul>
+                @if (Model != null && Model.Project2CommunityPartners != null)
+                {
+                    foreach (var p2cp in Model.Project2CommunityPartners)
+                    {
+                        <li>@p2cp.CommunityPartner.Name<input type="hidden" value="@p2cp.CommunityPartner.ID" name="communityPartnerIds"><a title="delete" class="del16" onclick=" $(this).parent().remove(); " href="javascript:"></a></li>
+                    }
+                }
+                <li><input type="text" class="keyword" placeholder="Enter the First Word of Name" /><button type="button" id="cpAdd">Add Partner</button></li>
+            </ul>
+
+        </div>
+        <br />
+        <h2>Individual Partners</h2><br /><br />
+        <div class="partnerList">
+            <ul>
+                @if (Model != null && Model.Project2IndividualPartners != null)
+                {
+                    foreach (var p2ip in Model.Project2IndividualPartners)
+                    {
+                        <li>@p2ip.IndividualPartner.FirstName @p2ip.IndividualPartner.LastName<input type="hidden" value="@p2ip.IndividualPartner.ID" name="individualPartnerIds"><a title="delete" class="del16" onclick=" $(this).parent().remove(); " href="javascript:"></a></li>
+                    }
+                }
+                <li><input type="text" class="keyword" placeholder="Enter the First Word of Name" /><button type="button" id="ipAdd">Add Partner</button></li>
+            </ul>
+        </div>
+        <br />
+        <hr /><br />
+        <p>
+            <input type="submit" value="Submit Project" />
+        </p>
+    </fieldset>
+}
+
