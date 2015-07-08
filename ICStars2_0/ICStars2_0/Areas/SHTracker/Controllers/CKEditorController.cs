@@ -26,7 +26,7 @@ namespace ICStars2_0.Areas.SHTracker.Controllers
             var ckEditorFuncNum = Request.QueryString["CKEditorFuncNum"];
             var type = Request.QueryString["Type"];
             var isImage = !string.IsNullOrEmpty(type) && type.Equals("Images", StringComparison.InvariantCultureIgnoreCase);
-            var maxContentLength = isImage ? 512 * 1024 : 4098 * 4098; //edited for pdf size
+            var maxContentLength = isImage ? 512 * 1024 : 4098 * 4098; //edited for pdf size to be 4mn
             var file = Request.Files["upload"];
             if (file == null)
             {
