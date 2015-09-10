@@ -11,7 +11,7 @@ CKEDITOR.editorConfig = function (config) {
     /*config imagebrowser*/
     //config.imageBrowser_listUrl = "";
     /*config imagebrowser end*/
-
+  
     /*config filebrowser*/
     config.filebrowserImageBrowseUrl = '/SHTracker/CKEditor/Browse?type=Images';
     config.filebrowserImageUploadUrl = '/SHTracker/CKEditor/FileUpload?type=Images';
@@ -26,3 +26,7 @@ CKEDITOR.editorConfig = function (config) {
     config.skin = 'Moono';
     config.disableNativeSpellChecker = false;
 };
+CKEDITOR.config.allowedContent = true;
+// ALLOW <span></span>
+config.protectedSource.push(/<script[\s\S]*?\>/g); //allows beginning <span> tag
+config.protectedSource.push(/<\/script[\s\S]*?\>/g); //allows ending </span> tag

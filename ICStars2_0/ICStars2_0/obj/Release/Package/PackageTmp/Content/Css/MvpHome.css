@@ -389,3 +389,26 @@ background: url(../../Images/SteansHome.jpg);background-repeat: no-repeat;backgr
          line-height: 1.5em;
             
 } 
+ .social li{
+    display:inline;
+}
+
+
+.fb-share-button {
+    position: relative;
+    top: -7px;
+    
+}
+.fb-share-button:hover {
+    position:relative;
+    top:-7px;
+color: white;
+;
+    
+}
+.Twitter-share-button {
+
+     position:relative;
+    top:-7px;
+
+}

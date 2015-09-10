@@ -250,10 +250,6 @@
     <Content Include="Scripts\jquery.fancybox.css" />
     <Content Include="Scripts\jquery.fancybox.js" />
     <Content Include="Scripts\jquery.mousewheel-3.0.6.pack.js" />
-    <Content Include="Upload_Files\birds-147a.jpg" />
-    <Content Include="Upload_Files\birds-151a.jpg" />
-    <Content Include="Upload_Files\birds-152a.jpg" />
-    <Content Include="Upload_Files\project.png" />
     <Content Include="Views\Logout\Index.cshtml" />
     <Content Include="Areas\SHTracker\Views\MVPSite\Index.cshtml" />
     <Content Include="Areas\SHTracker\Views\MVPSite\Details.cshtml" />
@@ -274,6 +270,11 @@
     <Content Include="Areas\SHTracker\Views\MVPSite\CreateHeader.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpOrganization\CreateHeader.cshtml" />
     <Content Include="Areas\SHTracker\Views\Storyboard\CreateHeader.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpGallery\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpGallery\Create.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpGallery\Edit.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpGallery\Delete.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpGallery\Details.cshtml" />
     <None Include="index.html.bak" />
     <Content Include="InvalidRequest.html" />
     <Content Include="NoAccess.html" />
@@ -1446,7 +1447,7 @@
     <Content Include="Views\MVProject\ContactUs.cshtml" />
     <Content Include="Views\MVProject\StoryBoard.cshtml" />
     <Content Include="Views\MVProject\Gallery.cshtml" />
-    <Content Include="Views\MVProject\UploadImage.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpGallery\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Account.Master.cs">
@@ -1503,6 +1504,7 @@
     <Compile Include="Areas\SHTracker\Controllers\CBOController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\CBOTaskController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\LogController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\MvpGalleryController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\MvpOrganizationController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\MVPSiteController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\StoryboardController.cs" />

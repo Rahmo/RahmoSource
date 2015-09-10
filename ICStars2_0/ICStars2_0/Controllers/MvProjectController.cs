@@ -120,9 +120,18 @@ namespace ICStars2_0.Controllers
             foreach (var item in imageFiles)
             {
                 imagesModel.ImageList.Add(Path.GetFileName(item));
+                
             }
+            //here
+            using (var db = new MvpDbContext())
+            {
+                var r = from s in db.ImageGallery
+                        select
+                             s;
+                            ViewBag.images= r.ToList();
+            //end
             return View(imagesModel);
-        }
+        }}
     
         public ActionResult UploadImage()
         {
@@ -131,19 +140,24 @@ namespace ICStars2_0.Controllers
          [HttpPost]
         public ActionResult UploadImageMethod()
         {
+              
+              
+                    //int fileSize = file.ContentLength;
             if (Request.Files.Count != 0)
             {
                 for (int i = 0; i < Request.Files.Count; i++)
                 {
                     HttpPostedFileBase file = Request.Files[i];
-                    string strKey = Request.Form["txtCaption"].ToString();
+                
                     int fileSize = file.ContentLength;
                     string fileName = file.FileName;
+
+                 //   string fileCaption = file.Name; 
                     file.SaveAs(Server.MapPath("~/Upload_Files/" + fileName));
                     ImageGallery imageGallery = new ImageGallery();
                     imageGallery.ID = Guid.NewGuid();
                     imageGallery.Name = fileName;
-                    imageGallery.Caption = strKey; 
+                    imageGallery.Caption = Request.Form["txtCaption"]; 
                     imageGallery.ImagePath = "~/Upload_Files/" + fileName;
                     _db.ImageGallery.Add(imageGallery);
                     _db.SaveChanges();

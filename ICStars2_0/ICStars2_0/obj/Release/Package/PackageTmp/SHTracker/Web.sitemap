@@ -123,6 +123,7 @@
           <siteMapNode title="Publish" url="/ShTracker/Article/Create/" roles="admin_steans,admin_article,MVPadmin"></siteMapNode>
           <siteMapNode title="List" url="/ShTracker/Article/List/" roles="admin_steans,admin_article,MVPadmin"></siteMapNode>
         </siteMapNode>
+      <siteMapNode title="Gallery" url="/SHTracker/MvpGallery/Index/" roles="MVPadmin,admin_steans,admin_article,MVPadmin"></siteMapNode>
       
 
 </siteMapNode>

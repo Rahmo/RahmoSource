@@ -1,5 +1,13 @@
 ﻿@model ICStars2_0.Model.WebPage
 
+
+<script type="text/javascript">
+    $(function () {
+        CKEDITOR.replace('Content', { height: 500 });
+        CKEDITOR.replace('Content', { allowedContent: true });
+    });
+
+</script>
 @{
     ViewBag.Title = "Edit Url";
     Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";

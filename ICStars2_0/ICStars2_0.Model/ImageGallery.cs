@@ -13,6 +13,8 @@ namespace ICStars2_0.Model
         public ImageGallery()
         {
             ImageList = new List<string>();
+            Caption = this.Caption;
+          
         }
          [Key]
         public Guid ID { get; set; }

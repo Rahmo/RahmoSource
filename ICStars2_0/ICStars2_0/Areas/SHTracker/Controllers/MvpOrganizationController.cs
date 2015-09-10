@@ -36,7 +36,7 @@ namespace ICStars2_0.Areas.SHTracker.Controllers
 
         //
         // GET: /MvpOrganization/Details/5
-
+     
         public ActionResult Details(int id = 0)
         {
             Organization organization = db.Organizations.Find(id);
@@ -78,7 +78,7 @@ namespace ICStars2_0.Areas.SHTracker.Controllers
 
             return View(organization);
         }
-
+       
         //
         // GET: /MvpOrganization/Edit/5
 

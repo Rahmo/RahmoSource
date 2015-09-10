@@ -170,7 +170,7 @@
     <form id="form1" runat="server">
     <h2>
         Student Information Sheet</h2>
-        <h3 style="text-align: right;">SLC : <%if(User.IsInRole("admin") || User.IsInRole("Staff")){%>
+        <h3 style="text-align: right;">SLC : <%if(User.IsInRole("admin") || User.IsInRole("Staff") || User.IsInRole("SLC")){%>
             <%=DropDownListHelper.DropDownList("SLC",CurrentStudent.SLC,SLCList) %>
             <%}else{%>
             <asp:Literal ID="ltlSLC" runat="server"></asp:Literal>

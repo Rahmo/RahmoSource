@@ -21,3 +21,15 @@ C:\RahmoSource\ICStars2_0\ICStars2_0.Model\obj\Release\ICStars2_0.Model.Migratio
 C:\RahmoSource\ICStars2_0\ICStars2_0.Model\obj\Release\ICStars2_0.Model.csproj.GenerateResource.Cache
 C:\RahmoSource\ICStars2_0\ICStars2_0.Model\obj\Release\ICStars2_0.Model.dll
 C:\RahmoSource\ICStars2_0\ICStars2_0.Model\obj\Release\ICStars2_0.Model.pdb
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\bin\Release\ICStars2_0.Model.dll
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\bin\Release\ICStars2_0.Model.pdb
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\bin\Release\DataAnnotationsExtensions.dll
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\bin\Release\EntityFramework.dll
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\bin\Release\ICStars2_0.Common.dll
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\bin\Release\ICStars2_0.Common.pdb
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\bin\Release\EntityFramework.xml
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\obj\Release\ICStars2_0.Model.csprojResolveAssemblyReference.cache
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\obj\Release\ICStars2_0.Model.Migrations.Init.resources
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\obj\Release\ICStars2_0.Model.csproj.GenerateResource.Cache
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\obj\Release\ICStars2_0.Model.dll
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Model\obj\Release\ICStars2_0.Model.pdb

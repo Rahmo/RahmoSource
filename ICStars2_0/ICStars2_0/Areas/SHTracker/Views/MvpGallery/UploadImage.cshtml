@@ -16,13 +16,17 @@
             {
                 var formdata = new FormData();
                 var fileInput = document.getElementById('fileInputType');
+                var ImageCaption = document.getElementById("ImageCaption").value;
                 for (i = 0; i < fileInput.files.length; i++)
                 {
                     formdata.append(fileInput.files[i].name, fileInput.files[i]);
+                    formdata.append('txtCaption', ImageCaption); //txtCaption this can be called from the other side by the key name in the form request
                 }
+                
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', '/MvProject/UploadImageMethod');
                 xhr.send(formdata);
+              
                 xhr.onreadystatechange = function ()
                 {
                     if (xhr.readyState == 4 && xhr.status == 200)
@@ -60,11 +64,15 @@
                   height:270px; border: 0px solid black;">
                 <div>
                     <br />
+
                     <form id="imageUploadId">
                         <h3>Upload a picture</h3>
                         <input id="fileInputType" type="file" multiple class="fileUpload"
                                style="width:300px;"><br />
-                        <input id="txtCaption" type="text" name="txtCaption" style="width:300px;" /><br />
+                        <input type="text" id="ImageCaption">
+
+                        @*<input id="txtCaption" name="txtCaption" type="text" style="width:300px;" /><br />*@
+                      
                         <p style="color: #0066FF">
                             You Can Upload a JPG, GIF, Or PNG File.
                             This example of upload image from Ajax and Image Gallery
@@ -76,7 +84,7 @@
         </div>
         <div style="width:100%; margin-top:290px; border-bottom:1px solid #808080"></div>
         <div style="background-color: #66CCFF; height:57px; margin-top:-20px;">
-            <div style="text-align:center; margin-top:20px;"><p>2014 &copy; Admin</p></div>
+            <div style="text-align:center; margin-top:20px;"><p>2015 &copy; Steans Center</p></div>
         </div>
     </div>
 </body>
