@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\MyCodeGenerator.cs" />
+    <Compile Include="MvpResource.cs" />
     <Compile Include="MVPsite.cs" />
     <Compile Include="Organization.cs" />
     <Compile Include="Program.cs" />

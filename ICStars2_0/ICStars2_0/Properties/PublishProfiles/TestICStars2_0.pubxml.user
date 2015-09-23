@@ -37,7 +37,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/17/2015 14:19:11</publishTime>
     </File>
     <File Include="App_Data/Config/connectionStrings.xml">
-      <publishTime>09/09/2015 12:42:42</publishTime>
+      <publishTime>09/15/2015 15:25:01</publishTime>
     </File>
     <File Include="App_Data/Config/customErrors.xml">
       <publishTime>01/03/2013 15:38:40</publishTime>
@@ -466,28 +466,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/14/2015 20:37:27</publishTime>
     </File>
     <File Include="bin/ICStars2_0.BusinessLayer.dll">
-      <publishTime>09/08/2015 22:31:31</publishTime>
+      <publishTime>09/11/2015 01:07:41</publishTime>
     </File>
     <File Include="bin/ICStars2_0.Common.dll">
       <publishTime>04/21/2015 13:40:48</publishTime>
     </File>
     <File Include="bin/ICStars2_0.Components.dll">
-      <publishTime>09/08/2015 22:31:31</publishTime>
+      <publishTime>09/11/2015 01:07:41</publishTime>
     </File>
     <File Include="bin/ICStars2_0.Data.dll">
       <publishTime>04/21/2015 13:40:49</publishTime>
     </File>
     <File Include="bin/ICStars2_0.Db.dll">
-      <publishTime>09/08/2015 22:31:29</publishTime>
+      <publishTime>09/11/2015 01:07:40</publishTime>
     </File>
     <File Include="bin/ICStars2_0.dll">
-      <publishTime>09/09/2015 16:44:39</publishTime>
+      <publishTime>09/15/2015 16:12:10</publishTime>
     </File>
     <File Include="bin/ICStars2_0.Framework.dll">
       <publishTime>04/21/2015 13:40:49</publishTime>
     </File>
     <File Include="bin/ICStars2_0.Model.dll">
-      <publishTime>09/08/2015 22:31:28</publishTime>
+      <publishTime>09/11/2015 01:07:39</publishTime>
     </File>
     <File Include="bin/ICStars2_0.Mvc.dll">
       <publishTime>04/21/2015 13:40:49</publishTime>
@@ -2386,7 +2386,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/18/2012 13:58:42</publishTime>
     </File>
     <File Include="SHTracker/Account/MemberManagement.aspx">
-      <publishTime>04/15/2014 16:05:44</publishTime>
+      <publishTime>09/15/2015 16:10:58</publishTime>
     </File>
     <File Include="SHTracker/Account/RoleManagement.aspx">
       <publishTime>01/07/2013 16:32:48</publishTime>
@@ -3886,7 +3886,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2014 15:01:10</publishTime>
     </File>
     <File Include="SHTracker/Student/Edit.aspx">
-      <publishTime>09/09/2015 14:19:10</publishTime>
+      <publishTime>09/11/2015 01:19:13</publishTime>
     </File>
     <File Include="SHTracker/Student/List.aspx">
       <publishTime>07/15/2014 12:02:24</publishTime>
@@ -3901,10 +3901,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/04/2014 15:05:30</publishTime>
     </File>
     <File Include="SHTracker/StudentApp/Default.aspx">
-      <publishTime>01/07/2014 14:10:32</publishTime>
+      <publishTime>09/11/2015 10:02:00</publishTime>
     </File>
     <File Include="SHTracker/StudentApp/ReporthoursSuccess.aspx">
-      <publishTime>03/11/2013 13:34:42</publishTime>
+      <publishTime>09/11/2015 10:07:59</publishTime>
     </File>
     <File Include="SHTracker/StudentApp/ReportHours_1.aspx">
       <publishTime>04/01/2014 12:11:46</publishTime>
@@ -4033,7 +4033,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/09/2015 16:44:08</publishTime>
     </File>
     <File Include="Views/MVProject/Home.cshtml">
-      <publishTime>05/14/2015 14:06:58</publishTime>
+      <publishTime>09/09/2015 16:56:31</publishTime>
     </File>
     <File Include="Views/MVProject/Partners.cshtml">
       <publishTime>04/02/2015 11:41:03</publishTime>

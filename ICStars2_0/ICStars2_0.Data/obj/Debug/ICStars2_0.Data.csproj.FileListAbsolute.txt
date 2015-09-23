@@ -15,6 +15,6 @@ C:\GitRahmoSource\ICStars2_0\ICStars2_0.Data\bin\Debug\ICStars2_0.Data.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Data\bin\Debug\ICStars2_0.Data.pdb
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Data\bin\Debug\ICStars2_0.Common.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Data\bin\Debug\ICStars2_0.Common.pdb
-C:\GitRahmoSource\ICStars2_0\ICStars2_0.Data\obj\Debug\ICStars2_0.Data.csprojResolveAssemblyReference.cache
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Data\obj\Debug\ICStars2_0.Data.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Data\obj\Debug\ICStars2_0.Data.pdb
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Data\obj\Debug\ICStars2_0.Data.csprojResolveAssemblyReference.cache

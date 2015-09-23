@@ -12,7 +12,7 @@
     <div style="text-align: center;" class="fieldset">
         <br />
         <asp:DropDownList ID="ddlAction" runat="server">
-            <asp:ListItem Text="Select a Action" Value="0"></asp:ListItem>
+            <asp:ListItem Text="Select an action" Value="0"></asp:ListItem>
             <asp:ListItem Text="Report Hours" Value="1"></asp:ListItem>
             <asp:ListItem Text="View Hours" Value="2"></asp:ListItem>
         </asp:DropDownList>

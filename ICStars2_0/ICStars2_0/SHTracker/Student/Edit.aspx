@@ -11,7 +11,7 @@
     <style type="text/css">
         html, label, input, textarea
         {
-            background-color: #029485;
+            background-color: #baede8;
         }
         textarea.textarea
         {
@@ -20,20 +20,20 @@
         
         form div.textarea
         {
-            scrollbar-base-color: #029485;
+            scrollbar-base-color: #baede8;
         }
         select
         {
-            background-color: #029485;
-            scrollbar-base-color: #029485;
-            scrollbar-arrow-color: #029485;
+            background-color: #baede8;
+            scrollbar-base-color: #baede8;
+            scrollbar-arrow-color: #baede8;
             border-color: #000;
-            scrollbar-face-color: #029485;
-            scrollbar-highlight-color: #029485;
-            scrollbar-3dlight-color: #029485;
-            scrollbar-darkshadow-color: #029485;
-            scrollbar-shadow-color: #029485;
-            scrollbar-track-color: #029485;
+            scrollbar-face-color: #baede8;
+            scrollbar-highlight-color: #baede8;
+            scrollbar-3dlight-color: #baede8;
+            scrollbar-darkshadow-color: #baede8;
+            scrollbar-shadow-color: #baede8;
+            scrollbar-track-color: #baede8;
         }
        span.span_cbo select
         {
@@ -214,7 +214,7 @@
     <div class="textarea">
         <label style="width: 100%">
             Available Time :</label>
-        <asp:TextBox ID="txtAvailableTime" runat="server" TextMode="MultiLine" CssClass="textarea"></asp:TextBox></div>
+        <asp:TextBox ID="txtAvailableTime" style="background-color:#baede8" runat="server" TextMode="MultiLine" CssClass="textarea"></asp:TextBox></div>
     <fieldset>
         <legend>DEMOGRAPHIC INFORMATION</legend>
         <div class="textbox">

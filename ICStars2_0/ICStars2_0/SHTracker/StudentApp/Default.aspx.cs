@@ -18,7 +18,7 @@ namespace ICStars2_0.SHTracker.StudentApp
         {
             if(ddlAction.SelectedValue.Equals("0"))
             {
-                ltlError.Text = "Please select a action!";
+                ltlError.Text = "Please select an action!";
                 return;
             }
             if (ddlAction.SelectedValue.Equals("1"))

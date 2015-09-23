@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
 <script src="../Scripts/jquery-1.7.1.min.js"
         type="text/javascript"></script>
+       <script src="../Scripts/UrlHelper.js" type="text/javascript"></script>
 <script type="text/javascript" language="javascript">
     function TipOption(msg) {
         if (confirm(msg)) {
@@ -14,21 +15,54 @@
             return false;
         }
     }
+
+    $(document).ready(function () {
+
+
+
+
+        /*Initiate values for searching*/
+        $("#txtSearch").val(UrlHelper.Current.getUrlParameter("SearchText"));
+        $("#sltSearchType").val(UrlHelper.Current.getUrlParameter("SearchType"));
+
+
+    });
+
+    function ClientSearchValues() {
+        // put your code here 
+
+
+
+        var url = UrlHelper.Current.setUrlParameter("SearchType", $("#sltSearchType").val());
+
+        url = UrlHelper.Current.setUrlParameter("SearchText", encodeURIComponent($("#txtSearch").val()), url);
+        //url = UrlHelper.Current.setUrlParameter("SearchCourseID", encodeURIComponent($("#sltCourseID").val()), url);
+        //alert(url);
+        window.location = url;
+        return;
+
+
+    }
     </script>
     <script type="text/javascript">
-        $(document).ready(function() {
+
+
+        $(document).ready(function () {
             $("tr:even").addClass("bg_f9f5f6");
             $("tr:gt(0)").hover(
-                function() {
+                function () {
                     $(this).addClass("hover");
                 },
-                function() {
+                function () {
                     $(this).removeClass("hover");
                 }
             );
-            
+
+
+
+
         });
-        
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Main" runat="server">
@@ -50,6 +84,16 @@
             <a href="?other=1">Other</a>
             <a href="?all=1">All</a>
             <% } %>
+
+            <input type="text" onblur="return ClientSearchValues(); " id="txtSearch" minlength="2" class="required" />
+                <select id="sltSearchType" class="required" onblur="return ClientSearchValues() ">
+                    <option value="3">CampusConnect Id</option>
+                    <option value="1">First Name</option>
+                    <option value="2">Last Name</option>
+              
+                </select>
+            <%--<input type="button" value="Search" id="btnPressed"  runat="server"   style="margin-left:150px;" />--%>
+            <asp:LinkButton  OnClick="BtnSearch" ID="btnPressed" runat="server" >Search</asp:LinkButton>
         </div>
     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr align="center">

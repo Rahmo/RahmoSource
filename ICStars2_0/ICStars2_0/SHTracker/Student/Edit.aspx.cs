@@ -94,7 +94,7 @@ namespace ICStars2_0.SHTracker.Student
                 Student2Programs = Student2ProgramFactory.CreateList(CurrentStudent.ID);
             }
             //when administrator or staff is updating this, let them be able to update SLC
-            if (User.IsInRole("admin") || User.IsInRole("Staff"))
+            if (User.IsInRole("admin") || User.IsInRole("Staff") || User.IsInRole("SLC"))
             {
                 SLCList =
                     new[]

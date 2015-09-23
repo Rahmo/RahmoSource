@@ -79,6 +79,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Dll\mvc4\Microsoft.Web.WebPages.OAuth.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -212,6 +219,7 @@
     <Content Include="Content\IEhover.css" />
     <Content Include="Content\hover.css" />
     <Content Include="Content\jquery.fancybox.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Error.html" />
     <Content Include="FileNotFound.html" />
     <Content Include="Images\ajax-loader.gif" />
@@ -275,6 +283,12 @@
     <Content Include="Areas\SHTracker\Views\MvpGallery\Edit.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpGallery\Delete.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpGallery\Details.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpResources\Index.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpResources\Edit.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpResources\Delete.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpResources\Details.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpResources\Create.cshtml" />
+    <Content Include="Areas\SHTracker\Views\MvpResources\CreateHeader.cshtml" />
     <None Include="index.html.bak" />
     <Content Include="InvalidRequest.html" />
     <Content Include="NoAccess.html" />
@@ -1448,6 +1462,7 @@
     <Content Include="Views\MVProject\StoryBoard.cshtml" />
     <Content Include="Views\MVProject\Gallery.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpGallery\UploadImage.cshtml" />
+    <Content Include="Views\MVProject\Resources.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Account.Master.cs">
@@ -1506,6 +1521,7 @@
     <Compile Include="Areas\SHTracker\Controllers\LogController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\MvpGalleryController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\MvpOrganizationController.cs" />
+    <Compile Include="Areas\SHTracker\Controllers\MvpResourcesController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\MVPSiteController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\StoryboardController.cs" />
     <Compile Include="Controllers\LoginController.cs" />

@@ -11,6 +11,7 @@ using ICStars2_0.Model.Enum;
 using ICStars2_0.Model.Settings;
 using Microsoft.Practices.Unity;
 using Org.BouncyCastle.Crypto.Engines;
+using ICStars2_0.Model.DbContexts;
 
 namespace ICStars2_0.SHTracker.Account
 {
@@ -79,7 +80,7 @@ namespace ICStars2_0.SHTracker.Account
             }
             settings.IsInitalize = true;
             var mc = MemberFactory.CreateMemberCollection(pageBar1.CurrentIndex, pageBar1.Size, settings);
-            
+           
             rptList.DataSource = mc;
             pageBar1.Total = mc == null ? 0 : mc.Count;
 
@@ -96,6 +97,8 @@ namespace ICStars2_0.SHTracker.Account
             MemberFactory.Delete(id);
             Response.Redirect("MemberManagement.aspx");
         }
+
+       
         protected void LockMember_Click(object sender, EventArgs e)
         {
             int id = 0;
@@ -112,5 +115,70 @@ namespace ICStars2_0.SHTracker.Account
             MemberFactory.Active(id);
             Response.Redirect("MemberManagement.aspx");
         }
+
+        protected void BtnSearch(object sender, EventArgs e)
+        {
+               MemberDbContext db = new MemberDbContext();
+        
+            MemberCollectionSettings settings = new MemberCollectionSettings();
+            string searchText = Request.QueryString["SearchText"];
+            string searchType = Request.QueryString["SearchType"];
+            int UsersTotal = db.Members.Count();
+        
+            settings.IsInitalize = true;
+            var mc = MemberFactory.CreateMemberCollection(pageBar1.CurrentIndex, UsersTotal, settings); // this check the max users numbers then load the grid for search on it the user needed.
+            switch (searchType)
+            {
+                case "1":
+                   // settings.FirstNameForSearch = searchText;
+                    
+                     
+
+            rptList.DataSource = mc.Where( m => m.FirstName == searchText.ToLower() || m.FirstName == searchText.ToUpper());
+            if (mc == null) {
+                pageBar1.Total = 0;
+            }
+            else{
+            pageBar1.Total=mc.Count;}
+            //pageBar1.Total=mc==null?0:mc.Count;
+
+            rptMemberType.DataBind();
+            rptList.DataBind();
+                    break;
+
+                case "2":
+                    rptList.DataSource = mc.Where( m => m.LastName == searchText.ToLower() || m.LastName == searchText.ToUpper() );
+            if (mc == null) {
+                pageBar1.Total = 0;
+            }
+            else{
+            pageBar1.Total=mc.Count;}
+            //pageBar1.Total=mc==null?0:mc.Count;
+
+            rptMemberType.DataBind();
+            rptList.DataBind();
+                    break;
+
+                case "3":
+                  rptList.DataSource = mc.Where( m => m.CampusConnectID == searchText.ToUpper() || m.CampusConnectID == searchText.ToLower() );
+            if (mc == null) {
+                pageBar1.Total = 0;
+            }
+            else{
+            pageBar1.Total=mc.Count;}
+            //pageBar1.Total=mc==null?0:mc.Count;
+
+            rptMemberType.DataBind();
+            rptList.DataBind();
+                    break;
+            }
+            
+        
+
+        }
+
+       
+
+      
     }
 }

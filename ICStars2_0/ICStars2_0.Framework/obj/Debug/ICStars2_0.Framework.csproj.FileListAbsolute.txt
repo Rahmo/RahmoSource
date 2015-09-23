@@ -14,6 +14,6 @@ C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\ICStars2_0.Common.dl
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\log4net.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\Microsoft.Practices.Unity.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Debug\ICStars2_0.Common.pdb
-C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Debug\ICStars2_0.Framework.csprojResolveAssemblyReference.cache
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Debug\ICStars2_0.Framework.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Debug\ICStars2_0.Framework.pdb
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Debug\ICStars2_0.Framework.csprojResolveAssemblyReference.cache

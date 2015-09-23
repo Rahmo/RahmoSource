@@ -19,6 +19,7 @@ namespace ICStars2_0.Model.DbContexts
       public DbSet<Storyboard> Storyboards { get; set; }
 
       public DbSet<ImageGallery> ImageGallery { get; set; }
+      public DbSet<MvpResource> Resources { get; set; }
     
   
   

@@ -16,7 +16,7 @@
     <b>Course:</b> <em><%=CourseName %></em><br/>
 <b>Reported :</b> <em><%=ReportedHours%> Hours</em><br/>
 <b>Total Reported :</b> <em><%=TotalReortedHours%> Hours</em><br/>
-<a href="Default.aspx">Return</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%=Request.UrlReferrer %>">Report Addtional Hours</a>
+<a href="Default.aspx">Return</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%=Request.UrlReferrer %>">Report Additional Hours</a>
 <br/>
 <br/>
 </div>

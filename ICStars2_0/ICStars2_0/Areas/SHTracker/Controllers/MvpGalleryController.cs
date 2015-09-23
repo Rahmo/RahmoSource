@@ -10,6 +10,7 @@ using System.Data;
 
 namespace ICStars2_0.Areas.SHTracker.Controllers
 {
+     [MvcAuthorize(Roles = "admin,admin_article,MVPadmin")]
     public class MvpGalleryController : Controller
     {
         //
