@@ -219,6 +219,7 @@
     <Content Include="Content\IEhover.css" />
     <Content Include="Content\hover.css" />
     <Content Include="Content\jquery.fancybox.css" />
+    <Content Include="Content\Main.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Error.html" />
     <Content Include="FileNotFound.html" />

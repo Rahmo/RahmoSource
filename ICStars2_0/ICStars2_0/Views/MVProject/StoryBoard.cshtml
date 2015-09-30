@@ -13,16 +13,34 @@
  
         border-bottom:1px solid #090909 ; 
         padding: 10px;
-
+        overflow: auto;
 
     }
  .container > div > ul > .StoryList > section> div> p {
   display: inline-block   
 
     }
- .StoryList > p > img {
+ /*.StoryList > p > img {
      width: 100% !important ;height: 100% !important; 
- }
+ }*/
+    .thumbImage {
+    
+    width:200px;
+    float:left;
+    }
+
+    .thumbImage > img {
+            width: 
+       200px !important;
+    height: auto;
+    float:left ;
+    
+    }
+   
+    .StoryList {
+    width:690px;
+    }
+
   .StoryList > p {
      width: 200px;
      display: inline-block;    
@@ -38,7 +56,7 @@
         color: #000000;
         -ms-word-wrap: break-word;
         word-wrap: break-word;
-     
+     float:right;
     }
     li.StoryList > p
     {}
@@ -59,6 +77,9 @@
        
  }
 
+    .ThumbDesc {
+    font-size:16px;
+    }
 
 </style>
 <div class="container" style="margin-left: 20%">
@@ -74,19 +95,39 @@
             @foreach (var story in Model.OrderByDescending(a => a.PublishDate))
             {
                 <li class="StoryList">
+                    <div class="thumbImage">
+                        @{  int n = @story.Thumbnail.IndexOf('*');
+                                int n2 = @story.Thumbnail.LastIndexOf('*');
+                                int n3 =  (n2) - (n-1) ; 
+                                }
+                        
+                        @Html.Raw(story.Thumbnail.Remove(n, n3).Replace("<p>", "").Replace("</p>", "").Replace("\n", "").Replace("&nbsp;", ""))
+                        
 
-                    @Html.Raw(story.Thumbnail)
+                     
+                        <p class="ThumbDesc"><center>
+                            @{
+                                var contents = @story.Thumbnail;
+                                var desc = contents.Substring(contents.IndexOf('*') + 1);
+                                var desc2 = desc.Remove(desc.IndexOf("*"));
 
+                            }
+                            @desc2</center>
+                        </p>
+                    </div>
+
+                    
                     <p class="right">
 
-                        <strong class="StoryTitle"> @story.Title </strong><br/>
-                        <b>@story.PublishDate.ToString("yyyy MMMM dd")</b>  
-                        @Html.Raw(story.StoryContent.Replace("<p>", "").Replace("</p>",""))
-                       @* @Html.Raw(Html.Encode(Model.MultiLineText).Replace("\n", "<br />"))*@
+                        <strong class="StoryTitle"> @story.Title </strong><br />
+                        <b>@story.PublishDate.ToString("yyyy MMMM dd")</b>
+                        @*@story.StoryContent*@
+                        @Html.Raw(story.StoryContent.Replace("<p>", "").Replace("</p>", "").Replace("\n", "<br />"))
+                        @*@Html.Raw(Html.Encode(story.StoryContent).Replace("</p>", "").Replace("</p>", ""))*@
 
 
                     </p>
-                
+
 
 
 

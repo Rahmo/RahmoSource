@@ -150,13 +150,14 @@ namespace ICStars2_0.SHTracker.Student
             LinkButton lb = sender as LinkButton;
             int.TryParse(lb.CommandArgument, out id);
             var student = StudentFactory.Create(id);
-            if (!student.SLC.Equals(User.Identity.Name) && User.IsInRole("SLC"))
-            {
-                Response.Clear();
-                Response.Write("You are not allowed to delete this student because you are not her/his SLC!!");
-                Response.End();
-                return;
-            }
+           // if (!student.SLC.Equals(User.Identity.Name) && User.IsInRole("SLC"))
+            //    if (!student.SLC.Equals(User.Identity.Name) && User.IsInRole("SLC"))
+            //{
+            //    Response.Clear();
+            //    Response.Write("You are not allowed to delete this student because you are not her/his SLC!!");
+            //    Response.End();
+            //    return;
+            //}
             StudentFactory.Delete(id);
             Response.Redirect("List.aspx?IsMine=1");
         }

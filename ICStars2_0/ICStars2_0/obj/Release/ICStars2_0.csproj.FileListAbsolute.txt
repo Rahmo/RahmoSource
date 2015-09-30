@@ -211,3 +211,7 @@ C:\GitRahmoSource\ICStars2_0\ICStars2_0\bin\DotNetOpenAuth.OpenId.xml
 C:\GitRahmoSource\ICStars2_0\ICStars2_0\obj\Release\ICStars2_0.csprojResolveAssemblyReference.cache
 C:\GitRahmoSource\ICStars2_0\ICStars2_0\obj\Release\ICStars2_0.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0\obj\Release\ICStars2_0.pdb
+C:\GitRahmoSource\ICStars2_0\ICStars2_0\bin\PagedList.dll
+C:\GitRahmoSource\ICStars2_0\ICStars2_0\bin\PagedList.Mvc.dll
+C:\GitRahmoSource\ICStars2_0\ICStars2_0\bin\PagedList.xml
+C:\GitRahmoSource\ICStars2_0\ICStars2_0\bin\PagedList.Mvc.xml

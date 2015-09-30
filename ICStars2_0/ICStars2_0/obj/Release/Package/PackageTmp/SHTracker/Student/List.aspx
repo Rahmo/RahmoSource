@@ -252,10 +252,11 @@ h2 {
 
              <td align="center" valign="top">
                  <a href="Details.aspx?id=<%#Eval("ID") %>" class="button">Details</a>
+                 <a href="Edit.aspx?id=<%#Eval("ID") %>" class="button">Edit</a>
                  <span id="<%#User.IsInRole("SLC") && !Eval("SLC").ToString().Equals(User.Identity.Name)?"s_remove":"" %>">
              <a href="#" class="button" onclick=" clearFrameCach('dialog<%#Eval("ID") %><%#Eval("CBOID") %>');$('#dialog<%#Eval("ID") %><%#Eval("CBOID") %>').dialog({width:450,height:550,close: function(event, ui) { window.location.reload(); }});return false;">Report Hours</a>
                  <a href="Search.aspx?StudentID=<%#Eval("ID") %>" class="button">Build Report</a>
-             <a href="Edit.aspx?id=<%#Eval("ID") %>" class="button">Edit</a><br/>
+             <br/>
                   <a href="#" class="button" onclick="rollover(<%#Eval("ID") %>,this);return false;">Roll Over</a>
                   <a href="#" class="button" onclick="notify(<%#Eval("ID") %>,<%#Eval("CBOID") %>,this);return false;">Notify</a>
              <a href="#" class="button" onclick='importHistoricalHours(<%#Eval("ID") %>,<%#Eval("CBOID") %>,<%#Eval("CourseID") %>,"<%#Eval("FirstName")%> <%#Eval("LastName")%>")'>Import Historical Hours</a>

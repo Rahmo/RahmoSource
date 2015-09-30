@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace ICStars2_0.Model
 {
-    [Table("MvpResource", Schema = Const.Schema)]
+    [Table("MvpResource", Schema = "dbo")]
    public class MvpResource
     {
         [Key]

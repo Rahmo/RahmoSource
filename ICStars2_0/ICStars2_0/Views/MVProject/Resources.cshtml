@@ -1,55 +1,26 @@
 ﻿@model PagedList.IPagedList<ICStars2_0.Model.MvpResource>
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Css/MvpHome.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Resources";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<style>
-    .FontRes {
-        font-size: 20px;
-    }
-
-    .PartnersThemeFonts {
-        padding: 0px 10px;
-    }
-
-    .TableLayout {
-        width: 80%;
-        display: inline-block;
-        text-align: left;
-    }
-</style>
 
 
 <div class="container" style="margin-left: 20%">
     <br />
-    <h2>Resources</h2> :
+    <h2 class="PageTitle">Resources</h2> :
     @foreach (var item in Model)
     {
         <ul>
-            @if (item.ResourceType == "News")
-            {
-                <li class="TableLayout PartnersThemeFonts" style="background-color:#ffffed">
-                    <p class="PartnersThemeFonts "> <b class="FontRes">@item.ResourceType : @item.Title </b>        <div style=" padding:5px">@item.CreatedDate</div>      </p>
-                    <p class="PartnersThemeFonts ">@Html.Raw(item.Description)</p>
+           
+                <li class="TableLayout PartnersThemeFonts" style="background-color:#f7f7f7">
+                    <div class="CardHeaderCss "> <p class="FontRes">@item.ResourceType : @item.Title </p>    <p class="Datecss">  @item.CreatedDate </p>     </div>
+                    <div class="CardDescriptionCss">@Html.Raw(item.Description)</div>
                 </li>
-            }
-            else if (item.ResourceType == "Multimediaresource")
-            {
-                <li class="TableLayout PartnersThemeFonts" style="background-color:#fff2ed">
-                    <p class="PartnersThemeFonts "> <b class="FontRes">@item.ResourceType : @item.Title </b>    <div style="padding:5px">@item.CreatedDate</div>  </p>
-                    <p class="PartnersThemeFonts ">@Html.Raw(item.Description)</p>
-                </li>
-            }
-            else
-            {
-                <li class="TableLayout PartnersThemeFonts" style="background-color:#eef6ff">
-                    <p class="PartnersThemeFonts "> <b class="FontRes">@item.ResourceType : @item.Title </b>  <div style="padding:5px">@item.CreatedDate</div>   </p>
-                    <p>@Html.Raw(item.Description)</p>
-                </li>
-
-            }
+            
+    
 
 
 
@@ -59,7 +30,7 @@
 
     <br />
 
-    <p style="width:300px">
+    <p style="width:300px;color:black ; font-size:14px;Padding:3em;">
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
         @Html.PagedListPager(Model, page => Url.Action("Resources",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

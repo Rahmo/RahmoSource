@@ -65,11 +65,11 @@
 
                     </div>
 
-                    <p>@article.Brief</p>
+                    <p style="padding-bottom:2em">@article.Brief</p>
                     <p>@article.CommunitySite</p>
                     <div class="dd_events_btn">
 
-                        <a class="facebookBtn button-small" href="#"><i class="icon-facebook"></i>Events page on Faceebook </a>
+                        @*<a class="facebookBtn button-small" href="#"><i class="icon-facebook"></i>Events page on Faceebook </a>*@
                         <div class="fb-share-button" data-href="https://steans.depaul.edu/Event/@article.UrlTitle" data-layout="button"></div>
                         <span class="continue button-small-theme">
                             <a href="mailto:?subject=Event: @article.UrlTitle&amp;body=Check out this Event in the following link https://steans.depaul.edu/Event/@article.UrlTitle"
@@ -80,13 +80,14 @@
 
                         </span>
 
-                        <span class="or">OR</span>
+
 
 
                         @*<a class="continue button-small-theme" href="#">MORE INFO</a>*@
-                        @Html.ActionLink("MORE INFO", "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @target = "_blank", @title = article.Title })
+
                         <div class='row'>
                             <div class='row'>
+                                @Html.ActionLink("MORE INFO", "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @target = "_blank", @title = article.Title })
                                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://steans.depaul.edu/Event/@article.UrlTitle&title=%5BTITLE%5D">
                                     <i class='icon-facebook'>
                                         Facebook
@@ -161,15 +162,13 @@
 
                     </div>
 
-                    <p>@article.Brief</p>
+                    <p style="padding-bottom:2em" >@article.Brief</p>
                     <p>@article.CommunitySite</p>
                     <div class="dd_events_btn">
 
 
-                        <a class="facebookBtn button-small" href="https://www.facebook.com/events/362692700601015/?ref_dashboard_filter=calendar"><i class="icon-facebook"></i>Events page on Faceebook </a>
+                        @*<a class="facebookBtn button-small" href="https://www.facebook.com/events/362692700601015/?ref_dashboard_filter=calendar"><i class="icon-facebook"></i>Events page on Faceebook </a>*@
 
-
-                        <span class="or">OR</span>
 
 
                         @*<a class="continue button-small-theme" href="#">MORE INFO</a>*@

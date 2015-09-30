@@ -90,7 +90,7 @@
                     <option value="3">CampusConnect Id</option>
                     <option value="1">First Name</option>
                     <option value="2">Last Name</option>
-                   
+              
                 </select>
             <%--<input type="button" value="Search" id="btnPressed"  runat="server"   style="margin-left:150px;" />--%>
             <asp:LinkButton  OnClick="BtnSearch" ID="btnPressed" runat="server" >Search</asp:LinkButton>
