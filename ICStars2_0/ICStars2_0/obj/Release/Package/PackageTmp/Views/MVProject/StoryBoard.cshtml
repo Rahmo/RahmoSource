@@ -34,7 +34,7 @@
        200px !important;
     height: auto;
     float:left ;
-    
+    border: 3px solid black;
     }
    
     .StoryList {
@@ -79,6 +79,7 @@
 
     .ThumbDesc {
     font-size:16px;
+    font-weight:Bold;
     }
 
 </style>
@@ -105,14 +106,16 @@
                         
 
                      
-                        <p class="ThumbDesc"><center>
-                            @{
+                        <p class="ThumbDesc">
+                            <center style="font-weight:bold;padding: 3px;">
+                                @{
                                 var contents = @story.Thumbnail;
                                 var desc = contents.Substring(contents.IndexOf('*') + 1);
                                 var desc2 = desc.Remove(desc.IndexOf("*"));
 
-                            }
-                            @desc2</center>
+                                }
+                                @desc2
+                            </center>
                         </p>
                     </div>
 

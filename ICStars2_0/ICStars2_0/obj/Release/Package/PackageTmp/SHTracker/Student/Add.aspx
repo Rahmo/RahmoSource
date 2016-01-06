@@ -168,6 +168,12 @@
     <h2>
         Student Information Sheet</h2>
     <form id="form1" runat="server">
+           <h3 style="text-align: right;">SLC : <%if(User.IsInRole("admin") || User.IsInRole("Staff") || User.IsInRole("SLC")){%>
+            <%=DropDownListHelper.DropDownList("SLC",SLCList) %>
+            <%}else{%>
+            <%--<asp:Literal ID="ltlSLC" runat="server"></asp:Literal>--%>
+            <%} %>
+        </h3>
     <div class="site_model" id="default_site">
         <label>
             Service Site :

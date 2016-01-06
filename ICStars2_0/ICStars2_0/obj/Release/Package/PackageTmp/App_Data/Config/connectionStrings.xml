@@ -21,7 +21,7 @@
   <!--<add name="cbsl" connectionString="server=sqldbprd13a.dpu.depaul.edu;database=cbsl;uid=cbslusr;pwd=Steans0308~;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
 
   <!--The Production Database for steans website-->
-  <add name="icstars" connectionString="server=sqldbprd13a.dpu.depaul.edu;database=cbsl;uid=cbslusr;pwd=Steans0308~;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
+  <!--<add name="icstars" connectionString="server=sqldbprd13a.dpu.depaul.edu;database=cbsl;uid=cbslusr;pwd=Steans0308~;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
   
   <!--The testing Database for steans website--><!--
   <add name="icstars" connectionString="server=SQLDBTST13A.dpu.depaul.edu;database=cbsl;uid=AALZAH13;pwd=d3Paul4cbsl!;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
@@ -31,6 +31,8 @@
   <!--<add name="ced" connectionString="server=sqldbprd13a.dpu.depaul.edu;database=engage;uid=engageWriter;pwd=DPUengage43210!;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
 
   <!--The local database MDF-->
-  <!--<add name="icstars" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\RahmoSource\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=True;Connect Timeout=30"
-    providerName="System.Data.SqlClient" />-->
+  <add name="icstars" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\RahmoSource\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=True;Connect Timeout=30"
+    providerName="System.Data.SqlClient" />
+
+ 
 </connectionStrings>

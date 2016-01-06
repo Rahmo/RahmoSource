@@ -19,5 +19,7 @@ namespace ICStars2_0.Model.DbContexts
         public DbSet<MCI_Period> MCI_Periods { get; set; }
 
         public DbSet<MeridaExtensionApplication> MeridaExtensionApplications { get; set; }
+
+       
     }
 }

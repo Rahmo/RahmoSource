@@ -16,6 +16,7 @@ using ICStars2_0.Model.DbContexts;
 using ICStars2_0.Model.Items;
 using ICStars2_0.Model.Settings;
 using Microsoft.Practices.Unity;
+using ICStars2_0.BusinessLayer.MemberServices;
 
 namespace ICStars2_0.SHTracker.Student
 {
@@ -41,15 +42,20 @@ namespace ICStars2_0.SHTracker.Student
         [Dependency]
         public IStudentFactory StudentFactory { get; set; }
         [Dependency]
+        public IMemberFactory MemberFactory { get; set; }
+        [Dependency]
         public IProgramFactory  ProgramFactory { get; set; }
         [Dependency]
         public IStudent2CBOFactory Student2CBOFactory { get; set; } 
         public IEnumerable<SelectListItem> CBONameList { get; set; }
         public IEnumerable<SelectListItem> CourseNameList { get; set; }
+
+        public IEnumerable<SelectListItem> SLCList { get; set; }
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
 
+            
 
             CBONameList = new[]
                                   {
@@ -76,14 +82,31 @@ namespace ICStars2_0.SHTracker.Student
             if (!IsPostBack)
             {
                 cbxPrograms.Items.AddRange(ProgramFactory.CreateList().Select(p => new ListItem(p.Name, p.ID.ToString()){Selected=p.Abbr.Equals("SLC")}).ToArray());
-                
+                if (User.IsInRole("admin") || User.IsInRole("Staff") || User.IsInRole("SLC"))
+                {
+                    SLCList =
+                        new[]
+                              {
+                                  new SelectListItem
+                                      {
+                                          Text = "NO SLC",
+                                          Value = "",
+                                          Selected = true
+                                      }
+                              }.Union(MemberFactory.CreateSLCCollection(1, 1000).Where(s => s.Status)
+                                     .Select(m => m.CampusConnectID)
+                                     .OrderBy(m => m)
+                                     .Select(m => new SelectListItem { Text = m, Value = m }));
+                }
+            
             }
+
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             Model.Student student = new Model.Student();
-            student.SLC = User.IsInRole("SLC") ? User.Identity.Name : "";
-            
+           // student.SLC = User.IsInRole("SLC") ? User.Identity.Name : "";
+            student.SLC = Request.Form["SLC"] ?? "";
             student.Staff = User.IsInRole("Staff") ? User.Identity.Name : "";
             
 

@@ -123,13 +123,13 @@ namespace ICStars2_0.SHTracker.Student
                     Response.End();
                     return;
                 }
-                if (User.IsInRole("SLC") && !CurrentStudent.SLC.Equals(User.Identity.Name))
-                {
-                    Response.Clear();
-                    Response.Write("You are not allowed to edit this student because you are not her/his SLC!!");
-                    Response.End();
-                    return;
-                }
+                //if (User.IsInRole("SLC") && !CurrentStudent.SLC.Equals(User.Identity.Name))
+                //{
+                //    Response.Clear();
+                //    Response.Write("You are not allowed to edit this student because you are not her/his SLC!!");
+                //    Response.End();
+                //    return;
+                //}
                 cbxPrograms.Items.AddRange(ProgramFactory.CreateList().Select(p => new ListItem(p.Name, p.ID.ToString()) { Selected = Student2Programs.Any(s2p=>s2p.ProgramID==p.ID) }).ToArray());
                 
                 ltlSLC.Text = CurrentStudent.SLC;
@@ -170,10 +170,11 @@ namespace ICStars2_0.SHTracker.Student
             Model.Student student = StudentFactory.Create(id);
             if (User.IsInRole("SLC"))
             {
-                student.SLC = User.Identity.Name;
+                //student.SLC = User.Identity.Name;
+                student.SLC = Request.Form["SLC"];
             }
             //when administrator or staff is updating this, let them be able to update SLC
-            if (User.IsInRole("admin") || User.IsInRole("Staff"))
+            if (User.IsInRole("admin") || User.IsInRole("Staff") || User.IsInRole("SLC"))
             {
                 student.Staff = User.Identity.Name;
                 student.SLC = Request.Form["SLC"];

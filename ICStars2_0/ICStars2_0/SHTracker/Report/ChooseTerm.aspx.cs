@@ -9,7 +9,7 @@ using Microsoft.Practices.Unity;
 
 namespace ICStars2_0.SHTracker.Report
 {
-    [Authorize(Roles = "admin,admin_report,Staff,Professor,CSSP")]
+    [Authorize(Roles = "admin,admin_report,Staff,Professor,CSSP,SLC")]
     public partial class ChooseTerm : System.Web.UI.Page
     {
 

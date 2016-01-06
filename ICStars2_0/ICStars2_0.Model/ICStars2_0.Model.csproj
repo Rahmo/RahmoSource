@@ -71,6 +71,7 @@
     <Compile Include="CBOTask.cs" />
     <Compile Include="Course2CBOTask.cs" />
     <Compile Include="DbContexts\CourseDbContext.cs" />
+    <Compile Include="DbContexts\GeoDbContext.cs" />
     <Compile Include="DbContexts\MVPDbContext.cs" />
     <Compile Include="Enum\CalendarEventRepeatFrequencyType.cs" />
     <Compile Include="Enum\CalendarEventRepeatFrequencyValue.cs" />
@@ -78,6 +79,15 @@
     <Compile Include="Enum\WeekDay.cs" />
     <Compile Include="Enum\WeekDayAdapter.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="GEO133.cs" />
+    <Compile Include="geoAssessedValues.cs" />
+    <Compile Include="GeoBuilding.cs" />
+    <Compile Include="GeoLand.cs" />
+    <Compile Include="GeoMarketValue.cs" />
+    <Compile Include="GeoOnlineInformation.cs" />
+    <Compile Include="GeoSiteData.cs" />
+    <Compile Include="GeoTaxTreasuedSite.cs" />
+    <Compile Include="GeoTotal.cs" />
     <Compile Include="HistoricalHours.cs" />
     <Compile Include="ImageGallery.cs" />
     <Compile Include="Inquiring.cs" />
@@ -157,6 +167,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

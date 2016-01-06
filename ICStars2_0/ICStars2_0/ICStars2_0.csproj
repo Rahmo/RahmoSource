@@ -1464,6 +1464,8 @@
     <Content Include="Views\MVProject\Gallery.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpGallery\UploadImage.cshtml" />
     <Content Include="Views\MVProject\Resources.cshtml" />
+    <Content Include="Views\Geo133Form\Main.cshtml" />
+    <Content Include="Views\Geo133Form\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Account.Master.cs">
@@ -1525,6 +1527,7 @@
     <Compile Include="Areas\SHTracker\Controllers\MvpResourcesController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\MVPSiteController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\StoryboardController.cs" />
+    <Compile Include="Controllers\Geo133FormController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Areas\SHTracker\Controllers\MCIController.cs" />

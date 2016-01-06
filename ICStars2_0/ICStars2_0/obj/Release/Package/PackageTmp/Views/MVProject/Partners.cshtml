@@ -9,31 +9,31 @@
     ViewBag.Title = "Partners";
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.googlemaps/2.2.4/css/mapstyle.min.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.googlemaps/2.2.4/css/mapstyle.min.css" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.googlemaps/2.2.4/jquery.googlemaps.min.js"></script>
 
 <div class="container" style="margin-left: 20%">
 
-    <br/>
+    <br />
 
     <div class="" style="padding-left: 60px">
-         <h1 class="PageTitle">Partners </h1> 
+        <h1 class="PageTitle">Partners </h1>
         <a id="aboutlink" style="color: #bb504d; font-size: 1.5em;border-bottom:  1px solid #bb504d" href="#">Press <b>here</b> to show the site's Locations in Google map</a>
         <ul>
 
             @foreach (var item in Model)
             {
-                <li class="button-small-theme PartnersThemeFonts" style="width: 85%;display: inline-block">
+                <li class="button-small-theme PartnersThemeFonts" style="width: 85%;display: inline-block;">
 
-                    <div class="dd_events_top clearfix">
+                    <div class="dd_events_top clearfix" style="text-align:left">
 
                         @* <div class="dateContainer">
-                                <span class="month">@item.ProjectStarts.Value.ToString("MMMM")</span>
-                                <span class="day">@item.ProjectStarts.Value.ToString("dd")</span>
+                                    <span class="month">@item.ProjectStarts.Value.ToString("MMMM")</span>
+                                    <span class="day">@item.ProjectStarts.Value.ToString("dd")</span>
 
-                        </div>*@
+                            </div>*@
                         <div class="postTitle">
 
                             <h2>
@@ -47,40 +47,41 @@
 
                         <h3> Coordinator: @item.Coordinator</h3>
                         <h4>Lead Organization: @Html.Raw(item.SiteBrief.Truncate(300))</h4>
-                        <hr /> </div>
-                  
+                        <hr />
+                    </div>
+
 
                     <div class="dd_events_btn">
 
                         @*<a class="continue button-small-theme" href="#">MORE INFO</a>*@
                         @*@Html.ActionLink("MORE INFO", "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @target = "_blank", @title = article.Title })
-    @Html.ActionLink("Site's groups", "SiteOrganizations", new { id = item.SiteId }, new { @class = "continue button-small-theme-b" })
-    <a id="BtnGroups" href="" class="continue button-small-theme-b">Site's Group</a>*@
+                            @Html.ActionLink("Site's groups", "SiteOrganizations", new { id = item.SiteId }, new { @class = "continue button-small-theme-b" })
+                            <a id="BtnGroups" href="" class="continue button-small-theme-b">Site's Group</a>*@
 
                         <div id="linkwrapper">
 
                             @if (item.Organizations.Count == 0)
                             {
-                                <b href="" class="continue button-small-theme-b">No groups available</b>
+                                <b href="" class="continue button-small-theme-b">No Partners available</b>
                             }
                             else
                             {
-                                <b> <a id="@item.SiteId" href="" class="continue button-small-theme-b">Site's Group</a></b>
+                                <b> <a id="@item.SiteId" href="" class="continue button-small-theme-b">Partners</a></b>
                             }
                         </div>
                         @{
-                            var r = item.SiteId + "content";
+                var r = item.SiteId + "content";
                         }
 
                     </div>
-                    <div id="infocontent">
+                    <div id="infocontent" style="text-align:left">
                         <div id="@r">
                             <ul>
 
                                 @foreach (Organization org in item.Organizations)
                                 {
                                     <li>
-                                        <p><b>Name:</b> @org.Name <b>Address:</b> @org.Address</p>
+                                        <p><b></b> @org.Name <b>Address:</b> @org.Address</p>
                                         <p></p>
                                     </li>
                                 }
@@ -90,7 +91,7 @@
                     </div>
 
                 </li>
-                
+
             }
 
 
@@ -98,146 +99,148 @@
 
 
         </ul>
-       
-</div>
-  
 
-    <div class="map-container" id="map-container"><h1 class="PageTitle"> Our Sites Locations </h1>
-<div style="margin: auto;
+    </div>
+
+
+    <div class="map-container" id="map-container">
+        <h1 class="PageTitle"> Our Sites Locations </h1>
+        <div style="margin: auto;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                width: 600px;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                height: 400px;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                float: left;">
-    <div class="map-container" id="map-HiddenTreasureMap" style="margin-left: auto; margin-right: auto; text-align: center; direction: rtl"></div><input name="HiddenTreasureMap" type="hidden" id="HiddenTreasureMap" />
+            <div class="map-container" id="map-HiddenTreasureMap" style="margin-left: auto; margin-right: auto; text-align: center; direction: rtl"></div><input name="HiddenTreasureMap" type="hidden" id="HiddenTreasureMap" />
 
-    <script type="text/javascript">
-
-       
-
-        $("#aboutlink").click(function (e) {
-            // Prevent a page reload when a link is pressed
-            e.preventDefault();
-            // Call the scroll function
-            $('html,body').animate({
-                scrollTop: $("#map-container").offset().top
-            },
-             'slow');
-        });
-
-
-        $(document).ready(function () {
+            <script type="text/javascript">
 
 
 
-
-            $('#map-HiddenTreasureMap').GoogleMapEditor($.extend({}, {
-                "editMode": false,
-                "editTemplatesPath": "/Scripts/html/",
-                "markerPinsPath": "/Scripts/img/pin/",
-                "markerPinFiles": ["flag-azure.png", "flag-green.png", "needle-pink.png", "niddle-green.png", "pin-azure.png", "pin-green.png", "pin-pink.png"],
-                "drawingBorderColor": "#ff0000",
-                "drawingBorderWidth": 2,
-                "drawingFillColor": "#ffff00",
-                "zoom": 10,
-                "width": 600,
-                "height": 500,
-                "singleLocation": false,
-                "center": { "latitude": 41.8781136, "longitude": -87.6297982 },
-                "language": "en",
-                "searchBox": true,
-                "richtextEditor": true,
-                "drawingTools": ["marker", "polyline", "polygon", "circle", "rectangle"],
-                "zoomControl": true,
-                "panControl": true,
-                "scaleControl": true,
-                "streetViewControl": true,
-                "scrollWheel": true,
-                "stylesPath": "/Scripts/styles.json",
-                "style": [],
-                "locations":
-                    [
+                $("#aboutlink").click(function (e) {
+                    // Prevent a page reload when a link is pressed
+                    e.preventDefault();
+                    // Call the scroll function
+                    $('html,body').animate({
+                        scrollTop: $("#map-container").offset().top
+                    },
+                     'slow');
+                });
 
 
-                     {
-                         "Coordinates":
-
-                             [{
-
-                                 "Latitude": 41.976312,
-                                 "Longitude": -87.701600
-                             }], "Radius": 2008.605067820213,
-                         "LocationType": "circle", "Icon": null, "Message": "", "BorderColor": "#ff0000", "BorderWeight": 2, "FillColor": "#ffff00", "Tag": null
+                $(document).ready(function () {
 
 
 
-                         @*@foreach (var item in Model)
+
+                    $('#map-HiddenTreasureMap').GoogleMapEditor($.extend({}, {
+                        "editMode": false,
+                        "editTemplatesPath": "/Scripts/html/",
+                        "markerPinsPath": "/Scripts/img/pin/",
+                        "markerPinFiles": ["flag-azure.png", "flag-green.png", "needle-pink.png", "niddle-green.png", "pin-azure.png", "pin-green.png", "pin-pink.png"],
+                        "drawingBorderColor": "#ff0000",
+                        "drawingBorderWidth": 2,
+                        "drawingFillColor": "#ffff00",
+                        "zoom": 10,
+                        "width": 600,
+                        "height": 500,
+                        "singleLocation": false,
+                        "center": { "latitude": 41.8781136, "longitude": -87.6297982 },
+                        "language": "en",
+                        "searchBox": true,
+                        "richtextEditor": true,
+                        "drawingTools": ["marker", "polyline", "polygon", "circle", "rectangle"],
+                        "zoomControl": true,
+                        "panControl": true,
+                        "scaleControl": true,
+                        "streetViewControl": true,
+                        "scrollWheel": true,
+                        "stylesPath": "/Scripts/styles.json",
+                        "style": [],
+                        "locations":
+                            [
+
+
+                             {
+                                 "Coordinates":
+
+                                     [{
+
+                                         "Latitude": 41.976312,
+                                         "Longitude": -87.701600
+                                     }], "Radius": 2008.605067820213,
+                                 "LocationType": "circle", "Icon": null, "Message": "", "BorderColor": "#ff0000", "BorderWeight": 2, "FillColor": "#ffff00", "Tag": null
+
+
+
+                                 @*@foreach (var item in Model)
                                         {
                                             int comma = item.SiteLocation.IndexOf(',');
                                             string lat = item.SiteLocation.Substring(1, comma);
                                             string longit = item.SiteLocation.Substring(comma, item.SiteLocation.Length -1);
                                         }*@
-                     }
+                             }
 
-                    ]
+                            ]
 
-            }, { dataChange: function (sender, data) { $(sender.container).next().next().val(data); } }));
-        });
-  
-    
-       
+                    }, { dataChange: function (sender, data) { $(sender.container).next().next().val(data); } }));
+                });
 
 
 
-      
-
-       
-
-        $(document).ready(function () {
-         
 
 
-              $("#button").click(function () {
-           
-            $('html, body').animate({
-                scrollDown: $(".map-container").offset().down
-            }, 2000);
-        });
-    
-
-            $("#infocontent").hide();
-            $("#infocontent div").hide();
 
 
-            $('#linkwrapper a[id]').click(function () {
 
-                var vsubmen = this.id+"content";
-                
-                if ($("#infocontent").is(":visible") == false) {
-                    $("#" + vsubmen).show('slow', function () {
-                        $("#infocontent").slideDown();
+
+
+                $(document).ready(function () {
+
+
+
+                    $("#button").click(function () {
+
+                        $('html, body').animate({
+                            scrollDown: $(".map-container").offset().down
+                        }, 2000);
                     });
-                } else if ($("#" + vsubmen).is(":visible") == false) {
-                    $("#infocontent").slideUp('slow', function () {
-                        $("#infocontent div").hide();
-                        $("#" + vsubmen).show();
-                        $("#infocontent").slideDown('slow');
+
+
+                    $("#infocontent").hide();
+                    $("#infocontent div").hide();
+
+
+                    $('#linkwrapper a[id]').click(function () {
+
+                        var vsubmen = this.id + "content";
+
+                        if ($("#infocontent").is(":visible") == false) {
+                            $("#" + vsubmen).show('slow', function () {
+                                $("#infocontent").slideDown();
+                            });
+                        } else if ($("#" + vsubmen).is(":visible") == false) {
+                            $("#infocontent").slideUp('slow', function () {
+                                $("#infocontent div").hide();
+                                $("#" + vsubmen).show();
+                                $("#infocontent").slideDown('slow');
+                            });
+                        } else {
+                            $("#infocontent").slideUp('slow', function () {
+                                $("#infocontent div").hide();
+                            });
+                        }
+                        return false;
                     });
-                } else {
-                    $("#infocontent").slideUp('slow', function () {
-                        $("#infocontent div").hide();
-                    });
-                }
-                return false;
-            });
 
-        });
-
-
-      
-      </script>
-
-</div></div>
-   
+                });
 
 
 
-      </div>
+            </script>
+
+        </div>
+    </div>
+
+
+
+
+</div>

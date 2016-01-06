@@ -45,13 +45,11 @@
 
 
                         <div class="dateContainer">
-                            @if (article.EventDate >= DateTime.Now)
-                            {
 
 
-                                <span class="month">@article.EventDate.Value.ToString("MMMM")</span>
-                                <span class="day">@article.EventDate.Value.ToString("dd")</span>
-                            }
+                            <span class="month">@article.EventDate.Value.ToString("MMMM")</span>
+                            <span class="day">@article.EventDate.Value.ToString("dd")</span>
+
                         </div>
 
                         <div class="postTitle">
@@ -69,25 +67,15 @@
                     <p>@article.CommunitySite</p>
                     <div class="dd_events_btn">
 
-                        @*<a class="facebookBtn button-small" href="#"><i class="icon-facebook"></i>Events page on Faceebook </a>*@
-                        <div class="fb-share-button" data-href="https://steans.depaul.edu/Event/@article.UrlTitle" data-layout="button"></div>
-                        <span class="continue button-small-theme">
-                            <a href="mailto:?subject=Event: @article.UrlTitle&amp;body=Check out this Event in the following link https://steans.depaul.edu/Event/@article.UrlTitle"
-                               title="Share by Email">
-                                @*<img style="src="https://steans.depaul.edu/Images/mail.png">*@
-                                Email
-                            </a>
 
-                        </span>
-
+                        @*<a class="facebookBtn button-small" href="https://www.facebook.com/events/362692700601015/?ref_dashboard_filter=calendar"><i class="icon-facebook"></i>Events page on Faceebook </a>*@
 
 
 
                         @*<a class="continue button-small-theme" href="#">MORE INFO</a>*@
-
+                        @Html.ActionLink("More Info", "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @target = "_blank", @title = article.Title })
                         <div class='row'>
                             <div class='row'>
-                                @Html.ActionLink("MORE INFO", "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @target = "_blank", @title = article.Title })
                                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://steans.depaul.edu/Event/@article.UrlTitle&title=%5BTITLE%5D">
                                     <i class='icon-facebook'>
                                         Facebook
@@ -108,6 +96,10 @@
                                 <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://steans.depaul.edu/Event/@article.UrlTitle&title=@article.UrlTitle&title&source=https://steans.depaul.edu"><i class="icon-linkedin">linkedin</i></a>@*<i class='icon-dribbble'></i>*@
                             </div>
                         </div>
+
+
+
+
                     </div>
 
                 </li>
@@ -162,7 +154,7 @@
 
                     </div>
 
-                    <p style="padding-bottom:2em" >@article.Brief</p>
+                    <p style="padding-bottom:2em">@article.Brief</p>
                     <p>@article.CommunitySite</p>
                     <div class="dd_events_btn">
 
@@ -193,10 +185,10 @@
                                     </i>
                                 </a>
                                 <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://steans.depaul.edu/Event/@article.UrlTitle&title=@article.UrlTitle&title&source=https://steans.depaul.edu"><i class="icon-linkedin">linkedin</i></a>@*<i class='icon-dribbble'></i>*@
-</div>
+                            </div>
                         </div>
 
-                      
+
 
 
                     </div>

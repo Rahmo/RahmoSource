@@ -27,7 +27,7 @@ namespace ICStars2_0.Areas.SHTracker.Controllers
         public double? RequiredHours { get; set; }
         public int TotalNotes { get; set; }
     }
-    [MvcAuthorize(Roles = "admin,admin_report,Staff,Professor,CSSP")]
+    [MvcAuthorize(Roles = "admin,admin_report,Staff,Professor,CSSP,SLC")]
     public class ReportController : Controller
     {
         //

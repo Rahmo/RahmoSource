@@ -10,7 +10,7 @@ using Microsoft.Practices.Unity;
 
 namespace ICStars2_0.SHTracker.Report
 {
-    [Common.Attributes.Authorize(Roles = "admin,admin_report,Staff,Professor,CSSP")]
+    [Common.Attributes.Authorize(Roles = "admin,admin_report,Staff,Professor,CSSP,SLC")]
     public partial class MyCourse : System.Web.UI.Page
     {
         [Dependency]
