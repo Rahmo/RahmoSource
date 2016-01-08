@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ICStars2_0.Model.son_student>
+
+@{
+    ViewBag.Title = "Student Choices";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student Choices</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPName1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPName2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPName3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassSection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Languages)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.Raw(item.CPName1)
+        </td>
+        <td>
+            @Html.Raw(item.CPName2)
+        </td>
+        <td>
+            @Html.Raw(item.CPName3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassSection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Languages)
+        </td>
+        <td>
+            @Html.ActionLink(string.IsNullOrEmpty(item.CPName1) && string.IsNullOrEmpty(item.CPName2) && string.IsNullOrEmpty(item.CPName3) ? "Place":"Edit", "EditStudent", new { id=item.StudentID })
+            @*@Html.ActionLink("Details", "Details", new { id=item.StudentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StudentID })*@
+        </td>
+    </tr>
+}
+
+</table>

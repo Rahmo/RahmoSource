@@ -1,0 +1,115 @@
+﻿@using ICStars2_0.Model
+@model IEnumerable<ICStars2_0.Model.Storyboard>
+    @{
+        ViewBag.Title = "StoryBoard";
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+
+
+
+<style>
+    
+ .container >div>ul>.StoryList {
+ 
+        border-bottom:1px solid #090909 ; 
+        padding: 10px;
+
+
+    }
+ .container > div > ul > .StoryList > section> div> p {
+  display: inline-block   
+
+    }
+ .StoryList > p > img {
+     width: 100% !important ;height: 100% !important; 
+ }
+  .StoryList > p {
+     width: 200px;
+     display: inline-block;    
+ }
+    .right {
+        display: inline-block;
+        margin-left: 20px;
+        vertical-align: top;
+        padding: 0 5px;
+        width: 32em !important;
+        font-family: "Lato",sans-serif !important;
+        font-size: 14px;
+        color: #000000;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+     
+    }
+    li.StoryList > p
+    {}
+
+ .StoryTitle {
+     text-align: center;
+ 
+     border-bottom: .5px solid;
+     
+      color: #000;
+         font-family: "Lato",sans-serif; 
+        
+         font-size: 20px;
+        
+        
+      
+         line-height: 20px;
+       
+ }
+
+
+</style>
+<div class="container" style="margin-left: 20%">
+
+    <br />
+
+    <div class="" style="padding-left: 60px">
+        <h1 class="PageTitle">CLOSE-UPS</h1>
+
+
+        <ul>
+
+            @foreach (var story in Model.OrderByDescending(a => a.PublishDate))
+            {
+                <li class="StoryList">
+
+                    @Html.Raw(story.Thumbnail)
+
+                    <p class="right">
+
+                        <strong class="StoryTitle"> @story.Title </strong><br />
+                        <b>@story.PublishDate.ToString("yyyy MMMM dd")</b>
+                        @*@story.StoryContent*@
+                        @Html.Raw(story.StoryContent.Replace("<p>", "").Replace("</p>", "").Replace("\n", "<br />"))
+                         @*@Html.Raw(Html.Encode(story.StoryContent).Replace("</p>", "").Replace("</p>", ""))*@
+
+
+                    </p>
+
+
+
+
+                </li>
+
+
+
+            }
+
+
+
+
+
+        </ul>
+
+
+
+
+        
+
+    </div>
+
+
+</div>
+

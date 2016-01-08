@@ -1,0 +1,58 @@
+﻿@model ICStars2_0.BusinessLayer.SteansSettings.Model.IEmailSettings
+
+@{
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head{
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="/SHTracker/Scripts/CkEditor/ckeditor.js"></script>
+    <script type="text/javascript" src="/SHTracker/Scripts/CkEditor/CheckCompatibility.js"></script>
+<script type="text/javascript">
+        $(function () {
+            CKEDITOR.replace('EmailBody');
+        });
+    </script>
+    <style type="text/css">
+        td{ text-align: left;}
+        input[type='text']{ width: 500px;}
+    </style>
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm())
+{
+    <table class="toolbar">
+        <tr>
+            <td>Receiver Email : </td>
+            <td>@Html.EditorFor(m => m.ReceiverEmail)</td>
+        </tr>
+        <tr>
+            <td>Email Title : </td>
+            <td>@Html.EditorFor(m => m.EmailTitle)</td>
+        </tr>
+        <tr>
+            <td>Email Body : </td>
+            <td>
+                @Html.EditorFor(m => m.EmailBody)
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Is Html : </td>
+            <td>
+                @Html.EditorFor(m => m.IsHtmlEmail)
+   
+            </td>
+        </tr>
+        <tr>
+            <td>If Send Email : </td>
+            <td>
+                @Html.EditorFor(m => m.IsSendingEmail)
+   
+            </td>
+        </tr>
+        <tr><td></td>
+            <td>
+                <input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+}

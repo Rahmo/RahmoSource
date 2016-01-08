@@ -1,0 +1,135 @@
+﻿.tacenter{text-align:center;}
+.ml5
+{
+    margin-left:5px;
+}
+.mt5
+{
+    margin-top:5px;
+}
+.ml10
+{
+    margin-left:10px;
+}
+.mt10
+{
+    margin-top:10px;
+}
+.mt20
+{
+    margin-top:20px;
+}
+.w50
+{
+    width:50px;
+}
+.w100
+{
+    width:100px;
+}
+.w150
+{
+    width:150px;
+}
+.w200
+{
+    width:200px;
+}
+.w300
+{
+    width:300px;
+}
+.w400
+{
+    width:400px;
+}
+.date
+{
+    color:#AAAAAA;
+}
+ul.ul_list,ul.ul_list li
+{
+    width:100%;
+    float:left;
+}
+ul.ul_list li
+{
+    border-bottom:dotted 1px #AAA;
+}
+ul.ul_list li span
+{
+    display:inline-block;
+    line-height:24px;
+}
+div.page_bar
+{
+    width:100%;
+    float:left;
+    text-align: center;
+}
+.field-validation-error{color:Red;}
+h2{height:33px;background-image:url(/SHTracker/images/bg2.jpg);text-align:left;font-size:15px; font-weight:bold; line-height:33px;}
+.title{height:33px;background-image:url(/SHTracker/images/bg2.jpg);}
+.title span{font-size:15px; font-weight:bold; line-height:33px; margin-left:10px}
+.text{ border:1px solid #999999; height:16px;margin-right:4px;margin-left:4px}
+.textarea{ border:1px solid #999999; margin-right:4px;margin-left:4px}
+.radio{ margin-left:10px;margin-right:3px}
+/*.button{ vertical-align:middle;margin-right:10px;margin-bottom:0px;margin-left:5px; cursor:pointer;}*/
+.white{color:#FFF; font-size:14px; font-family:"Arial";margin-left:10px}
+.bar2{position: absolute; bottom:0px;right:0px;}
+.bg_f9f5f6{ background-color:#EFEDEE}
+.hover{background-color:rgb(193, 213, 227);color:#FFF;}
+.toolbar{text-align:left;background-image:url(/SHTracker/images/bg2.jpg);width:100%;float:left;}
+.toolbar h6{float:left;}
+.toolbar em{color:Red;}
+.toolbar a{
+        background-color: #d3dce0;
+        border: solid 1px #CCC;
+        cursor: pointer;
+        font-size: 1.2em;
+        font-weight: 600;
+        padding: 3px;}
+a.button{
+        background-color: #d3dce0;
+        border: solid 1px #AAA;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 3px;}
+.bar{height:33px;background-image:url(/SHTracker/images/bg2.jpg);}
+.bar span{font-size:15px; font-weight:bold; line-height:33px; margin-left:10px}
+.trcol{ background-color:#f9f5f6}
+.deleted{text-decoration:line-through;}
+tr.deleted td{text-decoration:line-through;color:#CCC;}
+/* regist*/
+.logo{border-bottom:2px solid #681103;margin-left:200px;margin-right:200px;margin-top:30px}
+.kuang{margin-top:20px; background-color:#f4f4f4;width:490px;height:340px;border:1px solid #CCC;padding:5px}
+.regist{height:25px;width:490px; background-color:#666}
+/* regist end*/
+
+
+/* styles for validation helpers */
+label.error,.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+    fieldset textarea.input-validation-error, 
+input[type="text"].input-validation-error,
+input[type="password"].input-validation-error {
+    border: solid 1px #e80c4d;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}

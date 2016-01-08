@@ -1,0 +1,65 @@
+﻿@using ICStars2_0.Areas.SHTracker.Controllers
+@using ICStars2_0.Model
+@{
+    ViewBag.Title = "NoMatch";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    @Scripts.Render("~/bundles/jquery")
+    <style type="text/css">
+        #model{ display: none;}
+    </style>
+}
+<h2>NoMatch</h2>
+<div  style="float:left;">
+<h2>CBOs with no match</h2>
+@foreach (son_cboprogram cbo in ViewBag.CBOsLeft)
+{
+    <div><b>@cbo.CBOName:@cbo.ProgramName</b> (@cbo.Location)</div>
+    <div><b>Free Slots: @cbo.SlotsAvailable</b></div>
+    <table>
+        <tr><th>Student Name</th><th>Placement</th><th></th></tr>
+        @foreach (SON_StudentDetails stu in ((IEnumerable<SON_StudentDetails>)ViewBag.ASLPlacedStudents).Where(s=>s.CPID==cbo.CPID))
+        {
+            <tr>
+                <td>@stu.Name</td><td>Placed</td><td>
+                                                     @using (Html.BeginForm("NoMatchRequestRemove","SON"))
+                                                     {
+                                                         @Html.Hidden("CPID",stu.CPID)
+                                                         @Html.Hidden("StudentID",stu.StudentID)
+                                                         <input type="submit" value="Remove"/>
+                                                     }
+                                                 </td>
+            </tr>
+        }
+    </table>
+    if (cbo.SlotsAvailable > 0)
+     {
+         <div><input type="button" value="Add Choice" onclick=" $(this).replaceWith($('#model').clone().find('form').append('<input type=\'hidden\' name=\'cpid\' value=\'@cbo.CPID\'/>').show()); "/></div>
+     }
+     <br/>
+}
+    </div>
+<table style="float:right;">
+    <tr>
+        <th>Students with no match</th>
+    </tr>
+    <tr>
+        <th>Student Name</th></tr>
+    @foreach (son_student stu in ViewBag.StudentsLeft)
+    {
+        <tr>
+            <td>@stu.Name</td>
+        </tr>
+    }
+</table>
+<div id="model">
+    @using (Html.BeginForm("NoMatchRequest","SON"))
+    {
+<text>Student Name:</text>
+        @Html.DropDownList("StudentID", ((IEnumerable<son_student>) ViewBag.StudentsLeft).Select(s => new SelectListItem {Text = s.Name, Value = s.StudentID.ToString()}))
+        
+        <input type="submit" value="Submit"/>
+    }
+</div>

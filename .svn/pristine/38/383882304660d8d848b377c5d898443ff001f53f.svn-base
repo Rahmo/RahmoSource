@@ -1,0 +1,371 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+<!--[if lte IE 9]>
+    <link rel="stylesheet" type="text/css" href="~/Content/IEhover.css" />
+<![endif]-->
+
+<link href="~/Content/Css/MvpHome.css" rel="stylesheet" />
+<link href="~/Content/Css/MvpHomeCommon.css" rel="stylesheet" />
+<link href="~/Content/hover.css" rel="stylesheet" />
+
+
+<body id="page-top" class="index">
+    <!--Facebook Plugins-->
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- End FB Plugins-->
+    @*class="darklue"*@
+   
+
+
+    <section id="demo">
+
+
+
+        <div class="container">
+
+            <div class="row">
+            <div class="eeei">
+                
+            </div>
+
+
+                <div class="col-lg-10 text-center">
+
+
+
+                    <hr class="star-light">
+                    <br class="star-light">
+
+                    @*<ul class="ch-grid">
+                            <li>
+                                <div class="ch-item ch-img-1">
+                                    <div class="ch-info-wrap">
+                                        <div class="ch-info">
+                                            <div class="ch-info-front ch-img-1"></div>
+                                            <div class="ch-info-back">
+                                                <h3>taxi</h3>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item ch-img-2">
+                                    <div class="ch-info-wrap">
+                                        <div class="ch-info">
+                                            <div class="ch-info-front ch-img-2"></div>
+                                            <div class="ch-info-back">
+                                                <h3>Stay Foxy</h3>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="ch-item ch-img-3">
+                                    <div class="ch-info-wrap">
+                                        <div class="ch-info">
+                                            <div class="ch-info-front ch-img-3"></div>
+                                            <div class="ch-info-back">
+                                                <h3>Klava Jinx</h3>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>*@
+                    <!-- x is the VErtical point - Y is the Horisontal-->
+                    <div class="grid-stack " data-gs-width="6" data-gs-animate="yes" style="background-color: white">
+                        <div class="grid-stack-item  " data-gs-no-resize="yes" data-gs-x="0" data-gs-y="0" data-gs-width="3" data-gs-height="1" data-gs-height="3">
+                            <a href="/MVProject/AboutUs">
+                                
+                                <div class="grid-stack-item-content hvr-icon-push" style="background-color: white">
+                                    <p class="Text-Sides-Menu">About Us</p>
+                                </div>
+                            </a>
+                    </div>
+                    <div class="grid-stack-item" data-gs-no-resize="yes" data-gs-x="0" data-gs-y="2" data-gs-width="3" data-gs-height="1">
+                        <a href="/MVProject/Resources">
+                            <div class="grid-stack-item-content hvr-icon-up" style="background-color: white">
+                                <p class="Text-Sides-Menu ">RESOURCES</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="grid-stack-item " data-gs-no-resize="yes" data-gs-x="0" data-gs-y="4" data-gs-width="3" data-gs-height="1">
+                        <a href="/MVProject/Events">
+                            <div class="grid-stack-item-content hvr-icon-down " style="background-color: white;">
+                                <p class="Text-Sides-Menu">EVENTS</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="grid-stack-item" data-gs-no-resize="yes" data-gs-x="0" data-gs-y="6" data-gs-width="3" data-gs-height="3">
+                        <a href="/MVProject/Partners">
+                            <div class="grid-stack-item-content hvr-shutter-out-vertical shadows" style="background-color: #696969;">
+
+
+                                <p class="Text-Big-Menu">
+
+                                    PARTNERS
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+
+
+
+                    <div class="grid-stack-item" data-gs-no-resize="yes" data-gs-x="3" data-gs-y="0" data-gs-width="6" data-gs-height="7">
+                        <a href="/MVProject/ProjectDetails">
+                            <div class="grid-stack-item-content ch-img-Main ">
+                                @*
+                                <div class="ch-item ch-img-Main">
+                                    <div class="ch-info-wrap-big">
+                                        <div class="ch-info-big">
+                                            <div class="ch-info-front ch-img-Main"></div>
+                                            <div class="ch-info-back">
+                                               <h3>Multi-Faith Veteran Support Project</h3>
+                <p>
+                    Engaging with faith organizations to build capacity to serve Veterans and Veteran Families
+                    For more information please check the link
+                    <a style="color: white " href="/Egan/MVP">Here</a>
+                </p>
+
+                </div>
+                </div>
+                </div>
+                                            </div>*@
+
+                              
+                                @*<a href="/Egan/MVP"><input type="image" style="display: block; max-width: 100%; max-height: 100%" tabindex="2" value="Search" name="Search" alt="Events" src="~/Images/project.png"></a>
+
+                <h1>Multi-Faith Veteran Support Project</h1>
+                <h3>Engaging with faith organizations to build capacity to serve Veterans and Veteran Families</h3>*@
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="grid-stack-item" data-gs-no-resize="yes" data-gs-x="9" data-gs-y="0" data-gs-width="3" data-gs-height="3">
+
+                        <a href="/MVProject/StoryBoard">
+                            <div class="grid-stack-item-content hvr-shutter-out-vertical shadows" style="background-color: #2E6C9F;">
+
+
+                                <p class="Text-Big-Menu">
+
+                                    CLOSE-UPS
+                                </p>
+                            </div>
+                        </a>
+
+                                                @*<div class="grid-stack-item-content">
+
+
+                                        <div class="ch-item ch-img-Team">
+                                            <div class="ch-info-wrap">
+                                                <div class="ch-info">
+                                                    <div class="ch-info-front ch-img-Team"></div>
+                                                    <div class="ch-info-back">
+                                                        <h3>Project Team</h3>
+                                                        <p>Project Team </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+        #b83a35
+                                    </div>*@
+
+                    </div>
+
+
+
+
+                    <div class="grid-stack-item" data-gs-no-resize="yes" data-gs-x="9" data-gs-y="3" data-gs-width="3" data-gs-height="3">
+                        <a href="/MVProject/ContactUs">
+                            <div class="grid-stack-item-content hvr-shutter-out-vertical shadows" style="background-color: #696969;">
+                                <p class="Text-Big-Menu">
+                                    CONTACT US
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="grid-stack-item" data-gs-no-resize="yes" data-gs-x="0" data-gs-y="9" data-gs-width="3" data-gs-height="3">
+
+                        <a href="/MVProject/ProjectTeam">
+                            <div class="grid-stack-item-content hvr-shutter-out-vertical shadows" style="background-color:#2E6C9F;   ">
+
+
+                                <p class="Text-Big-Menu">
+
+                                    PROJECT TEAM
+                                </p>
+                            </div>
+                        </a>
+
+
+
+
+
+
+                        @*<div class="ch-item ch-img-Events">
+                                <div>
+                                    <div class="ch-info">
+                                        <div class="ch-info-front ch-img-Events"></div>
+                                        <div class="ch-info-back">
+                                            <h3>Events</h3>
+                                            <p><a href="/MVProject/Events"><input type="image" style="display: block; max-width: 100%; height: 100%" tabindex="2" value="Search" name="Search" alt="Events" @*src="~/Images/test.png"></a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        *@
+
+                    </div>
+
+                    <div class="grid-stack-item" data-gs-no-resize="yes" data-gs-x="9" data-gs-y="9" data-gs-width="3" data-gs-height="3">
+
+                        <a href="/MVProject/Gallery/">
+                            <div class="grid-stack-item-content hvr-shutter-out-vertical shadows" style="background-color: #2E6C9F;">
+
+
+                                <p class="Text-Big-Menu">
+                                    GALLERY
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="grid-stack-item" data-gs-no-resize="yes" data-gs-x="3" data-gs-y="7" data-gs-width="6" data-gs-height="2">
+                        <div class="grid-stack-item-content  q">
+
+                            " Honor religious diversity, while strengthening relationships across faith communities, behavioral health, Veterans and Veteran families."
+
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="grid-stack-item" data-gs-no-resize="yes" data-gs-x="3" data-gs-y="9" data-gs-width="6" data-gs-height="5">
+                        <div class="grid-stack-item-content">
+
+
+                            <!--Facebook-->
+
+                            <div class="fb-like-box" style="" data-width="450" data-height="600" data-href="https://www.facebook.com/mvpmi" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="true" data-show-border="false"></div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                @*<div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="8" data-gs-y="0" data-gs-width="2" data-gs-height="2" data-gs-min-width="2" data-gs-no-resize="yes"><div class="grid-stack-item-content"> <span class="fa fa-hand-o-up"></span> Drag me! </div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="0" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">RAhmo</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="0" data-gs-y="2" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">5</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="2" data-gs-y="2" data-gs-width="2" data-gs-height="4"><div class="grid-stack-item-content">6</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="8" data-gs-y="2" data-gs-width="4" data-gs-height="2"><div class="grid-stack-item-content">7</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="0" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">8</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="4" data-gs-y="4" data-gs-width="4" data-gs-height="2"><div class="grid-stack-item-content">9</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="8" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">10</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">11</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">11</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">11</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">11</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">11</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">11</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">11</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">11</div></div>
+                    <div class="grid-stack-item" data-gs-no-move="yes" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2"><div class="grid-stack-item-content">11</div></div>*@
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visble-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://troolee.github.io/gridstack.js/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://troolee.github.io/gridstack.js/freelancer/js/classie.js"></script>
+    <script src="https://troolee.github.io/gridstack.js/freelancer/js/cbpAnimatedHeader.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="https://troolee.github.io/gridstack.js/freelancer/js/freelancer.js"></script>
+
+    <script src="~/Scripts/gridstack.js"></script>
+    @*<script src="https://troolee.github.io/gridstack.js/gridstack.js"></script>*@
+    <script type="text/javascript">
+
+
+        hljs.initHighlightingOnLoad();
+        $(function () {
+            $('.grid-stack').gridstack({
+                width: 12
+            });
+        });
+        //$(".grid-stack-item-content").hover(
+
+        //    function() {
+        //        $(this).css("border-radius", "50%")
+        //    });
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments);
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-1891156-8', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>

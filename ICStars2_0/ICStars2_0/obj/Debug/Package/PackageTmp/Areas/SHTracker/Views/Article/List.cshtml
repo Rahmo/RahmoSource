@@ -1,0 +1,87 @@
+﻿@using ICStars2_0.BusinessLayer.ArticleServices
+@using ICStars2_0.Mvc
+@model IEnumerable<ICStars2_0.Model.Article>
+
+@{
+    ViewBag.Title = "Publication List";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Publication List</h2>
+
+<p class="toolbar">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table width="100%">
+    <tr>
+        <th>
+            Category
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EventDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommunitySite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsVisible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommunitySite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsVisible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrlTitle)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.RouteLink("Real-time Edit", "Article", new { id = item.UrlTitle, root = item.CategoryName }, new { @target = "_blank", @title = item.Title })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+<div class="PageBar3">
+    @Html.PagerBar(((IArticleCollection)Model).TotalCount, ((IArticleCollection)Model).PageSize, 5, new { @class = "PageBar3" })
+</div>

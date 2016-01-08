@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ICStars2_0.Model.CBOTask>
+
+@{
+    ViewBag.Title = "CBOTask List";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CBOTask List</h2>
+<table width="100%">
+    <tr>
+        <th>
+            CBO
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quarter_Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServSchedule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServSiteAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServLastname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CBOName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quarter_Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServSchedule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServSiteAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServFirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServLastname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

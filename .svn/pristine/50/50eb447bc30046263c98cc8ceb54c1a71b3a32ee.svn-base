@@ -1,0 +1,219 @@
+﻿@model IEnumerable<ICStars2_0.Model.Article>
+
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+
+<div class="container" style="margin-left: 20%">
+
+    <br />
+
+    <div class="" style="padding-left: 60px">
+        <h1 class="PageTitle">Upcoming Events</h1>
+        @if (Model.Any(a => a.EventDate >= DateTime.Now) == false)
+        {
+            <b>There are no upcoming events.</b>
+        }
+
+        <ul>
+
+            @foreach (var article in Model.Where(a => a.EventDate >= DateTime.Now))
+            {
+                <li>
+                    <div class="dd_events_thumb">
+
+
+                        @Html.Raw(article.Thumbnail)
+
+                    </div>
+
+
+                    <div class="dd_events_top clearfix">
+
+
+                        <div class="dateContainer">
+                            @if (article.EventDate >= DateTime.Now)
+                            {
+
+
+                                <span class="month">@article.EventDate.Value.ToString("MMMM")</span>
+                                <span class="day">@article.EventDate.Value.ToString("dd")</span>
+                            }
+                        </div>
+
+                        <div class="postTitle">
+
+                            <h1>
+                                @Html.ActionLink(article.Title, "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "link_blue", @target = "_blank", @title = article.Title })
+                            </h1>
+
+                        </div>
+
+
+                    </div>
+
+                    <p style="padding-bottom:2em">@article.Brief</p>
+                    <p>@article.CommunitySite</p>
+                    <div class="dd_events_btn">
+
+                        @*<a class="facebookBtn button-small" href="#"><i class="icon-facebook"></i>Events page on Faceebook </a>*@
+                        <div class="fb-share-button" data-href="https://steans.depaul.edu/Event/@article.UrlTitle" data-layout="button"></div>
+                        <span class="continue button-small-theme">
+                            <a href="mailto:?subject=Event: @article.UrlTitle&amp;body=Check out this Event in the following link https://steans.depaul.edu/Event/@article.UrlTitle"
+                               title="Share by Email">
+                                @*<img style="src="https://steans.depaul.edu/Images/mail.png">*@
+                                Email
+                            </a>
+
+                        </span>
+
+
+
+
+                        @*<a class="continue button-small-theme" href="#">MORE INFO</a>*@
+
+                        <div class='row'>
+                            <div class='row'>
+                                @Html.ActionLink("MORE INFO", "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @target = "_blank", @title = article.Title })
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=https://steans.depaul.edu/Event/@article.UrlTitle&title=%5BTITLE%5D">
+                                    <i class='icon-facebook'>
+                                        Facebook
+                                    </i>
+                                </a>
+                                <a href="http://twitter.com/intent/tweet?status=@article.UrlTitle+https://steans.depaul.edu/Event/@article.UrlTitle">
+                                    <i class='icon-twitter'>Twitter</i>
+                                </a>
+                                <a href="mailto:?subject=Event: @article.UrlTitle&amp;body=Check out this Event in the following link https://steans.depaul.edu/Event/@article.UrlTitle"
+                                   title="Share by Email">
+                                    <i class="icon-mail">
+
+                                        @*<img style="src="https://steans.depaul.edu/Images/mail.png">*@
+                                        Email
+
+                                    </i>
+                                </a>
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://steans.depaul.edu/Event/@article.UrlTitle&title=@article.UrlTitle&title&source=https://steans.depaul.edu"><i class="icon-linkedin">linkedin</i></a>@*<i class='icon-dribbble'></i>*@
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            }
+
+
+
+
+
+        </ul>
+
+
+
+
+        <h1 class="PageTitle">past events</h1>
+        @if (Model.Any(a => a.EventDate <= DateTime.Now) == false)
+        {
+            <b>There are no past events.</b>
+        }
+        <ul>
+
+            @foreach (var article in Model.Where(a => a.EventDate <= DateTime.Now))
+            {
+                <li>
+                    <div class="dd_events_thumb">
+
+
+                        @Html.Raw(article.Thumbnail)
+
+                    </div>
+
+
+                    <div class="dd_events_top clearfix">
+
+
+                        <div class="dateContainer">
+
+
+                            <span class="month">@article.EventDate.Value.ToString("MMMM")</span>
+                            <span class="day">@article.EventDate.Value.ToString("dd")</span>
+
+                        </div>
+
+                        <div class="postTitle">
+
+                            <h1>
+                                @Html.ActionLink(article.Title, "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "link_blue", @target = "_blank", @title = article.Title })
+                            </h1>
+
+                        </div>
+
+
+                    </div>
+
+                    <p style="padding-bottom:2em" >@article.Brief</p>
+                    <p>@article.CommunitySite</p>
+                    <div class="dd_events_btn">
+
+
+                        @*<a class="facebookBtn button-small" href="https://www.facebook.com/events/362692700601015/?ref_dashboard_filter=calendar"><i class="icon-facebook"></i>Events page on Faceebook </a>*@
+
+
+
+                        @*<a class="continue button-small-theme" href="#">MORE INFO</a>*@
+                        @Html.ActionLink("More Info", "Index", "Publication", new { id = article.UrlTitle, root = "Event" }, new { @class = "continue button-small-theme", @target = "_blank", @title = article.Title })
+                        <div class='row'>
+                            <div class='row'>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=https://steans.depaul.edu/Event/@article.UrlTitle&title=%5BTITLE%5D">
+                                    <i class='icon-facebook'>
+                                        Facebook
+                                    </i>
+                                </a>
+                                <a href="http://twitter.com/intent/tweet?status=@article.UrlTitle+https://steans.depaul.edu/Event/@article.UrlTitle">
+                                    <i class='icon-twitter'>Twitter</i>
+                                </a>
+                                <a href="mailto:?subject=Event: @article.UrlTitle&amp;body=Check out this Event in the following link https://steans.depaul.edu/Event/@article.UrlTitle"
+                                   title="Share by Email">
+                                    <i class="icon-mail">
+
+                                        @*<img style="src="https://steans.depaul.edu/Images/mail.png">*@
+                                        Email
+
+                                    </i>
+                                </a>
+                                <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://steans.depaul.edu/Event/@article.UrlTitle&title=@article.UrlTitle&title&source=https://steans.depaul.edu"><i class="icon-linkedin">linkedin</i></a>@*<i class='icon-dribbble'></i>*@
+</div>
+                        </div>
+
+                      
+
+
+                    </div>
+
+                </li>
+            }
+
+
+
+
+
+        </ul>
+
+
+
+    </div>
+
+
+</div>
+

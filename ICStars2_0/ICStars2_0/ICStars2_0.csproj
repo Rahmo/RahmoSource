@@ -259,6 +259,7 @@
     <Content Include="Scripts\jquery.fancybox.css" />
     <Content Include="Scripts\jquery.fancybox.js" />
     <Content Include="Scripts\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="SHTracker\Geo133\AddLand.aspx" />
     <Content Include="Views\Logout\Index.cshtml" />
     <Content Include="Areas\SHTracker\Views\MVPSite\Index.cshtml" />
     <Content Include="Areas\SHTracker\Views\MVPSite\Details.cshtml" />
@@ -1682,6 +1683,13 @@
     </Compile>
     <Compile Include="SHTracker\CSSP\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SHTracker\Geo133\AddLand.aspx.cs">
+      <DependentUpon>AddLand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SHTracker\Geo133\AddLand.aspx.designer.cs">
+      <DependentUpon>AddLand.aspx</DependentUpon>
     </Compile>
     <Compile Include="SHTracker\Log\List.aspx.cs">
       <DependentUpon>List.aspx</DependentUpon>

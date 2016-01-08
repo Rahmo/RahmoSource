@@ -1,0 +1,84 @@
+﻿@model ICStars2_0.Model.Member
+
+@{
+    ViewBag.Title = "Edit Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/Site")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <style type="text/css">
+        form {
+            margin-left: 10px;
+        }
+    </style>
+}
+<section>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Member</legend>
+
+            @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(m => m.CampusConnectID)
+            @Html.HiddenFor(m => m.Department)
+            @Html.HiddenFor(m => m.EmplID)
+            @Html.HiddenFor(m => m.Fax)
+            @Html.HiddenFor(m => m.IP)
+            @Html.HiddenFor(m => m.JobTitle)
+            @Html.HiddenFor(m => m.LastLoginDate)
+            @Html.HiddenFor(m => m.Location)
+            @Html.HiddenFor(m => m.OfficeHours)
+            @Html.HiddenFor(m => m.OfficePhone)
+            @Html.HiddenFor(m => m.RegisterDate)
+            @Html.HiddenFor(m => m.Status)
+            @Html.HiddenFor(m => m.SupervisorEmail)
+            @Html.HiddenFor(m => m.SupervisorFirstName)
+            @Html.HiddenFor(m => m.SupervisorLastName)
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FirstName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.LastName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Phone)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+
+            <p>
+                <input type="submit" value="Save" /> @Html.ActionLink("Back","Index")
+            </p>
+        </fieldset>
+
+    }
+</section>

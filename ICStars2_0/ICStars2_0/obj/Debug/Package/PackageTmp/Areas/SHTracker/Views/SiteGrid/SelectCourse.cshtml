@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ICStars2_0.Model.Course>
+
+@{
+    ViewBag.Title = "SelectCourse";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select Course</h2>
+@using (Html.BeginForm("BuildReport","SiteGrid"))
+{
+    <h2>Select Course: @Html.DropDownList("CourseId", Model.Select(m=>new SelectListItem(){Text=m.FullName,Value=m.ID.ToString()}))</h2>
+    <h2><input type="submit" value="Build Report" /></h2>
+}

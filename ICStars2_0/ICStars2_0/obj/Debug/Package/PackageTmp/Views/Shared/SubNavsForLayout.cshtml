@@ -1,0 +1,22 @@
+﻿
+@using ICStars2_0.BusinessLayer;
+@using ICStars2_0.BusinessLayer.NavigationServices
+@using ICStars2_0.Framework
+@using ICStars2_0.Model
+@using Microsoft.Practices.Unity
+@{ 
+    
+    var rootnav = ICStarsUnityContainer.Current.Resolve<INavigationFactory>().BuildRootNavigationNode();}
+@if (rootnav != null)
+{
+    <nav id="subnav">
+        <h3 style=" ; border: 2px solid;
+    border-radius: 25px;text-align: center;margin-bottom:2px;"><a href="@rootnav.Link" title="@rootnav.LinkTitle" @(rootnav.IsTargetBlank ? "target=\"_blank\"" : "")>@rootnav.Name</a></h3> 
+        @if (rootnav.Children != null && rootnav.Children.Count(n => n.IsVisible) > 0)
+        {
+            <ul>        @Html.Raw(rootnav.Children.Select(r => r.BuildHtml("")).Aggregate((x, y) => x + y))</ul>
+        }
+
+    </nav>
+
+}

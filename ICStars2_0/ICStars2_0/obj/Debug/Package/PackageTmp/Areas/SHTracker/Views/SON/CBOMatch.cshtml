@@ -1,0 +1,75 @@
+﻿@using ICStars2_0.Model
+@model IEnumerable<ICStars2_0.Model.son_student>
+
+@{
+    ViewBag.Title = "CBO Match";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+}
+@section Head
+{
+    
+    @Scripts.Render("~/bundles/jquery")
+    <style type="text/css">
+        th.title{ font-size: 18px;text-align: left;}
+    </style>
+    <script type="text/javascript">
+        function setPlacement(stuid, cpid, sender,name) {
+            if ($(sender).get(0).checked == true) {
+                $.get("/SHTracker/son/SetPlacementForCBOChoices", "stuid=" + stuid + "&cpid=" + cpid + "&isDelete=0", function (data) {
+                    if (data.Result == false) {
+                        alert(data.Msg);
+                        $(sender).get(0).checked = false;
+                    }
+                });
+            } else {
+                $.get("/SHTracker/son/SetPlacementForCBOChoices", "stuid=" + stuid + "&cpid="+cpid+"&isDelete=1", function (data) {
+                    
+                });
+            }
+        }
+    </script>
+}
+<h2>CBO Match (* means student preference)</h2>
+
+@foreach (son_cboprogram cbo in ViewBag.CBOs)
+{
+    <table width="100%">
+        <tr>
+            <th colspan="5" class="title">@cbo.CBOName : @cbo.ProgramName (@cbo.Slots-Slots) Bilingual:@cbo.Bilingual <em>(@cbo.Location)</em></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                Student Name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Languages)
+            </th>
+        
+            <th>Placement</th>
+        </tr>
+        @{ var cbo2Student = (IEnumerable<son_cbochoice>)ViewBag.CBO2Student;}
+        @foreach (var item in Model.Where(s=>cbo2Student.Any(c=>c.StudentID==s.StudentID && c.CPID==cbo.CPID)))
+        {
+            <tr>
+                <td>@(((IEnumerable<son_student>)ViewBag.Students).Any(s=>s.StudentID==item.StudentID && (s.CPID1==cbo.CPID || s.CPID2==cbo.CPID || s.CPID3==cbo.CPID))?"*":"")</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @item.Address ,@item.City ,@item.Zipcode
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Languages)
+                </td>
+                <td>
+                    @Html.CheckBox("Placement",cbo2Student.FirstOrDefault(c=>c.CPID==cbo.CPID && c.StudentID==item.StudentID).Placement,new{@onclick="setPlacement("+item.StudentID+","+cbo.CPID+",this,'"+item.Name+"');"})
+                </td>
+            </tr>
+        }
+
+    </table>
+}

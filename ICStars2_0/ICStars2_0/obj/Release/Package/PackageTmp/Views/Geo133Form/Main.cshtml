@@ -1,0 +1,134 @@
+﻿@model ICStars2_0.Model.GEO133
+
+@{
+    ViewBag.Title = "Main";
+}
+
+<h2>Main</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>GEO133</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.buildingAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.buildingAddress)
+            @Html.ValidationMessageFor(model => model.buildingAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.zipCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.zipCode)
+            @Html.ValidationMessageFor(model => model.zipCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.blockNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.blockNumber)
+            @Html.ValidationMessageFor(model => model.blockNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.pinNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.pinNumber)
+            @Html.ValidationMessageFor(model => model.pinNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.zoning)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.zoning)
+            @Html.ValidationMessageFor(model => model.zoning)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.far)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.far)
+            @Html.ValidationMessageFor(model => model.far)
+        </div>
+
+
+
+                <div class="editor-label">
+            @Html.LabelFor(model => model.siteData.mainStreetFacade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteData.mainStreetFacade)
+            @Html.ValidationMessageFor(model => model.siteData.mainStreetFacade)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.siteData.mainStreetFacade)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteData.mainStreetFacade)
+            @Html.ValidationMessageFor(model => model.siteData.mainStreetFacade)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.siteData.exterior)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteData.exterior)
+            @Html.ValidationMessageFor(model => model.siteData.exterior)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.siteData.overallViability)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteData.overallViability)
+            @Html.ValidationMessageFor(model => model.siteData.overallViability)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.siteData.numberOfStories)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteData.numberOfStories)
+            @Html.ValidationMessageFor(model => model.siteData.numberOfStories)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.siteData.facadeType)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteData.facadeType)
+            @Html.ValidationMessageFor(model => model.siteData.facadeType)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.siteData.patchesExposed)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.siteData.patchesExposed)
+            @Html.ValidationMessageFor(model => model.siteData.patchesExposed)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

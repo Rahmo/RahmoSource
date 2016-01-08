@@ -1,0 +1,45 @@
+﻿div.PageBar3 {
+    width: 100%;
+    text-align: center;
+}
+span.PageBar3
+        {
+            /*width: 578px;*/
+            font-size: 12px;
+            font-family: Tahoma;
+            float:none;
+        }
+        span.PageBar3 label
+        {
+            color: #3399FF;
+        }
+        span.PageBar3 span,.PageBar3 a,.PageBar3 label
+        {
+            display:inline; padding:0px 2px;
+        }
+        span.PageBar3 span img{ padding-top:4px;}
+        span.PageBar3 span a{  padding:0px 2px;}
+        
+        span.PageBar3 a:link, .PageBar3 a:visited
+        {
+            color: #444;
+            text-decoration:none;
+        }
+        span.PageBar3 a:hover
+        {
+            color: #444;
+            text-decoration:underline;
+        }
+        span.PageBar3 span a:link,.PageBar3 span a:visited
+        {
+            color: #444;
+            text-decoration:underline;
+        }
+      
+        span.PageBar3 span a:hover { background-color:#009900; color:#FFFFFF;}
+        /* Current Page Number */
+        span.PageBar3 span label
+        {
+            color:#A10000;
+            font-weight:bold;
+        }

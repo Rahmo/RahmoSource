@@ -1,0 +1,102 @@
+﻿
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td
+        {
+            margin: 0;
+            padding: 0;
+            width: auto;
+        }
+        body
+        {
+            margin: 0 auto;
+            padding: 0 auto;
+            padding-top: 50px;
+        }
+        html
+        {
+            text-align: center;
+        }
+        body
+        {
+            text-align: center;
+            width: 800px;
+            line-height: 26px;
+            font-family: Georgia;
+        }
+        input.textbox
+        {
+            border: 0px;
+            height: 20px;
+        }
+        textarea.textarea
+        {
+            border: 0px;
+            width: 100%;
+            line-height: 26px;
+            background: #fff url(/Images/textbox_bg.png) repeat 0 0;
+        }
+        p.textarea
+        {
+            border: 0px;
+            width: 100%;
+            min-height: 104px;
+            line-height: 26px;
+            background: #fff url(/Images/textbox_bg.png) repeat 0 0;
+        }
+        input.button
+        {
+            border: 1px solid #000;
+            background-color: grey;
+            color: #fff;
+        }
+        form
+        {
+            text-align: left;
+        }
+        label
+        {
+            height: 27px;
+            line-height: 27px;
+            background-color: #FFF;
+            display: inline-block;
+            padding-right: 5px;
+        }
+        form div,table,p
+        {
+            float: left;
+        }
+        form div.textbox
+        {
+            margin-top: 10px;
+            border-bottom: 1px solid #000;
+            height: 26px;
+            line-height: 26px;
+            float: left;
+            width: 100%;
+        }
+        span.textbox
+        {
+            display:inline-block;
+            border-bottom: 1px solid #000;
+            height: 20px;
+            line-height: 20px;
+        }
+        form div.textarea
+        {
+            margin-top: 10px;
+            line-height: 26px;
+            float: left;
+            width: 100%;
+        }
+         label.error
+            {
+                display:block;
+                float:left;
+                z-index:9999px;
+                position:absolute;
+                color:Red;
+                font-weight:bold;
+                border:1px solid red;
+                }
+                .required{}
+                .pl50{padding-left:50px;}
+  

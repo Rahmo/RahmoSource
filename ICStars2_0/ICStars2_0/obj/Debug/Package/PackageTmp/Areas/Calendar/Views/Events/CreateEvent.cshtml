@@ -1,0 +1,278 @@
+﻿@using ICStars2_0.Model
+@using ICStars2_0.Model.Enum
+@using ICStars2_0.Mvc
+@model ICStars2_0.Model.CalendarEventAdapter
+
+
+    @Scripts.Render("~/bundles/js/timepicker")
+    @Styles.Render("~/bundles/Site", "~/bundles/css/timepicker")   
+    <script type="text/javascript">
+    $(function () {
+        $("input[name$='StartDate'],input[name$='EndDate']").attr("readonly", "true").datepicker({
+            changeMonth: true,
+            changeYear: true
+        }).keyup(function (e) {
+            if (e.which == 8) {
+                $(this).val("");
+            }
+        });
+        $("input[name$='StartTime'],input[name$='EndTime']").timepicker({
+            timeFormat: 'hh:mm p',
+            minTime: '06:00:00',
+            zindex: 4999,
+            scrollbar: true,
+            interval: 5
+        });
+        $("#EventType").change(function () {
+            if ($(this).val() == 1) {
+                $("#event_type").after($("#driver_info"));
+                $("#driver_info").slideDown();
+                $('#DriverName,#DriverDPUID,#DriverPhone,#DriverNotes').each(function () {
+                    $(this).rules('add', {
+                        required: true
+                    });
+                });
+            } else {
+                $("#driver_info").hide("slide", { direction: 'up' }, function () {
+                    $("body").append($("#driver_info"));
+                });
+
+            }
+        });
+
+        $("#EventType").change(function () {
+            if ($(this).val() == 4) {
+                $("#event_type").after($("#Event_info"));
+                $("#Event_info").slideDown();
+                //$('#Event_info').each(function () {
+                //    //$(this).rules('add', {
+                //    //    required: true
+                //    //});
+                //});
+            } else {
+                $("#Event_info").hide("slide", { direction: 'up' }, function () {
+                    $("body").append($("#Event_info"));
+                });
+
+            }
+        });
+        
+        $("#IsRepeated").click(function () {
+            $("#repeats").toggle("slow");
+        });
+        $("#RepeatFrequencyType").change(function () {
+            //if daily
+            if ($(this).val() == 1) {
+                $("#weekly_label").html("days");
+            }
+            //if weekly
+            if ($(this).val() == 2) {
+                $("#weekly_label").html("weeks");
+                $("#repeatOn_panel").slideDown();
+            } else {
+                $("#repeatOn_panel").slideUp();
+            }
+            //if monthly
+            if ($(this).val() == 3) {
+                $("#weekly_label").html("months");
+            }
+            //if yearly
+            if ($(this).val() == 4) {
+                $("#weekly_label").html("years");
+            }
+        });
+        /*if edit*/
+        if ($("#IsRepeated").get(0).checked) {
+            $("#repeats").toggle("slow");
+            $("#RepeatFrequencyType").change();
+
+        }
+        $.validator.unobtrusive.parse($("form"));
+
+        if ($("#EventType").val() == 1) {
+            $("#event_type").after($("#driver_info"));
+            $("#driver_info").slideDown();
+            //$('#DriverName,#DriverDPUID,#DriverPhone,#DriverNotes').each(function () {
+            //    $(this).rules('add', {
+            //        required: true
+            //    });
+            //});
+        }
+        if ($("#EventType").val() == 4) {
+            $("#event_type").after($("#Event_info"));
+            $("#Event_info").slideDown();
+            $('#SPONSOR,#LOCATION,#Event_info').each(function () {
+                $(this).rules('add', {
+                    required: true
+                });
+            });
+        }
+    });
+    function onSuccess(data) {
+        if (data == "unauthorized") {
+            window.top.location.reload();
+            return;
+        }
+        if (data.msg == "success") {
+            window.top.$("#ActiveDialog").remove();
+            $('#calendar').fullCalendar('refetchEvents');
+            return;
+        }
+        if (data.msg == "format error") {
+            alert("Please check the format of the date or time!");
+            return;
+        }
+        alert("Error! Please contact the administrator!");
+    }
+    function onFailure() {
+        alert("Error! Please contact the administrator!");
+    }
+</script>
+<style type="text/css">
+    .time input {
+        width: 150px;
+    }
+    #driver_info {
+        display: none;
+        border: solid 1px #CC3300;
+        padding: 5px;
+    }
+    #driver_info legend {
+        font-weight: bold;
+        display: block;
+    }
+    #driver_info input {
+        width: 115px;
+    }
+    #repeats, #repeatOn_panel {
+        display: none;
+    }
+        #Event_info {
+        display: none;
+        border: solid 1px #CC3300;
+        padding: 5px;
+    }
+    #Event_info legend {
+        font-weight: bold;
+        display: block;
+    }
+    #Event_info input {
+        width: 115px;
+    }
+    
+</style>
+    @using (Ajax.BeginForm("CreateEvent", "Events", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        OnSuccess = "onSuccess(data)",
+        OnFailure = "onFailure"
+    }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>CalendarEvent</legend>
+            @{ var isRepeated = false;}
+    @if (Model != null && Model.ID > 0)
+    {
+        isRepeated = Model.RepeatSettingsAdapter != null;
+        @Html.HiddenFor(m=>m.ID)
+    }
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Title)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+    
+            <div class="editor-label">
+                <label>Date</label>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.StartDate)                
+                @Html.ValidationMessageFor(model => model.StartDate)
+            </div>
+    
+            <div class="editor-label">
+                <label>Time</label>
+            </div>
+            <div class="time">
+                From 
+                @Html.EditorFor(model => model.StartTime)
+                @Html.ValidationMessageFor(model => model.StartTime)
+                To             
+                @Html.EditorFor(model => model.EndTime)
+                @Html.ValidationMessageFor(model => model.EndTime)
+            </div>
+            
+            <div class="editor-label">
+                <label>Repeat</label>@Html.CheckBox("IsRepeated",isRepeated)
+            </div>
+            <div id="repeats" class="time">
+                <p>
+                    Repeats: @Html.DropDownList("RepeatFrequencyType", isRepeated ? Model.RepeatSettingsAdapter.RepeatFrequencyType : 0, typeof(CalendarEventRepeatFrequencyType), true, new { style = "width:100px;" })
+                    Repeat Every: @Html.DropDownList("RepeatFrequencyValue", DropDownListHelper.BuildRepeatFrequencySelectListItems(isRepeated ? Model.RepeatSettingsAdapter.RepeatFrequencyValue : 1), new { style = "width:50px;" }) <em id="weekly_label">days</em>
+                </p>
+                <p id="repeatOn_panel">
+                    Repeat On: <input type="checkbox" name="repeatOn" value="@WeekDay.Saturday" @(isRepeated && (Model.RepeatSettingsAdapter.WeekdaysIfWeekly | WeekDay.Saturday) == Model.RepeatSettingsAdapter.WeekdaysIfWeekly ? "checked=checked" : "") />Saturday
+                    <input type="checkbox" name="repeatOn" value="@WeekDay.Sunday" @(isRepeated && (Model.RepeatSettingsAdapter.WeekdaysIfWeekly | WeekDay.Sunday) == Model.RepeatSettingsAdapter.WeekdaysIfWeekly ? "checked=checked" : "") />Sunday<br/>
+                    <input type="checkbox" name="repeatOn" value="@WeekDay.Monday" @(isRepeated && (Model.RepeatSettingsAdapter.WeekdaysIfWeekly | WeekDay.Monday) == Model.RepeatSettingsAdapter.WeekdaysIfWeekly ? "checked=checked" : "") />Monday
+                    <input type="checkbox" name="repeatOn" value="@WeekDay.Tuesday" @(isRepeated && (Model.RepeatSettingsAdapter.WeekdaysIfWeekly | WeekDay.Tuesday) == Model.RepeatSettingsAdapter.WeekdaysIfWeekly ? "checked=checked" : "") />Tuesday
+                    <input type="checkbox" name="repeatOn" value="@WeekDay.Wednesday" @(isRepeated && (Model.RepeatSettingsAdapter.WeekdaysIfWeekly | WeekDay.Wednesday) == Model.RepeatSettingsAdapter.WeekdaysIfWeekly ? "checked=checked" : "") />Wednesday
+                    <input type="checkbox" name="repeatOn" value="@WeekDay.Thursday" @(isRepeated && (Model.RepeatSettingsAdapter.WeekdaysIfWeekly | WeekDay.Thursday) == Model.RepeatSettingsAdapter.WeekdaysIfWeekly ? "checked=checked" : "") />Thursday
+                    <input type="checkbox" name="repeatOn" value="@WeekDay.Friday" @(isRepeated && (Model.RepeatSettingsAdapter.WeekdaysIfWeekly | WeekDay.Friday) == Model.RepeatSettingsAdapter.WeekdaysIfWeekly ? "checked=checked" : "") />Friday
+                </p>
+                <p>Starts On:@Html.TextBox("RepeatStartDate",isRepeated?Model.RepeatSettingsAdapter.RepeatStartDate:null,new{@class="required"})@Html.ValidationMessage("RepeatStartDate") Ends On:@Html.TextBox("RepeatEndDate", isRepeated ? Model.RepeatSettingsAdapter.RepeatEndDate : null)</p>
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EventType)
+            </div>
+            <div id="event_type" class="editor-field">
+                @Html.DropDownListFor(m => m.EventType, new []{new SelectListItem{Text="Select",Value=""}}.Union(ICStars2_0.Mvc.DropDownListHelper.BuildSelectListItemList(typeof(CalendarEventType), true)))
+               
+                @Html.ValidationMessageFor(model => model.EventType)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Notes)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Notes)
+                @Html.ValidationMessageFor(model => model.Notes)
+            </div>
+    
+            <p>
+                <input type="submit" value="Submit" /> <input type="button" value="Cancel" onclick="    window.top.$('#ActiveDialog').remove();" />
+            </p>
+        </fieldset>
+    }
+<fieldset id="driver_info">
+    <legend>Driver Info</legend>
+    Name:
+    @Html.EditorFor(model => model.DriverName)
+    @Html.ValidationMessageFor(model => model.DriverName)
+    DPU ID:
+    @Html.EditorFor(model => model.DriverDPUID)
+    @Html.ValidationMessageFor(model => model.DriverDPUID)
+    Phone:
+    @Html.EditorFor(model => model.DriverPhone)
+    @Html.ValidationMessageFor(model => model.DriverPhone)<br/>
+    Notes:
+    @Html.EditorFor(model => model.DriverNotes)
+    @Html.ValidationMessageFor(model => model.DriverNotes)
+</fieldset>
+
+
+<fieldset id="Event_info">
+    <legend>Event Info</legend>
+    Sponsor:
+    @Html.EditorFor(model => model.Sponsor)
+    @Html.ValidationMessageFor(model => model.Sponsor)
+    Location:
+    @Html.EditorFor(model => model.Location)
+    @Html.ValidationMessageFor(model => model.Location)
+
+</fieldset>

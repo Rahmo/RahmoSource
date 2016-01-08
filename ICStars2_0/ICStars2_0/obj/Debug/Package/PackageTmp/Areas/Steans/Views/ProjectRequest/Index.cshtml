@@ -1,0 +1,199 @@
+﻿@model ICStars2_0.Model.ProjectRequestForm
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+    <meta name="viewport" content="width=device-width" />
+    <title>Project Request --Steans Center</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/Site")
+    @Styles.Render("~/bundles/jqueryuicss")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    <style type="text/css">
+        
+        body
+        {
+            margin: 0 auto;
+            padding: 0 auto;
+            padding-top: 20px;
+        }
+        html
+        {
+            text-align: center;
+        }
+        body
+        {
+            text-align: center;
+            width: 960px;
+            line-height: 26px;
+            font-family: Arial;
+        }
+        form
+        {
+            text-align: left;
+        }
+                .pl50{padding-left:50px;}
+                .pl20{padding-left:20px;}
+                #top_banner {
+                    width: 100%;
+                    position: relative;
+                    height: 140px;
+                }
+                #top_banner #depaul_logo {
+                    background:#fff url(/Images/depaul_logo.jpg) repeat 0 0;
+                    width: 232px;
+                    height: 31px;
+                    display: block;
+                }
+                #top_banner #steans_logo {
+                    background:#fff url(/Images/steans_logo.jpg) repeat 0 0;
+                    width: 637px;
+                    height: 78px;
+                    display: block;
+                }
+                #top_banner #text_right {
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    color: #3B8BCB;
+                }
+                div label{ display: inline-block;margin-right: 20px;}
+                textarea{ width: 100%;height: 150px;}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $("#DateNeeded").attr("readonly", "true").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+            @if (ViewBag.IsDetails == true)
+            {
+                <text>$("input,select,textarea").attr("readonly", "true");
+            $("select").attr("disabled", "disabled");</text>
+            }
+        })
+    </script>
+</head>
+    <body>
+        <header id="top_banner">
+    <p id="depaul_logo">&nbsp;</p>
+        <p id="steans_logo">&nbsp;</p>
+        <p id="text_right">2233 N. Kenmore Ave<br/>
+Chicago IL, 60614<br/>
+<a href="http://steans.depaul.edu" target="_blank">steans.depaul.edu</a><br/>
+T: 773-325-4142<br/>
+F: 773-325-7459</p>
+    </header>
+        @using (Html.BeginForm()) {
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>ProjectRequestForm</legend>
+                
+        <h1>Project Request Form</h1>
+        <p>Today's Date: @DateTime.Now.ToString("MMMM dd, yyyy")</p>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Title)@Html.EditorFor(model => model.Title)
+                    @Html.ValidationMessageFor(model => model.Title)
+                </div>
+                <div class="editor-label">
+                    <label>Type of Project</label>
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.IsTechnology) &nbsp;&nbsp; <label>Technology</label> (website , application and database development and support) <br/>
+                    @Html.EditorFor(model => model.IsDesign) &nbsp;&nbsp; <label>Design</label> (print and web marketing or communication material)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ContactName)
+                </div>
+                <div>
+                    @Html.EditorFor(model => model.ContactName)
+                    @Html.ValidationMessageFor(model => model.ContactName)</div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Program)
+                </div>
+                <div>
+                    
+                    @Html.DropDownListFor(model=>model.Program,new[]
+                        {
+                            new SelectListItem{Text="",Value=string.Empty,Selected=true}
+                            ,new SelectListItem{Text="Administration",Value="Administration"}
+                            ,new SelectListItem{Text="CPI",Value="CPI"}
+                            ,new SelectListItem{Text="CSI",Value="CSI"}
+                            ,new SelectListItem{Text="CSS",Value="CSS"}
+                            ,new SelectListItem{Text="Intercambio",Value="Intercambio"}
+                            ,new SelectListItem{Text="Jumpstart",Value="Jumpstart"}
+                            ,new SelectListItem{Text="M3C",Value="M3C"}
+                            ,new SelectListItem{Text="McCormick",Value="McCormick"}
+                            ,new SelectListItem{Text="Placement",Value="Placement"}
+                            ,new SelectListItem{Text="Service Learning Coordinators",Value="Service Learning Coordinators"}
+                            ,new SelectListItem{Text="Vista",Value="Vista"}
+                        })
+                    @Html.ValidationMessageFor(model => model.Program)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DateNeeded)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.DateNeeded)
+                    @Html.ValidationMessageFor(model => model.DateNeeded)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Phone)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Phone)
+                    @Html.ValidationMessageFor(model => model.Phone)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Technology)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Technology)
+                    @Html.ValidationMessageFor(model => model.Technology)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Design)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Design)
+                    @Html.ValidationMessageFor(model => model.Design)
+                </div>
+
+                @if (ViewBag.IsDetails == true)
+                {
+                    <div style="float:left;width:100%;text-align:left;">
+    <input type="button" value="print" onclick="$(this).hide(); window.print(); $(this).show();"/></div>
+                }
+                else
+                {
+                    <p>
+                        <input type="submit" value="Submit" />@ViewBag.Error
+                    </p>
+                }
+            </fieldset>
+        }
+
+        
+    </body>
+    </html>
+

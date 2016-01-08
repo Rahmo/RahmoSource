@@ -1,0 +1,40 @@
+﻿@model PagedList.IPagedList<ICStars2_0.Model.MvpResource>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Css/MvpHome.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Resources";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<div class="container" style="margin-left: 20%">
+    <br />
+    <h2 class="PageTitle">Resources</h2> :
+    @foreach (var item in Model)
+    {
+        <ul>
+           
+                <li class="TableLayout PartnersThemeFonts" style="background-color:#f7f7f7">
+                    <div class="CardHeaderCss "> <p class="FontRes">@item.ResourceType : @item.Title </p>    <p class="Datecss">  @item.CreatedDate </p>     </div>
+                    <div class="CardDescriptionCss">@Html.Raw(item.Description)</div>
+                </li>
+            
+    
+
+
+
+        </ul>
+    }
+
+
+    <br />
+
+    <p style="width:300px;color:black ; font-size:14px;Padding:3em;">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Resources",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </p>
+
+
+</div> 

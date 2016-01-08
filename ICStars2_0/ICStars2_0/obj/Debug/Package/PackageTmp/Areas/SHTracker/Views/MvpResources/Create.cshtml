@@ -1,0 +1,71 @@
+﻿@model ICStars2_0.Model.MvpResource
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@Html.Partial("CreateHeader")
+    @section Head{
+   
+   
+    } 
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>MvpResource</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ResourceType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(
+            model => model.ResourceType,
+            new SelectList(
+            new List<object>
+                {
+                new { value = "News" , text = "News"  },
+                new { value = "Reference Resource" , text = "Reference resource" },
+                new { value = "Multimedia resource" , text = "Multimedia resource"}
+                },
+                "value",
+                "text",
+                Model.ResourceType
+                )
+                )
+                @Html.ValidationMessageFor(model => model.ResourceType)
+</div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

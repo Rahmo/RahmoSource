@@ -1,0 +1,54 @@
+﻿@using System.Collections
+@using ICStars2_0.Model
+@model IEnumerable<ICStars2_0.Model.CBO>
+
+@{
+    ViewBag.Title = "GroupByCBO";
+    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+    var sh = (IEnumerable<ServiceHours>)ViewBag.ServiceHours;
+}
+
+<table width="100%">
+    <tr>
+        <th>CBO ID</th>
+        <th>CBO Name</th>
+        <th>Course Subject</th>
+        <th>Course Name</th>
+        <th>Program</th>
+        <th>Student Name</th>
+        <th>DPU ID</th>
+        <th>Is Project</th>
+        <th>Required Hours</th>
+        <th>Completed Hours</th>
+        <th>Notes Self Report</th>
+        <th>ASL Notes</th>
+        <th>System Notes</th>
+        <th>Total Notes</th>
+    </tr>
+    @foreach (var cbo in Model)
+    {
+        foreach (var course in ((IEnumerable<Course>)ViewBag.Courses).Where(c => cbo.Student2Cbos.Any(s2c => s2c.Student.CourseID == c.ID)))
+        {
+
+            foreach (var s2c in cbo.Student2Cbos.Where(s2c => s2c.Student.CourseID == course.ID))
+            {
+                <tr>
+                    <td>@cbo.ID</td>
+                    <td>@cbo.Name</td>
+                    <td>@course.Subject</td>
+                    <td>@course.FullName</td>
+                    <td>@(s2c.Student.Student2Programs.Count>0? s2c.Student.Student2Programs.Select(s2p=>s2p.Program.Name).Aggregate((x,y)=>x+","+y):null)</td>
+                    <td style="text-align:left;">@s2c.Student.FirstName, @s2c.Student.LastName</td>
+                    <td>@s2c.Student.DPU_ID</td>
+                    <td>@(s2c.Student.IsProject == true?"Yes":"No")</td>
+                    <td>@s2c.RequiredHours</td>
+                    <td>@string.Format("{0:0.00}",s2c.ServedTotalHours)</td>
+                    <td>@sh.Count(h => h.StudentID == s2c.StudentID && h.CBO_ID == cbo.ID && h.CourseID == course.ID && h.ContactType.Equals("StudentApp"))</td>
+                    <td>@sh.Count(h => h.StudentID == s2c.StudentID && h.CBO_ID == cbo.ID && h.CourseID == course.ID && !h.ContactType.Equals("StudentApp") && !h.ContactType.Equals("System"))</td>
+                    <td>@sh.Count(h => h.StudentID == s2c.StudentID && h.CBO_ID == cbo.ID && h.CourseID == course.ID && h.ContactType.Equals("System"))</td>
+                    <td>@sh.Count(h => h.StudentID == s2c.StudentID && h.CBO_ID == cbo.ID && h.CourseID == course.ID)</td>
+                </tr>
+            }
+        }
+    }
+</table>
