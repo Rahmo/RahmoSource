@@ -1,0 +1,260 @@
+﻿@*@Styles.Render("~/bundles/Site")*@
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+<script src="~/SHTracker/Scripts/CkEditor/ckeditor.js"></script>
+<script src="~/SHTracker/Scripts/CkEditor/CheckCompatibility.js"></script>
+@Scripts.Render("~/bundles/jqueryui")
+@Styles.Render("~/bundles/jqueryuicss")
+<script type="text/javascript">
+    $(function () {
+
+        $("#toBottom").click(function (e) {
+            alert("hereRAhm")
+            // Prevent a page reload when a link is pressed
+            e.preventDefault();
+            // Call the scroll function
+            $('html,body').animate({
+                scrollTop: $("#Bottom").offset().top
+            },
+             'slow');
+        });
+
+          $("#DpuId").change(function () {
+            var DpuVal = $('#DpuId').val();
+            // alert(DpuVal);
+
+            // event.preventDefault();
+
+            $.ajax({
+                Type: "GET/POST",
+                ContentType: "application/json;charset=utf-8",
+                url: '@Url.Action("load", "Geo133Form")?DpuId=' + DpuVal + '',
+
+                dataType: "json",
+                success: function (data) {
+
+                    fillView(data);
+
+                },
+
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
+                }
+
+
+            });
+          
+
+              function DateFormate(dateConvert) {
+                  return $.datepicker.formatDate("mm-dd-yy", eval('new ' + dateConvert.slice(1, -1)));
+              };
+              var fillView = function (data) {
+                  
+                //var newDate = dateFormat(data.OnlineInfo.saleDate, "mm/dd/yyyy");
+                  alert( ' '
+                    + data.OnlineInfo.saleDate + ' '
+                    + data.OnlineInfo.yearBuild + ''
+                    //+ data.siteData.EvidenceOfGardenType + ''
+                    );
+
+                function RadionButtonSelectedValueSet(name, SelectdValue) {
+                    $('input[name="' + name + '"][value="' + SelectdValue + '"]').prop('checked', true);
+                }
+
+                //alert(data.siteData.patchesExposed);
+                //alert(data.buildingAddress);
+
+            
+                $('#Id').val(data.Id);
+                $('#siteData_Id').val(data.siteData.Id);
+                $('#OnlineInfo_Id').val(data.OnlineInfo.Id);
+                $('#buildingAddress').val(data.buildingAddress);
+                $('#zoning').val(data.zoning);
+                $('#zipCode').val(data.zipCode);
+                $('#blockNumber').val(data.blockNumber);
+                $('#pinNumber').val(data.pinNumber);
+                $('#far').val(data.far);
+
+                RadionButtonSelectedValueSet('siteData.mainStreetFacade', data.siteData.mainStreetFacade);
+                RadionButtonSelectedValueSet('siteData.exterior', data.siteData.exterior);
+                RadionButtonSelectedValueSet('siteData.overallViability', data.siteData.overallViability);
+
+
+
+                $('#siteData_numberOfStories').val(data.siteData.numberOfStories)
+
+                RadionButtonSelectedValueSet('siteData.facadeType', data.siteData.facadeType);
+
+                //Checkbox
+                $('#siteData_patchesExposed').attr('checked', data.siteData.patchesExposed);
+                $('#siteData_GardenActivity').attr('checked', data.siteData.GardenActivity);
+
+                RadionButtonSelectedValueSet('siteData.EvidenceOfGardenType', data.siteData.EvidenceOfGardenType);
+                RadionButtonSelectedValueSet('siteData.SignPostedOnBuilding', data.siteData.SignPostedOnBuilding);
+
+                $('#siteData_FirstUse').val(data.siteData.FirstUse)
+                $('#siteData_SecondUse').val(data.siteData.SecondUse)
+                $('#siteData_ThirdUse').val(data.siteData.ThirdUse)
+                $('#siteData_FourthUse').val(data.siteData.FourthUse)
+                $('#siteData_BackRearUse').val(data.siteData.BackRearUse)
+                $('#siteData_FirstOccupancy').val(data.siteData.FirstOccupancy)
+                $('#siteData_SecondOccupancy').val(data.siteData.SecondOccupancy)
+                $('#siteData_ThirdOccupancy').val(data.siteData.ThirdOccupancy)
+                $('#siteData_FourthOccupancy').val(data.siteData.FourthOccupancy)
+                $('#siteData_BackRearOccupancy').val(data.siteData.BackRearOccupancy)
+
+                RadionButtonSelectedValueSet('siteData.StructureClassification', data.siteData.StructureClassification);
+
+                //MARK : Online INformation form
+                $('#OnlineInfo_AssessedValuesLand__').val(data.OnlineInfo.AssessedValuesLand__)
+                $('#OnlineInfo_AssessedValuesLand_').attr('value', data.OnlineInfo.AssessedValuesLand_);
+                $('#OnlineInfo_AssessedValuesLand').val(data.OnlineInfo.AssessedValuesLand)
+                $('#OnlineInfo_AssessedValuesLandPlus').val(data.OnlineInfo.AssessedValuesLandPlus)
+                $('#OnlineInfo_AssessedValuesBuilding__').val(data.OnlineInfo.AssessedValuesBuilding__)
+                $('#OnlineInfo_AssessedValuesBuilding_').val(data.OnlineInfo.AssessedValuesBuilding_)
+                $('#OnlineInfo_AssessedValuesBuilding').val(data.OnlineInfo.AssessedValuesBuilding)
+                $('#OnlineInfo_AssessedValuesBuildingPlus').val(data.OnlineInfo.AssessedValuesBuildingPlus)
+                $('#OnlineInfo_AssessedValuesTotal__').val(data.OnlineInfo.AssessedValuesTotal__)
+                $('#OnlineInfo_AssessedValuesTotal_').val(data.OnlineInfo.AssessedValuesTotal_)
+                $('#OnlineInfo_AssessedValuesTotal').val(data.OnlineInfo.AssessedValuesTotal)
+                $('#OnlineInfo_AssessedValuesTotalPlus').val(data.OnlineInfo.AssessedValuesTotalPlus)
+                $('#OnlineInfo_AssessedValuesEstMkt').val(data.OnlineInfo.AssessedValuesEstMkt)
+                $('#OnlineInfo_AssessedValuesEstMktPlus').val(data.OnlineInfo.AssessedValuesEstMktPlus)
+
+                $('#OnlineInfo_yearBuild').val(DateFormate(data.OnlineInfo.yearBuild))
+                $('#OnlineInfo_censusTract').val(data.OnlineInfo.censusTract)
+                $('#OnlineInfo_propertyClass').val(data.OnlineInfo.propertyClass)
+                $('#OnlineInfo_Stories').val(data.OnlineInfo.Stories)
+                $('#OnlineInfo_BuildingSquareFootage').val(data.OnlineInfo.BuildingSquareFootage)
+                $('#OnlineInfo_LandSquareFootage').val(data.OnlineInfo.LandSquareFootage)
+
+                RadionButtonSelectedValueSet('OnlineInfo.propertyDescription', data.OnlineInfo.propertyDescription);
+
+
+                $('#OnlineInfo_age').val(data.OnlineInfo.age)
+                $('#OnlineInfo_PropertyTaxExemptions').val(data.OnlineInfo.PropertyTaxExemptions)
+                RadionButtonSelectedValueSet('OnlineInfo.TaxExemptionsStatus', data.OnlineInfo.TaxExemptionsStatus);
+                $('#OnlineInfo_TreasurerSiteHomeowner').attr('checked', data.OnlineInfo.TreasurerSiteHomeowner);
+                $('#OnlineInfo_TreasurerSeniorCitizen').attr('checked', data.OnlineInfo.TreasurerSeniorCitizen);
+                $('#OnlineInfo_TreasurerSiteSeniorFreeze').attr('checked', data.OnlineInfo.TreasurerSiteSeniorFreeze);
+              
+                $('#OnlineInfo_taxPayerName').val(data.OnlineInfo.taxPayerName)
+                $('#OnlineInfo_taxpayerMailing').val(data.OnlineInfo.taxpayerMailing)
+                $('#OnlineInfo_PreviousYearPropertyTax').val(data.OnlineInfo.PreviousYearPropertyTax)
+                $('#OnlineInfo_CurrentYearTaxesOwed').val(data.OnlineInfo.CurrentYearTaxesOwed)
+                $('#OnlineInfo_isCurrentYearAsPrev').attr('checked', data.OnlineInfo.isCurrentYearAsPrev);
+                $('#OnlineInfo_TaxPayerInfo').val(data.OnlineInfo.TaxPayerInfo)
+                $('#OnlineInfo_isInTifDistrict').attr('checked', data.OnlineInfo.isInTifDistrict);
+
+
+                $('#OnlineInfo_TifArea').val(data.OnlineInfo.TifArea)
+                $('#OnlineInfo_BoardOfEducation').val(data.OnlineInfo.BoardOfEducation)
+                $('#OnlineInfo_SchoolImprovments').val(data.OnlineInfo.SchoolImprovments)
+                $('#OnlineInfo_ParkDistrict').val(data.OnlineInfo.ParkDistrict)
+                $('#OnlineInfo_LibraryFund').val(data.OnlineInfo.LibraryFund)
+                $('#OnlineInfo_isPropertySoldInCurrentYear').attr('checked', data.OnlineInfo.isPropertySoldInCurrentYear);
+               
+                  $('#OnlineInfo_saleDate').val(DateFormate(data.OnlineInfo.saleDate))
+                $('#OnlineInfo_salePrice').val(data.OnlineInfo.salePrice)
+                $('#OnlineInfo_unitNumber').val(data.OnlineInfo.unitNumber)
+
+                $('#OnlineInfo_isForSale').attr('checked', data.OnlineInfo.isForSale);
+
+
+                $('#OnlineInfo_listedPrice').val(data.OnlineInfo.listedPrice)
+                $('#OnlineInfo_bedroomsNumber').val(data.OnlineInfo.bedroomsNumber)
+
+                $('#OnlineInfo_isOrange').attr('checked', data.OnlineInfo.isOrange);
+
+
+                RadionButtonSelectedValueSet('OnlineInfo.isPhotoDownloaded', data.OnlineInfo.isPhotoDownloaded);
+                
+                
+
+                  $('#OnlineInfo_PhotoDate').val(DateFormate(data.OnlineInfo.PhotoDate))
+                $('#OnlineInfo_isFollowingYPhotoTaken').attr('checked', data.OnlineInfo.isFollowingYPhotoTaken);
+
+                $('#OnlineInfo_StudentPhotoDate').val(DateFormate(data.OnlineInfo.StudentPhotoDate))
+               
+
+            
+
+                
+            }
+        });
+
+       // .datepicker({ changeMonth: true, changeYear: true, yearRange: "-10:+10", dateFormat: "dd/mm/yy", buttonText: "Choose", showOtherMonths: true, selectOtherMonths: true, onSelect: function (dateText, inst) { var date = $(this).val(); var time = $('#time').val(); alert('on select triggered'); } });
+        //$("input[name$='OnlineInfo.yearBuild']").attr("readonly", "true").datepicker({
+        //    changeMonth: true,
+        //    changeYear: true
+        //});
+       
+        jQuery("#OnlineInfo_yearBuild").datepicker({
+
+          
+            dateFormat: 'mm yy',
+            changeMonth: false,
+            changeYear: true,
+            showButtonPanel: true,
+            yearRange: '2000:' + (new Date).getFullYear(),
+            beforeShow: function () {
+                $('#hideMonth').html('.ui-datepicker-calendar{display:none;}');
+            },
+            onClose: function (dateText, inst) {
+                $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, inst.selectedDay));
+            }
+        });
+
+
+        jQuery("#OnlineInfo_saleDate").datepicker({
+
+            changeYear: true,
+            changeMonth: true,
+            changeDay : true, 
+            dateFormat: 'mm-dd-yy',
+           
+        });
+        
+      
+        jQuery("#OnlineInfo_PhotoDate").datepicker({
+
+            changeYear: true,
+            changeMonth: true,
+            changeDay: true,
+            dateFormat: 'mm-dd-yy',
+
+        });
+
+        
+        jQuery("#OnlineInfo_StudentPhotoDate").datepicker({
+
+            changeYear: true,
+            changeMonth: true,
+            changeDay: true,
+            dateFormat: 'mm-dd-yy',
+
+        });
+        // this trigger something on date select
+        //onSelect: function (dateText, inst)
+        //{ var date = $(this).val(); var time = $('#time').val(); alert('on select triggered'); }
+        //jQuery("#OnlineInfo_yearBuild").datepicker({
+        //    changeMonth: true,
+        //    changeYear: true,
+        //    yearRange: "-10:+10",
+        //    // dateFormat: "dd/mm/yy",
+        //    dateFormat: "yy",
+        //    buttonText: "Choose",
+        //    showOtherMonths: true,
+        //    selectOtherMonths: true,
+        //    onSelect: function (dateText, inst)
+        //    { var date = $(this).val(); var time = $('#time').val(); alert('on select triggered'); }
+        //});
+
+            
+
+
+    });
+
+
+</script>

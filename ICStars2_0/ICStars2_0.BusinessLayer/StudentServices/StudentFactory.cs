@@ -9,6 +9,7 @@ using ICStars2_0.Framework;
 using ICStars2_0.Model;
 using ICStars2_0.Model.Settings;
 using Microsoft.Practices.Unity;
+using ICStars2_0.BusinessLayer.GeoServices;
 
 namespace ICStars2_0.BusinessLayer.StudentServices
 {
@@ -39,6 +40,7 @@ namespace ICStars2_0.BusinessLayer.StudentServices
         public IStudentCollection CreateStudentCollection(int pageIndex, int pageSize,StudentCollectionSettings settings)
         {
             var i = ICStarsUnityContainer.Current.Resolve<StudentCollection>();
+       
             i.PageIndex = pageIndex;
             i.PageSize = pageSize;
             i.Settings = settings;

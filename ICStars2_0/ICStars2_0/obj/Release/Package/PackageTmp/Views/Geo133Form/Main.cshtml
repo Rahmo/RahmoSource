@@ -1,130 +1,958 @@
 ﻿@model ICStars2_0.Model.GEO133
 
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>add new</title>
+</head>
 @{
     ViewBag.Title = "Main";
+    Html.EnableClientValidation(false);
 }
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#DpuId").change(function () {
+            var DpuVal = $('#DpuId').val();
+           // alert(DpuVal);
 
-<h2>Main</h2>
+            // event.preventDefault();
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+            $.ajax({
+                Type: "GET/POST",
+                ContentType: "application/json;charset=utf-8",
+                url: '@Url.Action("load", "Geo133Form")?DpuId=' + DpuVal + '',
+               // data: { GEO133: model },
+                dataType: "json",
+                success: function (data) {
+                    alert(data.zoning);
+                    fillView(data);
+                  //  $('#content').html(data); 
+                  
+                  //$('#mainStreetFacade').html(data.siteData.mainStreetFacade)
+                  //$('#exterior').html(data.siteData.exterior)
+                  //$('#overallViability').html(data.siteData.overallViability)
+                  //$('#numberOfStories').html(data.siteData.numberOfStories)
+                  //$('#facadeType').html(data.siteData.facadeType)
+                  //$('#patchesExposed').html(data.siteData.patchesExposed)
+                  //$('#GardenActivity').html(data.siteData.GardenActivity)
+                  //$('#EvidenceOfGardenType').html(data.siteData.EvidenceOfGardenType)
+                  //$('#SignPostedOnBuilding').html(data.siteData.SignPostedOnBuilding)
+                  //$('#FirstUse').html(data.siteData.FirstUse)
+                  //$('#SecondUse').html(data.siteData.SecondUse)
+                  //$('#ThirdUse').html(data.siteData.ThirdUse)
+                  //$('#FourthUse').html(data.siteData.FourthUse)
+                  //$('#BackRearUse').html(data.siteData.BackRearUse)
+                  //$('#FirstOccupancy').html(data.siteData.FirstOccupancy)
+                  //$('#SecondOccupancy').html(data.siteData.SecondOccupancy)
+                  //$('#ThirdOccupancy').html(data.siteData.ThirdOccupancy)
+                  //$('#FourthOccupancy').html(data.siteData.FourthOccupancy)
+                  //$('#BackRearOccupancy').html(data.siteData.BackRearOccupancy)
+                  //$('#StructureClassification').html(data.siteData.StructureClassification)
+                  //$('#yearBuild').html(data.GeoOnlineInformation.yearBuild)
+                  //$('#censusTract').html(data.GeoOnlineInformation.censusTract)
+                  //$('#propertyClass').html(data.GeoOnlineInformation.propertyClass)
+                  //$('#Stories').html(data.GeoOnlineInformation.Stories)
+                  //$('#LandSquareFootage').html(data.GeoOnlineInformation.LandSquareFootage)
+                  //$('#propertyDescription').html(data.GeoOnlineInformation.propertyDescription)
+                  //$('#age').html(data.GeoOnlineInformation.age)
+                  //$('#PropertyTaxExemptions').html(data.GeoOnlineInformation.PropertyTaxExemptions)
+                  //$('#taxPayerName').html(data.GeoOnlineInformation.taxPayerName)
+                  //$('#taxpayerMailing').html(data.GeoOnlineInformation.taxpayerMailing)
+                  //$('#YearPropertyTax').html(data.GeoOnlineInformation.YearPropertyTax)
+                  //$('#YearTaxesOwed').html(data.GeoOnlineInformation.YearTaxesOwed)
+                  //$('#NextYearAsCurrent').html(data.GeoOnlineInformation.NextYearAsCurrent)
+                  //$('#TaxPayerInfo').html(data.GeoOnlineInformation.TaxPayerInfo)
+                  //$('#inTifDistrict').html(data.GeoOnlineInformation.inTifDistrict)
+                  //$('#TifArea').html(data.GeoOnlineInformation.TifArea)
+                  //$('#BoardOfEducation').html(data.GeoOnlineInformation.BoardOfEducation)
+                  //$('#SchoolImprovments').html(data.GeoOnlineInformation.SchoolImprovments)
+                  //$('#ParkDistrict').html(data.GeoOnlineInformation.ParkDistrict)
+                  //$('#LibraryFund').html(data.GeoOnlineInformation.LibraryFund)
+                  //$('#propertySoldInYear').html(data.GeoOnlineInformation.propertySoldInYear)
+                  //$('#saleDate').html(data.GeoOnlineInformation.saleDate)
+                  //$('#salePrice').html(data.GeoOnlineInformation.salePrice)
+                  //$('#unitNumber').html(data.GeoOnlineInformation.unitNumber)
+                  //$('#isForSale').html(data.GeoOnlineInformation.isForSale)
+                  //$('#listedPrice').html(data.GeoOnlineInformation.listedPrice)
+                  //$('#bedroomsNumber').html(data.GeoOnlineInformation.bedroomsNumber)
+                  //$('#isOrange').html(data.GeoOnlineInformation.isOrange)
+                  //$('#isPhotoDownloaded').html(data.GeoOnlineInformation.isPhotoDownloaded)
+                  //$('#PhotoDate').html(data.GeoOnlineInformation.PhotoDate)                
+                  //$('#isFollowingYPhotoTaken').html(data.GeoOnlineInformation.isFollowingYPhotoTaken)                 
+                  //$('#StudentPhotoDate').html(data.GeoOnlineInformation.StudentPhotoDate)            
+                  //$('#AssessedValuesLand__').html(data.GeoOnlineInformation.AssessedValuesLand__)                  
+                  //$('#AssessedValuesLand_').html(data.GeoOnlineInformation.AssessedValuesLand_)                 
+                  //$('#AssessedValuesLand').html(data.GeoOnlineInformation.AssessedValuesLand)
+                  //$('#AssessedValuesLandPlus').html(data.GeoOnlineInformation.AssessedValuesLandPlus)
+                  //$('#AssessedValuesBuilding__').html(data.GeoOnlineInformation.AssessedValuesBuilding__)
+                  //$('#AssessedValuesBuilding_').html(data.GeoOnlineInformation.AssessedValuesBuilding_)
+                  //$('#AssessedValuesBuilding').html(data.GeoOnlineInformation.AssessedValuesBuilding)
+                  //$('#AssessedValuesBuildingPlus').html(data.GeoOnlineInformation.AssessedValuesBuildingPlus)
+                  //$('#AssessedValuesTotal__').html(data.GeoOnlineInformation.AssessedValuesTotal__)
+                  //$('#AssessedValuesTotal_').html(data.GeoOnlineInformation.AssessedValuesTotal_)
+                  //$('#AssessedValuesTotal').html(data.GeoOnlineInformation.AssessedValuesTotal)
+                  //$('#AssessedValuesTotalPlus').html(data.GeoOnlineInformation.AssessedValuesTotalPlus)
+                  //$('#AssessedValuesEstMkt').html(data.GeoOnlineInformation.AssessedValuesEstMkt)
+                  //$('#AssessedValuesEstMktPlus').html(data.GeoOnlineInformation.AssessedValuesEstMktPlus)
+                  //$('#TreasurerSiteHomeowner').html(data.GeoOnlineInformation.TreasurerSiteHomeowner)
+                  //$('#TreasurerSeniorCitizen').html(data.GeoOnlineInformation.TreasurerSeniorCitizen)
+                  //$('#TreasurerSiteSeniorFreeze').html(data.GeoOnlineInformation.TreasurerSiteSeniorFreeze)
+                //  return false;
+                },
 
-    <fieldset>
-        <legend>GEO133</legend>
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
+                }
 
-        <div class="editor-label">
+
+            });
+            var fillView = function (data) {
+                $('#zoning').html(data.zoning);
+                $('#buildingAddress').html(data.buildingAddress);
+          
+                $('#zipCode').html(data.zipCode);
+                $('#blockNumber').html(data.blockNumber);
+                $('#pinNumber').html(data.pinNumber);
+                
+                $('#far').html(data.far);
+            }
+        });
+    });
+</script>
+<style>
+    .field-validation-error {
+        color: red;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    h1 {
+        padding-top: 10px;
+    }
+
+    form {
+        width: 720px;
+        margin: 0 auto;
+    }
+
+    section div {
+        width: 720px;
+        margin: 0 auto;
+        padding: 2px;
+    }
+
+        section div p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+    /*form input,form textarea {
+            width: 100%;
+        }*/
+    .textbox {
+        width: 50px;
+        display: initial;
+        margin: 10px;
+    }
+
+    .text-box {
+        margin: 5px;
+        border: none;
+        border-bottom: solid 1px;
+    }
+
+    html, label, input, textarea {
+        background-color: #ffe175;
+    }
+
+        textarea.textarea {
+            background: #fff url(/SHTracker/Images/textbox_bg_029485.png) repeat 0 0;
+        }
+
+    form div.textarea {
+        scrollbar-base-color: #808080;
+    }
+
+    select {
+        background-color: #029485;
+        scrollbar-base-color: #029485;
+        scrollbar-arrow-color: #029485;
+        border-color: #000;
+        scrollbar-face-color: #029485;
+        scrollbar-highlight-color: #029485;
+        scrollbar-3dlight-color: #029485;
+        scrollbar-darkshadow-color: #029485;
+        scrollbar-shadow-color: #029485;
+        scrollbar-track-color: #029485;
+    }
+
+    span.span_cbo select {
+        width: 400px;
+    }
+
+    label.error, span.error, label.error2 {
+        display: block;
+        float: left;
+        z-index: 9999px;
+        position: absolute;
+        color: Red;
+        font-weight: bold;
+        border: 1px solid red;
+    }
+
+    .required {
+    }
+
+    .site_model {
+        width: 100%;
+    }
+
+    .auto-style1 {
+        width: 116px;
+    }
+
+    .auto-style2 {
+        height: 30px;
+    }
+
+    .auto-style3 {
+        height: 28px;
+    }
+
+    .auto-style4 {
+        width: 116px;
+        height: 28px;
+    }
+</style>
+@*@Html.Partial("GEO133", new ICStars2_0.Model.GEO133 { Name = "content" })*@
+<div id="content" style="width:1000px; margin:0 auto ">
+    <h2>Main</h2>
+
+
+
+    @using (Html.BeginForm())
+    {
+
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true) //todo Reactivate this for validations
+
+
+                                    <legend>GEO133</legend>
+
+    <div id="Main">
+        <label> Please enter you DePaul ID <b>First</b> :  </label>
+        <div class="textbox">
+            @Html.LabelFor(model => model.DpuId)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.DpuId)
+            @Html.ValidationMessageFor(model => model.DpuId)
+        </div>
+
+        <div class="textbox">
             @Html.LabelFor(model => model.buildingAddress)
         </div>
-        <div class="editor-field">
+        <div class="textbox">
             @Html.EditorFor(model => model.buildingAddress)
             @Html.ValidationMessageFor(model => model.buildingAddress)
         </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.zipCode)
         </div>
-        <div class="editor-field">
+        <div class="textbox">
             @Html.EditorFor(model => model.zipCode)
             @Html.ValidationMessageFor(model => model.zipCode)
         </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.blockNumber)
         </div>
-        <div class="editor-field">
+        <div class="textbox">
             @Html.EditorFor(model => model.blockNumber)
             @Html.ValidationMessageFor(model => model.blockNumber)
         </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.pinNumber)
         </div>
-        <div class="editor-field">
+        <div class="textbox">
             @Html.EditorFor(model => model.pinNumber)
             @Html.ValidationMessageFor(model => model.pinNumber)
         </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.zoning)
         </div>
-        <div class="editor-field">
+        <div class="textbox">
             @Html.EditorFor(model => model.zoning)
             @Html.ValidationMessageFor(model => model.zoning)
         </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.far)
         </div>
-        <div class="editor-field">
+        <div class="textbox">
             @Html.EditorFor(model => model.far)
             @Html.ValidationMessageFor(model => model.far)
         </div>
+        <hr />
 
-
-
-                <div class="editor-label">
+        <br />
+    </div>
+    <div id="Main2">
+        <div class="textbox">
             @Html.LabelFor(model => model.siteData.mainStreetFacade)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.siteData.mainStreetFacade)
+        <div class="textbox">
+            @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Good")
+            Good
+            @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Fair")
+            Fair
+            @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Poor")
+            Poor
+            @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Vacant")
+            Vacant
+
+            @*@Html.EditorFor(model => model.siteData.mainStreetFacade)*@
             @Html.ValidationMessageFor(model => model.siteData.mainStreetFacade)
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.siteData.mainStreetFacade)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.siteData.mainStreetFacade)
-            @Html.ValidationMessageFor(model => model.siteData.mainStreetFacade)
-        </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.siteData.exterior)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.siteData.exterior)
+        <div class="textbox">
+            @Html.RadioButtonFor(model => model.siteData.exterior, "Good")
+            Good
+            @Html.RadioButtonFor(model => model.siteData.exterior, "Fair")
+            Fair
+            @Html.RadioButtonFor(model => model.siteData.exterior, "Poor")
+            Poor
+            @Html.RadioButtonFor(model => model.siteData.exterior, "Vacant")
+            Vacant
             @Html.ValidationMessageFor(model => model.siteData.exterior)
         </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.siteData.overallViability)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.siteData.overallViability)
+        <div class="textbox">
+            @Html.RadioButtonFor(model => model.siteData.overallViability, "Good")
+            Good
+            @Html.RadioButtonFor(model => model.siteData.overallViability, "Fair")
+            Fair
+            @Html.RadioButtonFor(model => model.siteData.overallViability, "Poor")
+            Poor
+            @Html.RadioButtonFor(model => model.siteData.overallViability, "Vacant")
+            Vacant
             @Html.ValidationMessageFor(model => model.siteData.overallViability)
         </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.siteData.numberOfStories)
         </div>
-        <div class="editor-field">
+        <div class="textbox">
             @Html.EditorFor(model => model.siteData.numberOfStories)
             @Html.ValidationMessageFor(model => model.siteData.numberOfStories)
         </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.siteData.facadeType)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.siteData.facadeType)
+        <div class="textbox">
+            @Html.RadioButtonFor(model => model.siteData.facadeType, "Brick")
+            Brick
+            @Html.RadioButtonFor(model => model.siteData.facadeType, "FrameSiding")
+            Frame/Siding
+            @Html.RadioButtonFor(model => model.siteData.facadeType, " GreyStone")
+            GreyStone
+            @Html.RadioButtonFor(model => model.siteData.facadeType, "Mixed")
+            Vacant
+            @Html.RadioButtonFor(model => model.siteData.facadeType, "Other ")
+            Mixed
+            @Html.RadioButtonFor(model => model.siteData.facadeType, "Vacant")
+            Other
             @Html.ValidationMessageFor(model => model.siteData.facadeType)
         </div>
-
-        <div class="editor-label">
+        <br />
+        <div class="textbox">
             @Html.LabelFor(model => model.siteData.patchesExposed)
         </div>
-        <div class="editor-field">
+        <div class="textbox">
             @Html.EditorFor(model => model.siteData.patchesExposed)
             @Html.ValidationMessageFor(model => model.siteData.patchesExposed)
         </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.siteData.GardenActivity)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.siteData.GardenActivity)
+            @Html.ValidationMessageFor(model => model.siteData.GardenActivity)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.siteData.EvidenceOfGardenType)
+        </div>
+        <div class="textbox">
+            @Html.RadioButtonFor(model => model.siteData.EvidenceOfGardenType, "Raised beds ")
+            Raised beds
+            @Html.RadioButtonFor(model => model.siteData.EvidenceOfGardenType, "In the ground ")
+            In the ground
+            @Html.RadioButtonFor(model => model.siteData.EvidenceOfGardenType, "PlantPots")
+            Plant pots
 
+            @Html.ValidationMessageFor(model => model.siteData.EvidenceOfGardenType)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.siteData.SignPostedOnBuilding)
+        </div>
+        <div class="textbox">
+            @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, "Red and white sign indicating zoning change request")
+            Red and white sign indicating zoning change request
+            @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, " For sale sign")
+            For sale sign
+            @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, " For rent/lease sign ")
+            For rent/lease sign
+            @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, "None  ")
+            None
+            @Html.ValidationMessageFor(model => model.siteData.SignPostedOnBuilding)
+        </div>
+        <br />
+        <table border="1px" width="500px">
+            <tr>
+                <td></td>
+                <td>USe</td>
+                <td>Occupancy</td>
+            </tr>
+            <tr>
+                <td>1st </td>
+                <td>
+                    @Html.EditorFor(model => model.siteData.FirstUse)
+                    @Html.ValidationMessageFor(model => model.siteData.FirstUse)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.siteData.FirstOccupancy)
+                    @Html.ValidationMessageFor(model => model.siteData.FirstOccupancy)
+                </td>
+
+            </tr>
+            <tr>
+                <td>2nd </td>
+                <td>
+                    @Html.EditorFor(model => model.siteData.SecondUse)
+                    @Html.ValidationMessageFor(model => model.siteData.SecondUse)
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.siteData.SecondOccupancy)
+                    @Html.ValidationMessageFor(model => model.siteData.SecondOccupancy)
+                </td>
+
+            </tr>
+            <tr>
+                <td>3rd </td>
+                <td>
+                    @Html.EditorFor(model => model.siteData.ThirdUse)
+                    @Html.ValidationMessageFor(model => model.siteData.ThirdUse)
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.siteData.ThirdOccupancy)
+                    @Html.ValidationMessageFor(model => model.siteData.ThirdOccupancy)
+                </td>
+
+
+            </tr>
+            <tr>
+                <td>4th </td>
+                <td>
+                    @Html.EditorFor(model => model.siteData.FourthUse)
+                    @Html.ValidationMessageFor(model => model.siteData.FourthUse)
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.siteData.FourthOccupancy)
+                    @Html.ValidationMessageFor(model => model.siteData.FourthOccupancy)
+                </td>
+
+
+            </tr>
+            <tr>
+                <td>back/rear </td>
+                <td>
+                    @Html.EditorFor(model => model.siteData.BackRearUse)
+                    @Html.ValidationMessageFor(model => model.siteData.BackRearUse)
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.siteData.BackRearOccupancy)
+                    @Html.ValidationMessageFor(model => model.siteData.BackRearOccupancy)
+                </td>
+
+
+            </tr>
+        </table>
+        <lable>
+            <b>
+                USE CODES:
+                C- Commercial/Retail
+                R-	Residential
+                I-	Industrial
+                O-	Office
+                VL - Vacant lot, no building
+                G - Garage
+                D-	Cannot Determine
+
+            </b>
+            <br />
+            <b>
+                OCCUPANCY CODES:
+                OF-Occupied floor
+                VF- Vacant floor
+                VL-Vacant lot, no building
+                G- Garage
+                D- Cannot determine
+
+            </b>
+        </lable>
+
+
+
+
+
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.siteData.StructureClassification)
+        </div>
+        <div class="textbox">
+            @Html.RadioButtonFor(model => model.siteData.StructureClassification, " One residential unit- single-family dwelling")
+            One residential unit- single-family dwelling
+            @Html.RadioButtonFor(model => model.siteData.StructureClassification, "  2-4 residential units ")
+            2-4 residential units
+            @Html.RadioButtonFor(model => model.siteData.StructureClassification, "5 or more residential units  ")
+            5 or more residential units
+            @Html.RadioButtonFor(model => model.siteData.StructureClassification, " Mixed use")
+            Mixed use.
+            @Html.RadioButtonFor(model => model.siteData.StructureClassification, " Commercial only ")
+            Commercial only
+            @Html.RadioButtonFor(model => model.siteData.StructureClassification, "Cannot determine  ")
+            Cannot determine
+            @Html.RadioButtonFor(model => model.siteData.StructureClassification, "Vacant lot, no building  ")
+            Vacant lot, no building
+            @Html.ValidationMessageFor(model => model.siteData.StructureClassification)
+
+        </div>
+
+    </div>
+                                    <hr />
+    <div id="Main3">
+        <div> Some of this information can be found on multiple web-sites. For questions #12, #15-21, #42-43 go to www.cookcountyassessor.com; #12-14 go to ww.newschicago.org; #22-27 - http://www.cookcountytreasurer.com (add ‘0000’ to the end of the PIN number to access this data); #28-33 go to: http://www.cookcountyclerk.com/tsd/tifs/Pages/tifpropertysearch.aspx#12694822780391&56; #34-37 go to http://chicagotribune.public-record.com/realestate/search/cook (search by date 1/01/2015 – 12/31-2015 and zip code); #38-40 go to http://chicago.blockshopper.com/, www.realestate.yahoo.com, http://www.urbanrealestate.com/ and http://www.trulia.com (search by zip code); #41 is visible on the map at: https://gisapps.cityofchicago.org/zoning/. Some of this information is also available at: http://www.cookcountypropertyinfo.com/Pages/pin-search.aspx and http://cookviewer1.cookcountyil.gov/jsviewer/index.html. </div>
+        <table border="1px" width="600px">
+
+            <tr>
+
+                <td style="border:0px" class="auto-style2"></td>
+                <td colspan="2" class="auto-style2">Assessed Value (newschicgao)</td>
+                <td colspan="2" class="auto-style2">Assessed Value (cookcounty)</td>
+            </tr>
+            <tr><td style="border:0px"></td><td class="auto-style1">1999</td><td>2001</td><td>2014</td><td>2015</td></tr>
+            <tr>
+                <td class="auto-style3">Land (L)</td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLand__) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLand__)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLand_) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLand_)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLand) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLand)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLandPlus) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLandPlus)
+                </td>
+
+
+            </tr>
+            <tr>
+                <td>Building (B)</td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuilding__) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuilding__)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuilding_) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuilding_)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuilding) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuilding)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuildingPlus) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuildingPlus)
+                </td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotal__) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotal__)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotal_) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotal_)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotal) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotal)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotalPlus) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotalPlus)
+                </td>
+            </tr>
+            <tr>
+                <td>Est. Mkt. Value</td>
+                <td class="auto-style1">n/a</td>
+                <td>n/a</td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesEstMkt) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesEstMkt)
+                </td>
+                <td class="auto-style4">
+                    @Html.EditorFor(model => model.OnlineInfo.AssessedValuesEstMktPlus) $
+                    @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesEstMktPlus)
+                </td>
+
+            </tr>
+
+
+        </table>
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.yearBuild)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.yearBuild)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.yearBuild)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.censusTract)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.censusTract)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.censusTract)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.propertyClass)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.propertyClass)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.propertyClass)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.Stories)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.Stories)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.Stories)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.LandSquareFootage)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.LandSquareFootage)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.LandSquareFootage)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.propertyDescription)
+        </div>
+        <div class="textbox">
+            @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Residential ")
+            Residential
+            @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Industrial  ")
+            Industrial
+            @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Commercial  ")
+            Commercial
+            @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Vacant ")
+            Vacant
+            @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Exempt  ")
+            Exempt
+            @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Mixed Use ")
+            Mixed Use
+            @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Other")
+            Other
+            @Html.ValidationMessageFor(model => model.OnlineInfo.propertyDescription)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.age)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.age)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.age)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.PropertyTaxExemptions)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.PropertyTaxExemptions)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.PropertyTaxExemptions)
+        </div>
+        //TODO add tax exempetion model
+        <br />
+        @*@Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " (Exemption given)   ")
+            (Exemption given)
+            @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Not Entitled ")
+            Not Entitled
+            @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "None filed/applied")
+            None filed/applied*@
+        <br />
+        <label>22. the year Property Tax Exemptions from Treasurer Site:    </label>
+        @Html.LabelFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
+
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
+        </div>
+
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
+        </div>
+
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.taxPayerName)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.taxPayerName)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.taxPayerName)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.taxpayerMailing)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.taxpayerMailing)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.taxpayerMailing)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.YearPropertyTax)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.YearPropertyTax)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.YearPropertyTax)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.YearTaxesOwed)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.YearTaxesOwed) $
+            @Html.ValidationMessageFor(model => model.OnlineInfo.YearTaxesOwed)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.NextYearAsCurrent)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.NextYearAsCurrent)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.NextYearAsCurrent)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.TaxPayerInfo)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.TaxPayerInfo)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.TaxPayerInfo)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.inTifDistrict)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.inTifDistrict)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.inTifDistrict)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.TifArea)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.TifArea) %
+            @Html.ValidationMessageFor(model => model.OnlineInfo.TifArea)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.BoardOfEducation)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.BoardOfEducation) %
+            @Html.ValidationMessageFor(model => model.OnlineInfo.BoardOfEducation)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.SchoolImprovments)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.SchoolImprovments) %
+            @Html.ValidationMessageFor(model => model.OnlineInfo.SchoolImprovments)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.ParkDistrict)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.ParkDistrict) %
+            @Html.ValidationMessageFor(model => model.OnlineInfo.ParkDistrict)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.LibraryFund)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.LibraryFund) %
+            @Html.ValidationMessageFor(model => model.OnlineInfo.LibraryFund)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.propertySoldInYear)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.propertySoldInYear)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.propertySoldInYear)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.saleDate)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.saleDate)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.saleDate)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.salePrice)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.salePrice)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.salePrice)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.unitNumber)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.unitNumber)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.unitNumber)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.isForSale)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.isForSale)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.isForSale)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.listedPrice)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.listedPrice)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.listedPrice)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.bedroomsNumber)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.bedroomsNumber)
+            @*@Html.ValidationMessageFor(model => model.OnlineInfo.bedroomsNumber)*@
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.isOrange)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.isOrange)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.isOrange)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.isPhotoDownloaded)
+        </div>
+        <div class="textbox">
+            @Html.RadioButtonFor(model => model.OnlineInfo.isPhotoDownloaded, "Yes")
+            Yes
+            @Html.RadioButtonFor(model => model.OnlineInfo.isPhotoDownloaded, " No ")
+            No
+            @Html.RadioButtonFor(model => model.OnlineInfo.isPhotoDownloaded, "N/A ")
+            N/A
+
+            @Html.ValidationMessageFor(model => model.OnlineInfo.isPhotoDownloaded)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.PhotoDate)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.PhotoDate)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.PhotoDate)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.OnlineInfo.StudentPhotoDate)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.StudentPhotoDate)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.StudentPhotoDate)
+        </div>
+        <br />    <br />
+    </div>
+
+        <input type="submit" name="submitButton" value="save" />
+        <input type="submit" name="submitButton" value="submit" />
         <p>
             <input type="submit" value="Create" />
         </p>
-    </fieldset>
-}
 
+    }
+</div>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

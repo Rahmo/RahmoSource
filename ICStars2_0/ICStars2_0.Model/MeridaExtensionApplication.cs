@@ -35,7 +35,7 @@ namespace ICStars2_0.Model
         [MaxLength(2000)]
         [StringLength(2000)]
         [DataType(DataType.MultilineText)]
-        [Display(Name="Spanish language courses completed (including Winter Quarter 2014):")]
+        [Display(Name="Spanish language courses completed (including Winter Quarter 2016):")]
         public string SpanishLanguageCoursesCompleted { get; set; }
         [Required(ErrorMessage="This field is required.")]
         [MaxLength(2000)]

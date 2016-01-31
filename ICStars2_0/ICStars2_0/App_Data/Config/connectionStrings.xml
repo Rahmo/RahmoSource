@@ -34,5 +34,5 @@
   <add name="icstars" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\RahmoSource\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=True;Connect Timeout=30"
     providerName="System.Data.SqlClient" />
 
- 
+ <!--REMEMBER IF YOU ARE RUNNING THE PROD DATABASE SWTICH FROM DEBUG MODE TO RELEASE MODE-->
 </connectionStrings>

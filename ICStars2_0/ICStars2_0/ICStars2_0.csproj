@@ -1465,8 +1465,10 @@
     <Content Include="Views\MVProject\Gallery.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpGallery\UploadImage.cshtml" />
     <Content Include="Views\MVProject\Resources.cshtml" />
-    <Content Include="Views\Geo133Form\Main.cshtml" />
     <Content Include="Views\Geo133Form\Index.cshtml" />
+    <Content Include="Views\Geo133Form\Main.cshtml" />
+    <Content Include="Views\Geo133Form\Date.cshtml" />
+    <Content Include="Views\Geo133Form\CreateHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Account.Master.cs">

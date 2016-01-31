@@ -12,3 +12,4 @@ C:\GitRahmoSource\ICStars2_0\ICStars2_0.Common\bin\Debug\ICStars2_0.Common.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Common\bin\Debug\ICStars2_0.Common.pdb
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Common\obj\Debug\ICStars2_0.Common.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Common\obj\Debug\ICStars2_0.Common.pdb
+C:\GitRahmoSource\ICStars2_0\ICStars2_0.Common\obj\Debug\ICStars2_0.Common.csprojResolveAssemblyReference.cache

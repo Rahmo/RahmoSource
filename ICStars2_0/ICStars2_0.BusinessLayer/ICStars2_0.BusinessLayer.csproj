@@ -107,6 +107,8 @@
     <Compile Include="EmailService.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GeoServices\GeoFactory.cs" />
+    <Compile Include="GeoServices\IGeoFactory.cs" />
     <Compile Include="HttpHandlers\LoggingIHttpHandler.cs" />
     <Compile Include="HttpModules\LoggingHttpModule.cs" />
     <Compile Include="ICStars2_0_BusinessLayerDebugChecker.cs">
