@@ -25,6 +25,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -172,6 +173,14 @@
     <Content Include="Bitmap.aspx" />
     <Content Include="communityPartners\ServiceLearnersApplication.aspx" />
     <Content Include="communityPartners\ServiceLearnersApplicationSuccess.htm" />
+    <Content Include="Content\bootstrap-3.3.6\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-3.3.6\css\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-3.3.6\css\bootstrap.css" />
+    <Content Include="Content\bootstrap-3.3.6\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap-3.3.6\js\bootstrap.js" />
+    <Content Include="Content\bootstrap-3.3.6\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-3.3.6\js\npm.js" />
     <Content Include="Content\Css\a.css" />
     <Content Include="Content\Css\CKEditorInlineEditing.css" />
     <Content Include="Content\Css\entypostyle.css" />
@@ -291,6 +300,14 @@
     <Content Include="Areas\SHTracker\Views\MvpResources\Details.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpResources\Create.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpResources\CreateHeader.cshtml" />
+    <Content Include="Content\bootstrap-3.3.6\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-3.3.6\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-3.3.6\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-3.3.6\css\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="index.html.bak" />
     <Content Include="InvalidRequest.html" />
     <Content Include="NoAccess.html" />
@@ -1467,8 +1484,14 @@
     <Content Include="Views\MVProject\Resources.cshtml" />
     <Content Include="Views\Geo133Form\Index.cshtml" />
     <Content Include="Views\Geo133Form\Main.cshtml" />
-    <Content Include="Views\Geo133Form\Date.cshtml" />
     <Content Include="Views\Geo133Form\CreateHeader.cshtml" />
+    <Content Include="Views\Geo133Form\List.cshtml" />
+    <Content Include="Views\Shared\SubNavsVertForLayout.cshtml" />
+    <Content Include="Views\Shared\_LayoutVerticalMenu.cshtml" />
+    <Content Include="Views\Home\Faculty.cshtml" />
+    <Content Include="Views\Pages\Index.cshtml" />
+    <Content Include="Views\Pages\Faculty.cshtml" />
+    <Content Include="Views\Shared\_PartialJumpMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Account.Master.cs">
@@ -1570,6 +1593,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeridaController.cs" />
     <Compile Include="Controllers\MvProjectController.cs" />
+    <Compile Include="Controllers\PagesController.cs" />
     <Compile Include="Controllers\PublicationController.cs" />
     <Compile Include="Controllers\WebPageController.cs" />
     <Compile Include="pdf.ashx.cs">

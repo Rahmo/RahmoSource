@@ -59,7 +59,7 @@ namespace ICStars2_0.Model
          [DbField]
          
          [Display(Name = " FAR: ")]
-         public double? far { get; set; }
+         public string far { get; set; }
 
          virtual public GeoSiteData siteData { get; set; }
          virtual public GeoOnlineInformation OnlineInfo { get; set; }

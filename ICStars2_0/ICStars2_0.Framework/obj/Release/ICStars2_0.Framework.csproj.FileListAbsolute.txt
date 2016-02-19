@@ -16,3 +16,13 @@ C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\bin\Release\ICStars2_0.Common.
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Release\ICStars2_0.Framework.csprojResolveAssemblyReference.cache
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Release\ICStars2_0.Framework.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Framework\obj\Release\ICStars2_0.Framework.pdb
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\bin\Release\ICStars2_0.Framework.dll
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\bin\Release\ICStars2_0.Framework.pdb
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\bin\Release\DocumentFormat.OpenXml.dll
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\bin\Release\ICStars2_0.Common.dll
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\bin\Release\log4net.dll
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\bin\Release\Microsoft.Practices.Unity.dll
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\bin\Release\ICStars2_0.Common.pdb
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\obj\Release\ICStars2_0.Framework.csprojResolveAssemblyReference.cache
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\obj\Release\ICStars2_0.Framework.dll
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Framework\obj\Release\ICStars2_0.Framework.pdb

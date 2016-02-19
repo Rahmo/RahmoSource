@@ -7,3 +7,9 @@ C:\GitRahmoSource\ICStars2_0\ICStars2_0.Common\bin\Release\ICStars2_0.Common.pdb
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Common\obj\Release\ICStars2_0.Common.csprojResolveAssemblyReference.cache
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Common\obj\Release\ICStars2_0.Common.dll
 C:\GitRahmoSource\ICStars2_0\ICStars2_0.Common\obj\Release\ICStars2_0.Common.pdb
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Common\bin\Release\ICStars2_0.Common.dll
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Common\bin\Release\ICStars2_0.Common.pdb
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Common\bin\Release\DocumentFormat.OpenXml.dll
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Common\obj\Release\ICStars2_0.Common.csprojResolveAssemblyReference.cache
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Common\obj\Release\ICStars2_0.Common.dll
+C:\NewIDEProject\ICStars2_0\ICStars2_0.Common\obj\Release\ICStars2_0.Common.pdb

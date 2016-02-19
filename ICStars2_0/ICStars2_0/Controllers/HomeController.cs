@@ -26,11 +26,17 @@ namespace ICStars2_0.Controllers
         public ActionResult Index()
         {
             return View();
-        } 
+        }
+
+      
+
         [OutputCache(Duration=3600,VaryByParam="none")]
         public ActionResult NavsForLayout()
         {
             return View(NavigationFactory.BuildWebsiteNavList());
         }
+
+
+
     }
 }

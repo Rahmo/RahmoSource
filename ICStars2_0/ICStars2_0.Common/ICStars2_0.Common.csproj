@@ -55,9 +55,7 @@
     <Compile Include="Attributes\IsStringAttribute.cs" />
     <Compile Include="BrowserInfo.cs" />
     <Compile Include="CacheHelper.cs" />
-    <Compile Include="CacheTimer.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="CacheTimer.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharHelper.cs" />
     <Compile Include="Enums\US_State.cs" />

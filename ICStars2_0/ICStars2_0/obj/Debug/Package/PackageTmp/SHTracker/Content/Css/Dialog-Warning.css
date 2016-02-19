@@ -1,7 +1,0 @@
-﻿  .warning
-        {
-            font-weight:bold;
-            border:5px solid red;
-            }
-            .warning .ui-dialog-titlebar{background-color:red;color:Yellow;background-image:none;}
-            .warning .ui-dialog-titlebar .ui-dialog-title{font-weight:bold;font-size:20px;}

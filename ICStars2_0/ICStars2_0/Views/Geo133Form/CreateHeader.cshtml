@@ -19,6 +19,38 @@
              'slow');
         });
 
+        $("#OnlineInfo_AssessedValuesBuilding__").change(function () {
+         
+            var LandVal =   parseInt($('#OnlineInfo_AssessedValuesLand__').val());
+            var Building =   parseInt($('#OnlineInfo_AssessedValuesBuilding__').val());
+           
+            var result = LandVal + Building;
+            $('#OnlineInfo_AssessedValuesTotal__').val(result);
+        });
+        $("#OnlineInfo_AssessedValuesBuilding_").change(function () {
+           
+            var LandVal = parseInt($('#OnlineInfo_AssessedValuesLand_').val());
+            var Building = parseInt($('#OnlineInfo_AssessedValuesBuilding_').val());
+
+            var result = LandVal + Building;
+            $('#OnlineInfo_AssessedValuesTotal_').val(result);
+        });
+        $("#OnlineInfo_AssessedValuesTotal").change(function () {
+           
+            var LandVal = parseInt($('#OnlineInfo_AssessedValuesLand').val());
+            var Building = parseInt($('#OnlineInfo_AssessedValuesBuilding').val());
+            var total = parseInt($('#OnlineInfo_AssessedValuesTotal').val());
+            var result = LandVal + Building + total;
+            $('#OnlineInfo_AssessedValuesEstMkt').val(result);
+        });
+        $("#OnlineInfo_AssessedValuesTotalPlus").change(function () {
+          
+            var LandVal = parseInt($('#OnlineInfo_AssessedValuesLandPlus').val());
+            var Building = parseInt($('#OnlineInfo_AssessedValuesBuildingPlus').val());
+            var total = parseInt($('#OnlineInfo_AssessedValuesTotalPlus').val());
+            var result = LandVal + Building + total;
+            $('#OnlineInfo_AssessedValuesEstMktPlus').val(result);
+        });
           $("#DpuId").change(function () {
             var DpuVal = $('#DpuId').val();
             // alert(DpuVal);
@@ -52,11 +84,11 @@
               var fillView = function (data) {
                   
                 //var newDate = dateFormat(data.OnlineInfo.saleDate, "mm/dd/yyyy");
-                  alert( ' '
-                    + data.OnlineInfo.saleDate + ' '
-                    + data.OnlineInfo.yearBuild + ''
-                    //+ data.siteData.EvidenceOfGardenType + ''
-                    );
+                  //alert( ' '
+                  //  + data.OnlineInfo.saleDate + ' '
+                  //  + data.OnlineInfo.censusTract + ''
+                  //  //+ data.siteData.EvidenceOfGardenType + ''
+                  //  );
 
                 function RadionButtonSelectedValueSet(name, SelectdValue) {
                     $('input[name="' + name + '"][value="' + SelectdValue + '"]').prop('checked', true);
@@ -75,7 +107,7 @@
                 $('#blockNumber').val(data.blockNumber);
                 $('#pinNumber').val(data.pinNumber);
                 $('#far').val(data.far);
-
+                 
                 RadionButtonSelectedValueSet('siteData.mainStreetFacade', data.siteData.mainStreetFacade);
                 RadionButtonSelectedValueSet('siteData.exterior', data.siteData.exterior);
                 RadionButtonSelectedValueSet('siteData.overallViability', data.siteData.overallViability);

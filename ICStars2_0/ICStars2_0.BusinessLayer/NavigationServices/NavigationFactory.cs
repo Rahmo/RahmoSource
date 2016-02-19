@@ -26,10 +26,11 @@ namespace ICStars2_0.BusinessLayer.NavigationServices
             using (var db = new WebDbContext())
             {
                 var list = db.WebsiteNavProfiles.Select(
-                            nav => new { nav, HasWebpage = db.WebPages.Any(p => p.Url.Equals(nav.Link)) }).ToList()
+                            nav => new { nav ,HasWebpage = db.WebPages.Any(p => p.Url.Equals(nav.Link)) }).ToList()
                             .Select(n =>
                             {
                                 n.nav.HasWebpage = n.HasWebpage;
+                               
                                 return n.nav;
                             }).ToList().OrderBy(n => n.OrderByID);
                 CacheHelper.BuildCache<IEnumerable<WebsiteNav>>(list, cacheSettings);

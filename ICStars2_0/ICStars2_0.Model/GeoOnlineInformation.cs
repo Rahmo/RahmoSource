@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -14,7 +15,8 @@ namespace ICStars2_0.Model
 {  [Table("geoOnlineInformation", Schema = Const.Schema)]
     public class GeoOnlineInformation
     {
-        
+        private string NA = "N/A"; 
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [DbField]
@@ -36,16 +38,16 @@ namespace ICStars2_0.Model
     [Display(Name = "14. Census Tract:")]
     
    // [Range(4,4)]
-         public int censusTract { get; set; }
+         public string censusTract { get; set; }
  
     
     [DbField]
     [Display(Name = "15 Property Class:")]
     public string propertyClass { get; set; }
     [DbField]
-    [Required(ErrorMessage = "This field is required.")]
+    //[Required(ErrorMessage = "This field is required.")]
    // [Range(0, 10, ErrorMessage= "Please enter the stories.")]
-    [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]  
+   // [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]  
     [Display(Name = "16. Stories : ")]
     public int Stories { get; set; }
 
@@ -56,18 +58,23 @@ namespace ICStars2_0.Model
     [DbField]
     [Display(Name = "18.Land Sq. Footage: ")]
         public string LandSquareFootage { get; set; }
-    //todo Building Sq
+  
     [DbField]
     [Display(Name = "19. Property Description:")]
         public string propertyDescription { get; set; }
-    [DbField]
-    [Display(Name = "20. Age: ")]
-    [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")] 
-    //[MaxLength(3, ErrorMessage="Max length is 3 digits")]
-    //[Range(0, 3 , ErrorMessage="Max length is 3 digits")]
-    
-    public int age { get; set; }
-    [DbField]
+
+    [DbField] [Display(Name = "20. Age: ")]
+        // [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")] 
+        //[MaxLength(3, ErrorMessage="Max length is 3 digits")]
+        //[Range(0, 3 , ErrorMessage="Max length is 3 digits")]
+        [DefaultValue("N/A")]
+        public string age {
+
+        get { return NA; }
+        set { NA = value; }
+    }
+        [DefaultValue(0)]
+        [DbField]
     [Display(Name = "21. Property Tax Exemptions (Assessor site): ")]
     public double PropertyTaxExemptions { get; set; }
    
@@ -89,7 +96,7 @@ namespace ICStars2_0.Model
 
     
     [Display(Name = "26. What amount of 2014 taxes are still owed (balance due)?")]
-    public double CurrentYearTaxesOwed { get; set; }
+    public double? CurrentYearTaxesOwed { get; set; }
     [DbField]
     [Display(Name = "27.Is the 2015 property taxpayer’s name and address the same as 2014?")]
         public bool isCurrentYearAsPrev { get; set; }
@@ -165,7 +172,7 @@ namespace ICStars2_0.Model
 
         public DateTime? PhotoDate { get; set; }
     [DbField]
-    [Display(Name = "44. Next Year photo taken")]
+    [Display(Name = "44. your photo taken ?")]
         public bool isFollowingYPhotoTaken { get; set; }
     [DbField]
       
@@ -224,6 +231,13 @@ namespace ICStars2_0.Model
      [DbField]
      [Display(Name = "Senior Freeze")]
     public bool TreasurerSiteSeniorFreeze { get; set; }
+
+    //public   GeoOnlineInformation()
+    //{
+    //    age = "N/a";
+    //}
     }
-   
+
+
+
 }

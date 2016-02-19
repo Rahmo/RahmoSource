@@ -1,52 +1,0 @@
-﻿@{
-    ViewBag.Title = "FAQ --Service Speaks --Steans Center";
-    Layout = "~/Areas/ServiceSpeaks/Views/Shared/_Layout.cshtml";
-}
-@section Head
-{
-    <style type="text/css">
-        section{ height: 900px;padding-top: 20px;}
-        span.imgspan{ float: left;}
-        .grid-c2-w15e9 li a:link,.grid-c2-w15e9 li a:visited,.grid-c2-w15e9 li a:hover{ color: blue;text-decoration: underline;}
-        h1,p{ width: 100%;display: block;}
-        section div h1{ color: #252543;}
-        b{ font-size: 16px;}
-    </style>
-}
-<section>
-    <div class="grid-c2-w15e9">
-        <div class="west">
-            <h1>Date and Location</h1>
-            <br/>
-            <ul>
-                <li><b>•	When is Service Speaks?</b><br /> May 9, 2014 (Friday). <br />  Registration opens at 9:30am.<br />  The conference will begin promptly at 10:00AM with Welcome, and officially conclude at 4PM.
-                </li>
-                <li><b>•	Where will Service Speaks be held? </b><br /> DePaul University - Lincoln Park Student Center- 2250 N. Kenmore, Chicago, IL.<br />  Presentations will be held on the 3rd floor of the center.
-                </li>
-            </ul>
-            <br/>
-            <h1>Travel</h1>
-            <br/>
-            <ul>
-                <li><b>•	CTA:</b><br /> Chicago Transit Authority is a convenient option to get around the city of Chicago.  One-way fares start at $3.00.  <br />
-                    For locations and schedules, visit <a href="http://www.transitchicago.com" target="_blank">www.transitchicago.com</a> </li>
-                <li><b>•	Google Maps:</b><br />  We recommend using Google Maps for directions to and from the conference site.  <br />
-                    Please visit: <a href="http://www.maps.google.com" target="_blank">www.maps.google.com</a> </li>
-            </ul>
-            <br/>
-            <h1>Registration & Admission</h1>
-            <br/>
-            <ul>
-                <li><b>•	How do I make changes to my conference registration? </b><br /> You can make changes to your by contacting conference coordinator at <a href="mailto:servicelearning@depaul.edu">servicelearning@depaul.edu</a> or simply visit the registration page at <a href="http://www.servicespeaks2014.eventbrite.com" target="_blank">www.servicespeaks2014.eventbrite.com</a> </li>
-                <li><b>•	What is the payment policy? </b><br /> The Service Speaks 2014 conference is free to all registered attendees and presenters.</li>
-                <li><b>•	What is the dress code for the conference? </b><br /> Dress comfortably.  Generally, business casual is acceptable.</li>
-                <li><b>•	What is the process to request special needs (dietary needs, physical restrictions, etc.)? </b><br />  We have a specific lunch that will be served.  Please note that we will make every attempt to accommodate dietary restrictions including but not limited to: vegan, vegetarian, non-restricted.</li>
-                <li><b>•	Who do I contact with any questions about attending the conference? </b><br /> Should you have questions during the registration process, please email <a href="mailto:servicelearning@depaul.edu">servicelearning@depaul.edu</a> and allow 1-2 business days for a response.</li>
-            </ul>
-        </div>
-        <div class="east">
-            @Html.Partial("RightNav")
-        </div>
-    </div>
-
-</section>

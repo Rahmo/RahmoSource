@@ -84,33 +84,10 @@ namespace ICStars2_0.Controllers
             var Resources = from s in _db.Resources
                             orderby s.CreatedDate
                             select s   ;
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    Resources = Resources.Where(s => s.Title.Contains(searchString)
-            //                           || s.ResourceType.Contains(searchString));
-            //}
-            //switch (sortOrder)
-            //{
-            //    case "name_desc":
-            //        Resources = Resources.OrderByDescending(s => s.LastName);
-            //        break;
-            //    case "Date":
-            //        Resources = Resources.OrderBy(s => s.EnrollmentDate);
-            //        break;
-            //    case "date_desc":
-            //        Resources = Resources.OrderByDescending(s => s.EnrollmentDate);
-            //        break;
-            //    default:  // Name ascending 
-            //        Resources = Resources.OrderBy(s => s.LastName);
-            //        break;
-            //}
-
+      
             int pageSize = 3;
             int pageNumber = (page ?? 1);
             return View(Resources.ToPagedList(pageNumber, pageSize));
-
-         //  ViewBag.resources = _db.Resources.ToList();
-        //    return View( _db.Resources.ToList());
         }
         public ActionResult ContactUs()
         {
