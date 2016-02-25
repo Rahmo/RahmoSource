@@ -3,10 +3,10 @@
 <head>
     <!-- Latest compiled and minified CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
- 
+
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width" />
     <title>Create new Form</title>
 
 
@@ -21,127 +21,127 @@
 
 
 <style>
-        /*.ui-datepicker-calendar {
-        display: none;
+    /*.ui-datepicker-calendar {
+    display: none;
+    }*/
+
+    .field-validation-error {
+        color: red;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    h1 {
+        padding-top: 10px;
+    }
+
+    form {
+        width: 720px;
+        margin: 0 auto;
+    }
+
+    /*section div {
+        width: 720px;
+        margin: 0 auto;
+        padding: 2px;
+    }
+
+        section div p {
+            margin-bottom: 15px;
+            font-size: 14px;
         }*/
-
-        .field-validation-error {
-            color: red;
-        }
-
-        h1, h2 {
-            text-align: center;
-        }
-
-        h1 {
-            padding-top: 10px;
-        }
-
-        form {
-            width: 720px;
-            margin: 0 auto;
-        }
-
-        /*section div {
-            width: 720px;
-            margin: 0 auto;
-            padding: 2px;
-        }
-
-            section div p {
-                margin-bottom: 15px;
-                font-size: 14px;
-            }*/
-        /*form input,form textarea {
-                width: 100%;
-            }*/
-        .textbox {
-            width: 50px;
-            display: initial;
-            margin: 10px;
-        }
-
-        .text-box {
-            margin: 5px;
-            border: none;
-            border-bottom: solid 1px;
-        }
-
-        html, input, textarea {
-            background-color: #fffacd;
-        }
-
-            textarea.textarea {
-                background: #fff url(/SHTracker/Images/textbox_bg_029485.png) repeat 0 0;
-            }
-
-        form div.textarea {
-            scrollbar-base-color: #808080;
-        }
-
-        select {
-            background-color: #fff;
-            scrollbar-base-color: #ffffff;
-            scrollbar-arrow-color: #ff6a00;
-            border-color: #000;
-            scrollbar-face-color: #029485;
-            scrollbar-highlight-color: #029485;
-            scrollbar-3dlight-color: #029485;
-            scrollbar-darkshadow-color: #029485;
-            scrollbar-shadow-color: #029485;
-            scrollbar-track-color: #029485;
-        }
-
-        span.span_cbo select {
-            width: 400px;
-        }
-
-        label.error, span.error, label.error2 {
-            display: block;
-            float: left;
-            z-index: 9999px;
-            position: absolute;
-            color: Red;
-            font-weight: bold;
-            border: 1px solid red;
-        }
-
-        .required {
-        }
-
-        .site_model {
+    /*form input,form textarea {
             width: 100%;
+        }*/
+    .textbox {
+        width: 50px;
+        display: initial;
+        margin: 10px;
+    }
+
+    .text-box {
+        margin: 5px;
+        border: none;
+        border-bottom: solid 1px;
+    }
+
+    html, input, textarea {
+        background-color: #fffacd;
+    }
+
+        textarea.textarea {
+            background: #fff url(/SHTracker/Images/textbox_bg_029485.png) repeat 0 0;
         }
 
-        .auto-style1 {
-            width: 116px;
-        }
+    form div.textarea {
+        scrollbar-base-color: #808080;
+    }
 
-        .auto-style2 {
-            height: 30px;
-        }
+    select {
+        background-color: #fff;
+        scrollbar-base-color: #ffffff;
+        scrollbar-arrow-color: #ff6a00;
+        border-color: #000;
+        scrollbar-face-color: #029485;
+        scrollbar-highlight-color: #029485;
+        scrollbar-3dlight-color: #029485;
+        scrollbar-darkshadow-color: #029485;
+        scrollbar-shadow-color: #029485;
+        scrollbar-track-color: #029485;
+    }
 
-        .auto-style3 {
-            height: 28px;
-        }
+    span.span_cbo select {
+        width: 400px;
+    }
 
-        .auto-style4 {
-            width: 116px;
-            height: 28px;
-        }
-    </style>
+    label.error, span.error, label.error2 {
+        display: block;
+        float: left;
+        z-index: 9999px;
+        position: absolute;
+        color: Red;
+        font-weight: bold;
+        border: 1px solid red;
+    }
+
+    .required {
+    }
+
+    .site_model {
+        width: 100%;
+    }
+
+    .auto-style1 {
+        width: 116px;
+    }
+
+    .auto-style2 {
+        height: 30px;
+    }
+
+    .auto-style3 {
+        height: 28px;
+    }
+
+    .auto-style4 {
+        width: 116px;
+        height: 28px;
+    }
+</style>
 
 @*@Html.Partial("GEO133", new ICStars2_0.Model.GEO133 { Name = "content" })*@
 
 <div class="container">
-     @*<div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>*@
+    @*<div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>*@
     <h2>Main</h2>
 
 
@@ -153,10 +153,10 @@
         @Html.HiddenFor(model => model.siteData.Id)
         @Html.HiddenFor(model => model.OnlineInfo.Id)
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true) 
+        @Html.ValidationSummary(true)
 
 
-                                        <legend>GEO133</legend>
+        <legend>GEO133</legend>
 
                                         <div id="Main">
                                             <label> Please enter you DePaul ID <b>First</b> :  </label>
@@ -179,7 +179,7 @@
                                                 @Html.LabelFor(model => model.zoning)
                                             </div>
                                             <div class="textbox">
-                                              
+
 
 
 
@@ -212,10 +212,10 @@
                 new SelectListItem{ Value = "other" , Text = "other" },
 
     }, "Value", "Text", 1))
-                                     
+
                                                 @Html.ValidationMessageFor(model => model.zoning)
                                             </div>
-                                            <div class="textbox" >
+                                            <div class="textbox">
                                                 @Html.LabelFor(model => model.zipCode)
                                             </div>
                                             <div class="textbox">
@@ -238,6 +238,7 @@
                                                 @Html.EditorFor(model => model.pinNumber)
                                                 @Html.ValidationMessageFor(model => model.pinNumber)
                                             </div>
+
                                             <br />
 
                                             <br />
@@ -265,257 +266,260 @@
 
     }, "Value", "Text", 1))
                                                 @Html.ValidationMessageFor(model => model.far)
+
+                                            <input type="button"  value="Search" id="searchRecord"/>
                                             </div>
                                             <hr />
 
                                             <br />
                                         </div>
-                                        <div id="Main2">
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.mainStreetFacade)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Good")
-                                                Good
-                                                @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Fair")
-                                                Fair
-                                                @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Poor")
-                                                Poor
-                                                @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Vacant")
-                                                Vacant
+        //TODO
+        <div id="Main2">
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.mainStreetFacade)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Good")
+                Good
+                @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Fair")
+                Fair
+                @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Poor")
+                Poor
+                @Html.RadioButtonFor(model => model.siteData.mainStreetFacade, "Vacant")
+                Vacant
 
-                                                @*@Html.EditorFor(model => model.siteData.mainStreetFacade)*@
-                                                @Html.ValidationMessageFor(model => model.siteData.mainStreetFacade)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.exterior)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.siteData.exterior, "Good")
-                                                Good
-                                                @Html.RadioButtonFor(model => model.siteData.exterior, "Fair")
-                                                Fair
-                                                @Html.RadioButtonFor(model => model.siteData.exterior, "Poor")
-                                                Poor
-                                                @Html.RadioButtonFor(model => model.siteData.exterior, "Vacant")
-                                                Vacant
-                                                @Html.ValidationMessageFor(model => model.siteData.exterior)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.overallViability)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.siteData.overallViability, "Good")
-                                                Good
-                                                @Html.RadioButtonFor(model => model.siteData.overallViability, "Fair")
-                                                Fair
-                                                @Html.RadioButtonFor(model => model.siteData.overallViability, "Poor")
-                                                Poor
-                                                @Html.RadioButtonFor(model => model.siteData.overallViability, "Vacant")
-                                                Vacant
-                                                @Html.ValidationMessageFor(model => model.siteData.overallViability)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.numberOfStories)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.siteData.numberOfStories)
-                                                @Html.ValidationMessageFor(model => model.siteData.numberOfStories)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.facadeType)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.siteData.facadeType, "Brick")
-                                                Brick
-                                                @Html.RadioButtonFor(model => model.siteData.facadeType, "FrameSiding")
-                                                Frame/Siding
-                                                @Html.RadioButtonFor(model => model.siteData.facadeType, " GreyStone")
-                                                GreyStone
-                                                @Html.RadioButtonFor(model => model.siteData.facadeType, "Mixed")
-                                                Vacant
-                                                @Html.RadioButtonFor(model => model.siteData.facadeType, "Other ")
-                                                Mixed
-                                                @Html.RadioButtonFor(model => model.siteData.facadeType, "Vacant")
-                                                Other
-                                                @Html.ValidationMessageFor(model => model.siteData.facadeType)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.patchesExposed)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.siteData.patchesExposed)
-                                                @Html.ValidationMessageFor(model => model.siteData.patchesExposed)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.GardenActivity)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.siteData.GardenActivity)
-                                                @Html.ValidationMessageFor(model => model.siteData.GardenActivity)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.EvidenceOfGardenType)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.siteData.EvidenceOfGardenType, "Raised beds ")
-                                                Raised beds
-                                                @Html.RadioButtonFor(model => model.siteData.EvidenceOfGardenType, "In the ground ")
-                                                In the ground
-                                                @Html.RadioButtonFor(model => model.siteData.EvidenceOfGardenType, "PlantPots")
-                                                Plant pots
+                @*@Html.EditorFor(model => model.siteData.mainStreetFacade)*@
+                @Html.ValidationMessageFor(model => model.siteData.mainStreetFacade)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.exterior)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.siteData.exterior, "Good")
+                Good
+                @Html.RadioButtonFor(model => model.siteData.exterior, "Fair")
+                Fair
+                @Html.RadioButtonFor(model => model.siteData.exterior, "Poor")
+                Poor
+                @Html.RadioButtonFor(model => model.siteData.exterior, "Vacant")
+                Vacant
+                @Html.ValidationMessageFor(model => model.siteData.exterior)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.overallViability)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.siteData.overallViability, "Good")
+                Good
+                @Html.RadioButtonFor(model => model.siteData.overallViability, "Fair")
+                Fair
+                @Html.RadioButtonFor(model => model.siteData.overallViability, "Poor")
+                Poor
+                @Html.RadioButtonFor(model => model.siteData.overallViability, "Vacant")
+                Vacant
+                @Html.ValidationMessageFor(model => model.siteData.overallViability)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.numberOfStories)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.siteData.numberOfStories)
+                @Html.ValidationMessageFor(model => model.siteData.numberOfStories)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.facadeType)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.siteData.facadeType, "Brick")
+                Brick
+                @Html.RadioButtonFor(model => model.siteData.facadeType, "FrameSiding")
+                Frame/Siding
+                @Html.RadioButtonFor(model => model.siteData.facadeType, " GreyStone")
+                GreyStone
+                @Html.RadioButtonFor(model => model.siteData.facadeType, "Mixed")
+                Vacant
+                @Html.RadioButtonFor(model => model.siteData.facadeType, "Other ")
+                Mixed
+                @Html.RadioButtonFor(model => model.siteData.facadeType, "Vacant")
+                Other
+                @Html.ValidationMessageFor(model => model.siteData.facadeType)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.patchesExposed)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.siteData.patchesExposed)
+                @Html.ValidationMessageFor(model => model.siteData.patchesExposed)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.GardenActivity)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.siteData.GardenActivity)
+                @Html.ValidationMessageFor(model => model.siteData.GardenActivity)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.EvidenceOfGardenType)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.siteData.EvidenceOfGardenType, "Raised beds ")
+                Raised beds
+                @Html.RadioButtonFor(model => model.siteData.EvidenceOfGardenType, "In the ground ")
+                In the ground
+                @Html.RadioButtonFor(model => model.siteData.EvidenceOfGardenType, "PlantPots")
+                Plant pots
 
-                                                @Html.ValidationMessageFor(model => model.siteData.EvidenceOfGardenType)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.SignPostedOnBuilding)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, "Red and white sign indicating zoning change request")
-                                                Red and white sign indicating zoning change request
-                                                @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, " For sale sign")
-                                                For sale sign
-                                                @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, " For rent/lease sign ")
-                                                For rent/lease sign
-                                                @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, "None  ")
-                                                None
-                                                @Html.ValidationMessageFor(model => model.siteData.SignPostedOnBuilding)
-                                            </div>
-                                            <br />
-                                            <table border="1px" width="500px">
-                                                <tr>
-                                                    <td></td>
-                                                    <td>USe</td>
-                                                    <td>Occupancy</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1st </td>
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.FirstUse)
-                                                        @Html.ValidationMessageFor(model => model.siteData.FirstUse)
-                                                    </td>
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.FirstOccupancy)
-                                                        @Html.ValidationMessageFor(model => model.siteData.FirstOccupancy)
-                                                    </td>
+                @Html.ValidationMessageFor(model => model.siteData.EvidenceOfGardenType)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.SignPostedOnBuilding)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, "Red and white sign indicating zoning change request")
+                Red and white sign indicating zoning change request
+                @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, " For sale sign")
+                For sale sign
+                @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, " For rent/lease sign ")
+                For rent/lease sign
+                @Html.RadioButtonFor(model => model.siteData.SignPostedOnBuilding, "None  ")
+                None
+                @Html.ValidationMessageFor(model => model.siteData.SignPostedOnBuilding)
+            </div>
+            <br />
+            <table border="1px" width="500px">
+                <tr>
+                    <td></td>
+                    <td>USe</td>
+                    <td>Occupancy</td>
+                </tr>
+                <tr>
+                    <td>1st </td>
+                    <td>
+                        @Html.EditorFor(model => model.siteData.FirstUse)
+                        @Html.ValidationMessageFor(model => model.siteData.FirstUse)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.siteData.FirstOccupancy)
+                        @Html.ValidationMessageFor(model => model.siteData.FirstOccupancy)
+                    </td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td>2nd </td>
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.SecondUse)
-                                                        @Html.ValidationMessageFor(model => model.siteData.SecondUse)
-                                                    </td>
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.SecondOccupancy)
-                                                        @Html.ValidationMessageFor(model => model.siteData.SecondOccupancy)
-                                                    </td>
+                </tr>
+                <tr>
+                    <td>2nd </td>
+                    <td>
+                        @Html.EditorFor(model => model.siteData.SecondUse)
+                        @Html.ValidationMessageFor(model => model.siteData.SecondUse)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.siteData.SecondOccupancy)
+                        @Html.ValidationMessageFor(model => model.siteData.SecondOccupancy)
+                    </td>
 
-                                                </tr>
-                                                <tr>
-                                                    <td>3rd </td>
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.ThirdUse)
-                                                        @Html.ValidationMessageFor(model => model.siteData.ThirdUse)
-                                                    </td>
+                </tr>
+                <tr>
+                    <td>3rd </td>
+                    <td>
+                        @Html.EditorFor(model => model.siteData.ThirdUse)
+                        @Html.ValidationMessageFor(model => model.siteData.ThirdUse)
+                    </td>
 
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.ThirdOccupancy)
-                                                        @Html.ValidationMessageFor(model => model.siteData.ThirdOccupancy)
-                                                    </td>
-
-
-                                                </tr>
-                                                <tr>
-                                                    <td>4th </td>
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.FourthUse)
-                                                        @Html.ValidationMessageFor(model => model.siteData.FourthUse)
-                                                    </td>
-
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.FourthOccupancy)
-                                                        @Html.ValidationMessageFor(model => model.siteData.FourthOccupancy)
-                                                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.siteData.ThirdOccupancy)
+                        @Html.ValidationMessageFor(model => model.siteData.ThirdOccupancy)
+                    </td>
 
 
-                                                </tr>
-                                                <tr>
-                                                    <td>back/rear </td>
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.BackRearUse)
-                                                        @Html.ValidationMessageFor(model => model.siteData.BackRearUse)
-                                                    </td>
+                </tr>
+                <tr>
+                    <td>4th </td>
+                    <td>
+                        @Html.EditorFor(model => model.siteData.FourthUse)
+                        @Html.ValidationMessageFor(model => model.siteData.FourthUse)
+                    </td>
 
-                                                    <td>
-                                                        @Html.EditorFor(model => model.siteData.BackRearOccupancy)
-                                                        @Html.ValidationMessageFor(model => model.siteData.BackRearOccupancy)
-                                                    </td>
-
-
-                                                </tr>
-                                            </table>
-                                            <lable>
-                                                <b>
-                                                    USE CODES:
-                                                    C- Commercial/Retail
-                                                    R-	Residential
-                                                    I-	Industrial
-                                                    O-	Office
-                                                    VL - Vacant lot, no building
-                                                    G - Garage
-                                                    D-	Cannot Determine
-
-                                                </b>
-                                                <br />
-                                                <b>
-                                                    OCCUPANCY CODES:
-                                                    OF-Occupied floor
-                                                    VF- Vacant floor
-                                                    VL-Vacant lot, no building
-                                                    G- Garage
-                                                    D- Cannot determine
-
-                                                </b>
-                                            </lable>
+                    <td>
+                        @Html.EditorFor(model => model.siteData.FourthOccupancy)
+                        @Html.ValidationMessageFor(model => model.siteData.FourthOccupancy)
+                    </td>
 
 
+                </tr>
+                <tr>
+                    <td>back/rear </td>
+                    <td>
+                        @Html.EditorFor(model => model.siteData.BackRearUse)
+                        @Html.ValidationMessageFor(model => model.siteData.BackRearUse)
+                    </td>
+
+                    <td>
+                        @Html.EditorFor(model => model.siteData.BackRearOccupancy)
+                        @Html.ValidationMessageFor(model => model.siteData.BackRearOccupancy)
+                    </td>
+
+
+                </tr>
+            </table>
+            <lable>
+                <b>
+                    USE CODES:
+                    C- Commercial/Retail
+                    R-	Residential
+                    I-	Industrial
+                    O-	Office
+                    VL - Vacant lot, no building
+                    G - Garage
+                    D-	Cannot Determine
+
+                </b>
+                <br />
+                <b>
+                    OCCUPANCY CODES:
+                    OF-Occupied floor
+                    VF- Vacant floor
+                    VL-Vacant lot, no building
+                    G- Garage
+                    D- Cannot determine
+
+                </b>
+            </lable>
 
 
 
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.siteData.StructureClassification)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.siteData.StructureClassification, " One residential unit- single-family dwelling")
-                                                One residential unit- single-family dwelling
-                                                @Html.RadioButtonFor(model => model.siteData.StructureClassification, "  2-4 residential units ")
-                                                2-4 residential units
-                                                @Html.RadioButtonFor(model => model.siteData.StructureClassification, "5 or more residential units  ")
-                                                5 or more residential units
-                                                @Html.RadioButtonFor(model => model.siteData.StructureClassification, " Mixed use")
-                                                Mixed use.
-                                                @Html.RadioButtonFor(model => model.siteData.StructureClassification, " Commercial only ")
-                                                Commercial only
-                                                @Html.RadioButtonFor(model => model.siteData.StructureClassification, "Cannot determine  ")
-                                                Cannot determine
-                                                @Html.RadioButtonFor(model => model.siteData.StructureClassification, "Vacant lot, no building  ")
-                                                Vacant lot, no building
-                                                @Html.ValidationMessageFor(model => model.siteData.StructureClassification)
 
-                                            </div>
 
-                                        </div>
-                                        <hr />
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.siteData.StructureClassification)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.siteData.StructureClassification, " One residential unit- single-family dwelling")
+                One residential unit- single-family dwelling
+                @Html.RadioButtonFor(model => model.siteData.StructureClassification, "  2-4 residential units ")
+                2-4 residential units
+                @Html.RadioButtonFor(model => model.siteData.StructureClassification, "5 or more residential units  ")
+                5 or more residential units
+                @Html.RadioButtonFor(model => model.siteData.StructureClassification, " Mixed use")
+                Mixed use.
+                @Html.RadioButtonFor(model => model.siteData.StructureClassification, " Commercial only ")
+                Commercial only
+                @Html.RadioButtonFor(model => model.siteData.StructureClassification, "Cannot determine  ")
+                Cannot determine
+                @Html.RadioButtonFor(model => model.siteData.StructureClassification, "Vacant lot, no building  ")
+                Vacant lot, no building
+                @Html.ValidationMessageFor(model => model.siteData.StructureClassification)
+
+            </div>
+
+        </div>
+        <hr />
                                         <div id="Main3">
                                             <div> Some of this information can be found on multiple web-sites. For questions #12, #15-21, #42-43 go to www.cookcountyassessor.com; #12-14 go to ww.newschicago.org; #22-27 - http://www.cookcountytreasurer.com (add ‘0000’ to the end of the PIN number to access this data); #28-33 go to: http://www.cookcountyclerk.com/tsd/tifs/Pages/tifpropertysearch.aspx#12694822780391&56; #34-37 go to http://chicagotribune.public-record.com/realestate/search/cook (search by date 1/01/2015 – 12/31-2015 and zip code); #38-40 go to http://chicago.blockshopper.com/, www.realestate.yahoo.com, http://www.urbanrealestate.com/ and http://www.trulia.com (search by zip code); #41 is visible on the map at: https://gisapps.cityofchicago.org/zoning/. Some of this information is also available at: http://www.cookcountypropertyinfo.com/Pages/pin-search.aspx and http://cookviewer1.cookcountyil.gov/jsviewer/index.html. </div>
                                             <table border="1px" width="600px">
@@ -689,7 +693,7 @@
                                                 @Html.LabelFor(model => model.OnlineInfo.age)
                                             </div>
                                             <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.age )
+                                                @Html.EditorFor(model => model.OnlineInfo.age)
                                                 @Html.ValidationMessageFor(model => model.OnlineInfo.age)
                                             </div>
                                             <br />
@@ -948,20 +952,20 @@
                                         <input type="submit" name="submitButton" value="Save" />
                                         <input type="submit" name="submitButton" value="Submit" />
                                         <input type="submit" name="submitButton" value="Update" />
+                                        <input type="submit" name="submitButton" value="Export" />
                                         <p>
                                             <input type="submit" value="Create" />
                                         </p>
 
     }
 </div>
-   
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-
-<!-- Latest compiled and minified JavaScript 
+<!-- Latest compiled and minified JavaScript
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 -->
 @section Scripts {

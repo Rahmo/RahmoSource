@@ -31,34 +31,37 @@ namespace ICStars2_0.Model
         
         [DbField]
         [Display(Name = "DePaul ID :")]
-        public int? DpuId { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]
+        public string DpuId { get; set; }
        
          [DbField]
        //  [Range(7, 7, ErrorMessage = "Please enter a correct zip code")]
          [Display(Name = " zip Code: ")]
-         [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]   
+        [Required(ErrorMessage = "This field is required.")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]   
          public int? zipCode { get; set; }
          [DbField]
        //  [Range(5, 5, ErrorMessage = "The block number should 5 digits")]
          [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]   
          [Display(Name = "Block Number:")]
-        
-         public int? blockNumber { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
+        public int? blockNumber { get; set; }
          [DbField]
-        
-       //  [Range(14, 14, ErrorMessage = "The PIN should be 14 pin numbers")]
-         [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]   
-         [Display(Name = "PERMANENT INDEX NUMBER (PIN) (14 digit): ")]
-         public int? pinNumber { get; set; 
+        [Required(ErrorMessage = "This field is required.")]
+        //  [Range(14, 14, ErrorMessage = "The PIN should be 14 pin numbers")]
+        [RegularExpression("^[0-9]{14,14}$", ErrorMessage = "Only 14 digits accepted as inputs!")]   
+         [Display(Name = "PERMANENT INDEX NUMBER (PIN) (14 digits): ")]
+       //  [MinLength(14,ErrorMessage = "Minimum length is 14")]
+         public string pinNumber { get; set; 
          }
          [DbField]
-        
-         [MaxLength(50)]
-         [Display(Name = " Zoning (e.g. RT-4): ")]
+        [Required(ErrorMessage = "This field is required.")]
+        //[MaxLength(50)]
+        [Display(Name = " Zoning (e.g. RT-4): ")]
         public string zoning { get; set; }
          [DbField]
-         
-         [Display(Name = " FAR: ")]
+           [Required(ErrorMessage = "This field is required.")]         [Display(Name = " FAR: ")]
          public string far { get; set; }
 
          virtual public GeoSiteData siteData { get; set; }

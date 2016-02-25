@@ -19,6 +19,7 @@ namespace ICStars2_0.Model
         [DbField]
         public int Id { get; set; }
         [DbField]
+      //  [Required(ErrorMessage = "This field is required.")]
         [Display(Name = "1. Main Street-front Façade (facing the main street)")]
         public string mainStreetFacade  { get; set; }
         [DbField]
@@ -32,7 +33,7 @@ namespace ICStars2_0.Model
         [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]   
       //  [Required(ErrorMessage = "This field is required.")]
         [Display(Name = "4.Number (#) of Stories :")]
-        public int numberOfStories { get; set; }
+        public int? numberOfStories { get; set; }
         [DbField]
         [Display(Name = "5.Façade Type : ")]
 

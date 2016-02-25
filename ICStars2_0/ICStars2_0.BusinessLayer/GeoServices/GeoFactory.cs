@@ -21,7 +21,7 @@ namespace ICStars2_0.BusinessLayer.GeoServices
             {
 
                 db.GEO133.Add(model);
-                db.Configuration.ValidateOnSaveEnabled = true; //todo remove this to enable validations
+                db.Configuration.ValidateOnSaveEnabled = false; //todo remove this to enable validations
               return  db.SaveChanges();
             }
             //throw new NotImplementedException();

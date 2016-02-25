@@ -1492,6 +1492,8 @@
     <Content Include="Views\Pages\Index.cshtml" />
     <Content Include="Views\Pages\Faculty.cshtml" />
     <Content Include="Views\Shared\_PartialJumpMenu.cshtml" />
+    <Content Include="Views\Geo133Form\GeoSiteData.cshtml" />
+    <Content Include="Views\Geo133Form\GeoOnlineInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Account.Master.cs">

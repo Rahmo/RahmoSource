@@ -1,0 +1,273 @@
+﻿@model ICStars2_0.Model.GeoSiteData
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("GeoSiteData", "Geo133Form", FormMethod.Post))
+
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>GeoSiteData</legend>
+        <div id="Main2">
+            <div class="textbox">
+                @Html.LabelFor(model => model.mainStreetFacade)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.mainStreetFacade, "Good")
+                Good
+                @Html.RadioButtonFor(model => model.mainStreetFacade, "Fair")
+                Fair
+                @Html.RadioButtonFor(model => model.mainStreetFacade, "Poor")
+                Poor
+                @Html.RadioButtonFor(model => model.mainStreetFacade, "Vacant")
+                Vacant
+
+                @*@Html.EditorFor(model => model.mainStreetFacade)*@
+                @Html.ValidationMessageFor(model => model.mainStreetFacade)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.exterior)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.exterior, "Good")
+                Good
+                @Html.RadioButtonFor(model => model.exterior, "Fair")
+                Fair
+                @Html.RadioButtonFor(model => model.exterior, "Poor")
+                Poor
+                @Html.RadioButtonFor(model => model.exterior, "Vacant")
+                Vacant
+                @Html.ValidationMessageFor(model => model.exterior)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.overallViability)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.overallViability, "Good")
+                Good
+                @Html.RadioButtonFor(model => model.overallViability, "Fair")
+                Fair
+                @Html.RadioButtonFor(model => model.overallViability, "Poor")
+                Poor
+                @Html.RadioButtonFor(model => model.overallViability, "Vacant")
+                Vacant
+                @Html.ValidationMessageFor(model => model.overallViability)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.numberOfStories)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.numberOfStories)
+                @Html.ValidationMessageFor(model => model.numberOfStories)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.facadeType)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.facadeType, "Brick")
+                Brick
+                @Html.RadioButtonFor(model => model.facadeType, "FrameSiding")
+                Frame/Siding
+                @Html.RadioButtonFor(model => model.facadeType, " GreyStone")
+                GreyStone
+                @Html.RadioButtonFor(model => model.facadeType, "Mixed")
+                Vacant
+                @Html.RadioButtonFor(model => model.facadeType, "Other ")
+                Mixed
+                @Html.RadioButtonFor(model => model.facadeType, "Vacant")
+                Other
+                @Html.ValidationMessageFor(model => model.facadeType)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.patchesExposed)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.patchesExposed)
+                @Html.ValidationMessageFor(model => model.patchesExposed)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.GardenActivity)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.GardenActivity)
+                @Html.ValidationMessageFor(model => model.GardenActivity)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.EvidenceOfGardenType)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.EvidenceOfGardenType, "Raised beds ")
+                Raised beds
+                @Html.RadioButtonFor(model => model.EvidenceOfGardenType, "In the ground ")
+                In the ground
+                @Html.RadioButtonFor(model => model.EvidenceOfGardenType, "PlantPots")
+                Plant pots
+
+                @Html.ValidationMessageFor(model => model.EvidenceOfGardenType)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.SignPostedOnBuilding)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.SignPostedOnBuilding, "Red and white sign indicating zoning change request")
+                Red and white sign indicating zoning change request
+                @Html.RadioButtonFor(model => model.SignPostedOnBuilding, " For sale sign")
+                For sale sign
+                @Html.RadioButtonFor(model => model.SignPostedOnBuilding, " For rent/lease sign ")
+                For rent/lease sign
+                @Html.RadioButtonFor(model => model.SignPostedOnBuilding, "None  ")
+                None
+                @Html.ValidationMessageFor(model => model.SignPostedOnBuilding)
+            </div>
+            <br />
+            <table border="1px" width="500px">
+                <tr>
+                    <td></td>
+                    <td>USe</td>
+                    <td>Occupancy</td>
+                </tr>
+                <tr>
+                    <td>1st </td>
+                    <td>
+                        @Html.EditorFor(model => model.FirstUse)
+                        @Html.ValidationMessageFor(model => model.FirstUse)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.FirstOccupancy)
+                        @Html.ValidationMessageFor(model => model.FirstOccupancy)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>2nd </td>
+                    <td>
+                        @Html.EditorFor(model => model.SecondUse)
+                        @Html.ValidationMessageFor(model => model.SecondUse)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.SecondOccupancy)
+                        @Html.ValidationMessageFor(model => model.SecondOccupancy)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>3rd </td>
+                    <td>
+                        @Html.EditorFor(model => model.ThirdUse)
+                        @Html.ValidationMessageFor(model => model.ThirdUse)
+                    </td>
+
+                    <td>
+                        @Html.EditorFor(model => model.ThirdOccupancy)
+                        @Html.ValidationMessageFor(model => model.ThirdOccupancy)
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td>4th </td>
+                    <td>
+                        @Html.EditorFor(model => model.FourthUse)
+                        @Html.ValidationMessageFor(model => model.FourthUse)
+                    </td>
+
+                    <td>
+                        @Html.EditorFor(model => model.FourthOccupancy)
+                        @Html.ValidationMessageFor(model => model.FourthOccupancy)
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td>back/rear </td>
+                    <td>
+                        @Html.EditorFor(model => model.BackRearUse)
+                        @Html.ValidationMessageFor(model => model.BackRearUse)
+                    </td>
+
+                    <td>
+                        @Html.EditorFor(model => model.BackRearOccupancy)
+                        @Html.ValidationMessageFor(model => model.BackRearOccupancy)
+                    </td>
+
+
+                </tr>
+            </table>
+            <lable>
+                <b>
+                    USE CODES:
+                    C- Commercial/Retail
+                    R-	Residential
+                    I-	Industrial
+                    O-	Office
+                    VL - Vacant lot, no building
+                    G - Garage
+                    D-	Cannot Determine
+
+                </b>
+                <br />
+                <b>
+                    OCCUPANCY CODES:
+                    OF-Occupied floor
+                    VF- Vacant floor
+                    VL-Vacant lot, no building
+                    G- Garage
+                    D- Cannot determine
+
+                </b>
+            </lable>
+
+
+
+
+
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.StructureClassification)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.StructureClassification, " One residential unit- single-family dwelling")
+                One residential unit- single-family dwelling
+                @Html.RadioButtonFor(model => model.StructureClassification, "  2-4 residential units ")
+                2-4 residential units
+                @Html.RadioButtonFor(model => model.StructureClassification, "5 or more residential units  ")
+                5 or more residential units
+                @Html.RadioButtonFor(model => model.StructureClassification, " Mixed use")
+                Mixed use.
+                @Html.RadioButtonFor(model => model.StructureClassification, " Commercial only ")
+                Commercial only
+                @Html.RadioButtonFor(model => model.StructureClassification, "Cannot determine  ")
+                Cannot determine
+                @Html.RadioButtonFor(model => model.StructureClassification, "Vacant lot, no building  ")
+                Vacant lot, no building
+                @Html.ValidationMessageFor(model => model.StructureClassification)
+
+            </div>
+
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+@*@using (Html.BeginForm())
+{
+   
+ 
+}*@
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

@@ -20,39 +20,79 @@
         });
 
         $("#OnlineInfo_AssessedValuesBuilding__").change(function () {
-         
-            var LandVal =   parseInt($('#OnlineInfo_AssessedValuesLand__').val());
-            var Building =   parseInt($('#OnlineInfo_AssessedValuesBuilding__').val());
-           
-            var result = LandVal + Building;
-            $('#OnlineInfo_AssessedValuesTotal__').val(result);
+            var a = ($('#OnlineInfo_AssessedValuesLand__').val());
+            var b = $('#OnlineInfo_AssessedValuesBuilding__').val();
+            if (a == "") {
+                a = 0; 
+            }
+            if (b == "") {
+                b = 0; 
+            }
+            var LandVal = parseInt(a);
+            var Building =   parseInt(b);
+            // alert(LandVal +""+ isNaN(Building));
+       
+                var result = LandVal + Building;
+                $('#OnlineInfo_AssessedValuesTotal__').val(result);
         });
         $("#OnlineInfo_AssessedValuesBuilding_").change(function () {
-           
-            var LandVal = parseInt($('#OnlineInfo_AssessedValuesLand_').val());
-            var Building = parseInt($('#OnlineInfo_AssessedValuesBuilding_').val());
+            var a = ($('#OnlineInfo_AssessedValuesLand_').val());
+            var b = $('#OnlineInfo_AssessedValuesBuilding_').val();
+            if (a == "") {
+                a = 0;
+            }
+            if (b == "") {
+                b = 0;
+            }
+            var LandVal = parseInt(a);
+            var Building = parseInt(b);
 
             var result = LandVal + Building;
             $('#OnlineInfo_AssessedValuesTotal_').val(result);
         });
         $("#OnlineInfo_AssessedValuesTotal").change(function () {
-           
-            var LandVal = parseInt($('#OnlineInfo_AssessedValuesLand').val());
-            var Building = parseInt($('#OnlineInfo_AssessedValuesBuilding').val());
-            var total = parseInt($('#OnlineInfo_AssessedValuesTotal').val());
+            var a = ($('#OnlineInfo_AssessedValuesLand').val());
+            var b = $('#OnlineInfo_AssessedValuesBuilding').val();
+            var c = $('#OnlineInfo_AssessedValuesTotal').val();
+            if (a == "") {
+                a = 0;
+            }
+            if (b == "") {
+                b = 0;
+            }
+            if (c == "") {
+                c = 0;
+            }
+            var LandVal = parseInt(a);
+            var Building = parseInt(b);
+            var total = parseInt(c);
             var result = LandVal + Building + total;
             $('#OnlineInfo_AssessedValuesEstMkt').val(result);
         });
         $("#OnlineInfo_AssessedValuesTotalPlus").change(function () {
-          
-            var LandVal = parseInt($('#OnlineInfo_AssessedValuesLandPlus').val());
-            var Building = parseInt($('#OnlineInfo_AssessedValuesBuildingPlus').val());
-            var total = parseInt($('#OnlineInfo_AssessedValuesTotalPlus').val());
+            var a = $('#OnlineInfo_AssessedValuesLandPlus').val();
+            var b = $('#OnlineInfo_AssessedValuesBuildingPlus').val();
+            var c = $('#OnlineInfo_AssessedValuesTotalPlus').val();
+            if (a == "") {
+                a = 0;
+            }
+            if (b == "") {
+                b = 0;
+            }
+            if (c == "") {
+                c = 0;
+            }
+             
+            var LandVal = parseInt(a);
+            var Building = parseInt(b);
+            var total = parseInt(c);
             var result = LandVal + Building + total;
             $('#OnlineInfo_AssessedValuesEstMktPlus').val(result);
         });
-          $("#DpuId").change(function () {
-            var DpuVal = $('#DpuId').val();
+        $("#searchRecord").click(function () {
+              var DpuVal = $('#DpuId').val();
+              var pinNo = $('#pinNumber').val();
+       
             // alert(DpuVal);
 
             // event.preventDefault();
@@ -60,7 +100,7 @@
             $.ajax({
                 Type: "GET/POST",
                 ContentType: "application/json;charset=utf-8",
-                url: '@Url.Action("load", "Geo133Form")?DpuId=' + DpuVal + '',
+                url: '@Url.Action("load", "Geo133Form")?DpuId=' + DpuVal + '&pinNo='+pinNo+'',
 
                 dataType: "json",
                 success: function (data) {
@@ -216,13 +256,9 @@
             }
         });
 
-       // .datepicker({ changeMonth: true, changeYear: true, yearRange: "-10:+10", dateFormat: "dd/mm/yy", buttonText: "Choose", showOtherMonths: true, selectOtherMonths: true, onSelect: function (dateText, inst) { var date = $(this).val(); var time = $('#time').val(); alert('on select triggered'); } });
-        //$("input[name$='OnlineInfo.yearBuild']").attr("readonly", "true").datepicker({
-        //    changeMonth: true,
-        //    changeYear: true
-        //});
+
        
-        jQuery("#OnlineInfo_yearBuild").datepicker({
+        jQuery("#OnlineInfo_yearBuild").attr("readonly", "true").datepicker({
 
           
             dateFormat: 'mm yy',
@@ -239,7 +275,7 @@
         });
 
 
-        jQuery("#OnlineInfo_saleDate").datepicker({
+        jQuery("#OnlineInfo_saleDate").attr("readonly", "true").datepicker({
 
             changeYear: true,
             changeMonth: true,
@@ -249,7 +285,7 @@
         });
         
       
-        jQuery("#OnlineInfo_PhotoDate").datepicker({
+        jQuery("#OnlineInfo_PhotoDate").attr("readonly", "true").datepicker({
 
             changeYear: true,
             changeMonth: true,
@@ -259,7 +295,7 @@
         });
 
         
-        jQuery("#OnlineInfo_StudentPhotoDate").datepicker({
+        jQuery("#OnlineInfo_StudentPhotoDate").attr("readonly", "true").datepicker({
 
             changeYear: true,
             changeMonth: true,

@@ -27,14 +27,15 @@ namespace ICStars2_0.Model
         //public virtual GeoTaxTreasuedSite taxTreasuredSite { get; set; }
          //[DbField]
          [Display(Name = "13. Year Built (from newschicago.org):")]
-         //[Required(ErrorMessage = "This field is required.")]
-       
-         
-         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM.yy}")]
+        
+
+
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM.yy}")]
+       // [Required(ErrorMessage = "This field is required.")]
         public DateTime? yearBuild { get; set; }
     [DbField]
- //   [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]  
-   // [Required(ErrorMessage = "This field is required.")]
+  // [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]  
+  //  [Required(ErrorMessage = "This field is required.")]
     [Display(Name = "14. Census Tract:")]
     
    // [Range(4,4)]
@@ -45,11 +46,11 @@ namespace ICStars2_0.Model
     [Display(Name = "15 Property Class:")]
     public string propertyClass { get; set; }
     [DbField]
-    //[Required(ErrorMessage = "This field is required.")]
+ //   [Required(ErrorMessage = "This field is required.")]
    // [Range(0, 10, ErrorMessage= "Please enter the stories.")]
-   // [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]  
+    [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]  
     [Display(Name = "16. Stories : ")]
-    public int Stories { get; set; }
+    public int? Stories { get; set; }
 
     [DbField]
     [Display(Name="17.Buidling sq. Footage")]
@@ -68,15 +69,11 @@ namespace ICStars2_0.Model
         //[MaxLength(3, ErrorMessage="Max length is 3 digits")]
         //[Range(0, 3 , ErrorMessage="Max length is 3 digits")]
         [DefaultValue("N/A")]
-        public string age {
-
-        get { return NA; }
-        set { NA = value; }
-    }
+        public string age  { get; set; }
         [DefaultValue(0)]
         [DbField]
     [Display(Name = "21. Property Tax Exemptions (Assessor site): ")]
-    public double PropertyTaxExemptions { get; set; }
+    public double? PropertyTaxExemptions { get; set; }
    
     [DbField]
     [Display(Name = "In 2014 the Property Tax Exemption was:   ")]
@@ -110,34 +107,35 @@ namespace ICStars2_0.Model
     [DbField]
    // [DataType(DataType.Currency, ErrorMessage = "Only percentage values allowed")]
     [Display(Name = "29. TIF-City of Chicago Pilsen Area:")]
-        public double TifArea { get; set; }
+        public double? TifArea { get; set; }
     [DbField]
   //  [DataType(DataType.Currency, ErrorMessage = "Only percentage values allowed")]
     [Display(Name = "30. Board of Education: ")]
-        public double BoardOfEducation { get; set; }
+        public double? BoardOfEducation { get; set; }
     [DbField]
   //  [DataType(DataType.Currency, ErrorMessage = "Only percentage values allowed")]
     [Display(Name = "31. City of Chicago School Building and Improvement:")]
-        public double SchoolImprovments  { get; set; }
+        public double? SchoolImprovments  { get; set; }
     [DbField]
    // [DataType(DataType.Currency, ErrorMessage = "Only percentage values allowed")]
     [Display(Name = "32. City of Chicago Park District:")]
-        public double ParkDistrict { get; set; }
+        public double? ParkDistrict { get; set; }
     [DbField]
    // [DataType(DataType.Currency, ErrorMessage = "Only percentage values allowed")]
     [Display(Name = "33. City of Chicago Library Fund:")]
-        public double LibraryFund { get; set; }
+        public double? LibraryFund { get; set; }
     [DbField]
     [Display(Name = "34. Was the property sold in 2015?")]
         public bool isPropertySoldInCurrentYear  { get; set; }
     [DbField]
    
     [Display(Name = "35. What was the sale date of the property?")]
+       // [Required(ErrorMessage = "This field is required.")]
         public DateTime? saleDate { get; set; }
     [DbField]
     //[DataType(DataType.Currency, ErrorMessage = "Only percentage values allowed")]
     [Display(Name = "36. What was the sale price of the property?")]
-    public double salePrice { get; set; }
+    public double? salePrice { get; set; }
     [DbField]
     
    // [Required(ErrorMessage="This field is required.")]
@@ -156,9 +154,10 @@ namespace ICStars2_0.Model
     public double? listedPrice { get; set; }
     [DbField]
     [Display(Name = "40. How many bedrooms ?")]
+    [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")] 
    // [Range(0, 3, ErrorMessage = "Please enter the bedrooms number")]
    // [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")] 
-    public int bedroomsNumber { get; set; }
+    public int? bedroomsNumber { get; set; }
     [DbField]
     [Display(Name = "41. Is the building rated as Orange:")]
         public bool isOrange { get; set; }
@@ -168,7 +167,7 @@ namespace ICStars2_0.Model
     [DbField]
  
     [Display(Name = "43. Assessor’s Office photo date ")]
-     
+       // [Required(ErrorMessage = "This field is required.")]
 
         public DateTime? PhotoDate { get; set; }
     [DbField]
@@ -178,7 +177,7 @@ namespace ICStars2_0.Model
       
 
     [Display(Name = "45 Your Photo Date")]
-    
+     //   [Required(ErrorMessage = "This field is required.")]
         public DateTime? StudentPhotoDate { get; set; }
     [DbField]
     [Display(Name = "")]
