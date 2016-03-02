@@ -49,72 +49,152 @@ $(window).scroll(function(){
 
 </script>
 <style type="text/css">
-    #side-menu {
-        position: fixed;
-        z-index: 1;
-        background: white;
-        left: 0;
-        right: 0;
-        top: 180px;
-        width: 230px;
+     /* Iphone 5 */
+     @@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+         #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            margin-left: 60%;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 12%;
+        } 
+          
+     }
+
+
+    /* Iphone 6 */
+    @@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            margin-left: 70%;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 12%;
+        }
     }
 
-        #side-menu li {
-            background-color: #2E6C9F;
-        }
 
-        #side-menu a {
-            display: block;
-            padding: 5px 25px 7px 25px;
-            width: auto;
-            text-align: center;
-            -webkit-transition: .5s all ease-out;
-            -moz-transition: .5s all ease-out;
-            transition: .5s all ease-out;
-            border-top: 1px solid white;
-            color: #d2d2d2;
-            text-decoration: none;
-        }
+    
 
-            #side-menu a:hover {
-                color: white;
-            }
-
-        #side-menu li.active a {
-            border-right: 3px solid #333;
-            color: black;
-            background-color: #d4d4d4;
+    @@media only screen and (min-width: 668px) and (max-width: 1299px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 12%;
         }
+    }
+    @@media only screen and (min-width: 1300px) and (max-width: 1439px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 14%;
+        }
+    }
+    @@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 16.3%;
+        }
+    }
+
+     
+ 
+    @@media  only screen and (min-width: 1920px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            left: 0;
+            margin-left: 9%;
+            right: 0;
+            top: 180px;
+            width: 16.1%;
+        }
+    }
+
+
+
+  
+
+
+    #side-menu li {
+        background-color: #2E6C9F;
+    }
+
+    #side-menu a {
+        display: block;
+        padding: 5px 25px 7px 25px;
+        width: auto;
+        text-align: center;
+        -webkit-transition: .5s all ease-out;
+        -moz-transition: .5s all ease-out;
+        transition: .5s all ease-out;
+        border-top: 1px solid white;
+        color: #d2d2d2;
+        text-decoration: none;
+    }
+
+    #side-menu a:hover {
+        color: white;
+    }
+
+    #side-menu li.active a {
+        border-right: 3px solid #333;
+        color: black;
+        background-color: #d4d4d4;
+    }
 
     blockquote {
-        background: #f9f9f9;
-        border-left: 10px solid #ccc;
+      
         margin: 1.5em 10px;
         padding: 0.5em 10px;
         quotes: "\201C""\201D""\2018""\2019";
     }
 
-        blockquote:before {
-            color: #ccc;
-            content: open-quote;
-            font-size: 4em;
-            line-height: 0.1em;
-            margin-right: 0.25em;
-            vertical-align: -0.4em;
-        }
+    blockquote:before {
+      
+        content: open-quote;
+        font-size: 2em;
+        line-height: 0.1em;
+       margin-right: 0.15em;
+        vertical-align: -0.4em;
+    }
 
-        blockquote:after {
-            color: #ccc;
-            content: close-quote;
-            font-size: 4em;
-            line-height: 0.1em;
-            margin-right: 0.25em;
-            vertical-align: -0.4em;
-        }
+    blockquote:after {
+       
+        content: close-quote;
+        font-size: 2em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+    }
 
-        blockquote p {
-            display: inline;
-        }
+    blockquote p {
+        display: inline;
+    }
 </style>
 <style type="text/css">
     #sideBar {

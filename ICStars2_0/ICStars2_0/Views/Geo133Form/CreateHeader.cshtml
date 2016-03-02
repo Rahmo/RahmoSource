@@ -9,7 +9,7 @@
     $(function () {
 
         $("#toBottom").click(function (e) {
-            alert("hereRAhm")
+          
             // Prevent a page reload when a link is pressed
             e.preventDefault();
             // Call the scroll function
@@ -104,23 +104,31 @@
 
                 dataType: "json",
                 success: function (data) {
+              
+                    alert("Our records indicates that you have a form registered with your info, Please continue updating it then press 'save' !");
 
+                    $('#SecondVeiw').show();
+                   
                     fillView(data);
 
                 },
 
                 error: function (xhr, status, error) {
-                    var err = eval("(" + xhr.responseText + ")");
-                    alert(err.Message);
+                    console.log("The request failed");
+                    $('#SecondVeiw').show();
+                    alert('You informations have not been seved yet, Please press "Create" below');
                 }
 
 
             });
           
 
-              function DateFormate(dateConvert) {
+            function DateFormate(dateConvert) {
+                if (dateConvert == null) { return }
+                else {
                   return $.datepicker.formatDate("mm-dd-yy", eval('new ' + dateConvert.slice(1, -1)));
-              };
+                     }
+                };
               var fillView = function (data) {
                   
                 //var newDate = dateFormat(data.OnlineInfo.saleDate, "mm/dd/yyyy");

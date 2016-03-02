@@ -1487,13 +1487,17 @@
     <Content Include="Views\Geo133Form\CreateHeader.cshtml" />
     <Content Include="Views\Geo133Form\List.cshtml" />
     <Content Include="Views\Shared\SubNavsVertForLayout.cshtml" />
-    <Content Include="Views\Shared\_LayoutVerticalMenu.cshtml" />
     <Content Include="Views\Home\Faculty.cshtml" />
     <Content Include="Views\Pages\Index.cshtml" />
     <Content Include="Views\Pages\Faculty.cshtml" />
     <Content Include="Views\Shared\_PartialJumpMenu.cshtml" />
     <Content Include="Views\Geo133Form\GeoSiteData.cshtml" />
     <Content Include="Views\Geo133Form\GeoOnlineInfo.cshtml" />
+    <Content Include="Views\Geo133Form\Header.cshtml" />
+    <Content Include="Views\Geo133Form\Footer.cshtml" />
+    <None Include="Views\Geo133Form\Export.cshtml" />
+    <None Include="Views\Geo133Form\student.cshtml" />
+    <None Include="Views\Geo133Form\teacher.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Account.Master.cs">

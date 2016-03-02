@@ -52,45 +52,26 @@ namespace ICStars2_0.Controllers
             
                 return View();
             }
-            if (submitButton == "Save")
+            if (submitButton == "Create")
             {
-                //foreach (var key in ModelState.Keys.ToList().Where(key => ModelState.ContainsKey(key)))
-                //    {
-                //        //ModelState.Remove(key); //This was my solution before
-                //        ModelState[key].Errors.Clear(); //This is my new solution. Thanks bbak
-                //    }
-                // delegate sending to another controller action
+       
                 if (ModelState.IsValid)
                 {
                    
-                    return save(model);
+                    return Create(model);
                 }
              
                     return View();
                 
 
             }
-            if (submitButton == "Submit")
-            {
-                // call another action to perform the cancellation
-                return submit(model);
-            }
-            if (submitButton == "Export")
-            {
-                // call another action to perform the cancellation
-                return ExportToExcel(model.DpuId);
-            }
+   
 
-            if (submitButton == "Update")
+            if (submitButton == "Save")
             {
                 return update(model);
             }
-            // ModelState.Clear()
-            //if (ModelState.IsValid)
-            //{
-
-            geoFactory.Add(model);
-            //}
+       
             return View();
         }
 
@@ -180,13 +161,22 @@ namespace ICStars2_0.Controllers
             // it is important to put allow get 
         }
 
-        private ActionResult submit(GEO133 model)
+    
+
+        public ActionResult student()
         {
-            geoFactory.Add(model);
-            //throw new NotImplementedException();
-            return Main();
+            return View();
         }
 
+        public ActionResult teacher()
+        {
+            return View();
+        }
+
+        public ActionResult Export()
+        {
+            return View();
+        }
 
         public ActionResult List(string sortOrder, string currentFilter, string searchString, int? page)
         {
@@ -553,11 +543,22 @@ namespace ICStars2_0.Controllers
             }
         }
        
-        private ActionResult save(GEO133 model)
+        private ActionResult Create(GEO133 model)
         {
-            geoFactory.Add(model);
+            try
+            {
+               geoFactory.Add(model);
+                TempData["Response"] = "Your form has been saved succefully! ";
+                return RedirectToAction("Main");
+            }
+            catch (Exception exception)
+            {
 
-            return Main();
+                Console.WriteLine("IOException source: {0}", exception.Source);
+            }
+            
+
+            return View();
             //  throw new NotImplementedException();
         }
 

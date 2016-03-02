@@ -1,4 +1,5 @@
-﻿@model ICStars2_0.Model.GEO133
+﻿@using Org.BouncyCastle.Crypto.Tls
+@model ICStars2_0.Model.GEO133
 
 <head>
     <!-- Latest compiled and minified CSS-->
@@ -132,148 +133,174 @@
 </style>
 
 @*@Html.Partial("GEO133", new ICStars2_0.Model.GEO133 { Name = "content" })*@
+<script type="text/javascript">
 
+    $(document).ready(function () {
+
+
+        $('#SecondVeiw').hide();
+        alert('If you are retreiving your form, only Enter your DpuID and the PIN number!');
+    });
+
+</script>
 <div class="container">
-    @*<div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        </div>*@
-    <h2>Main</h2>
 
 
 
-    @using (Html.BeginForm())
+    @Html.Partial("Header");
+    @if (TempData["Response"] != null)
     {
+        var message = TempData["Response"].ToString();
+        <script type="text/javascript">
 
-        @Html.HiddenFor(model => model.Id)
-        @Html.HiddenFor(model => model.siteData.Id)
-        @Html.HiddenFor(model => model.OnlineInfo.Id)
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+            alert(" @message");
+        </script>
 
+    }
 
-        <legend>GEO133</legend>
+@*<div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    </div>*@
 
-                                        <div id="Main">
-                                            <label> Please enter you DePaul ID <b>First</b> :  </label>
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.DpuId)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.DpuId)
-                                                @Html.ValidationMessageFor(model => model.DpuId)
-                                            </div>
-
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.buildingAddress)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.buildingAddress)
-                                                @Html.ValidationMessageFor(model => model.buildingAddress)
-                                            </div>
-                                            <br />   <div class="textbox">
-                                                @Html.LabelFor(model => model.zoning)
-                                            </div>
-                                            <div class="textbox">
+<br /><br />
+<h2>Enter your building information</h2>
 
 
+@using (Html.BeginForm())
+{
+
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.siteData.Id)
+    @Html.HiddenFor(model => model.OnlineInfo.Id)
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <legend>GEO133</legend>
+
+    <div id="Main">
+        <label> Please enter you DePaul ID <b>First</b> : </label>
+        <div class="textbox">
+            @Html.LabelFor(model => model.DpuId)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.DpuId)
+            @Html.ValidationMessageFor(model => model.DpuId)
+        </div>
+
+        <div class="textbox">
+            @Html.LabelFor(model => model.buildingAddress)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.buildingAddress)
+            @Html.ValidationMessageFor(model => model.buildingAddress)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.zoning)
+        </div>
+        <div class="textbox">
 
 
 
-                                                @Html.DropDownListFor(model => model.zoning, new SelectList(
-    new List<SelectListItem>
-    {
-          new SelectListItem{ Selected= true , Value = "N/A" , Text = "N/A"  },
-        new SelectListItem{ Value = "B1-1" , Text = "B1-1"  },
-                new SelectListItem { Value = "B1-2" , Text = "B1-2" },
-                new SelectListItem{ Value = "B1-3" , Text = "B1-3"},
-                 new SelectListItem{ Value = "B2-2" , Text = "B2-2"  },
-                new SelectListItem{ Value = "B2-3" , Text = "B2-3" },
-                new SelectListItem{ Value = "B3-2" , Text = "B3-2"},
-                 new SelectListItem{ Value = "C1-1" , Text = "C1-1"  },
-                new SelectListItem{ Value = "C1-2" , Text = "C1-2" },
-                new SelectListItem{ Value = "C1-3" , Text = "C1-3"},
-                 new SelectListItem{ Value = "C2-1" , Text = "C2-1"  },
-                new SelectListItem{ Value = "C2-2" , Text = "C2-2" },
-                new SelectListItem{ Value = "C2-3" , Text = "C2-3"},
-                new SelectListItem{ Value = "M1-2" , Text = "M1-2"  },
-                new SelectListItem{ Value = "PD-86" , Text = "PD-86" },
-                new SelectListItem{ Value = "PD-1012" , Text = "PD-1012"},
-                 new SelectListItem{ Value = "POS-2" , Text = "POS-2"  },
-                new SelectListItem{ Value = "RM-4.5" , Text = "RM-4.5" },
-                new SelectListItem{ Value = "RM-5" , Text = "RM-5"  },
-                new SelectListItem{ Value = " RT-4" , Text = " RT-4" },
-                new SelectListItem{ Value = "RS-3" , Text = "RS-3"},
-
-                new SelectListItem{ Value = "other" , Text = "other" },
-
-    }, "Value", "Text", 1))
-
-                                                @Html.ValidationMessageFor(model => model.zoning)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.zipCode)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.zipCode)
-                                                @Html.ValidationMessageFor(model => model.zipCode)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.blockNumber)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.blockNumber)
-                                                @Html.ValidationMessageFor(model => model.blockNumber)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.pinNumber)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.pinNumber)
-                                                @Html.ValidationMessageFor(model => model.pinNumber)
-                                            </div>
-
-                                            <br />
-
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.far)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.DropDownListFor(model => model.far, new SelectList(
-    new List<SelectListItem>
-    {
-          new SelectListItem{ Selected= true , Value = "N/A" , Text = "N/A"  },
-        new SelectListItem{ Value = "0.9" , Text = "0.9"  },
-                new SelectListItem { Value = "1.05" , Text = "1.05" },
-                new SelectListItem{ Value = "1.2" , Text = "1.2"},
-                 new SelectListItem{ Value = "1.5" , Text = "1.5"  },
-                new SelectListItem{ Value = "1.7" , Text = "1.7" },
-                new SelectListItem{ Value = "2.0" , Text = "2.0"},
-                 new SelectListItem{ Value = "2.2" , Text = "2.2"  },
-                new SelectListItem{ Value = "2.5" , Text = "2.5" },
-                new SelectListItem{ Value = "3.0" , Text = "3.0"},
-                 new SelectListItem{ Value = "4.4" , Text = "4.4"  },
-                new SelectListItem{ Value = "5.0" , Text = "5.0" },
-                new SelectListItem{ Value = "6.6" , Text = "6.6"},
 
 
-    }, "Value", "Text", 1))
-                                                @Html.ValidationMessageFor(model => model.far)
+            @Html.DropDownListFor(model => model.zoning, new SelectList(
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Selected = true, Value = "N/A", Text = "N/A"},
+                    new SelectListItem {Value = "B1-1", Text = "B1-1"},
+                    new SelectListItem {Value = "B1-2", Text = "B1-2"},
+                    new SelectListItem {Value = "B1-3", Text = "B1-3"},
+                    new SelectListItem {Value = "B2-2", Text = "B2-2"},
+                    new SelectListItem {Value = "B2-3", Text = "B2-3"},
+                    new SelectListItem {Value = "B3-2", Text = "B3-2"},
+                    new SelectListItem {Value = "C1-1", Text = "C1-1"},
+                    new SelectListItem {Value = "C1-2", Text = "C1-2"},
+                    new SelectListItem {Value = "C1-3", Text = "C1-3"},
+                    new SelectListItem {Value = "C2-1", Text = "C2-1"},
+                    new SelectListItem {Value = "C2-2", Text = "C2-2"},
+                    new SelectListItem {Value = "C2-3", Text = "C2-3"},
+                    new SelectListItem {Value = "M1-2", Text = "M1-2"},
+                    new SelectListItem {Value = "PD-86", Text = "PD-86"},
+                    new SelectListItem {Value = "PD-1012", Text = "PD-1012"},
+                    new SelectListItem {Value = "POS-2", Text = "POS-2"},
+                    new SelectListItem {Value = "RM-4.5", Text = "RM-4.5"},
+                    new SelectListItem {Value = "RM-5", Text = "RM-5"},
+                    new SelectListItem {Value = " RT-4", Text = " RT-4"},
+                    new SelectListItem {Value = "RS-3", Text = "RS-3"},
 
-                                            <input type="button"  value="Search" id="searchRecord"/>
-                                            </div>
-                                            <hr />
+                    new SelectListItem {Value = "other", Text = "other"},
 
-                                            <br />
-                                        </div>
-        //TODO
+                }, "Value", "Text", 1))
+
+            @Html.ValidationMessageFor(model => model.zoning)
+        </div>
+        <div class="textbox">
+            @Html.LabelFor(model => model.zipCode)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.zipCode)
+            @Html.ValidationMessageFor(model => model.zipCode)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.blockNumber)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.blockNumber)
+            @Html.ValidationMessageFor(model => model.blockNumber)
+        </div>
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.pinNumber)
+        </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.pinNumber)
+            @Html.ValidationMessageFor(model => model.pinNumber)
+        </div>
+
+        <br />
+
+        <br />
+        <div class="textbox">
+            @Html.LabelFor(model => model.far)
+        </div>
+        <div class="textbox">
+            @Html.DropDownListFor(model => model.far, new SelectList(
+                new List<SelectListItem>
+                {
+                    new SelectListItem {Selected = true, Value = "N/A", Text = "N/A"},
+                    new SelectListItem {Value = "0.9", Text = "0.9"},
+                    new SelectListItem {Value = "1.05", Text = "1.05"},
+                    new SelectListItem {Value = "1.2", Text = "1.2"},
+                    new SelectListItem {Value = "1.5", Text = "1.5"},
+                    new SelectListItem {Value = "1.7", Text = "1.7"},
+                    new SelectListItem {Value = "2.0", Text = "2.0"},
+                    new SelectListItem {Value = "2.2", Text = "2.2"},
+                    new SelectListItem {Value = "2.5", Text = "2.5"},
+                    new SelectListItem {Value = "3.0", Text = "3.0"},
+                    new SelectListItem {Value = "4.4", Text = "4.4"},
+                    new SelectListItem {Value = "5.0", Text = "5.0"},
+                    new SelectListItem {Value = "6.6", Text = "6.6"},
+
+
+                }, "Value", "Text", 1))
+            @Html.ValidationMessageFor(model => model.far)
+
+            <input type="button" class="btn-success btn-sm" value="Next" id="searchRecord" />
+        </div>
+        <hr />
+
+        <br />
+    </div>
+    //TODO
+    <div id="SecondVeiw">
         <div id="Main2">
             <div class="textbox">
                 @Html.LabelFor(model => model.siteData.mainStreetFacade)
@@ -394,7 +421,7 @@
                 @Html.ValidationMessageFor(model => model.siteData.SignPostedOnBuilding)
             </div>
             <br />
-            <table border="1px" width="500px">
+            <table border="1" width="500px">
                 <tr>
                     <td></td>
                     <td>USe</td>
@@ -471,12 +498,12 @@
                 <b>
                     USE CODES:
                     C- Commercial/Retail
-                    R-	Residential
-                    I-	Industrial
-                    O-	Office
+                    R- Residential
+                    I- Industrial
+                    O- Office
                     VL - Vacant lot, no building
                     G - Garage
-                    D-	Cannot Determine
+                    D- Cannot Determine
 
                 </b>
                 <br />
@@ -520,445 +547,444 @@
 
         </div>
         <hr />
-                                        <div id="Main3">
-                                            <div> Some of this information can be found on multiple web-sites. For questions #12, #15-21, #42-43 go to www.cookcountyassessor.com; #12-14 go to ww.newschicago.org; #22-27 - http://www.cookcountytreasurer.com (add ‘0000’ to the end of the PIN number to access this data); #28-33 go to: http://www.cookcountyclerk.com/tsd/tifs/Pages/tifpropertysearch.aspx#12694822780391&56; #34-37 go to http://chicagotribune.public-record.com/realestate/search/cook (search by date 1/01/2015 – 12/31-2015 and zip code); #38-40 go to http://chicago.blockshopper.com/, www.realestate.yahoo.com, http://www.urbanrealestate.com/ and http://www.trulia.com (search by zip code); #41 is visible on the map at: https://gisapps.cityofchicago.org/zoning/. Some of this information is also available at: http://www.cookcountypropertyinfo.com/Pages/pin-search.aspx and http://cookviewer1.cookcountyil.gov/jsviewer/index.html. </div>
-                                            <table border="1px" width="600px">
+        <div id="Main3">
+            <div> Some of this information can be found on multiple web-sites. For questions #12, #15-21, #42-43 go to www.cookcountyassessor.com; #12-14 go to ww.newschicago.org; #22-27 - http://www.cookcountytreasurer.com (add ‘0000’ to the end of the PIN number to access this data); #28-33 go to: http://www.cookcountyclerk.com/tsd/tifs/Pages/tifpropertysearch.aspx#12694822780391&56; #34-37 go to http://chicagotribune.public-record.com/realestate/search/cook (search by date 1/01/2015 – 12/31-2015 and zip code); #38-40 go to http://chicago.blockshopper.com/, www.realestate.yahoo.com, http://www.urbanrealestate.com/ and http://www.trulia.com (search by zip code); #41 is visible on the map at: https://gisapps.cityofchicago.org/zoning/. Some of this information is also available at: http://www.cookcountypropertyinfo.com/Pages/pin-search.aspx and http://cookviewer1.cookcountyil.gov/jsviewer/index.html. </div>
+            <table border="1" width="600px">
 
-                                                <tr>
+                <tr>
 
-                                                    <td style="border:0px" class="auto-style2"></td>
-                                                    <td colspan="2" class="auto-style2">Assessed Value (newschicgao)</td>
-                                                    <td colspan="2" class="auto-style2">Assessed Value (cookcounty)</td>
-                                                </tr>
-                                                <tr><td style="border:0px"></td><td class="auto-style1">1999</td><td>2001</td><td>2014</td><td>2015</td></tr>
-                                                <tr>
-                                                    <td class="auto-style3">Land (L)</td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLand__) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLand__)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLand_) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLand_)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLand) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLand)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLandPlus) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLandPlus)
-                                                    </td>
-
-
-                                                </tr>
-                                                <tr>
-                                                    <td>Building (B)</td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuilding__) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuilding__)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuilding_) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuilding_)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuilding) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuilding)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuildingPlus) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuildingPlus)
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Total</td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotal__) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotal__)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotal_) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotal_)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotal) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotal)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotalPlus) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotalPlus)
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Est. Mkt. Value</td>
-                                                    <td class="auto-style1">n/a</td>
-                                                    <td>n/a</td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesEstMkt) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesEstMkt)
-                                                    </td>
-                                                    <td class="auto-style4">
-                                                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesEstMktPlus) $
-                                                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesEstMktPlus)
-                                                    </td>
-
-                                                </tr>
+                    <td style="border: 0px" class="auto-style2"></td>
+                    <td colspan="2" class="auto-style2">Assessed Value (newschicgao)</td>
+                    <td colspan="2" class="auto-style2">Assessed Value (cookcounty)</td>
+                </tr>
+                <tr><td style="border: 0px"></td><td class="auto-style1">1999</td><td>2001</td><td>2014</td><td>2015</td></tr>
+                <tr>
+                    <td class="auto-style3">Land (L)</td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLand__) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLand__)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLand_) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLand_)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLand) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLand)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesLandPlus) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesLandPlus)
+                    </td>
 
 
-                                            </table>
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.yearBuild)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.yearBuild)
+                </tr>
+                <tr>
+                    <td>Building (B)</td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuilding__) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuilding__)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuilding_) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuilding_)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuilding) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuilding)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesBuildingPlus) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesBuildingPlus)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotal__) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotal__)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotal_) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotal_)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotal) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotal)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesTotalPlus) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesTotalPlus)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Est. Mkt. Value</td>
+                    <td class="auto-style1">n/a</td>
+                    <td>n/a</td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesEstMkt) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesEstMkt)
+                    </td>
+                    <td class="auto-style4">
+                        @Html.EditorFor(model => model.OnlineInfo.AssessedValuesEstMktPlus) $
+                        @Html.ValidationMessageFor(model => model.OnlineInfo.AssessedValuesEstMktPlus)
+                    </td>
 
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.yearBuild)
+                </tr>
 
 
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.censusTract)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.DropDownListFor(model => model.OnlineInfo.censusTract, new SelectList(
-    new List<SelectListItem>
-    {
-          new SelectListItem{ Selected= true , Value = "N/A" , Text = "N/A"  },
-        new SelectListItem{ Value = "3103" , Text = "3103"  },
-                new SelectListItem { Value = "3104" , Text = "3104" },
-                new SelectListItem{ Value = "3105" , Text = "3105"},
-                new SelectListItem{ Value = "3106" , Text = "3106"},
+            </table>
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.yearBuild)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.yearBuild)
 
-    }, "Value", "Text", 1))
+                @Html.ValidationMessageFor(model => model.OnlineInfo.yearBuild)
 
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.censusTract)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.propertyClass)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.propertyClass)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.propertyClass)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.Stories)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.Stories)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.Stories)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.LandSquareFootage)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.LandSquareFootage)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.LandSquareFootage)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.BuildingSquareFootage)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.BuildingSquareFootage)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.BuildingSquareFootage)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.propertyDescription)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Residential ")
-                                                Residential
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Industrial  ")
-                                                Industrial
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Commercial  ")
-                                                Commercial
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Vacant ")
-                                                Vacant
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Exempt  ")
-                                                Exempt
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Mixed Use ")
-                                                Mixed Use
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Other")
-                                                Other
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.propertyDescription)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.age)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.age)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.age)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.PropertyTaxExemptions)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.PropertyTaxExemptions) $
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.PropertyTaxExemptions)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.TaxExemptionsStatus)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.TaxExemptionsStatus, "E")
-                                                Exemption
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.TaxExemptionsStatus, "NE")
-                                                Not Entitled
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.TaxExemptionsStatus, "NF")
-                                                None filed/applied
 
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.TaxExemptionsStatus)
-                                            </div>
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.censusTract)
+            </div>
+            <div class="textbox">
+                @Html.DropDownListFor(model => model.OnlineInfo.censusTract, new SelectList(
+            new List<SelectListItem>
+            {
+                new SelectListItem {Selected = true, Value = "N/A", Text = "N/A"},
+                new SelectListItem {Value = "3103", Text = "3103"},
+                new SelectListItem {Value = "3104", Text = "3104"},
+                new SelectListItem {Value = "3105", Text = "3105"},
+                new SelectListItem {Value = "3106", Text = "3106"},
 
-                                            <br />
-                                            @*@Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " (Exemption given)   ")
-                                                (Exemption given)
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Not Entitled ")
-                                                Not Entitled
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "None filed/applied")
-                                                None filed/applied*@
-                                            <br />
-                                            <label>22. the year Property Tax Exemptions from Treasurer Site:    </label>
-                                            @Html.LabelFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
+            }, "Value", "Text", 1))
 
-                                            <div class="text">
-                                                @Html.EditorFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
-                                            </div>
+                @Html.ValidationMessageFor(model => model.OnlineInfo.censusTract)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.propertyClass)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.propertyClass)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.propertyClass)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.Stories)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.Stories)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.Stories)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.LandSquareFootage)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.LandSquareFootage)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.LandSquareFootage)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.BuildingSquareFootage)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.BuildingSquareFootage)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.BuildingSquareFootage)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.propertyDescription)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Residential ")
+                Residential
+                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Industrial  ")
+                Industrial
+                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Commercial  ")
+                Commercial
+                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Vacant ")
+                Vacant
+                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Exempt  ")
+                Exempt
+                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Mixed Use ")
+                Mixed Use
+                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "Other")
+                Other
+                @Html.ValidationMessageFor(model => model.OnlineInfo.propertyDescription)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.age)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.age)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.age)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.PropertyTaxExemptions)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.PropertyTaxExemptions) $
+                @Html.ValidationMessageFor(model => model.OnlineInfo.PropertyTaxExemptions)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.TaxExemptionsStatus)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.OnlineInfo.TaxExemptionsStatus, "E")
+                Exemption
+                @Html.RadioButtonFor(model => model.OnlineInfo.TaxExemptionsStatus, "NE")
+                Not Entitled
+                @Html.RadioButtonFor(model => model.OnlineInfo.TaxExemptionsStatus, "NF")
+                None filed/applied
 
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
-                                            </div>
+                @Html.ValidationMessageFor(model => model.OnlineInfo.TaxExemptionsStatus)
+            </div>
 
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.taxPayerName)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.taxPayerName)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.taxPayerName)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.taxpayerMailing)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.taxpayerMailing)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.taxpayerMailing)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.PreviousYearPropertyTax)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.PreviousYearPropertyTax)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.PreviousYearPropertyTax)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.CurrentYearTaxesOwed)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.CurrentYearTaxesOwed) $
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.CurrentYearTaxesOwed)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.isCurrentYearAsPrev)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.isCurrentYearAsPrev)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.isCurrentYearAsPrev)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.TaxPayerInfo)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.TaxPayerInfo)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.TaxPayerInfo)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.isInTifDistrict)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.isInTifDistrict)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.isInTifDistrict)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.TifArea)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.TifArea) %
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.TifArea)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.BoardOfEducation)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.BoardOfEducation) %
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.BoardOfEducation)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.SchoolImprovments)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.SchoolImprovments) %
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.SchoolImprovments)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.ParkDistrict)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.ParkDistrict) %
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.ParkDistrict)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.LibraryFund)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.LibraryFund) %
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.LibraryFund)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.isPropertySoldInCurrentYear)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.isPropertySoldInCurrentYear)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.isPropertySoldInCurrentYear)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.saleDate)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.saleDate)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.saleDate)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.salePrice)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.salePrice)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.salePrice)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.unitNumber)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.unitNumber)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.unitNumber)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.isForSale)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.isForSale)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.isForSale)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.listedPrice)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.listedPrice)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.listedPrice)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.bedroomsNumber)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.bedroomsNumber)
-                                                @*@Html.ValidationMessageFor(model => model.OnlineInfo.bedroomsNumber)*@
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.isOrange)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.isOrange)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.isOrange)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.isPhotoDownloaded)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.isPhotoDownloaded, "Yes")
-                                                Yes
-                                                @Html.RadioButtonFor(model => model.OnlineInfo.isPhotoDownloaded, "N/A ")
-                                                N/A
+            <br />
+            @*@Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " (Exemption given)   ")
+                (Exemption given)
+                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, " Not Entitled ")
+                Not Entitled
+                @Html.RadioButtonFor(model => model.OnlineInfo.propertyDescription, "None filed/applied")
+                None filed/applied*@
+            <br />
+            <label>22. the year Property Tax Exemptions from Treasurer Site: </label>
+            @Html.LabelFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
 
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.isPhotoDownloaded)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.PhotoDate)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.PhotoDate)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.PhotoDate)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
-                                            </div>
-                                            <br />
-                                            <div class="textbox">
-                                                @Html.LabelFor(model => model.OnlineInfo.StudentPhotoDate)
-                                            </div>
-                                            <div class="textbox">
-                                                @Html.EditorFor(model => model.OnlineInfo.StudentPhotoDate)
-                                                @Html.ValidationMessageFor(model => model.OnlineInfo.StudentPhotoDate)
-                                            </div>
-                                            <br />    <br />
-                                        </div>
+            <div class="text">
+                @Html.EditorFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
+            </div>
 
-                                        <input type="submit" name="submitButton" value="Save" />
-                                        <input type="submit" name="submitButton" value="Submit" />
-                                        <input type="submit" name="submitButton" value="Update" />
-                                        <input type="submit" name="submitButton" value="Export" />
-                                        <p>
-                                            <input type="submit" value="Create" />
-                                        </p>
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
+            </div>
 
-    }
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.taxPayerName)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.taxPayerName)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.taxPayerName)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.taxpayerMailing)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.taxpayerMailing)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.taxpayerMailing)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.PreviousYearPropertyTax)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.PreviousYearPropertyTax)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.PreviousYearPropertyTax)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.CurrentYearTaxesOwed)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.CurrentYearTaxesOwed) $
+                @Html.ValidationMessageFor(model => model.OnlineInfo.CurrentYearTaxesOwed)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.isCurrentYearAsPrev)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.isCurrentYearAsPrev)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.isCurrentYearAsPrev)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.TaxPayerInfo)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.TaxPayerInfo)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.TaxPayerInfo)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.isInTifDistrict)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.isInTifDistrict)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.isInTifDistrict)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.TifArea)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.TifArea) %
+                @Html.ValidationMessageFor(model => model.OnlineInfo.TifArea)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.BoardOfEducation)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.BoardOfEducation) %
+                @Html.ValidationMessageFor(model => model.OnlineInfo.BoardOfEducation)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.SchoolImprovments)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.SchoolImprovments) %
+                @Html.ValidationMessageFor(model => model.OnlineInfo.SchoolImprovments)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.ParkDistrict)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.ParkDistrict) %
+                @Html.ValidationMessageFor(model => model.OnlineInfo.ParkDistrict)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.LibraryFund)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.LibraryFund) %
+                @Html.ValidationMessageFor(model => model.OnlineInfo.LibraryFund)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.isPropertySoldInCurrentYear)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.isPropertySoldInCurrentYear)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.isPropertySoldInCurrentYear)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.saleDate)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.saleDate)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.saleDate)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.salePrice)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.salePrice)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.salePrice)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.unitNumber)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.unitNumber)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.unitNumber)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.isForSale)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.isForSale)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.isForSale)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.listedPrice)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.listedPrice)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.listedPrice)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.bedroomsNumber)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.bedroomsNumber)
+                @*@Html.ValidationMessageFor(model => model.OnlineInfo.bedroomsNumber)*@
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.isOrange)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.isOrange)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.isOrange)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.isPhotoDownloaded)
+            </div>
+            <div class="textbox">
+                @Html.RadioButtonFor(model => model.OnlineInfo.isPhotoDownloaded, "Yes")
+                Yes
+                @Html.RadioButtonFor(model => model.OnlineInfo.isPhotoDownloaded, "N/A ")
+                N/A
+
+                @Html.ValidationMessageFor(model => model.OnlineInfo.isPhotoDownloaded)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.PhotoDate)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.PhotoDate)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.PhotoDate)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
+            </div>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.StudentPhotoDate)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.StudentPhotoDate)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.StudentPhotoDate)
+            </div>
+            <br /> <br />
+        </div>
+
+        <input id="SaveBtn" type="submit" name="submitButton" value="Create" />
+
+        <input type="submit" name="submitButton" value="Save" />
+    </div>
+}
 </div>
+
+
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -968,7 +994,3 @@
 <!-- Latest compiled and minified JavaScript
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 -->
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-
