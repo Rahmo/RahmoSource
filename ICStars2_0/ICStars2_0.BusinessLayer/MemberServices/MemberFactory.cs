@@ -50,22 +50,36 @@ namespace ICStars2_0.BusinessLayer.MemberServices
         }
         public void CreateSuperAdminUser()
         {
+            //added this for SLC Dummy account PWD is 123456
             if(!Roles.RoleExists("admin"))
             {
                 Roles.CreateRole("admin");
             }
-            if (Exists("hli25")) return;
+            if (Exists("SLCstudent")) return;
             var m = new Member()
-                        {
-                            CampusConnectID = "hli25",
-                            Email = "hli25@depaul.edu",
-                            Status = true
-                        };
-            Update(m);
-            if (!Roles.IsUserInRole("hli25", "admin"))
             {
-                Roles.AddUserToRole("hli25", "admin");
+                CampusConnectID = "SlcStudent",
+                  
+                Email = "SLCstudent@depaul.edu",
+                Status = true
+            };
+            Update(m);
+            if (!Roles.IsUserInRole("SLCstudent", "Student"))
+            {
+                Roles.AddUserToRole("SLCstudent", "Student");
             }
+            //if (Exists("hli25")) return;
+            //var m = new Member()
+            //            {
+            //                CampusConnectID = "hli25",
+            //                Email = "hli25@depaul.edu",
+            //                Status = true
+            //            };
+            //Update(m);
+            //if (!Roles.IsUserInRole("hli25", "admin"))
+            //{
+            //    Roles.AddUserToRole("hli25", "admin");
+            //}
         }
         public bool IsLocked(string campusConnectId)
         {
@@ -75,6 +89,7 @@ namespace ICStars2_0.BusinessLayer.MemberServices
         public Member Create(string campusConnectId)
         {
             Member m = new Member();
+            
             if (string.IsNullOrEmpty(campusConnectId) == false)
             {
                 ReflectionHelper.Fill(DB_Member.MemberInfo(campusConnectId), m);

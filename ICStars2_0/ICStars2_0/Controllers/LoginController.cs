@@ -42,7 +42,7 @@ namespace ICStars2_0.Controllers
                 }
                 ModelState.AddModelError("Password", "Login failed");
             }
-
+            
             return View("Index",model);
         }
     }

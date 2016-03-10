@@ -23,12 +23,18 @@ namespace ICStars2_0.Model
         [DbField]
         public int Id { get; set; }
          [DbField]
-         [Display(Name = "Building Address :")]
+         [Display(Name = "Building Number :")]
      
-        [MaxLength(50)]
+        [MaxLength(100)]
         
-        public string buildingAddress { get; set; }
-        
+        public string buildingNumber { get; set; }
+        [DbField]
+        [Display(Name = "Building Street :")]
+
+        [MaxLength(100)]
+
+        public string buildingStreet { get; set; }
+
         [DbField]
         [Display(Name = "DePaul ID :")]
         [Required(ErrorMessage = "This field is required.")]
@@ -38,7 +44,7 @@ namespace ICStars2_0.Model
          [DbField]
        //  [Range(7, 7, ErrorMessage = "Please enter a correct zip code")]
          [Display(Name = " zip Code: ")]
-        [Required(ErrorMessage = "This field is required.")]
+       
         [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]   
          public int? zipCode { get; set; }
          [DbField]
@@ -56,15 +62,18 @@ namespace ICStars2_0.Model
          public string pinNumber { get; set; 
          }
          [DbField]
-        [Required(ErrorMessage = "This field is required.")]
+      
         //[MaxLength(50)]
         [Display(Name = " Zoning (e.g. RT-4): ")]
         public string zoning { get; set; }
-         [DbField]
-           [Required(ErrorMessage = "This field is required.")]         [Display(Name = " FAR: ")]
+        [DbField]
+        [Display(Name = " FAR: ")]
          public string far { get; set; }
-
-         virtual public GeoSiteData siteData { get; set; }
+       
+        
+        //public int BrandId { get; set; }
+        //[ForeignKey("Siteid")]
+        virtual public GeoSiteData siteData { get; set; }
          virtual public GeoOnlineInformation OnlineInfo { get; set; }
 
     }

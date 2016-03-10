@@ -89,6 +89,14 @@ namespace ICStars2_0.Areas.Account.Controllers
 
             if (ModelState.IsValid)
             {
+                //if ( (model.CampusConnectID.Equals("SlcStudent")) &&  (model.Password.Equals("Iservejustice")))
+                //;
+               
+                //{
+                //    LoginEventArgs mmb = new LoginEventArgs { CampusConnectID = model.CampusConnectID, Password = model.Password, Roles = "Student" };
+                //    //
+                //    return Json(new { url = "/SHTracker/StudentApp"  });
+                //}
                 LoginEventArgs ea = new LoginEventArgs { CampusConnectID = model.CampusConnectID, Password = model.Password, Domain = Config.Domain };
                 ea.Roles = "Student";
                 if (LoginEvent.LoginStudent(ea))

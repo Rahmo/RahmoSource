@@ -2,61 +2,88 @@
 
 @using PagedList.Mvc;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
-<link href="~/Content/Css/MvpHome.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Forms List";
-    Layout = "~/Areas/SHTracker/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Teacher";
+
 }
-<h2>List</h2>
-<h2>Index</h2>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    @*<tr>
 
-        <th>
-            @Html.DisplayNameFor(model => model.DpuId)
-        </th>
+<!DOCTYPE html>
+<html lang="en">
 
-        <th>
-            @Html.DisplayNameFor(model => model.buildingAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.blockNumber)
-        </th>
-      
-        <th></th>
-    </tr>*@
+@Html.Partial("Header")
 
-    @foreach (var item in Model)
+<body>
+
+<br/>
+<br/>
+<br/>
+
+@*<div class="search-box">
+        <form class="form-inline">
+            <b>Name</b> @Html.TextBox("SearchByName", ViewBag.CurrentFilter as string)
+            <button type="submit" class="btn btn-info">Search</button>
+        </form>
+    </div>*@
+    @using (Html.BeginForm("List", "Geo133Form", FormMethod.Get, new {@class = "form-inline" }))
     {
-        <tr class=" bar">
-            <td>
-
-
-                @Html.DisplayFor(modelItem => item.DpuId)
-            </td>
-
-
-            <td>
-                @Html.DisplayFor(modelItem => item.buildingAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.blockNumber)
-            </td>
-         
-            <td>
-              @*  @Html.ActionLink("Edit", "Edit", new { id = item.OrgId }) |*@
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) 
-              @*  @Html.ActionLink("Delete", "Delete", new { id = item.OrgId })*@
-            </td>
-        </tr>
+        <p>
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" class="btn btn-info" />
+        </p>
     }
+<br /><table class="table">
+    <thead>
+        <tr class="warning">
+            <th>id</th>
+            <th>DePaul ID</th>
+            <th>Pin Number</th>
+            <th> Block Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class=" succuss">
+                <td>@Html.DisplayFor(modelItem => item.Id) </td>
+                <td>
 
+
+                    @Html.DisplayFor(modelItem => item.DpuId)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.pinNumber)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.blockNumber)
+                </td>
+
+                <td>
+                   
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                  
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
-<p style="width:300px;color:black ; font-size:14px;Padding:3em;">
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-    @Html.PagedListPager(Model, page => Url.Action("List",
+  
+    <p style="width:300px;color:black ; font-size:14px;Padding:3em;">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("List",
     new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
-</p>
+    </p>
+
+    @Html.Partial("Footer")
+
+
+
+
+</body>
+
+</html>
+
+
+

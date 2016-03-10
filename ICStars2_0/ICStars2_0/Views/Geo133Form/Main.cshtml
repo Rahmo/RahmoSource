@@ -1,17 +1,7 @@
 ﻿@using Org.BouncyCastle.Crypto.Tls
 @model ICStars2_0.Model.GEO133
 
-<head>
-    <!-- Latest compiled and minified CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width" />
-    <title>Create new Form</title>
-
-
-</head>
 @{
     ViewBag.Title = "Main";
     Html.EnableClientValidation(false);
@@ -100,7 +90,7 @@
     label.error, span.error, label.error2 {
         display: block;
         float: left;
-        z-index: 9999px;
+        z-index: 9999;
         position: absolute;
         color: Red;
         font-weight: bold;
@@ -139,7 +129,7 @@
 
 
         $('#SecondVeiw').hide();
-        alert('If you are retreiving your form, only Enter your DpuID and the PIN number!');
+        alert('If you want to retireve your form, Please only Enter your DpuID and the PIN number!');
     });
 
 </script>
@@ -184,31 +174,40 @@
     <legend>GEO133</legend>
 
     <div id="Main">
-        <label> Please enter you DePaul ID <b>First</b> : </label>
-        <div class="textbox">
-            @Html.LabelFor(model => model.DpuId)
-        </div>
-        <div class="textbox">
-            @Html.EditorFor(model => model.DpuId)
-            @Html.ValidationMessageFor(model => model.DpuId)
-        </div>
+        <label> Please Fill the form: </label>
+        <br/>
+            <div class="textbox">
+                @Html.LabelFor(model => model.DpuId)
+            </div>
+      
+            <div class="textbox">
+                @Html.EditorFor(model => model.DpuId)
+                @Html.ValidationMessageFor(model => model.DpuId)
+            </div>
 
-        <div class="textbox">
-            @Html.LabelFor(model => model.buildingAddress)
-        </div>
-        <div class="textbox">
-            @Html.EditorFor(model => model.buildingAddress)
-            @Html.ValidationMessageFor(model => model.buildingAddress)
-        </div>
+        <p>
+            <div class="textbox">
+                @Html.LabelFor(model => model.buildingNumber)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.buildingNumber)
+                @Html.ValidationMessageFor(model => model.buildingNumber)
+            </div>
+        </p>
+        <p>
+            <div class="textbox">
+                @Html.LabelFor(model => model.buildingStreet)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.buildingStreet)
+                @Html.ValidationMessageFor(model => model.buildingStreet)
+            </div>
+        </p>
         <br />
         <div class="textbox">
             @Html.LabelFor(model => model.zoning)
         </div>
         <div class="textbox">
-
-
-
-
 
             @Html.DropDownListFor(model => model.zoning, new SelectList(
                 new List<SelectListItem>
@@ -293,7 +292,7 @@
                 }, "Value", "Text", 1))
             @Html.ValidationMessageFor(model => model.far)
 
-            <input type="button" class="btn-success btn-sm" value="Next" id="searchRecord" />
+            <input type="button" class="btn-success btn-sm" value="Check" id="searchRecord" />
         </div>
         <hr />
 
@@ -787,13 +786,51 @@
             </div>
             <br />
             <div class="textbox">
-                @Html.LabelFor(model => model.OnlineInfo.taxpayerMailing)
+                @Html.LabelFor(model => model.OnlineInfo.taxpayerStreetNumber)
             </div>
             <div class="textbox">
-                @Html.EditorFor(model => model.OnlineInfo.taxpayerMailing)
-                @Html.ValidationMessageFor(model => model.OnlineInfo.taxpayerMailing)
+                @Html.EditorFor(model => model.OnlineInfo.taxpayerStreetNumber)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.taxpayerStreetNumber)
             </div>
+        <br/>
             <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.taxpayerStreetName)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.taxpayerStreetName)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.taxpayerStreetName)
+            </div>
+        <br/>
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.taxpayerCity)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.taxpayerCity)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.taxpayerCity)
+            </div>
+       
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.taxpayerstate)
+            </div>
+        <div class="textbox">
+            @Html.DropDownListFor(model => model.OnlineInfo.taxpayerstate, ICStars2_0.Model.GeoOnlineInformation.States )
+           
+            @Html.ValidationMessageFor(model => model.OnlineInfo.taxpayerstate)
+        </div>
+          
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.taxpayerZip)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.taxpayerZip)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.taxpayerZip)
+            </div>
+        <br/>
+        
             <div class="textbox">
                 @Html.LabelFor(model => model.OnlineInfo.PreviousYearPropertyTax)
             </div>
@@ -813,17 +850,58 @@
             <div class="textbox">
                 @Html.LabelFor(model => model.OnlineInfo.isCurrentYearAsPrev)
             </div>
-            <div class="textbox">
-                @Html.EditorFor(model => model.OnlineInfo.isCurrentYearAsPrev)
-                @Html.ValidationMessageFor(model => model.OnlineInfo.isCurrentYearAsPrev)
-            </div>
+        <div class="textbox">
+            @Html.EditorFor(model => model.OnlineInfo.isCurrentYearAsPrev)
+            @Html.ValidationMessageFor(model => model.OnlineInfo.isCurrentYearAsPrev)
+        </div>
             <br />
             <div class="textbox">
-                @Html.LabelFor(model => model.OnlineInfo.TaxPayerInfo)
+                @Html.LabelFor(model => model.OnlineInfo.CurrentYrTaxPayerName)
             </div>
             <div class="textbox">
-                @Html.EditorFor(model => model.OnlineInfo.TaxPayerInfo)
-                @Html.ValidationMessageFor(model => model.OnlineInfo.TaxPayerInfo)
+                @Html.EditorFor(model => model.OnlineInfo.CurrentYrTaxPayerName)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.CurrentYrTaxPayerName)
+            </div>
+            
+            <br />
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.CurrentYrTaxpayerStreetNumber)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.CurrentYrTaxpayerStreetNumber)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.CurrentYrTaxpayerStreetNumber)
+            </div>
+        <br/>
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.CurrentYrtaxpayerStreetName)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.CurrentYrtaxpayerStreetName)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.CurrentYrtaxpayerStreetName)
+            </div>
+        <br/>
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.CurrentYrtaxpayerCity)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.CurrentYrtaxpayerCity)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.CurrentYrtaxpayerCity)
+            </div>
+        <br/>
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.CurrentYrtaxpayerstate)
+            </div>
+            <div class="textbox">
+                @Html.DropDownListFor(model => model.OnlineInfo.CurrentYrtaxpayerstate, ICStars2_0.Model.GeoOnlineInformation.States)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.CurrentYrtaxpayerstate)
+            </div>
+        <br/>
+            <div class="textbox">
+                @Html.LabelFor(model => model.OnlineInfo.CurrentYrtaxpayerZip)
+            </div>
+            <div class="textbox">
+                @Html.EditorFor(model => model.OnlineInfo.CurrentYrtaxpayerZip)
+                @Html.ValidationMessageFor(model => model.OnlineInfo.CurrentYrtaxpayerZip)
             </div>
             <br />
             <div class="textbox">
@@ -976,9 +1054,9 @@
             <br /> <br />
         </div>
 
-        <input id="SaveBtn" type="submit" name="submitButton" value="Create" />
+        <input id="BtnCreate"  type="submit" name="submitButton" value="Create" />
 
-        <input type="submit" name="submitButton" value="Save" />
+        <input id="BtnSave" class="btn btn-sm btn-success" type="submit" name="submitButton" value="Save" />
     </div>
 }
 </div>

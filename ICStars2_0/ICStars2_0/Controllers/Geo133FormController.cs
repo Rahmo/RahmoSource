@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.WebPages;
@@ -14,6 +17,7 @@ using ICStars2_0.Model;
 using ICStars2_0.Model.DbContexts;
 using Microsoft.Practices.Unity;
 using PagedList;
+using ICStars2_0.Mvc.Filter;
 //For injections
 
 namespace ICStars2_0.Controllers
@@ -37,6 +41,8 @@ namespace ICStars2_0.Controllers
 
         public ActionResult Main()
         {
+
+
             GEO133 model = new GEO133();
             model.OnlineInfo = new  GeoOnlineInformation();
             model.siteData = new GeoSiteData();
@@ -74,7 +80,18 @@ namespace ICStars2_0.Controllers
        
             return View();
         }
-
+        public ActionResult Details(int id)
+        {
+            using (var db = new GeoDbContext())
+            {
+                GEO133 model =  db.GEO133.Find(id);
+                if (model == null || model.OnlineInfo == null || model.siteData == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(model);
+            }
+        }
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
@@ -86,7 +103,8 @@ namespace ICStars2_0.Controllers
                 //Updateg = geoform; 
 
                 Updateg.blockNumber = geoform.blockNumber;
-                Updateg.buildingAddress = geoform.buildingAddress;
+                Updateg.buildingNumber = geoform.buildingNumber;
+                Updateg.buildingStreet = geoform.buildingStreet;
                 Updateg.far = geoform.far;
                 Updateg.pinNumber = geoform.pinNumber;
                 Updateg.zipCode = geoform.zipCode;
@@ -102,7 +120,7 @@ namespace ICStars2_0.Controllers
                 //db.Entry(geoform.OnlineInfo).(p => p.siteData).Load();
                 //db.Entry(geoform).Collection(p => p.OnlineInfo).Load();
                 db.SaveChanges();
-
+                TempData["Response"] = "Your changes has been saved succefully! ";
                 return RedirectToAction("Main");
             }
 
@@ -125,7 +143,8 @@ namespace ICStars2_0.Controllers
                     {
                         p.Id,
                         p.blockNumber,
-                        p.buildingAddress,
+                        p.buildingNumber,
+                        p.buildingStreet,
                         p.DpuId,
                         p.far,
                         p.pinNumber,
@@ -168,26 +187,49 @@ namespace ICStars2_0.Controllers
             return View();
         }
 
+  
         public ActionResult teacher()
         {
+            //Response.Cookies.Remove("Euan2016");
+            FormsAuthentication.SignOut();
             return View();
         }
 
+       
+
+        [HttpPost]
+        public ActionResult Login(LoginTeacher m)
+        {
+
+            if ((m.UserName.Equals("Ehague12") && (m.Password.Equals("geo133dpu"))))
+            {
+           
+            FormsAuthentication.SetAuthCookie("Ehague12", true);
+
+                return RedirectToAction("List");
+               // return View("List");
+            }
+            return View("teacher");
+        }
+
+      
         public ActionResult Export()
         {
             return View();
         }
-
+        
+        [MvcAuthorize(UnauthorizedRedirectUrl = "", Users = "Ehague12", IsRedirectOnly = true) ]
+       // [Authorize(url = "/Geo133Form/teacher", Users = "Euan2016")]
         public ActionResult List(string sortOrder, string currentFilter, string searchString, int? page)
         {
-          //    ExportToExcel();
+          
+            //    ExportToExcel();
             using (var db = new GeoDbContext())
             {
-                // return View(db.GEO133.ToList());
                 ViewBag.CurrentSort = sortOrder;
                 ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
                 ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-
+           
                 if (searchString != null)
                 {
                     page = 1;
@@ -200,9 +242,12 @@ namespace ICStars2_0.Controllers
                 ViewBag.CurrentFilter = searchString;
 
                 var Resources = from s in db.GEO133
-                    orderby s.Id
+                       orderby s.Id
                     select s;
-
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    Resources = Resources.Where(s => s.DpuId.Contains(searchString)).OrderBy(s => s.Id);
+                }
                 var pageSize = 10;
                 var pageNumber = page ?? 1;
                 return View(Resources.ToPagedList(pageNumber, pageSize));
@@ -220,7 +265,8 @@ namespace ICStars2_0.Controllers
                     {
                         p.Id,
                         p.blockNumber,
-                        p.buildingAddress,
+                        p.buildingNumber,
+                        p.buildingStreet,
                         p.DpuId,
                         p.far,
                         p.pinNumber,
@@ -234,7 +280,8 @@ namespace ICStars2_0.Controllers
                                          {
                                              Id = x.Id,
                                              blockNumber = x.blockNumber,
-                                             buildingAddress = x.buildingAddress,
+                                             buildingNumber = x.buildingNumber,
+                                             buildingStreet = x.buildingStreet,
                                              DpuId = x.DpuId,
                                              far = x.far,
                                              pinNumber = x.pinNumber,
@@ -396,16 +443,14 @@ namespace ICStars2_0.Controllers
                     {
                         model.far = 0.ToString();
                     }
+                    
 
 
+     
+                 
 
 
-
-
-
-
-                   
-                    products.Rows.Add(1, model.pinNumber, model.buildingAddress, model.buildingAddress
+                    products.Rows.Add(1, model.pinNumber, model.buildingNumber, model.buildingStreet
                         , model.zipCode, model.zoning, model.far,
                         model.siteData.mainStreetFacade, model.siteData.exterior, model.siteData.overallViability,
                         model.siteData.numberOfStories
@@ -432,15 +477,15 @@ namespace ICStars2_0.Controllers
                         model.OnlineInfo.PropertyTaxExemptions
                         , model.OnlineInfo.TaxExemptionsStatus, model.OnlineInfo.TreasurerSiteHomeowner,
                         model.OnlineInfo.TreasurerSeniorCitizen, model.OnlineInfo.TreasurerSiteSeniorFreeze
-                        , model.OnlineInfo.taxPayerName, model.OnlineInfo.taxpayerMailing,
-                        model.OnlineInfo.taxpayerMailing, model.OnlineInfo.taxpayerMailing
-                        , model.OnlineInfo.taxpayerMailing, model.OnlineInfo.taxpayerMailing,
+                        , model.OnlineInfo.taxPayerName, model.OnlineInfo.taxpayerStreetNumber,
+                        model.OnlineInfo.taxpayerStreetName, model.OnlineInfo.taxpayerCity
+                        , model.OnlineInfo.taxpayerstate, model.OnlineInfo.taxpayerZip,
                         model.OnlineInfo.PreviousYearPropertyTax
                         , model.OnlineInfo.CurrentYearTaxesOwed, model.OnlineInfo.isCurrentYearAsPrev,
-                        model.OnlineInfo.TaxPayerInfo
-                        , model.OnlineInfo.TaxPayerInfo, model.OnlineInfo.TaxPayerInfo, model.OnlineInfo.TaxPayerInfo,
-                        model.OnlineInfo.TaxPayerInfo
-                        , model.OnlineInfo.TaxPayerInfo, model.OnlineInfo.isInTifDistrict, model.OnlineInfo.TifArea,
+                        model.OnlineInfo.CurrentYrTaxPayerName
+                        , model.OnlineInfo.CurrentYrTaxpayerStreetNumber, model.OnlineInfo.CurrentYrtaxpayerStreetName, model.OnlineInfo.CurrentYrtaxpayerCity,
+                        model.OnlineInfo.CurrentYrtaxpayerstate
+                        , model.OnlineInfo.CurrentYrtaxpayerZip, model.OnlineInfo.isInTifDistrict, model.OnlineInfo.TifArea,
                         model.OnlineInfo.BoardOfEducation
                         , model.OnlineInfo.SchoolImprovments, model.OnlineInfo.ParkDistrict,
                         model.OnlineInfo.LibraryFund, model.OnlineInfo.isPropertySoldInCurrentYear
@@ -488,14 +533,45 @@ namespace ICStars2_0.Controllers
 
                    
                 }
+
+
+                // This function goes into each cell in the data table and update the cell from true and false to yes and no
+                for (int i = 0; i < products.Rows.Count; i++)
+                {
+                    DataRow row = products.Rows[i];
+                    object[] array = row.ItemArray;
+                    for (int j = 0; j < array.Length; j++)
+                    {
+                        object cell = array[j];
+                        if (products.Rows[i][j].ToString() == "True")
+                        {
+                            products.Rows[i][j] = "YES";
+                        }
+                        else if (products.Rows[i][j].ToString() == "False")
+                        {
+                            products.Rows[i][j] = "NO";
+                        }
+                        if (products.Rows[i]["Historic Rating"].ToString()== "True")
+                        {
+                            products.Rows[i]["Historic Rating"] = "is Orange";
+;                        }
+                        else if (products.Rows[i]["Historic Rating"].ToString() == "False")
+                        {
+
+                            products.Rows[i]["Historic Rating"] = "None";
+                        }
+
+                    }
+                }
+
                 var grid = new GridView();
                 grid.DataSource = products;
                 grid.DataBind();
                 grid.BackColor = Color.Beige;
                 Response.ClearContent();
-                Response.Buffer = true;
-                Response.AddHeader("content-disposition", "attachment; filename=MyExcelFile.xls");
-                Response.ContentType = "application/ms-excel";
+                Response.Buffer = false;
+                Response.AddHeader("content-disposition", "attachment; filename=Properties.xls");
+                Response.ContentType = "application/vnd.ms-excel";
 
                 Response.Charset = "";
                 var sw = new StringWriter();
@@ -506,6 +582,7 @@ namespace ICStars2_0.Controllers
                 Response.Output.Write(sw.ToString());
                 Response.Flush();
                 Response.End();
+                Response.Close();
                 return View("MyView");
         } }
 
@@ -526,6 +603,60 @@ namespace ICStars2_0.Controllers
             }
         }
 
+        public static List<SelectListItem> States = new List<SelectListItem>()
+    {
+        new SelectListItem() {Text="Alabama", Value="AL"},
+        new SelectListItem() { Text="Alaska", Value="AK"},
+        new SelectListItem() { Text="Arizona", Value="AZ"},
+        new SelectListItem() { Text="Arkansas", Value="AR"},
+        new SelectListItem() { Text="California", Value="CA"},
+        new SelectListItem() { Text="Colorado", Value="CO"},
+        new SelectListItem() { Text="Connecticut", Value="CT"},
+        new SelectListItem() { Text="District of Columbia", Value="DC"},
+        new SelectListItem() { Text="Delaware", Value="DE"},
+        new SelectListItem() { Text="Florida", Value="FL"},
+        new SelectListItem() { Text="Georgia", Value="GA"},
+        new SelectListItem() { Text="Hawaii", Value="HI"},
+        new SelectListItem() { Text="Idaho", Value="ID"},
+        new SelectListItem() { Text="Illinois", Value="IL"},
+        new SelectListItem() { Text="Indiana", Value="IN"},
+        new SelectListItem() { Text="Iowa", Value="IA"},
+        new SelectListItem() { Text="Kansas", Value="KS"},
+        new SelectListItem() { Text="Kentucky", Value="KY"},
+        new SelectListItem() { Text="Louisiana", Value="LA"},
+        new SelectListItem() { Text="Maine", Value="ME"},
+        new SelectListItem() { Text="Maryland", Value="MD"},
+        new SelectListItem() { Text="Massachusetts", Value="MA"},
+        new SelectListItem() { Text="Michigan", Value="MI"},
+        new SelectListItem() { Text="Minnesota", Value="MN"},
+        new SelectListItem() { Text="Mississippi", Value="MS"},
+        new SelectListItem() { Text="Missouri", Value="MO"},
+        new SelectListItem() { Text="Montana", Value="MT"},
+        new SelectListItem() { Text="Nebraska", Value="NE"},
+        new SelectListItem() { Text="Nevada", Value="NV"},
+        new SelectListItem() { Text="New Hampshire", Value="NH"},
+        new SelectListItem() { Text="New Jersey", Value="NJ"},
+        new SelectListItem() { Text="New Mexico", Value="NM"},
+        new SelectListItem() { Text="New York", Value="NY"},
+        new SelectListItem() { Text="North Carolina", Value="NC"},
+        new SelectListItem() { Text="North Dakota", Value="ND"},
+        new SelectListItem() { Text="Ohio", Value="OH"},
+        new SelectListItem() { Text="Oklahoma", Value="OK"},
+        new SelectListItem() { Text="Oregon", Value="OR"},
+        new SelectListItem() { Text="Pennsylvania", Value="PA"},
+        new SelectListItem() { Text="Rhode Island", Value="RI"},
+        new SelectListItem() { Text="South Carolina", Value="SC"},
+        new SelectListItem() { Text="South Dakota", Value="SD"},
+        new SelectListItem() { Text="Tennessee", Value="TN"},
+        new SelectListItem() { Text="Texas", Value="TX"},
+        new SelectListItem() { Text="Utah", Value="UT"},
+        new SelectListItem() { Text="Vermont", Value="VT"},
+        new SelectListItem() { Text="Virginia", Value="VA"},
+        new SelectListItem() { Text="Washington", Value="WA"},
+        new SelectListItem() { Text="West Virginia", Value="WV"},
+        new SelectListItem() { Text="Wisconsin", Value="WI"},
+        new SelectListItem() { Text="Wyoming", Value="WY"}
+    };
         internal string CheckNull(string s)
         {
             try
@@ -548,7 +679,7 @@ namespace ICStars2_0.Controllers
             try
             {
                geoFactory.Add(model);
-                TempData["Response"] = "Your form has been saved succefully! ";
+                TempData["Response"] = "Your form has been created succefully! ";
                 return RedirectToAction("Main");
             }
             catch (Exception exception)

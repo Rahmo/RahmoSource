@@ -7,7 +7,7 @@ using ICStars2_0.Common.Attributes;
 
 namespace ICStars2_0.SHTracker.StudentApp
 {
-    [Authorize(Roles="Student",UnauthorizedRedirectUrl="/Account/Student/Login")]
+    [Authorize(Roles="Student" ,UnauthorizedRedirectUrl="/Account/Student/Login")]
     public partial class Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

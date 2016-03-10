@@ -146,7 +146,7 @@ namespace ICStars2_0.Areas.SHTracker.Controllers
 
             return View(model);
         }
-        [MvcOverrideAuthorize(Users = "hli25,HROSING")]
+        [MvcOverrideAuthorize(Users = "HROSING")]
         public ActionResult Delete(string url)
         {
             using (var db = new WebDbContext())

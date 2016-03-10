@@ -78,7 +78,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { url=item.Url }) | <a href="@string.Format("{0}{1}", ICStars2_0.Common.UrlHelper.GetHttpsRoot(),@item.Url)" target="_blank">Real-time Edit</a> | @Html.ActionLink("EditUrl", "EditUrl", new { url = item.Url },new{@class="editurl",@onclick="return editurl(this);return false;"})
-            @if (new[] { "hli25", "HROSING" }.Any(u => u.Equals(User.Identity.Name, StringComparison.CurrentCultureIgnoreCase)))
+            @if (new[] { "HROSING" }.Any(u => u.Equals(User.Identity.Name, StringComparison.CurrentCultureIgnoreCase)))
             {
 <text>|
                 @Html.ActionLink("Delete", "Delete", new {url = item.Url}, new {onclick = "if(confirm('Are you sure you want to delete [" + item.Title+"("+item.Url+")" + "]')){return true;}return false;"})</text>

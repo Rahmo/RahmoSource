@@ -63,7 +63,7 @@ namespace ICStars2_0.Areas.Account.Controllers
                 var m = MemberFactory.Update(model);
                 if (m.ID > 0)
                 {
-                    Roles.AddUserToRole(model.CampusConnectID, "SteansWeb");
+                    Roles.AddUserToRole(model.CampusConnectID, "Student");
                     AccountSettings settings =
                     SteansSettingsFactory.CreateBaseSetings<AccountSettings>();
                     if (settings.IsSendingEmail)

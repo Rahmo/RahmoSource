@@ -108,15 +108,26 @@
                     alert("Our records indicates that you have a form registered with your info, Please continue updating it then press 'save' !");
 
                     $('#SecondVeiw').show();
-                   
+                    $('#BtnSave').removeClass("btn btn-sm btn-danger");
+                    $('#BtnSave').addClass("btn btn-sm btn-success");
+                    $('#BtnSave').prop('disabled', false);
+                    $('#BtnCreate').prop('disabled', true);
+                    $('#BtnCreate').removeClass("btn btn-sm btn-success");
+                    $('#BtnCreate').addClass("btn btn-sm btn-danger");
+
                     fillView(data);
 
                 },
 
                 error: function (xhr, status, error) {
-                    console.log("The request failed");
+                    $('#BtnSave').removeClass("btn btn-sm btn-success");
+                    $('#BtnSave').addClass("btn btn-sm btn-danger");
+                    $('#BtnSave').prop('disabled', true);
+                    $('#BtnCreate').prop('disabled', false);
+                    $('#BtnCreate').removeClass("btn btn-sm btn-danger");
+                    $('#BtnCreate').addClass("btn btn-sm btn-success");
                     $('#SecondVeiw').show();
-                    alert('You informations have not been seved yet, Please press "Create" below');
+                    alert('Your informations have not been saved yet, Please press "Create" below');
                 }
 
 
@@ -149,7 +160,8 @@
                 $('#Id').val(data.Id);
                 $('#siteData_Id').val(data.siteData.Id);
                 $('#OnlineInfo_Id').val(data.OnlineInfo.Id);
-                $('#buildingAddress').val(data.buildingAddress);
+                $('#buildingNumber').val(data.buildingNumber);
+                $('#buildingStreet').val(data.buildingStreet);
                 $('#zoning').val(data.zoning);
                 $('#zipCode').val(data.zipCode);
                 $('#blockNumber').val(data.blockNumber);
@@ -218,13 +230,22 @@
                 $('#OnlineInfo_TreasurerSiteHomeowner').attr('checked', data.OnlineInfo.TreasurerSiteHomeowner);
                 $('#OnlineInfo_TreasurerSeniorCitizen').attr('checked', data.OnlineInfo.TreasurerSeniorCitizen);
                 $('#OnlineInfo_TreasurerSiteSeniorFreeze').attr('checked', data.OnlineInfo.TreasurerSiteSeniorFreeze);
-              
-                $('#OnlineInfo_taxPayerName').val(data.OnlineInfo.taxPayerName)
-                $('#OnlineInfo_taxpayerMailing').val(data.OnlineInfo.taxpayerMailing)
+
+                  $('#OnlineInfo_taxPayerName').val(data.OnlineInfo.taxPayerName)
+                  $('#OnlineInfo_taxpayerStreetNumber').val(data.OnlineInfo.taxpayerStreetNumber)
+                  $('#OnlineInfo_taxpayerStreetName').val(data.OnlineInfo.taxpayerStreetName)
+                  $('#OnlineInfo_taxpayerCity').val(data.OnlineInfo.taxpayerCity)
+                  $('#OnlineInfo_taxpayerstate').val(data.OnlineInfo.taxpayerstate)
+                  $('#OnlineInfo_taxpayerZip').val(data.OnlineInfo.taxpayerZip)
                 $('#OnlineInfo_PreviousYearPropertyTax').val(data.OnlineInfo.PreviousYearPropertyTax)
                 $('#OnlineInfo_CurrentYearTaxesOwed').val(data.OnlineInfo.CurrentYearTaxesOwed)
                 $('#OnlineInfo_isCurrentYearAsPrev').attr('checked', data.OnlineInfo.isCurrentYearAsPrev);
-                $('#OnlineInfo_TaxPayerInfo').val(data.OnlineInfo.TaxPayerInfo)
+                $('#OnlineInfo_CurrentYrTaxPayerName').val(data.OnlineInfo.CurrentYrTaxPayerName)
+                $('#OnlineInfo_CurrentYrTaxpayerStreetNumber').val(data.OnlineInfo.CurrentYrTaxpayerStreetNumber)
+                $('#OnlineInfo_CurrentYrtaxpayerStreetName').val(data.OnlineInfo.CurrentYrtaxpayerStreetName)
+                $('#OnlineInfo_CurrentYrtaxpayerCity').val(data.OnlineInfo.CurrentYrtaxpayerCity)
+                $('#OnlineInfo_CurrentYrtaxpayerstate').val(data.OnlineInfo.CurrentYrtaxpayerstate)
+                $('#OnlineInfo_CurrentYrtaxpayerZip').val(data.OnlineInfo.CurrentYrtaxpayerZip)
                 $('#OnlineInfo_isInTifDistrict').attr('checked', data.OnlineInfo.isInTifDistrict);
 
 

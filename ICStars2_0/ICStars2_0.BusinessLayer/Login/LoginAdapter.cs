@@ -70,9 +70,9 @@ namespace ICStars2_0.BusinessLayer.Login
             Logout(e);
             var skiplValidation = false;
             //username "StudentApp" is for testing
-            if (e.CampusConnectID.Equals("StudentApp"))
+            if (e.CampusConnectID.Equals("SlcStudent"))
             {
-                var member = MemberFactory.Create("StudentApp");
+                var member = MemberFactory.Create("SlcStudent");
                 if (!member.Status) return false;
                 skiplValidation = true;
             }

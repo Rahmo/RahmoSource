@@ -32,7 +32,17 @@ namespace ICStars2_0.Model
         [StringLength(50, MinimumLength = 6)]
         public string Password { get; set; }
     }
+    public class LoginTeacher
+    {
+        [Required]
+        [StringLength(50, MinimumLength = 2)]
+        public string UserName { get; set; }
 
+        [Required]
+        [DataType(DataType.Password)]
+        [StringLength(50, MinimumLength = 6)]
+        public string Password { get; set; }
+    }
     public class LoginSHTracker
     {
         [Required]

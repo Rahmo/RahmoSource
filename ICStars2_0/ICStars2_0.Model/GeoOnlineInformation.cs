@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Web.Mvc;
 using ICStars2_0.Common.Reflection;
 using ICStars2_0.Model.Enum;
 
@@ -82,11 +83,26 @@ namespace ICStars2_0.Model
         [Display(Name = "23. What is the 2014 property taxpayer’s name? ")]
 
         public string taxPayerName { get; set; }
-    [DbField]
-    [Display(Name = "24. What is the 2014 taxpayer’s mailing address?")]
-        public string taxpayerMailing { get; set; }
-    [DbField]
+    
+       // public string taxpayerMailing { get; set; }
+        [DbField]
+        [Display(Name = "24. What is the taxpayer’s street number?")]
+        public string taxpayerStreetNumber { get; set; }
+        [DbField]
+        [Display(Name = "What is the taxpayer’s street name?")]
 
+        public string taxpayerStreetName { get; set; }
+        [DbField]
+        [Display(Name = "What is the taxpayer’s city?")]
+        public string taxpayerCity { get; set; }
+        [DbField]
+        [Display(Name = "What is the taxpayer’s state?")]
+        public string taxpayerstate { get; set; }
+        [DbField]
+        [Display(Name = "What is the taxpayer’s Zipcode?")]
+        public string taxpayerZip { get; set; }
+
+        [DbField]
     [Display(Name = "25. What is the 2014 property tax (add 1st and 2nd installments")]
         public string PreviousYearPropertyTax  { get; set; }
     [DbField]
@@ -97,12 +113,31 @@ namespace ICStars2_0.Model
     [DbField]
     [Display(Name = "27.Is the 2015 property taxpayer’s name and address the same as 2014?")]
         public bool isCurrentYearAsPrev { get; set; }
-    [DbField]
-    [Display(Name = "What is the 2015 taxpayer’s name and address (Informations)")]
-        public string TaxPayerInfo { get; set; }
-    //tax payer address
-    [DbField]
-    [Display(Name = "28. Was this property in a TIF district in 2014?")]
+        //[DbField]
+        //[Display(Name = "What is the 2015 taxpayer’s name and address (Informations)")]
+        //    public string TaxPayerInfo { get; set; }
+        [DbField]
+        [Display(Name = "24. What is the current taxpayer’s name?")]
+        public string CurrentYrTaxPayerName { get; set; }
+        [DbField]
+        [Display(Name = " What is the current taxpayer’s street number?")]
+        public string CurrentYrTaxpayerStreetNumber { get; set; }
+        [DbField]
+        [Display(Name = " What is the current taxpayer’s street name?")]
+
+        public string CurrentYrtaxpayerStreetName { get; set; }
+        [DbField]
+        [Display(Name = " What is the current taxpayer’s city?")]
+        public string CurrentYrtaxpayerCity { get; set; }
+        [DbField]
+        [Display(Name = " What is the current taxpayer’s state?")]
+        public string CurrentYrtaxpayerstate { get; set; }
+        [DbField]
+        [Display(Name = " What is the current taxpayer’s Zipcode?")]
+        public string CurrentYrtaxpayerZip { get; set; }
+        //tax payer address
+        [DbField]
+        [Display(Name = "28. Was this property in a TIF district in 2014?")]
         public bool isInTifDistrict { get; set; }
     [DbField]
    // [DataType(DataType.Currency, ErrorMessage = "Only percentage values allowed")]
@@ -231,12 +266,71 @@ namespace ICStars2_0.Model
      [Display(Name = "Senior Freeze")]
     public bool TreasurerSiteSeniorFreeze { get; set; }
 
-    //public   GeoOnlineInformation()
-    //{
-    //    age = "N/a";
-    //}
+        //public   GeoOnlineInformation()
+        //{
+        //    age = "N/a";
+        //}
+
+        public static List<SelectListItem> States = new List<SelectListItem>()
+    {
+         
+            new SelectListItem() {   Selected = true, Text = "", Value = "" },
+            new SelectListItem() {Text="Alabama", Value="AL"},
+        new SelectListItem() { Text="Alaska", Value="AK"},
+        new SelectListItem() { Text="Arizona", Value="AZ"},
+        new SelectListItem() { Text="Arkansas", Value="AR"},
+        new SelectListItem() { Text="California", Value="CA"},
+        new SelectListItem() { Text="Colorado", Value="CO"},
+        new SelectListItem() { Text="Connecticut", Value="CT"},
+        new SelectListItem() { Text="District of Columbia", Value="DC"},
+        new SelectListItem() { Text="Delaware", Value="DE"},
+        new SelectListItem() { Text="Florida", Value="FL"},
+        new SelectListItem() { Text="Georgia", Value="GA"},
+        new SelectListItem() { Text="Hawaii", Value="HI"},
+        new SelectListItem() { Text="Idaho", Value="ID"},
+        new SelectListItem() { Text="Illinois", Value="IL"},
+        new SelectListItem() { Text="Indiana", Value="IN"},
+        new SelectListItem() { Text="Iowa", Value="IA"},
+        new SelectListItem() { Text="Kansas", Value="KS"},
+        new SelectListItem() { Text="Kentucky", Value="KY"},
+        new SelectListItem() { Text="Louisiana", Value="LA"},
+        new SelectListItem() { Text="Maine", Value="ME"},
+        new SelectListItem() { Text="Maryland", Value="MD"},
+        new SelectListItem() { Text="Massachusetts", Value="MA"},
+        new SelectListItem() { Text="Michigan", Value="MI"},
+        new SelectListItem() { Text="Minnesota", Value="MN"},
+        new SelectListItem() { Text="Mississippi", Value="MS"},
+        new SelectListItem() { Text="Missouri", Value="MO"},
+        new SelectListItem() { Text="Montana", Value="MT"},
+        new SelectListItem() { Text="Nebraska", Value="NE"},
+        new SelectListItem() { Text="Nevada", Value="NV"},
+        new SelectListItem() { Text="New Hampshire", Value="NH"},
+        new SelectListItem() { Text="New Jersey", Value="NJ"},
+        new SelectListItem() { Text="New Mexico", Value="NM"},
+        new SelectListItem() { Text="New York", Value="NY"},
+        new SelectListItem() { Text="North Carolina", Value="NC"},
+        new SelectListItem() { Text="North Dakota", Value="ND"},
+        new SelectListItem() { Text="Ohio", Value="OH"},
+        new SelectListItem() { Text="Oklahoma", Value="OK"},
+        new SelectListItem() { Text="Oregon", Value="OR"},
+        new SelectListItem() { Text="Pennsylvania", Value="PA"},
+        new SelectListItem() { Text="Rhode Island", Value="RI"},
+        new SelectListItem() { Text="South Carolina", Value="SC"},
+        new SelectListItem() { Text="South Dakota", Value="SD"},
+        new SelectListItem() { Text="Tennessee", Value="TN"},
+        new SelectListItem() { Text="Texas", Value="TX"},
+        new SelectListItem() { Text="Utah", Value="UT"},
+        new SelectListItem() { Text="Vermont", Value="VT"},
+        new SelectListItem() { Text="Virginia", Value="VA"},
+        new SelectListItem() { Text="Washington", Value="WA"},
+        new SelectListItem() { Text="West Virginia", Value="WV"},
+        new SelectListItem() { Text="Wisconsin", Value="WI"},
+        new SelectListItem() { Text="Wyoming", Value="WY"}
+    };
     }
 
 
 
 }
+
+
