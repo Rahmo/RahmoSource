@@ -29,9 +29,9 @@
 
     <fieldset>
         <legend>Article</legend>
-        @if (Model!=null && !string.IsNullOrEmpty(Model.Url))
+        @if (Model != null && !string.IsNullOrEmpty(Model.Url))
         {
-            @Html.HiddenFor(m=>m.Url)
+            @Html.HiddenFor(m => m.Url)
             <div class="editor-label">
                 @Html.LabelFor(model => model.Url)
             </div>
@@ -43,7 +43,7 @@
         else
         {
             <div class="editor-label">
-                @Html.LabelFor(model => model.Url) (This would be the url of this webpage. Please make a friendly url with letters, numbers, "-" and "_" only!) 
+                @Html.LabelFor(model => model.Url) (This would be the url of this webpage. Please make a friendly url with letters, numbers, "-" and "_" only!)
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.Url)
@@ -92,6 +92,7 @@
             {
                 new SelectListItem { Text = "Base", Value = "~/Views/Shared/_Layout.cshtml" },
                 new SelectListItem { Text = "BaseWithNavigation", Value = "~/Views/Shared/_Layout2.cshtml" }
+                //,new SelectListItem { Text = "BaseWithVertNavigation", Value = "~/Views/Shared/_LayoutVerticalMenu.cshtml" }
             })
             @Html.ValidationMessageFor(model => model.Layout)
         </div>

@@ -18,13 +18,12 @@
   <add name="DefaultConnection" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\RahmoSource\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=True;Connect Timeout=30"/>-->
 <!-- the connectioncs  below ar evalid -->
   
-  <!--<add name="cbsl" connectionString="server=sqldbprd13a.dpu.depaul.edu;database=cbsl;uid=cbslusr;pwd=Steans0308~;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
-
+  
   <!--The Production Database for steans website-->
   <add name="icstars" connectionString="server=sqldbprd13a.dpu.depaul.edu;database=cbsl;uid=cbslusr;pwd=Steans0308~;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
   
-  <!--The testing Database for steans website--><!--
-  <add name="icstars" connectionString="server=SQLDBTST13A.dpu.depaul.edu;database=cbsl;uid=AALZAH13;pwd=d3Paul4cbsl!;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
+  <!--The testing Database for steans website-->
+  <!--<add name="icstars" connectionString="server=SQLDBTST13A.dpu.depaul.edu;database=cbsl;uid=AALZAH13;pwd=d3Paul4cbsl!;Connect Timeout=60;Max Pool Size=200;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />-->
   
   
  <!--the connection  for the engagment database -->
@@ -34,5 +33,17 @@
   <!--<add name="icstars" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\RahmoSource\ICStars2_0\ICStars2_0\App_Data\ICStars2_0.mdf;Integrated Security=True;Connect Timeout=30"
     providerName="System.Data.SqlClient" />-->
 
- 
+ <!--REMEMBER IF YOU ARE RUNNING THE PROD DATABASE SWTICH FROM DEBUG MODE TO RELEASE MODE-->
+
+
+  <!--
+  
+  Connect in file zilla to either the producation server with campus connect and PWD and port 22
+  sftp://webprd01.dpu.depaul.edu
+  
+  or the testing server 
+  sftp://webtst01.dpu.depaul.edu
+  https://steanstest.is.depaul.edu
+  Testing server only accissible on campus 
+  -->
 </connectionStrings>

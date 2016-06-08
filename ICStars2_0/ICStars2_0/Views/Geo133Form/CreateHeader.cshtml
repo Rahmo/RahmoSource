@@ -1,41 +1,38 @@
 ﻿@*@Styles.Render("~/bundles/Site")*@
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/jqueryval")
-<script src="~/SHTracker/Scripts/CkEditor/ckeditor.js"></script>
-<script src="~/SHTracker/Scripts/CkEditor/CheckCompatibility.js"></script>
-@Scripts.Render("~/bundles/jqueryui")
-@Styles.Render("~/bundles/jqueryuicss")
-<script type="text/javascript">
-    $(function () {
 
-        $("#toBottom").click(function (e) {
-          
+
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    $(function() {
+
+        $("#toBottom").click(function(e) {
+
             // Prevent a page reload when a link is pressed
             e.preventDefault();
             // Call the scroll function
             $('html,body').animate({
-                scrollTop: $("#Bottom").offset().top
-            },
-             'slow');
+                    scrollTop: $("#Bottom").offset().top
+                },
+                'slow');
         });
 
-        $("#OnlineInfo_AssessedValuesBuilding__").change(function () {
+        $("#OnlineInfo_AssessedValuesBuilding__").change(function() {
             var a = ($('#OnlineInfo_AssessedValuesLand__').val());
             var b = $('#OnlineInfo_AssessedValuesBuilding__').val();
             if (a == "") {
-                a = 0; 
+                a = 0;
             }
             if (b == "") {
-                b = 0; 
+                b = 0;
             }
             var LandVal = parseInt(a);
-            var Building =   parseInt(b);
+            var Building = parseInt(b);
             // alert(LandVal +""+ isNaN(Building));
-       
-                var result = LandVal + Building;
-                $('#OnlineInfo_AssessedValuesTotal__').val(result);
+
+            var result = LandVal + Building;
+            $('#OnlineInfo_AssessedValuesTotal__').val(result);
         });
-        $("#OnlineInfo_AssessedValuesBuilding_").change(function () {
+        $("#OnlineInfo_AssessedValuesBuilding_").change(function() {
             var a = ($('#OnlineInfo_AssessedValuesLand_').val());
             var b = $('#OnlineInfo_AssessedValuesBuilding_').val();
             if (a == "") {
@@ -50,49 +47,45 @@
             var result = LandVal + Building;
             $('#OnlineInfo_AssessedValuesTotal_').val(result);
         });
-        $("#OnlineInfo_AssessedValuesTotal").change(function () {
+        $("#OnlineInfo_AssessedValuesBuilding").change(function () {
             var a = ($('#OnlineInfo_AssessedValuesLand').val());
             var b = $('#OnlineInfo_AssessedValuesBuilding').val();
-            var c = $('#OnlineInfo_AssessedValuesTotal').val();
+           
             if (a == "") {
                 a = 0;
             }
             if (b == "") {
                 b = 0;
             }
-            if (c == "") {
-                c = 0;
-            }
+           
             var LandVal = parseInt(a);
             var Building = parseInt(b);
-            var total = parseInt(c);
-            var result = LandVal + Building + total;
-            $('#OnlineInfo_AssessedValuesEstMkt').val(result);
+         ;
+            var result = LandVal + Building ;
+            $('#OnlineInfo_AssessedValuesTotal').val(result);
         });
-        $("#OnlineInfo_AssessedValuesTotalPlus").change(function () {
+        $("#OnlineInfo_AssessedValuesBuildingPlus").change(function () {
             var a = $('#OnlineInfo_AssessedValuesLandPlus').val();
             var b = $('#OnlineInfo_AssessedValuesBuildingPlus').val();
-            var c = $('#OnlineInfo_AssessedValuesTotalPlus').val();
+        
             if (a == "") {
                 a = 0;
             }
             if (b == "") {
                 b = 0;
             }
-            if (c == "") {
-                c = 0;
-            }
-             
+            
+
             var LandVal = parseInt(a);
             var Building = parseInt(b);
-            var total = parseInt(c);
-            var result = LandVal + Building + total;
-            $('#OnlineInfo_AssessedValuesEstMktPlus').val(result);
+          
+            var result = LandVal + Building ;
+            $('#OnlineInfo_AssessedValuesTotalPlus').val(result);
         });
-        $("#searchRecord").click(function () {
-              var DpuVal = $('#DpuId').val();
-              var pinNo = $('#pinNumber').val();
-       
+        $("#searchRecord").click(function() {
+            var DpuVal = $('#DpuId').val();
+            var pinNo = $('#pinNumber').val();
+
             // alert(DpuVal);
 
             // event.preventDefault();
@@ -100,11 +93,11 @@
             $.ajax({
                 Type: "GET/POST",
                 ContentType: "application/json;charset=utf-8",
-                url: '@Url.Action("load", "Geo133Form")?DpuId=' + DpuVal + '&pinNo='+pinNo+'',
+                url: '@Url.Action("load", "Geo133Form")?DpuId=' + DpuVal + '&pinNo=' + pinNo + '',
 
                 dataType: "json",
-                success: function (data) {
-              
+                success: function(data) {
+
                     alert("Our records indicates that you have a form registered with your info, Please continue updating it then press 'save' !");
 
                     $('#SecondVeiw').show();
@@ -116,10 +109,10 @@
                     $('#BtnCreate').addClass("btn btn-sm btn-danger");
 
                     fillView(data);
-
+                    SetupButtons();
                 },
 
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     $('#BtnSave').removeClass("btn btn-sm btn-success");
                     $('#BtnSave').addClass("btn btn-sm btn-danger");
                     $('#BtnSave').prop('disabled', true);
@@ -132,22 +125,24 @@
 
 
             });
-          
+
 
             function DateFormate(dateConvert) {
-                if (dateConvert == null) { return }
-                else {
-                  return $.datepicker.formatDate("mm-dd-yy", eval('new ' + dateConvert.slice(1, -1)));
-                     }
-                };
-              var fillView = function (data) {
-                  
+                if (dateConvert == null) {
+                    return
+                } else {
+                    return $.datepicker.formatDate("mm-dd-yy", eval('new ' + dateConvert.slice(1, -1)));
+                }
+            };
+
+            var fillView = function(data) {
+
                 //var newDate = dateFormat(data.OnlineInfo.saleDate, "mm/dd/yyyy");
-                  //alert( ' '
-                  //  + data.OnlineInfo.saleDate + ' '
-                  //  + data.OnlineInfo.censusTract + ''
-                  //  //+ data.siteData.EvidenceOfGardenType + ''
-                  //  );
+                //alert( ' '
+                //  + data.OnlineInfo.saleDate + ' '
+                //  + data.OnlineInfo.censusTract + ''
+                //  //+ data.siteData.EvidenceOfGardenType + ''
+                //  );
 
                 function RadionButtonSelectedValueSet(name, SelectdValue) {
                     $('input[name="' + name + '"][value="' + SelectdValue + '"]').prop('checked', true);
@@ -156,7 +151,7 @@
                 //alert(data.siteData.patchesExposed);
                 //alert(data.buildingAddress);
 
-            
+
                 $('#Id').val(data.Id);
                 $('#siteData_Id').val(data.siteData.Id);
                 $('#OnlineInfo_Id').val(data.OnlineInfo.Id);
@@ -167,11 +162,10 @@
                 $('#blockNumber').val(data.blockNumber);
                 $('#pinNumber').val(data.pinNumber);
                 $('#far').val(data.far);
-                 
+
                 RadionButtonSelectedValueSet('siteData.mainStreetFacade', data.siteData.mainStreetFacade);
                 RadionButtonSelectedValueSet('siteData.exterior', data.siteData.exterior);
                 RadionButtonSelectedValueSet('siteData.overallViability', data.siteData.overallViability);
-
 
 
                 $('#siteData_numberOfStories').val(data.siteData.numberOfStories)
@@ -231,12 +225,12 @@
                 $('#OnlineInfo_TreasurerSeniorCitizen').attr('checked', data.OnlineInfo.TreasurerSeniorCitizen);
                 $('#OnlineInfo_TreasurerSiteSeniorFreeze').attr('checked', data.OnlineInfo.TreasurerSiteSeniorFreeze);
 
-                  $('#OnlineInfo_taxPayerName').val(data.OnlineInfo.taxPayerName)
-                  $('#OnlineInfo_taxpayerStreetNumber').val(data.OnlineInfo.taxpayerStreetNumber)
-                  $('#OnlineInfo_taxpayerStreetName').val(data.OnlineInfo.taxpayerStreetName)
-                  $('#OnlineInfo_taxpayerCity').val(data.OnlineInfo.taxpayerCity)
-                  $('#OnlineInfo_taxpayerstate').val(data.OnlineInfo.taxpayerstate)
-                  $('#OnlineInfo_taxpayerZip').val(data.OnlineInfo.taxpayerZip)
+                $('#OnlineInfo_taxPayerName').val(data.OnlineInfo.taxPayerName)
+                $('#OnlineInfo_taxpayerStreetNumber').val(data.OnlineInfo.taxpayerStreetNumber)
+                $('#OnlineInfo_taxpayerStreetName').val(data.OnlineInfo.taxpayerStreetName)
+                $('#OnlineInfo_taxpayerCity').val(data.OnlineInfo.taxpayerCity)
+                $('#OnlineInfo_taxpayerstate').val(data.OnlineInfo.taxpayerstate)
+                $('#OnlineInfo_taxpayerZip').val(data.OnlineInfo.taxpayerZip)
                 $('#OnlineInfo_PreviousYearPropertyTax').val(data.OnlineInfo.PreviousYearPropertyTax)
                 $('#OnlineInfo_CurrentYearTaxesOwed').val(data.OnlineInfo.CurrentYearTaxesOwed)
                 $('#OnlineInfo_isCurrentYearAsPrev').attr('checked', data.OnlineInfo.isCurrentYearAsPrev);
@@ -255,8 +249,8 @@
                 $('#OnlineInfo_ParkDistrict').val(data.OnlineInfo.ParkDistrict)
                 $('#OnlineInfo_LibraryFund').val(data.OnlineInfo.LibraryFund)
                 $('#OnlineInfo_isPropertySoldInCurrentYear').attr('checked', data.OnlineInfo.isPropertySoldInCurrentYear);
-               
-                  $('#OnlineInfo_saleDate').val(DateFormate(data.OnlineInfo.saleDate))
+
+                $('#OnlineInfo_saleDate').val(DateFormate(data.OnlineInfo.saleDate))
                 $('#OnlineInfo_salePrice').val(data.OnlineInfo.salePrice)
                 $('#OnlineInfo_unitNumber').val(data.OnlineInfo.unitNumber)
 
@@ -270,52 +264,67 @@
 
 
                 RadionButtonSelectedValueSet('OnlineInfo.isPhotoDownloaded', data.OnlineInfo.isPhotoDownloaded);
-                
-                
 
-                  $('#OnlineInfo_PhotoDate').val(DateFormate(data.OnlineInfo.PhotoDate))
+
+                $('#OnlineInfo_PhotoDate').val(DateFormate(data.OnlineInfo.PhotoDate))
                 $('#OnlineInfo_isFollowingYPhotoTaken').attr('checked', data.OnlineInfo.isFollowingYPhotoTaken);
 
                 $('#OnlineInfo_StudentPhotoDate').val(DateFormate(data.OnlineInfo.StudentPhotoDate))
-               
 
-            
 
-                
             }
         });
 
+        jQuery(document).ready(function () {
 
-       
+            //$('#DpuId').keyup(function (e) {
+            //    if (e.which === 13) {
+            //        alert("he");
+            //        $("#BtnNewForm").trigger('click');
+            //        $('#BtnNewForm').click();
+                    
+            //    }
+            //});
+            //$('#pinNumber').keypress(function (event) {
+            //    if (event.keyCode === 13) {
+            //        alert("he");
+            //    }
+            //});
+            //$('#pinNumber').keyup(function (e) {
+            //    if (e.which === 13) {
+            //        alert("he");
+            //        $("#BtnNewForm").trigger('click');
+            //        $('#BtnNewForm').click();
+            //    }
+            //});
+            $('#datetimepicker').datepicker();
+        });
+
         jQuery("#OnlineInfo_yearBuild").attr("readonly", "true").datepicker({
-
-          
             dateFormat: 'mm yy',
             changeMonth: false,
             changeYear: true,
             showButtonPanel: true,
-            yearRange: '2000:' + (new Date).getFullYear(),
-            beforeShow: function () {
+            yearRange: '1850:' + (new Date).getFullYear(),
+            beforeShow: function() {
                 $('#hideMonth').html('.ui-datepicker-calendar{display:none;}');
             },
-            onClose: function (dateText, inst) {
+            onClose: function(dateText, inst) {
                 $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, inst.selectedDay));
             }
         });
 
 
         jQuery("#OnlineInfo_saleDate").attr("readonly", "true").datepicker({
-
             changeYear: true,
             changeMonth: true,
-            changeDay : true, 
+            changeDay: true,
             dateFormat: 'mm-dd-yy',
-           
+
         });
-        
-      
+
+
         jQuery("#OnlineInfo_PhotoDate").attr("readonly", "true").datepicker({
-
             changeYear: true,
             changeMonth: true,
             changeDay: true,
@@ -323,15 +332,193 @@
 
         });
 
-        
+
         jQuery("#OnlineInfo_StudentPhotoDate").attr("readonly", "true").datepicker({
-
             changeYear: true,
             changeMonth: true,
             changeDay: true,
             dateFormat: 'mm-dd-yy',
 
         });
+
+        $("#OnlineInfo_isCurrentYearAsPrev").change(function () {
+           
+
+            if ($(this).prop('checked')) {
+                var a = ($('#OnlineInfo_taxPayerName').val());
+                var b = $('#OnlineInfo_taxpayerStreetNumber').val();
+                var c = ($('#OnlineInfo_taxpayerStreetName').val());
+                var d = $('#OnlineInfo_taxpayerCity').val();
+                var e = ($('#OnlineInfo_taxpayerstate').val());
+                var f = $('#OnlineInfo_taxpayerZip').val();
+
+
+                $('#OnlineInfo_CurrentYrTaxPayerName').val(a);
+                $('#OnlineInfo_CurrentYrTaxpayerStreetNumber').val(b);
+                $('#OnlineInfo_CurrentYrtaxpayerStreetName').val(c);
+                $('#OnlineInfo_CurrentYrtaxpayerCity').val(d);
+                $('#OnlineInfo_CurrentYrtaxpayerstate').val(e);
+                $('#OnlineInfo_CurrentYrtaxpayerZip').val(f);
+            }
+            else {
+               
+            }
+          
+        });
+
+        $("#OnlineInfo_isInTifDistrict").change(function () {
+
+
+            if ($(this).prop('checked')) {
+                $("#OnlineInfo_TifArea").prop("disabled", false);
+                $("#OnlineInfo_BoardOfEducation").prop("disabled", false);
+                $("#OnlineInfo_SchoolImprovments").prop("disabled", false);
+                $("#OnlineInfo_ParkDistrict").prop("disabled", false);
+                $("#OnlineInfo_LibraryFund").prop("disabled", false);
+                $("#OnlineInfo_TifArea").css('background-color', 'white');
+                $("#OnlineInfo_BoardOfEducation").css('background-color', 'white');
+                $("#OnlineInfo_SchoolImprovments").css('background-color', 'white');
+                $("#OnlineInfo_ParkDistrict").css('background-color', 'white');
+                $("#OnlineInfo_LibraryFund").css('background-color', 'white');
+               
+              
+
+            }
+            else {
+                $("#OnlineInfo_TifArea").prop("disabled", true);
+                $("#OnlineInfo_BoardOfEducation").prop("disabled", true);
+                $("#OnlineInfo_SchoolImprovments").prop("disabled", true);
+                $("#OnlineInfo_ParkDistrict").prop("disabled", true);
+                $("#OnlineInfo_LibraryFund").prop("disabled", true);
+                $("#OnlineInfo_TifArea").css('background-color', '#ffb6c1');
+                $("#OnlineInfo_BoardOfEducation").css('background-color', '#ffb6c1');
+                $("#OnlineInfo_SchoolImprovments").css('background-color', '#ffb6c1');
+                $("#OnlineInfo_ParkDistrict").css('background-color', '#ffb6c1');
+                $("#OnlineInfo_LibraryFund").css('background-color', '#ffb6c1');
+            }
+
+        });
+
+
+
+        $("#OnlineInfo_isPropertySoldInCurrentYear").change(function () {
+
+
+            if ($(this).prop('checked')) {
+                $("#OnlineInfo_saleDate").prop("disabled", false);
+                $("#OnlineInfo_salePrice").prop("disabled", false);
+                $("#OnlineInfo_unitNumber").prop("disabled", false);
+                $("#OnlineInfo_saleDate").css('background-color', 'white');
+                $("#OnlineInfo_salePrice").css('background-color', 'white');
+                $("#OnlineInfo_unitNumber").css('background-color', 'white');
+
+
+
+            }
+            else {
+                $("#OnlineInfo_saleDate").prop("disabled", true);
+                $("#OnlineInfo_salePrice").prop("disabled", true);
+                $("#OnlineInfo_unitNumber").prop("disabled", true);
+                $("#OnlineInfo_saleDate").css('background-color', '#ffb6c1');
+                $("#OnlineInfo_salePrice").css('background-color', '#ffb6c1');
+                $("#OnlineInfo_unitNumber").css('background-color', '#ffb6c1');
+            }
+      
+        });
+
+        $("#OnlineInfo_isForSale").change(function () {
+
+
+            if ($(this).prop('checked')) {
+                $("#OnlineInfo_listedPrice").prop("disabled", false);
+                $("#OnlineInfo_bedroomsNumber").prop("disabled", false);
+              
+                $("#OnlineInfo_listedPrice").css('background-color', 'white');
+                $("#OnlineInfo_bedroomsNumber").css('background-color', 'white');
+               
+
+
+
+            }
+            else {
+                $("#OnlineInfo_listedPrice").prop("disabled", true);
+                $("#OnlineInfo_bedroomsNumber").prop("disabled", true);
+              
+                $("#OnlineInfo_listedPrice").css('background-color', '#ffb6c1');
+                $("#OnlineInfo_bedroomsNumber").css('background-color', '#ffb6c1');
+              
+            }
+
+        });
+
+ function SetupButtons() {
+     
+
+     if ($('#OnlineInfo_isInTifDistrict').prop('checked')) {
+         $("#OnlineInfo_TifArea").prop("disabled", false);
+         $("#OnlineInfo_BoardOfEducation").prop("disabled", false);
+         $("#OnlineInfo_SchoolImprovments").prop("disabled", false);
+         $("#OnlineInfo_ParkDistrict").prop("disabled", false);
+         $("#OnlineInfo_LibraryFund").prop("disabled", false);
+         $("#OnlineInfo_TifArea").css('background-color', 'white');
+         $("#OnlineInfo_BoardOfEducation").css('background-color', 'white');
+         $("#OnlineInfo_SchoolImprovments").css('background-color', 'white');
+         $("#OnlineInfo_ParkDistrict").css('background-color', 'white');
+         $("#OnlineInfo_LibraryFund").css('background-color', 'white');
+     }
+     else {
+         $("#OnlineInfo_TifArea").prop("disabled", true);
+         $("#OnlineInfo_BoardOfEducation").prop("disabled", true);
+         $("#OnlineInfo_SchoolImprovments").prop("disabled", true);
+         $("#OnlineInfo_ParkDistrict").prop("disabled", true);
+         $("#OnlineInfo_LibraryFund").prop("disabled", true);
+         $("#OnlineInfo_TifArea").css('background-color', '#ffb6c1');
+         $("#OnlineInfo_BoardOfEducation").css('background-color', '#ffb6c1');
+         $("#OnlineInfo_SchoolImprovments").css('background-color', '#ffb6c1');
+         $("#OnlineInfo_ParkDistrict").css('background-color', '#ffb6c1');
+         $("#OnlineInfo_LibraryFund").css('background-color', '#ffb6c1');
+     }
+
+     if ($('#OnlineInfo_isPropertySoldInCurrentYear').prop('checked')) {
+         $("#OnlineInfo_saleDate").prop("disabled", false);
+         $("#OnlineInfo_salePrice").prop("disabled", false);
+         $("#OnlineInfo_unitNumber").prop("disabled", false);
+         $("#OnlineInfo_saleDate").css('background-color', 'white');
+         $("#OnlineInfo_salePrice").css('background-color', 'white');
+         $("#OnlineInfo_unitNumber").css('background-color', 'white');
+
+
+
+     }
+     else {
+         $("#OnlineInfo_saleDate").prop("disabled", true);
+         $("#OnlineInfo_salePrice").prop("disabled", true);
+         $("#OnlineInfo_unitNumber").prop("disabled", true);
+         $("#OnlineInfo_saleDate").css('background-color', '#ffb6c1');
+         $("#OnlineInfo_salePrice").css('background-color', '#ffb6c1');
+         $("#OnlineInfo_unitNumber").css('background-color', '#ffb6c1');
+     }
+
+     if ($('#OnlineInfo_isForSale').prop('checked')) {
+         $("#OnlineInfo_listedPrice").prop("disabled", false);
+         $("#OnlineInfo_bedroomsNumber").prop("disabled", false);
+         $("#OnlineInfo_listedPrice").css('background-color', 'white');
+         $("#OnlineInfo_bedroomsNumber").css('background-color', 'white');
+
+     }
+     else {
+         $("#OnlineInfo_listedPrice").prop("disabled", true);
+         $("#OnlineInfo_bedroomsNumber").prop("disabled", true);
+
+         $("#OnlineInfo_listedPrice").css('background-color', '#ffb6c1');
+         $("#OnlineInfo_bedroomsNumber").css('background-color', '#ffb6c1');
+
+     }
+
+ }
+
+        SetupButtons();
+
         // this trigger something on date select
         //onSelect: function (dateText, inst)
         //{ var date = $(this).val(); var time = $('#time').val(); alert('on select triggered'); }
@@ -348,10 +535,17 @@
         //    { var date = $(this).val(); var time = $('#time').val(); alert('on select triggered'); }
         //});
 
-            
-
 
     });
 
 
 </script>
+
+
+
+
+<script src="~/SHTracker/Scripts/CkEditor/ckeditor.js"></script>
+<script src="~/SHTracker/Scripts/CkEditor/CheckCompatibility.js"></script>
+@Scripts.Render("~/bundles/jqueryui")
+@Styles.Render("~/bundles/jqueryuicss")
+@Scripts.Render("~/bundles/jqueryval")

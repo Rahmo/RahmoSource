@@ -362,7 +362,7 @@ footer nav ol li {
             top: 20px;
             left: 68px;
         }
-        footer aside a.icc {
+        /*footer aside a.icc {
             
             background: url("/images/icc_logo2.png") no-repeat scroll 0px 0px transparent;
             display: inline-block;
@@ -372,7 +372,7 @@ footer nav ol li {
             position: absolute;
             top: 70px;
             left: 13px;
-        }
+        }*/
             footer aside a.icarn {
             
             background: url("/images/carnegie.png") no-repeat scroll 0px 0px transparent;

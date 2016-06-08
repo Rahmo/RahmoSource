@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
@@ -11,6 +10,10 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.WebPages;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
 using ICStars2_0.BusinessLayer.GeoServices;
 using ICStars2_0.Common;
 using ICStars2_0.Model;
@@ -18,6 +21,10 @@ using ICStars2_0.Model.DbContexts;
 using Microsoft.Practices.Unity;
 using PagedList;
 using ICStars2_0.Mvc.Filter;
+using Color = System.Drawing.Color;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+
 //For injections
 
 namespace ICStars2_0.Controllers
@@ -67,7 +74,7 @@ namespace ICStars2_0.Controllers
                     return Create(model);
                 }
              
-                    return View();
+                    
                 
 
             }
@@ -77,7 +84,8 @@ namespace ICStars2_0.Controllers
             {
                 return update(model);
             }
-       
+
+           
             return View();
         }
         public ActionResult Details(int id)
@@ -121,10 +129,10 @@ namespace ICStars2_0.Controllers
                 //db.Entry(geoform).Collection(p => p.OnlineInfo).Load();
                 db.SaveChanges();
                 TempData["Response"] = "Your changes has been saved succefully! ";
-                return RedirectToAction("Main");
+                return Main();
             }
 
-
+            TempData["Response"] = "Your data has not been save please make sure of you inputs ! ";
             //   organization.DateCreated = DateTime.Now;
 
 
@@ -254,7 +262,7 @@ namespace ICStars2_0.Controllers
             }
         }
 
-        public ActionResult ExportToExcel(string dpuId)
+        public void ExportToExcel(string dpuId)
         {
 
             using (var db = new GeoDbContext())
@@ -290,9 +298,10 @@ namespace ICStars2_0.Controllers
                                              OnlineInfo = x.OnlineInfo,
                                              siteData = x.siteData,
                                          }).ToList();
-
-                    var products = new DataTable("teste");
-                products.Columns.Add("dd");
+                
+                var products = new DataTable("teste");
+                
+              //  products.Columns.Add("dd");
 
                 products.Columns.Add("PIN");
                 products.Columns.Add("Address Number");
@@ -352,22 +361,22 @@ namespace ICStars2_0.Controllers
 
                 products.Columns.Add("2001total");
 
-                products.Columns.Add("2014Value_L");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + "Value_L");
 
 
-                products.Columns.Add("2014Value_B");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + "Value_B");
 
-                products.Columns.Add("2014total");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2))+"total");
 
-                products.Columns.Add("2015Value_L");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + "Value_L");
 
-                products.Columns.Add("2015Value_B");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + "Value_B");
 
-                products.Columns.Add("2015total");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-1))+"total");
 
-                products.Columns.Add("2014_Est_Mkt_val");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + "_Est_Mkt_val");
 
-                products.Columns.Add("2015_Est_Mkt_val");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + "_Est_Mkt_val");
 
                 products.Columns.Add("byear");
 
@@ -378,35 +387,36 @@ namespace ICStars2_0.Controllers
                 products.Columns.Add("Land Sq. Foot");
                 products.Columns.Add("Property Description (A-G)");
                 products.Columns.Add("Age");
-                products.Columns.Add("Previous Year Exemption Total");
+              
                 products.Columns.Add("Exemption Reason");
-                products.Columns.Add("Homeowner 2014");
+                products.Columns.Add("Homeowner "+ string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) );
                 products.Columns.Add("Senior Citizen Prev Year");
+                products.Columns.Add("Previous Year Exemption Total");
                 products.Columns.Add("Senior Freeze Prev Year");
-                products.Columns.Add("Name_taxpayer_2014");
-                products.Columns.Add("#TP_2014_Address Number");
-                products.Columns.Add("TP_2014_Address Street");
-                products.Columns.Add("TP_2014_Address City");
-                products.Columns.Add("TP_2014_Address state");
-                products.Columns.Add("TP_2014_Address zip");
-                products.Columns.Add("2014pptax");
-                products.Columns.Add("2014owed");
+                products.Columns.Add("Name_taxpayer_"+ string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) );
+                products.Columns.Add("#TP_"+ string.Format("{0:yyyy}", DateTime.Today.AddYears(-2))+"_Address Number");
+                products.Columns.Add("TP_" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + "_Address Street");
+                products.Columns.Add("TP_" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + "_Address City");
+                products.Columns.Add("TP_" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + "_Address state");
+                products.Columns.Add("TP_" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + "_Address zip");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + "pptax");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + "owed");
                 products.Columns.Add("Same");
-                products.Columns.Add("Name_taxpayer_2015");
-                products.Columns.Add("TP_2015_Address Number");
-                products.Columns.Add("TP_2015_Address Street");
-                products.Columns.Add("TP_2015_Address City");
-                products.Columns.Add("TP_2015_Address state");
-                products.Columns.Add("TP_2015_Address zip");
-                products.Columns.Add("2014 in_TIF");
-                products.Columns.Add("2014 TIF %");
-                products.Columns.Add("2014 Education %");
-                products.Columns.Add("2014 School Building %");
-                products.Columns.Add("2014 Park District %");
-                products.Columns.Add("2014 Library %");
-                products.Columns.Add("2015 Sale");
-                products.Columns.Add("2015saledate");
-                products.Columns.Add("Price at 2015 Sale ($)");
+                products.Columns.Add("Name_taxpayer_"+string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) );
+                products.Columns.Add("TP_" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + "_Address Number");
+                products.Columns.Add("TP_" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + "_Address Street");
+                products.Columns.Add("TP_" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + "_Address City");
+                products.Columns.Add("TP_" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + "_Address state");
+                products.Columns.Add("TP_" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + "_Address zip");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + " in_TIF");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + " TIF %");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + " Education %");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + " School Building %");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + " Park District %");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + " Library %");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + " Sale");
+                products.Columns.Add(string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + "saledate");
+                products.Columns.Add("Price at "+string.Format("{0:yyyy}", DateTime.Today.AddYears(-1)) + " Sale ($)");
                 products.Columns.Add("Unit Number");
                 products.Columns.Add("For Sale Now");
                 products.Columns.Add("Price");
@@ -418,19 +428,20 @@ namespace ICStars2_0.Controllers
                 products.Columns.Add("Your Photo Date");
                 products.Columns.Add("Maximum Building Sq. Foot");
                 products.Columns.Add("Available Sq. Ft.");
-                products.Columns.Add("Assessed Value % change (1999-2014)");
+                products.Columns.Add("Assessed Value % change (1999-"+string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + ")");
                 products.Columns.Add("Assessed Value % change (1999-2001)");
                 products.Columns.Add("Assessed Value % change (2001-2013)");
-                products.Columns.Add("Assessed Value % change (2001-2014)");
-                products.Columns.Add("Assessed Value % change (2013-2014) Number");
-                products.Columns.Add("Est. Mkt. Value % Change (2013-2014) Street");
-                products.Columns.Add("Est. Mkt. Value $ Change (2013-2014) City");
+                products.Columns.Add("Assessed Value % change (2001-" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + ")");
+                products.Columns.Add("Assessed Value % change (2013-" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + ") Number");
+                products.Columns.Add("Est. Mkt. Value % Change (2013-" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + ") Street");
+                products.Columns.Add("Est. Mkt. Value $ Change (2013-" + string.Format("{0:yyyy}", DateTime.Today.AddYears(-2)) + ") City");
                 products.Columns.Add("TIF ($)");
                 products.Columns.Add("Education $");
                 products.Columns.Add("School Building $");
                 products.Columns.Add("Parks ($)");
                 products.Columns.Add("Library ($)");
                 products.Columns.Add("HD25% ($)");
+                
 
               
                 foreach (GEO133 model in data)
@@ -443,95 +454,128 @@ namespace ICStars2_0.Controllers
                     {
                         model.far = 0.ToString();
                     }
+
                     
 
 
-     
-                 
+                    try
+                    {
+
+                        products.Rows.Add( model.pinNumber, model.buildingNumber, model.buildingStreet
+                            , model.zipCode, model.zoning, model.far,
+                            model.siteData.mainStreetFacade, model.siteData.exterior, model.siteData.overallViability,
+                            model.siteData.numberOfStories
+                            , model.siteData.facadeType, model.siteData.patchesExposed, model.siteData.GardenActivity,
+                            model.siteData.EvidenceOfGardenType
+                            , model.siteData.SignPostedOnBuilding, model.siteData.FirstUse,
+                            model.siteData.FirstOccupancy,
+                            model.siteData.SecondUse
+                            , model.siteData.SecondOccupancy, model.siteData.ThirdUse, model.siteData.ThirdOccupancy
+                            , model.siteData.FirstUse, model.siteData.FourthOccupancy, model.siteData.BackRearUse,
+                            model.siteData.BackRearOccupancy
+                            , model.siteData.StructureClassification, model.OnlineInfo.AssessedValuesLand__,
+                            model.OnlineInfo.AssessedValuesBuilding__,
+                            model.OnlineInfo.AssessedValuesTotal__, model.OnlineInfo.AssessedValuesLand_,
+                            model.OnlineInfo.AssessedValuesBuilding_
+                            , model.OnlineInfo.AssessedValuesTotal_, model.OnlineInfo.AssessedValuesLand,
+                            model.OnlineInfo.AssessedValuesBuilding,
+                            model.OnlineInfo.AssessedValuesTotal, model.OnlineInfo.AssessedValuesLandPlus,
+                            model.OnlineInfo.AssessedValuesBuildingPlus,
+                            model.OnlineInfo.AssessedValuesTotalPlus, string.Format("{0:C}", double.Parse(model.OnlineInfo.AssessedValuesEstMkt)),
+                           string.Format("{0:C}", double.Parse(model.OnlineInfo.AssessedValuesEstMktPlus)),
+                           string.Format("{0:yyyy}", model.OnlineInfo.yearBuild) , model.OnlineInfo.censusTract, model.OnlineInfo.propertyClass,
+                            model.OnlineInfo.Stories, model.OnlineInfo.BuildingSquareFootage
+                            , model.OnlineInfo.LandSquareFootage, model.OnlineInfo.propertyDescription,
+                            model.OnlineInfo.age // Check
+                            , model.OnlineInfo.TaxExemptionsStatus, model.OnlineInfo.TreasurerSiteHomeowner,
+                            model.OnlineInfo.TreasurerSeniorCitizen, string.Format("{0:C}", model.OnlineInfo.PropertyTaxExemptions) , model.OnlineInfo.TreasurerSiteSeniorFreeze
+                            , model.OnlineInfo.taxPayerName, model.OnlineInfo.taxpayerStreetNumber,
+                            model.OnlineInfo.taxpayerStreetName, model.OnlineInfo.taxpayerCity
+                            , model.OnlineInfo.taxpayerstate, model.OnlineInfo.taxpayerZip,
+                           string.Format("{0:C}", double.Parse(model.OnlineInfo.PreviousYearPropertyTax))
+                            , string.Format("{0:C}", model.OnlineInfo.CurrentYearTaxesOwed), model.OnlineInfo.isCurrentYearAsPrev,
+                            model.OnlineInfo.CurrentYrTaxPayerName
+                            , model.OnlineInfo.CurrentYrTaxpayerStreetNumber,
+                            model.OnlineInfo.CurrentYrtaxpayerStreetName, model.OnlineInfo.CurrentYrtaxpayerCity,
+                            model.OnlineInfo.CurrentYrtaxpayerstate
+                            , model.OnlineInfo.CurrentYrtaxpayerZip, model.OnlineInfo.isInTifDistrict,
+                            model.OnlineInfo.TifArea,
+                            model.OnlineInfo.BoardOfEducation
+                            , model.OnlineInfo.SchoolImprovments, model.OnlineInfo.ParkDistrict,
+                            model.OnlineInfo.LibraryFund, model.OnlineInfo.isPropertySoldInCurrentYear
+                            , model.OnlineInfo.saleDate, model.OnlineInfo.salePrice, model.OnlineInfo.unitNumber,
+                            model.OnlineInfo.isForSale, model.OnlineInfo.listedPrice
+                            , model.OnlineInfo.bedroomsNumber, model.OnlineInfo.isOrange,
+                            model.OnlineInfo.isPhotoDownloaded,
+                            model.OnlineInfo.PhotoDate, model.OnlineInfo.isFollowingYPhotoTaken
+                            , model.OnlineInfo.StudentPhotoDate
+                            ,
+                            double.Parse(CheckNull(model.far))*
+                            double.Parse(CheckNull(model.OnlineInfo.LandSquareFootage))
+                            ,
+                            (double.Parse(CheckNull(model.far))*
+                            double.Parse(CheckNull(model.OnlineInfo.LandSquareFootage)) -
+                             double.Parse(CheckNa(CheckNull(model.OnlineInfo.BuildingSquareFootage)))),
+                            ((double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotalPlus)) -
+                             (double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal__)))))/
+                            double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal__))))*100
+                            ,
+                            ((double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal_))) -
+                              (double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal__)))))/
+                             double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal__))))*100,
+
+                            ((double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal))) -
+                              (double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal_)))))/
+                             double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal_))))*100
+                             ,
+                            ((double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotalPlus))) -
+                              (double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal_)))))/
+                             double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal_))))*100,
+
+                            ((double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotalPlus))) -
+                             (double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal)))))/
+                            double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesTotal))))*100
+                            ,
+                            ((double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesEstMktPlus))) -
+                              (double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesEstMkt)))))/
+                             double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesEstMkt))))*100
+                             ,
+
+                             string.Format("{0:C}", ((double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesEstMktPlus))) -
+                              (double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesEstMkt)))))))
+                              ,
+                            string.Format("{0:C}", ((CheckNull(model.OnlineInfo.TifArea))) * (double.Parse(CheckNa(CheckNull(checkSign(model.OnlineInfo.PreviousYearPropertyTax))))
+                             ) / 100)
+                             ,
+                           string.Format("{0:C}", ((double.Parse(CheckNa(CheckNull(model.OnlineInfo.PreviousYearPropertyTax)))) *
+                             (CheckNull(model.OnlineInfo.BoardOfEducation))) /
+                            100)
+                            ,
+                             string.Format("{0:C}", ((double.Parse(CheckNa(CheckNull(model.OnlineInfo.PreviousYearPropertyTax)))) *
+                             (CheckNull(model.OnlineInfo.SchoolImprovments))) /
+                            100),
+                            string.Format("{0:C}", ((double.Parse(CheckNa(CheckNull(model.OnlineInfo.PreviousYearPropertyTax)))) *
+                             (CheckNull(model.OnlineInfo.ParkDistrict))) / 100),
+                             string.Format("{0:C}",((double.Parse(CheckNa(CheckNull(model.OnlineInfo.PreviousYearPropertyTax)))) *
+                             (CheckNull(model.OnlineInfo.LibraryFund))) / 100),
+                             string.Format("{0:C}", (double.Parse(CheckNa(CheckNull(model.OnlineInfo.AssessedValuesEstMktPlus))) / 4))
+                            );
+                      
+
+                    }
+
+                    catch (System.FormatException e)
+                    {
+
+                        Console.WriteLine(e.Message + e.Source, e.StackTrace, e.Data, e.InnerException);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message + e.Source, e.StackTrace, e.Data, e.InnerException);
+                    }
 
 
-                    products.Rows.Add(1, model.pinNumber, model.buildingNumber, model.buildingStreet
-                        , model.zipCode, model.zoning, model.far,
-                        model.siteData.mainStreetFacade, model.siteData.exterior, model.siteData.overallViability,
-                        model.siteData.numberOfStories
-                        , model.siteData.facadeType, model.siteData.patchesExposed, model.siteData.GardenActivity,
-                        model.siteData.EvidenceOfGardenType
-                        , model.siteData.SignPostedOnBuilding, model.siteData.FirstUse, model.siteData.FirstOccupancy,
-                        model.siteData.SecondUse
-                        , model.siteData.SecondOccupancy, model.siteData.ThirdUse, model.siteData.ThirdOccupancy
-                        , model.siteData.FirstUse, model.siteData.FourthOccupancy, model.siteData.BackRearUse,
-                        model.siteData.BackRearOccupancy
-                        , model.siteData.StructureClassification, model.OnlineInfo.AssessedValuesLand__,
-                        model.OnlineInfo.AssessedValuesBuilding__,
-                        model.OnlineInfo.AssessedValuesTotal__, model.OnlineInfo.AssessedValuesLand_,
-                        model.OnlineInfo.AssessedValuesBuilding_
-                        , model.OnlineInfo.AssessedValuesTotal_, model.OnlineInfo.AssessedValuesLand,
-                        model.OnlineInfo.AssessedValuesBuilding,
-                        model.OnlineInfo.AssessedValuesTotal, model.OnlineInfo.AssessedValuesLandPlus,
-                        model.OnlineInfo.AssessedValuesBuildingPlus,
-                        model.OnlineInfo.AssessedValuesTotalPlus, model.OnlineInfo.AssessedValuesEstMkt,
-                        model.OnlineInfo.AssessedValuesEstMktPlus,
-                        model.OnlineInfo.yearBuild, model.OnlineInfo.censusTract, model.OnlineInfo.propertyClass,
-                        model.OnlineInfo.Stories, model.OnlineInfo.BuildingSquareFootage
-                        , model.OnlineInfo.LandSquareFootage, model.OnlineInfo.propertyDescription, model.OnlineInfo.age,
-                        model.OnlineInfo.PropertyTaxExemptions
-                        , model.OnlineInfo.TaxExemptionsStatus, model.OnlineInfo.TreasurerSiteHomeowner,
-                        model.OnlineInfo.TreasurerSeniorCitizen, model.OnlineInfo.TreasurerSiteSeniorFreeze
-                        , model.OnlineInfo.taxPayerName, model.OnlineInfo.taxpayerStreetNumber,
-                        model.OnlineInfo.taxpayerStreetName, model.OnlineInfo.taxpayerCity
-                        , model.OnlineInfo.taxpayerstate, model.OnlineInfo.taxpayerZip,
-                        model.OnlineInfo.PreviousYearPropertyTax
-                        , model.OnlineInfo.CurrentYearTaxesOwed, model.OnlineInfo.isCurrentYearAsPrev,
-                        model.OnlineInfo.CurrentYrTaxPayerName
-                        , model.OnlineInfo.CurrentYrTaxpayerStreetNumber, model.OnlineInfo.CurrentYrtaxpayerStreetName, model.OnlineInfo.CurrentYrtaxpayerCity,
-                        model.OnlineInfo.CurrentYrtaxpayerstate
-                        , model.OnlineInfo.CurrentYrtaxpayerZip, model.OnlineInfo.isInTifDistrict, model.OnlineInfo.TifArea,
-                        model.OnlineInfo.BoardOfEducation
-                        , model.OnlineInfo.SchoolImprovments, model.OnlineInfo.ParkDistrict,
-                        model.OnlineInfo.LibraryFund, model.OnlineInfo.isPropertySoldInCurrentYear
-                        , model.OnlineInfo.saleDate, model.OnlineInfo.salePrice, model.OnlineInfo.unitNumber,
-                        model.OnlineInfo.isForSale, model.OnlineInfo.listedPrice
-                        , model.OnlineInfo.bedroomsNumber, model.OnlineInfo.isOrange, model.OnlineInfo.isPhotoDownloaded,
-                        model.OnlineInfo.PhotoDate, model.OnlineInfo.isFollowingYPhotoTaken
-                        , model.OnlineInfo.StudentPhotoDate,
 
-                        double.Parse(CheckNull(model.far))*double.Parse(CheckNull(model.OnlineInfo.LandSquareFootage))
-                        ,
-                        double.Parse(CheckNull(model.far))*double.Parse(CheckNull(model.OnlineInfo.LandSquareFootage)),
-                        ((double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotalPlus)) -
-                          (double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal__))))/
-                         double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal__)))*100,
-                        ((double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal_)) -
-                          (double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal__))))/
-                         double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal__)))*100,
-
-                        ((double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal)) -
-                          (double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal_))))/
-                         double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal_)))*100,
-                        ((double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotalPlus)) -
-                          (double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal_))))/
-                         double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal_)))*100,
-
-                        ((double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotalPlus)) -
-                          (double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal))))/
-                         double.Parse(CheckNull(model.OnlineInfo.AssessedValuesTotal)))*100,
-                        ((double.Parse(CheckNull(model.OnlineInfo.AssessedValuesEstMktPlus)) -
-                          (double.Parse(CheckNull(model.OnlineInfo.AssessedValuesEstMkt))))/
-                         double.Parse(CheckNull(model.OnlineInfo.AssessedValuesEstMkt)))*100,
-
-                        ((double.Parse(CheckNull(model.OnlineInfo.AssessedValuesEstMktPlus)) -
-                          (double.Parse(CheckNull(model.OnlineInfo.AssessedValuesEstMkt))))),
-                        ((double.Parse(CheckNull(model.OnlineInfo.PreviousYearPropertyTax))*(CheckNull(model.OnlineInfo.TifArea))))/100,
-                        ((double.Parse(CheckNull(model.OnlineInfo.PreviousYearPropertyTax)))*(CheckNull(model.OnlineInfo.BoardOfEducation)))/
-                        100,
-                        ((double.Parse(CheckNull(model.OnlineInfo.PreviousYearPropertyTax)))*(CheckNull(model.OnlineInfo.SchoolImprovments)))/
-                        100,
-                        ((double.Parse(CheckNull(model.OnlineInfo.PreviousYearPropertyTax)))*(CheckNull(model.OnlineInfo.ParkDistrict)))/100,
-                        ((double.Parse(CheckNull(model.OnlineInfo.PreviousYearPropertyTax)))*(CheckNull(model.OnlineInfo.LibraryFund)))/100,
-                        (double.Parse(CheckNull(model.OnlineInfo.AssessedValuesEstMktPlus))/4)
-                        );
-
-                   
                 }
 
 
@@ -553,7 +597,7 @@ namespace ICStars2_0.Controllers
                         }
                         if (products.Rows[i]["Historic Rating"].ToString()== "True")
                         {
-                            products.Rows[i]["Historic Rating"] = "is Orange";
+                            products.Rows[i]["Historic Rating"] = "Orange";
 ;                        }
                         else if (products.Rows[i]["Historic Rating"].ToString() == "False")
                         {
@@ -564,37 +608,28 @@ namespace ICStars2_0.Controllers
                     }
                 }
 
-                var grid = new GridView();
-                grid.DataSource = products;
-                grid.DataBind();
-                grid.BackColor = Color.Beige;
-                Response.ClearContent();
-                Response.Buffer = false;
-                Response.AddHeader("content-disposition", "attachment; filename=Properties.xls");
-                Response.ContentType = "application/vnd.ms-excel";
 
-                Response.Charset = "";
-                var sw = new StringWriter();
-                var htw = new HtmlTextWriter(sw);
-
-                grid.RenderControl(htw);
-
-                Response.Output.Write(sw.ToString());
+                //old code
+                  GetExcel(products);
+                // 
+               // ExportToExcelOpen(products);
                 Response.Flush();
                 Response.End();
                 Response.Close();
-                return View("MyView");
+                return ;
         } }
 
-        private double? CheckNull(double? s)
+        private double CheckNull(double? s)
         {
             try
             {
+                double nom = 0; 
                 if (s == null)
                 {
-                    s = 0;
+                    return nom;
                 }
-                return s;
+
+                return (double) s;
             }
             catch (Exception exception)
             {
@@ -657,7 +692,170 @@ namespace ICStars2_0.Controllers
         new SelectListItem() { Text="Wisconsin", Value="WI"},
         new SelectListItem() { Text="Wyoming", Value="WY"}
     };
-        internal string CheckNull(string s)
+        private void GetExcel(DataTable tbl)
+        {
+           
+          
+
+            using (ExcelPackage pck = new ExcelPackage())
+            {
+      
+                //Create the worksheet
+                ExcelWorksheet ws = pck.Workbook.Worksheets.Add("demo");
+
+
+
+                //Load the datatable into the sheet, starting from cell A1. Print the column names on row 1
+                ws.Cells["A1"].LoadFromDataTable(tbl, true);
+                //  ws.Cells["D1"].Formula = "=INT(0.5)";
+                // ws.Cells.Style.Numberformat.Format = "0.0%";
+                ws.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+
+
+                // The following is to style with no decimal 
+                ws.Column(1).Style.Numberformat.Format = "0";
+                //2 3  5 11 28 29 30-39  43 45-47 49 56 60 88 89    
+                //1 2  4 10 27 28 29-38  42 44-46 48 55 59 87 88
+                ws.Column(2).Style.Numberformat.Format = "0";
+                ws.Column(4).Style.Numberformat.Format = "0";
+                ws.Column(10).Style.Numberformat.Format = "0";
+                ws.Column(27).Style.Numberformat.Format = "0";
+                ws.Column(28).Style.Numberformat.Format = "0";
+                ws.Column(29).Style.Numberformat.Format = "0";
+                ws.Column(30).Style.Numberformat.Format = "0";
+                ws.Column(31).Style.Numberformat.Format = "0";
+                ws.Column(32).Style.Numberformat.Format = "0";
+                ws.Column(33).Style.Numberformat.Format = "0";
+                ws.Column(34).Style.Numberformat.Format = "0";
+                ws.Column(35).Style.Numberformat.Format = "0";
+                ws.Column(36).Style.Numberformat.Format = "0";
+                ws.Column(37).Style.Numberformat.Format = "0";
+                ws.Column(38).Style.Numberformat.Format = "0";
+                ws.Column(42).Style.Numberformat.Format = "0";
+                ws.Column(44).Style.Numberformat.Format = "0";
+                ws.Column(45).Style.Numberformat.Format = "0";
+                ws.Column(46).Style.Numberformat.Format = "0";
+                ws.Column(48).Style.Numberformat.Format = "0";
+                ws.Column(55).Style.Numberformat.Format = "0";
+                ws.Column(59).Style.Numberformat.Format = "0";
+                ws.Column(87).Style.Numberformat.Format = "0";
+                ws.Column(88).Style.Numberformat.Format = "0";
+
+                // To style the element with one decimal in place 
+                ws.Column(6).Style.Numberformat.Format = "0.0";
+
+                // 76 - 71  89 - 94
+                // 75-70    88 = 93
+                // to style with 10 decimal in place 
+                ws.Column(70).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(71).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(72).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(73).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(74).Style.Numberformat.Format = "0.0000000000";
+                //ws.Column(75).Style.Numberformat.Format = "0.0000000000";
+                //ws.Column(88).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(89).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(90).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(91).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(92).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(93).Style.Numberformat.Format = "0.0000000000";
+                ws.Column(94).Style.Numberformat.Format = "0.0000000000";
+
+                // To style as currency "$0.00";
+                ws.Column(39).Style.Numberformat.Format = "$0.00";
+                ws.Column(40).Style.Numberformat.Format = "$0.00";
+               
+                ws.Column(52).Style.Numberformat.Format = "$0.00";
+                ws.Column(60).Style.Numberformat.Format = "$0.00";
+                ws.Column(61).Style.Numberformat.Format = "$0.00";
+                ws.Column(77).Style.Numberformat.Format = "$0.00";
+                ws.Column(80).Style.Numberformat.Format = "$0.00";
+                ws.Column(95).Style.Numberformat.Format = "$0.00";
+                ws.Column(96).Style.Numberformat.Format = "$0.00";
+                ws.Column(97).Style.Numberformat.Format = "$0.00";
+                ws.Column(98).Style.Numberformat.Format = "$0.00";
+                ws.Column(99).Style.Numberformat.Format = "$0.00";
+                ws.Column(100).Style.Numberformat.Format ="$0.00";
+                ws.Column(101).Style.Numberformat.Format = "$0.00";
+
+
+                //date
+                //ws.Column(41).Style.Numberformat.Format = "yyyy"
+               //TO HAVE THE DATE AS YEAR FORMAT ONLY 
+                ws.Column(41).Style.Numberformat.Format = "yyyy;@";
+
+                ws.Column(1).Style.ShrinkToFit = true;
+              
+                ws.Column(4).Style.Numberformat.Format = "0";
+
+                Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                string fileName = "File" + DateTime.Now.ToString("MMddyyyy_HHmmss") + ".xlsx"; // change to xlsx
+                Response.AddHeader("content-disposition", "attachment;filename=" + fileName);
+                Response.BinaryWrite(pck.GetAsByteArray());
+            }
+        }
+
+        private string checkSign(string str)
+        {
+            try
+            {
+                if (str == "N/A" || str == "n/a" || str == "n/A" || str == "N/a")
+                {
+
+                    return "0";
+                }
+                else
+                {
+
+                    int maxLength = str.Length;
+                    string n = "";
+                    if (!Char.IsNumber(str[0]))
+                    {
+                        n = str.Substring(1);
+
+                    }
+                    else
+                    {
+                        n = str;
+                    }
+
+
+                    if (!Char.IsNumber(n[maxLength - 2]))
+                    {
+                        n = n.Substring(0, maxLength - 2);
+                    }
+                    return n;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.InnerException);
+            }
+            return null ; 
+        }
+      
+      
+
+        internal string CheckNa(string s)
+        {
+          ;
+            try
+            {
+                if (s == "N/A" || s == "n/a" || s == "n/A" || s == "N/a")
+                {
+                    string ZeroChar = "0";
+                    return ZeroChar;
+                }
+                
+                return s;
+            }
+            catch (Exception exception)
+            {
+
+                throw exception;
+            }
+        }
+        static string CheckNull(string s)
         {
             try
             {
@@ -670,7 +868,7 @@ namespace ICStars2_0.Controllers
             catch (Exception exception)
             {
                
-                throw exception;
+                throw exception.InnerException;
             }
         }
        
@@ -693,6 +891,108 @@ namespace ICStars2_0.Controllers
             //  throw new NotImplementedException();
         }
 
+        public void ExportToExcelOpen(DataTable tbl)
+        {
+            // Create a spreadsheet document by supplying the filename
+            // By default, AutoSave = true, Editable = true, and Type = xlsx
 
+          Response.ClearHeaders();
+          Response.ClearContent();
+           Response.Clear();
+           Response.Buffer = true;
+            string fileName = "File" + DateTime.Now.ToString("MMddyyyy_HHmmss") + ".xlsx";
+            Response.AddHeader("content-disposition", "attachment; filename=" + fileName);
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+           Response.Charset = "";
+
+            MemoryStream ms = new MemoryStream();
+
+            using (var objSpreadsheet = SpreadsheetDocument.Create(ms, DocumentFormat.OpenXml.SpreadsheetDocumentType.Workbook))
+            {
+                var workbookPart = objSpreadsheet.AddWorkbookPart();
+                objSpreadsheet.WorkbookPart.Workbook = new DocumentFormat.OpenXml.Spreadsheet.Workbook();
+                objSpreadsheet.WorkbookPart.Workbook.Sheets = new DocumentFormat.OpenXml.Spreadsheet.Sheets();
+
+                uint sheetId = 1;
+
+              
+                    var sheetPart = objSpreadsheet.WorkbookPart.AddNewPart<WorksheetPart>();
+                    var sheetData = new DocumentFormat.OpenXml.Spreadsheet.SheetData();
+                    sheetPart.Worksheet = new DocumentFormat.OpenXml.Spreadsheet.Worksheet(sheetData);
+
+                    DocumentFormat.OpenXml.Spreadsheet.Sheets sheets = objSpreadsheet.WorkbookPart.Workbook.GetFirstChild<DocumentFormat.OpenXml.Spreadsheet.Sheets>();
+                    string relationshipId = objSpreadsheet.WorkbookPart.GetIdOfPart(sheetPart);
+
+
+                    //if (sheets.Elements<DocumentFormat.OpenXml.Spreadsheet.Sheet>().Count() > 0)
+                    //{
+                    //    sheetId =
+                    //        sheets.Elements<DocumentFormat.OpenXml.Spreadsheet.Sheet>().Select(s => s.SheetId.Value).Max() + 1;
+                    //}
+                    sheetId += 1;
+
+                    DocumentFormat.OpenXml.Spreadsheet.Sheet sheet = new DocumentFormat.OpenXml.Spreadsheet.Sheet() { Id = relationshipId, SheetId = sheetId, Name = tbl.TableName };
+                    sheets.Append(sheet);
+
+                    DocumentFormat.OpenXml.Spreadsheet.Row headerRow = new DocumentFormat.OpenXml.Spreadsheet.Row();
+
+                    List<String> columns = new List<string>();
+                    foreach (DataColumn column in tbl.Columns)
+                    {
+                        columns.Add(column.ColumnName);
+
+                        DocumentFormat.OpenXml.Spreadsheet.Cell cell = new DocumentFormat.OpenXml.Spreadsheet.Cell();
+                        cell.DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String;
+                        cell.CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue(column.ColumnName);
+                        headerRow.AppendChild(cell);
+                    }
+
+                    sheetData.AppendChild(headerRow);
+
+                foreach (DataRow dsrow in tbl.Rows)
+                {
+                    DocumentFormat.OpenXml.Spreadsheet.Row newRow = new DocumentFormat.OpenXml.Spreadsheet.Row();
+
+                    foreach (String col in columns)
+                    {
+                        DocumentFormat.OpenXml.Spreadsheet.Cell cell = new DocumentFormat.OpenXml.Spreadsheet.Cell();
+
+                        //if (IsDouble(dsrow[col].ToString()))
+                        //{
+                            cell.DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.Number;
+                       // }
+                        //else
+                        //{
+                        //    cell.DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String;
+                        //}
+                        cell.CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue(dsrow[col].ToString());
+
+                        newRow.AppendChild(cell);
+                    }
+
+                    sheetData.AppendChild(newRow);
+                }
+
+
+                objSpreadsheet.Close();
+                ms.WriteTo(Response.OutputStream);
+                ms.Close();
+
+             
+            }
+
+        }
+        public  bool IsDouble(string s)
+        {
+            double dOutput = 0;
+            if (Double.TryParse(s, out dOutput))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

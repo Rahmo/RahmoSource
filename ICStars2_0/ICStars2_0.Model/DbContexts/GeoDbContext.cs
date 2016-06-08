@@ -12,6 +12,7 @@ namespace ICStars2_0.Model.DbContexts
             //This the one u use in the webconfig in connection string the name 
             : base("icstars")
         {
+            Database.SetInitializer<GeoDbContext>(null);
         }
         public DbSet<GEO133> GEO133 { get; set; }
         public DbSet<GeoOnlineInformation> GeoOnlineInformations { get; set; }

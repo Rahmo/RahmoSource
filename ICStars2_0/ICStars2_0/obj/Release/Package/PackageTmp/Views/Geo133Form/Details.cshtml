@@ -1,0 +1,629 @@
+﻿@model ICStars2_0.Model.GEO133
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>GEO133</legend>
+
+  
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.buildingNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.buildingNumber)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.buildingStreet)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.buildingStreet)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.DpuId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DpuId)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.zipCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.zipCode)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.blockNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.blockNumber)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.pinNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.pinNumber)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.zoning)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.zoning)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.far)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.far)
+  </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.mainStreetFacade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.mainStreetFacade)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.exterior)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.exterior)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.overallViability)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.overallViability)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.numberOfStories)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.numberOfStories)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.facadeType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.facadeType)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.patchesExposed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.patchesExposed)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.GardenActivity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.GardenActivity)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.EvidenceOfGardenType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.EvidenceOfGardenType)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.SignPostedOnBuilding)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.SignPostedOnBuilding)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.FirstUse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.FirstUse)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.SecondUse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.SecondUse)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.ThirdUse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.ThirdUse)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.FourthUse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.FourthUse)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.BackRearUse)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.BackRearUse)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.FirstOccupancy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.FirstOccupancy)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.SecondOccupancy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.SecondOccupancy)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.ThirdOccupancy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.ThirdOccupancy)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.FourthOccupancy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.FourthOccupancy)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.BackRearOccupancy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.BackRearOccupancy)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.siteData.StructureClassification)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.siteData.StructureClassification)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.yearBuild)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.yearBuild)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.censusTract)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.censusTract)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.propertyClass)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.propertyClass)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.Stories)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.Stories)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.BuildingSquareFootage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.BuildingSquareFootage)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.LandSquareFootage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.LandSquareFootage)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.propertyDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.propertyDescription)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.age)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.age)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.PropertyTaxExemptions)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.PropertyTaxExemptions)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.TaxExemptionsStatus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.TaxExemptionsStatus)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.taxPayerName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.taxPayerName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.taxpayerStreetNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.taxpayerStreetNumber)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.taxpayerStreetName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.taxpayerStreetName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.taxpayerCity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.taxpayerCity)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.taxpayerstate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.taxpayerstate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.taxpayerZip)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.taxpayerZip)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.PreviousYearPropertyTax)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.PreviousYearPropertyTax)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.CurrentYearTaxesOwed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.CurrentYearTaxesOwed)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.isCurrentYearAsPrev)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.isCurrentYearAsPrev)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.CurrentYrTaxPayerName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.CurrentYrTaxPayerName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.CurrentYrTaxpayerStreetNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.CurrentYrTaxpayerStreetNumber)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.CurrentYrtaxpayerStreetName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.CurrentYrtaxpayerStreetName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.CurrentYrtaxpayerCity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.CurrentYrtaxpayerCity)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.CurrentYrtaxpayerstate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.CurrentYrtaxpayerstate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.CurrentYrtaxpayerZip)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.CurrentYrtaxpayerZip)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.isInTifDistrict)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.isInTifDistrict)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.TifArea)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.TifArea)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.BoardOfEducation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.BoardOfEducation)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.SchoolImprovments)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.SchoolImprovments)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.ParkDistrict)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.ParkDistrict)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.LibraryFund)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.LibraryFund)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.isPropertySoldInCurrentYear)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.isPropertySoldInCurrentYear)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.saleDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.saleDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.salePrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.salePrice)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.unitNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.unitNumber)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.isForSale)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.isForSale)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.listedPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.listedPrice)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.bedroomsNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.bedroomsNumber)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.isOrange)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.isOrange)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.isPhotoDownloaded)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.isPhotoDownloaded)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.PhotoDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.PhotoDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.isFollowingYPhotoTaken)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.StudentPhotoDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.StudentPhotoDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesLand__)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesLand__)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesLand_)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesLand_)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesLand)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesLand)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesLandPlus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesLandPlus)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesBuilding__)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesBuilding__)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesBuilding_)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesBuilding_)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesBuilding)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesBuilding)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesBuildingPlus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesBuildingPlus)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesTotal__)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesTotal__)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesTotal_)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesTotal_)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesTotal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesTotal)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesTotalPlus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesTotalPlus)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesEstMkt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesEstMkt)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.AssessedValuesEstMktPlus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.AssessedValuesEstMktPlus)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.TreasurerSiteHomeowner)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.TreasurerSeniorCitizen)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OnlineInfo.TreasurerSiteSeniorFreeze)
+    </div>
+</fieldset>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>

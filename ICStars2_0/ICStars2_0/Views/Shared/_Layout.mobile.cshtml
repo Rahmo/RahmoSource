@@ -1,7 +1,61 @@
 ﻿
 <!DOCTYPE html>
 
+
+<!DOCTYPE html>
+@*<script type="text/javascript">
+        config.extraAllowedContent = 'style dt script';
+        $(function () {
+            config.extraAllowedContent = 'style dt script';
+            CKEDITOR.replace('Content', { height: 500 });
+            CKEDITOR.replace('Content', { allowedContent: true });
+            CKEDITOR.config.allowedContent = true;
+            CKEDITOR.replace('Content', {
+                allowedContent: true
+            });
+        });
+        CKEDITOR.replace('Content', {
+            allowedContent: true
+        })
+    </script>*@
 <html>
+<head>
+    <meta property="og:image" content="https://steans.depaul.edu/Images/carnegie.png" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/bundles/website")
+    @Styles.Render("~/bundles/website")
+    @Scripts.Render("~/bundles/headerfooter")
+    @RenderSection("Head", required: false)
+
+
+
+
+</head>
+<body>
+    @Html.Partial("Header")
+
+    @RenderBody()
+    @Html.Partial("Footer")
+
+
+
+
+
+
+
+
+</body>
+
+@* The script below is for the sinle page Menu veiw such as Faculty/Home *@
+@Html.Partial("_PartialJumpMenu")
+</html>
+
+
+@*The old CSS*@
+@*<html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
@@ -51,4 +105,4 @@
     </div>
 
 </body>
-</html>
+</html>*@

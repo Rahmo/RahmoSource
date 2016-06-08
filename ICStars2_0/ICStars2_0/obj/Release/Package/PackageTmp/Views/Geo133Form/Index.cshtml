@@ -2,4 +2,58 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<body>
+    @Html.Partial("Header")
+
+
+<br/>
+<br/>
+    <br />
+<!-- Full Width Image Header -->
+    <header class="header-image">
+        <div class="headline">
+            <div class="container">
+                <h1>Urban Development and Planning Concentration</h1>
+                <h2>Euan Hague</h2>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr class="featurette-divider">
+      
+        <!-- First Featurette -->
+        <div class="featurette" id="about">
+            <img class="featurette-image img-circle img-responsive pull-right" src="http://localhost:8164/Images/geo133.png">
+            <h2 class="featurette-heading">
+                <span class="text-muted">GEO 133: 
+URBAN GEOGRAPHY - EXPERIENTIAL LEARNING</span>
+            </h2>
+            <p class="lead">
+The course provides an in depth analysis of a Chicago neighborhood, connecting this to wider U.S. trends in urbanization and urban development. Students conduct a research project, through archival study and field work.</p>
+        </div>
+
+        <hr class="featurette-divider">
+
+   @Html.Partial("Footer")
+
+
+    </div>
+    <!-- /.container -->
+    <!-- jQuery -->
+  
+   
+</body>
+
+</html>
+
+
+
+

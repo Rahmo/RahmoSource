@@ -1,0 +1,52 @@
+﻿@model ICStars2_0.Model.LoginTeacher
+@{
+    ViewBag.Title = "Teacher";
+    
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@Html.Partial("Header")
+
+<body>
+<br/>
+<br/>
+    <br />
+<div class="container  ">
+    <div class="container col-sm-4 center  ">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt=""/> -->
+
+            <p id="profile-name" class="profile-name-card"></p>
+            @using (@Html.BeginForm("Login", "Geo133Form", FormMethod.Post, new { @Class = "form-signin" })) {
+
+                <span id="reauth-email" class="reauth-email"></span>
+
+                @Html.TextBoxFor(m => m.UserName, new {@Class = "form-control" , placeholder = "User Name" })
+                @Html.ValidationMessageFor(m => m.UserName)
+
+                @Html.TextBoxFor(m => m.Password, new { @Class = "form-control", placeholder = "Password" , type="password" })
+                @Html.ValidationMessageFor(m => m.Password)
+
+    
+                <input  type="submit" value="Login" class="btn btn-lg btn-primary btn-block btn-signin" />
+                
+          
+         }
+        </div>
+    </div><!-- /card-container -->
+</div><!-- /container -->
+
+
+@Html.Partial("Footer")
+
+
+
+
+</body>
+
+</html>
+
+
+

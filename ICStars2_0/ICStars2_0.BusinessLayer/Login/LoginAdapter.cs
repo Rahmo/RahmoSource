@@ -72,6 +72,7 @@ namespace ICStars2_0.BusinessLayer.Login
             //username "StudentApp" is for testing
             if (e.CampusConnectID.Equals("SlcStudent"))
             {
+                e.DPUID = "1234123";
                 var member = MemberFactory.Create("SlcStudent");
                 if (!member.Status) return false;
                 skiplValidation = true;

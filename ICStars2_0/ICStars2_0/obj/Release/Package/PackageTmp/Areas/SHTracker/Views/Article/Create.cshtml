@@ -147,7 +147,8 @@
             @Html.DropDownListFor(model => model.Layout, new[]
             {
                 new SelectListItem { Text = "Base", Value = "~/Views/Shared/_Layout.cshtml" },
-                new SelectListItem { Text = "BaseWithNavigation", Value = "~/Views/Shared/_Layout2.cshtml" }
+                new SelectListItem { Text = "BaseWithNavigation", Value = "~/Views/Shared/_Layout2.cshtml" },
+                new SelectListItem { Text = "BaseWithVertNavigation", Value = "~/Views/Shared/_LayoutVerticalMenu.cshtml" }
             })
             @Html.ValidationMessageFor(model => model.Layout)
         </div>

@@ -10,7 +10,10 @@ using System.Text;
 using ICStars2_0.Common.Reflection;
 using ICStars2_0.Model.Enum;
 namespace ICStars2_0.Model
-{ [Table("geoSiteData", Schema = Const.Schema)]
+
+//some tables require dbo schema that s good for 
+{
+    [Table("geoSiteData", Schema = "dbo")]
     public class GeoSiteData
     {
         

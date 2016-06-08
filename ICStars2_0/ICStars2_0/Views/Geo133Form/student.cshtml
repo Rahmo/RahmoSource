@@ -1,0 +1,84 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Student";
+   
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@Html.Partial("Header")
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
+<body>
+    <!-- Page Content -->
+    <div class="container">
+
+        <br />
+        <br />
+
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>For Students </h1>
+
+                <h2>Start a new form. or Enter you DpuID you entered in the form to export your excel file. </h2>
+                <p>
+                    <h3>Enter your information the form : </h3>
+                    <a class="btn btn-default btn-lg" href="~/Geo133Form/Main">Enter or Check a property &raquo;</a>
+                    <br/>
+                    <br />
+                    <input class=" input-sm ui-input-text" id="DpuId" name="DpuId" placeholder="DePaul Id" type="text" value="">
+                       
+                    <a class="btn btn-success btn-sm" id="searchRecord" >Export your inputted buildings &raquo;</a>
+
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h2>Having trouble ?</h2>
+                <address>
+                    <strong>Contact the instructor</strong>
+                    <p>Euan Hague</p>
+                    <abbr title="Phone"> P:</abbr>(773) 325-7890
+                    <br>
+                    <abbr title="Email">E:</abbr> <a href="mailto:#">ehague@depaul.edu</a>
+                </address>
+            </div>
+        </div>
+        <!-- /.row -->
+        @*<div class="row">
+                <div class="col-sm-4">
+                    <img class="img-circle img-responsive img-center" src="http://placehold.it/300x300" alt="">
+                    <h2>Marketing Box #1</h2>
+                    <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
+                </div>
+
+            </div>*@
+        <!-- /.row -->
+    </div>
+
+</body>
+
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        //your code here
+        $("#searchRecord").click(function () {
+        var DpuVal = $('#DpuId').val();
+        var url = '@Url.Action("ExportToExcel", "Geo133Form")?DpuId=' + DpuVal;
+            window.location.href = url;
+        
+       
+    });
+    });
+
+</script>
+

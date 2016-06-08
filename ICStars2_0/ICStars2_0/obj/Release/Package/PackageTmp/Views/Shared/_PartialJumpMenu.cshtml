@@ -1,0 +1,209 @@
+﻿<script type="text/javascript">
+// Cache selectors
+var lastId,
+    topMenu = $("#side-menu"),
+    topMenuHeight = topMenu.outerHeight()+15,
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+  $('html, body').stop().animate({
+      scrollTop: offsetTop
+  }, 300);
+  e.preventDefault();
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight;
+
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+
+   if (lastId !== id) {
+       lastId = id;
+       // Set/remove active class
+       menuItems
+         .parent().removeClass("active")
+         .end().filter("[href=#"+id+"]").parent().addClass("active");
+   }
+});
+
+
+
+</script>
+<style type="text/css">
+     /* Iphone 5 */
+     @@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+         #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            margin-left: 60%;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 12%;
+        } 
+          
+     }
+
+
+    /* Iphone 6 */
+    @@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            margin-left: 70%;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 12%;
+        }
+    }
+
+
+    
+
+    @@media only screen and (min-width: 668px) and (max-width: 1299px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 12%;
+        }
+    }
+    @@media only screen and (min-width: 1300px) and (max-width: 1439px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 14%;
+        }
+    }
+    @@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            left: 0;
+            right: 0;
+            top: 180px;
+            width: 16.3%;
+        }
+    }
+
+     
+ 
+    @@media  only screen and (min-width: 1920px) {
+        #side-menu {
+            position: fixed;
+            z-index: 1;
+            background: white;
+            left: 0;
+            margin-left: 9%;
+            right: 0;
+            top: 180px;
+            width: 16.1%;
+        }
+    }
+
+
+
+  
+
+
+    #side-menu li {
+        background-color: #2E6C9F;
+    }
+
+    #side-menu a {
+        display: block;
+        padding: 5px 25px 7px 25px;
+        width: auto;
+        text-align: center;
+        -webkit-transition: .5s all ease-out;
+        -moz-transition: .5s all ease-out;
+        transition: .5s all ease-out;
+        border-top: 1px solid white;
+        color: #d2d2d2;
+        text-decoration: none;
+    }
+
+    #side-menu a:hover {
+        color: white;
+    }
+
+    #side-menu li.active a {
+        border-right: 3px solid #333;
+        color: black;
+        background-color: #d4d4d4;
+    }
+
+    blockquote {
+      
+        margin: 1.5em 10px;
+        padding: 0.5em 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+    }
+
+    blockquote:before {
+      
+        content: open-quote;
+        font-size: 2em;
+        line-height: 0.1em;
+       margin-right: 0.15em;
+        vertical-align: -0.4em;
+    }
+
+    blockquote:after {
+       
+        content: close-quote;
+        font-size: 2em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+    }
+
+    blockquote p {
+        display: inline;
+    }
+</style>
+<style type="text/css">
+    #sideBar {
+        vertical-align: top;
+    }
+
+    #contentArea {
+        vertical-align: top;
+        width: 700px;
+        padding: 20px;
+    }
+</style>

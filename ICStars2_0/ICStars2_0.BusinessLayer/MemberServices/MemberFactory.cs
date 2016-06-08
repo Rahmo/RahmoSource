@@ -59,8 +59,9 @@ namespace ICStars2_0.BusinessLayer.MemberServices
             var m = new Member()
             {
                 CampusConnectID = "SlcStudent",
-                  
+                EmplID = "123123",  
                 Email = "SLCstudent@depaul.edu",
+
                 Status = true
             };
             Update(m);

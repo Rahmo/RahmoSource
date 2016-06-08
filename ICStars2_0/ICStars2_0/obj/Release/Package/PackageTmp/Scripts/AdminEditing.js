@@ -109,7 +109,12 @@ function saveWebPageToServer(id, content,posturl) {
 
 function editing() {
     $('#editable').attr('contenteditable', 'true');
+    //The line below is to stop CDeditor to remove the empty tags of a links as we need them for Jump menu. 
+    $('#editable').attr('contenteditable', 'true').$removeEmpty.a =0;
     CKEDITOR.inline('editable');
+    // config.allowedContent = true;
+    
+   
     $('#editable').focus();
 }
 

@@ -1,0 +1,21 @@
+﻿
+@using ICStars2_0.BusinessLayer;
+@using ICStars2_0.BusinessLayer.NavigationServices
+@using ICStars2_0.Framework
+@using ICStars2_0.Model
+@using Microsoft.Practices.Unity
+@{ 
+    
+    var rootnav = ICStarsUnityContainer.Current.Resolve<INavigationFactory>().BuildRootNavigationNode();}
+@if (rootnav != null)
+{
+    <nav id="subnav">
+         
+        @if (rootnav.Children != null && rootnav.Children.Count(n => n.IsVisible) > 0)
+        {
+            <ul>        @Html.Raw(rootnav.Children.Select(r => r.BuildHtmlforVerticalMenu("")).Aggregate((x, y) => x + y))</ul>
+        }
+
+    </nav>
+
+}

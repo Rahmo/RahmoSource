@@ -13,7 +13,9 @@ using ICStars2_0.Common.Reflection;
 using ICStars2_0.Model.Enum;
 
 namespace ICStars2_0.Model
-{  [Table("geoOnlineInformation", Schema = Const.Schema)]
+////some tables require dbo schema that s good for testing server
+{
+    [Table("geoOnlineInformation",Schema = "dbo")]
     public class GeoOnlineInformation
     {
         private string NA = "N/A"; 
@@ -28,11 +30,13 @@ namespace ICStars2_0.Model
         //public virtual GeoTaxTreasuedSite taxTreasuredSite { get; set; }
          //[DbField]
          [Display(Name = "13. Year Built (from newschicago.org):")]
-        
+
 
 
         //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM.yy}")]
-       // [Required(ErrorMessage = "This field is required.")]
+
+       // [DisplayFormat(DataFormatString = "{0:yyyy-MM}", ApplyFormatInEditMode = true)]
+        // [Required(ErrorMessage = "This field is required.")]
         public DateTime? yearBuild { get; set; }
     [DbField]
   // [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]  

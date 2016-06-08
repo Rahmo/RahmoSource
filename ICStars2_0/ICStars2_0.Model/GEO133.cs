@@ -14,8 +14,9 @@ using System.Text;
 using ICStars2_0.Common.Reflection;
 using ICStars2_0.Model.Enum;
 namespace ICStars2_0.Model
-{
-    [Table("GEO133", Schema = Const.Schema)]
+{//Schema = Const.Schema
+    ////some tables require dbo schema that s good for testing server
+    [Table("GEO133", Schema = "dbo")]
     public class GEO133
     {
         [Key]
@@ -37,7 +38,7 @@ namespace ICStars2_0.Model
 
         [DbField]
         [Display(Name = "DePaul ID :")]
-        [Required(ErrorMessage = "This field is required.")]
+        [Required(ErrorMessage = "This DePaul ID is required.")]
         [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]
         public string DpuId { get; set; }
        
@@ -51,10 +52,10 @@ namespace ICStars2_0.Model
        //  [Range(5, 5, ErrorMessage = "The block number should 5 digits")]
          [RegularExpression("^[0-9]*$", ErrorMessage = "Only numbers are allowed!")]   
          [Display(Name = "Block Number:")]
-        [Required(ErrorMessage = "This field is required.")]
+        [Required(ErrorMessage = "The block Number is required !")]
         public int? blockNumber { get; set; }
          [DbField]
-        [Required(ErrorMessage = "This field is required.")]
+        [Required(ErrorMessage = "The PIN number is required !")]
         //  [Range(14, 14, ErrorMessage = "The PIN should be 14 pin numbers")]
         [RegularExpression("^[0-9]{14,14}$", ErrorMessage = "Only 14 digits accepted as inputs!")]   
          [Display(Name = "PERMANENT INDEX NUMBER (PIN) (14 digits): ")]

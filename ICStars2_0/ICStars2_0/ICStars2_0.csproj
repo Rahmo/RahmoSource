@@ -58,6 +58,10 @@
     <Reference Include="EntityFramework">
       <HintPath>..\..\Dll\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\..\Dll\itextsharp.dll</HintPath>
     </Reference>
@@ -173,14 +177,6 @@
     <Content Include="Bitmap.aspx" />
     <Content Include="communityPartners\ServiceLearnersApplication.aspx" />
     <Content Include="communityPartners\ServiceLearnersApplicationSuccess.htm" />
-    <Content Include="Content\bootstrap-3.3.6\css\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-3.3.6\css\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap-3.3.6\css\bootstrap.css" />
-    <Content Include="Content\bootstrap-3.3.6\css\bootstrap.min.css" />
-    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\bootstrap-3.3.6\js\bootstrap.js" />
-    <Content Include="Content\bootstrap-3.3.6\js\bootstrap.min.js" />
-    <Content Include="Content\bootstrap-3.3.6\js\npm.js" />
     <Content Include="Content\Css\a.css" />
     <Content Include="Content\Css\CKEditorInlineEditing.css" />
     <Content Include="Content\Css\entypostyle.css" />
@@ -299,14 +295,6 @@
     <Content Include="Areas\SHTracker\Views\MvpResources\Details.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpResources\Create.cshtml" />
     <Content Include="Areas\SHTracker\Views\MvpResources\CreateHeader.cshtml" />
-    <Content Include="Content\bootstrap-3.3.6\css\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap-3.3.6\css\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-3.3.6\css\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-3.3.6\css\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="index.html.bak" />
     <Content Include="InvalidRequest.html" />
     <Content Include="NoAccess.html" />
@@ -2145,6 +2133,9 @@
     <Folder Include="log\" />
     <Folder Include="Servicespeaks2\images\" />
     <Folder Include="Views\About\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
